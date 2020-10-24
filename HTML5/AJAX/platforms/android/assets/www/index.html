@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>Server-sent events demo</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script type="text/javascript">
+
+       function jsonCallback(json)
+       {
+           alert(json.sites[1].siteName);
+       }
+
+       function FetchData() {
+           $.ajax({
+               //async: false,
+               //type: "POST",
+               //url: "http://run.plnkr.co/plunks/v8xyYN64V4nqCshgjKms/data-2.json",
+			   //url: "http://localhost/index.php",
+               //url: "http://djtest.epizy.com/data.json",
+               //url: "http://djtest.000webhostapp.com/data.json",
+               url: "https://drive.google.com/file/d/1QZ968vM4MR9gK1-y1ZqnebWKDJKh7k71/view?usp=sharing",
+               dataType: "jsonp",
+               //success: function (data) {
+               //    alert("There was a success loading the feed");
+               //},
+               //error: function (xhdr, status, msg) {
+               //    alert("There was an error loading the feed." + msg);
+               //}
+           });
+       }
+
+   </script>
+</head>
+<body onload="FetchData()">
+</body>
+</html>

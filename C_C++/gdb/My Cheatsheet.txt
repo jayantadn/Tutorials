@@ -1,0 +1,18 @@
+break main	        remember to apply breakpoint with namespaces
+list main	  
+run	  
+next	            steps over function  
+step	            steps into function  
+frame	            shows the current line  
+list	            shows the current line and some surrounding code. Current line will be at the middle.  
+
+print <var>  
+display <var>       continuously print value of a variable
+
+# arguments to the program
+show args
+set args <space seperated list of arguments>
+
+# threads
+info threads        shows which threads are running
+thread <num>        switch to a thread

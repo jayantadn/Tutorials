@@ -1,0 +1,1909 @@
+<!DOCTYPE html>
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/meCore.js" charset="UTF-8" async=""></script><script src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/meBoot.js" charset="UTF-8" async=""></script><link href="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/me.css" type="text/css" rel="stylesheet"><link rel="canonical" href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms682499%28v=vs.85%29.aspx">
+        <title>Creating a Child Process with Redirected Input and Output (Windows)</title>
+
+
+
+
+
+<meta name="DCS.dcsuri" content="/en-us/library/windows/desktop/ms682499(d=default,l=en-us,v=vs.85).aspx">
+
+<meta name="NormalizedUrl" content="https://msdn.microsoft.com/en-us/library/windows/desktop/ms682499(d=default,l=en-us,v=vs.85).aspx">
+
+<meta name="ms.normalizedurl" content="https://msdn.microsoft.com/en-us/library/windows/desktop/ms682499(d=default,l=en-us,v=vs.85).aspx">
+
+<meta name="VotingContextUrl" content="https://msdn.microsoft.com/en-us/library/windows/desktop/ms682499(d=default,l=en-us,v=vs.85).aspx">
+
+<meta name="MN" content="61C41DCE-11:14:58 PM">
+
+<meta name="Search.ShortId" content="ms682499">
+
+<meta name="ms.shortidmsdn" content="ms682499">
+
+<meta name="Ms.Locale" content="en-us">
+
+<meta name="ms.prodver" content="VS.85">
+
+<meta name="ms.contentlang" content="EN">
+
+<meta name="ms.lang" content="EN">
+
+<meta name="ms.loc" content="US">
+
+<meta name="ms.sitever" content="2015.07.07.1">
+
+<meta name="ms.assetid" content="a4e37069-2b3a-4b6d-9cfd-eb1700ab3bc6">
+
+<meta name="ms.auth" content="0">
+
+
+
+
+
+
+
+
+        
+    <link rel="shortcut icon" href="https://msdn.microsoft.com/Areas/Epx/Themes/Windows/Content/Winlogo_favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/shell.css"><link rel="stylesheet" type="text/css" href="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/Combined.css"><script async="" src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/ai.js" type="text/javascript"></script><script class="mtps-injected">try {
+/**/
+(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { 
+	"image": "https://i-msdn.sec.s-msft.com", 
+	"js": "https://i2-msdn.sec.s-msft.com", 
+	"css": "https://i-msdn.sec.s-msft.com", 
+	"xap": "https://msdn.microsoft.com"
+});
+/**/
+} finally { MTPS._injectNextScript_0 && MTPS._injectNextScript_0(); }</script><script src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/jquery-1.js" class="mtps-injected"></script><script src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/shellservice.js" class="mtps-injected"></script><script src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/blender.js" class="mtps-injected"></script><script class="mtps-injected">try {
+var isAuthenticated = (false);
+
+        var ssoProperties = {
+          signedIn: isAuthenticated,
+          signInOutUrl: $("#UhfSignInOutLink").val(),
+        };
+
+        if (isAuthenticated) {
+          ssoProperties.userHasProfile = (false);
+          ssoProperties.profileText = ":ProfileText:";
+          ssoProperties.createViewProfileText = ":CreateViewMSDNProfileText:";
+          ssoProperties.createViewProfileLink = ":ProfileLink:";
+          ssoProperties.MsaMemberName = ":MsaMemberName:";
+          ssoProperties.MsaFirstName = ":MsaFirstName:";
+          ssoProperties.MsaLastName = ":MsaLastName:";
+          ssoProperties.MsaCID = ":MsaCID:";
+        }
+} finally { MTPS._injectNextScript_4 && MTPS._injectNextScript_4(); }</script><script class="mtps-injected">try {
+//
+  var literalNormalizedUrl = '/en-us/library/windows/desktop/ms682499(l=en-us,v=vs.85).aspx';
+  var wt_nvr_ru = 'WT_NVR_RU';
+  var wt_fpcdom = '.microsoft.com';
+  var wt_domlist = 'msdn.microsoft.com';
+  var wt_pathlist = '';
+  var wt_paramlist = 'DCSext.mtps_devcenter';
+  var wt_siteid = 'MSDN';
+  var gDomain = 'm.webtrends.com';
+  var gDcsId = 'dcsmgru7m99k7mqmgrhudo0k8_8c6m';
+  var gFpc = 'WT_FPC';
+
+
+
+  if (document.cookie.indexOf(gFpc + "=") == -1) {
+    var wtidJs = document.createElement("script");
+    wtidJs.src = "//" + gDomain + "/" + gDcsId + "/wtid.js";
+    document.getElementsByTagName("head")[0].appendChild(wtidJs);
+  }
+
+
+
+  var detectedLocale = 'en-us';
+  var wtsp = '_msdn_';
+  var gTrackEvents = '0';
+/**/
+} finally { MTPS._injectNextScript_5 && MTPS._injectNextScript_5(); }</script><script class="mtps-injected">try {
+//
+
+            window.appInsightsId = '60854590-027a-4ae4-98be-2741a40f355f';
+            //
+} finally { MTPS._injectNextScript_6 && MTPS._injectNextScript_6(); }</script><script src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/Combined.js" class="mtps-injected"></script><script src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/jquery.js" class="mtps-injected"></script><script src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/Combined_002.js" class="mtps-injected"></script><script src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/broker.js"></script><script class="mtps-injected">try {
+$(document).ready(function() {
+        try {
+            var token = $("#globalRequestVerification input[name='__RequestVerificationToken']").clone();
+            $("#siteFeedbackForm").append(token);
+        } catch(err) {
+            
+        }
+    });
+} finally { MTPS._injectNextScript_10 && MTPS._injectNextScript_10(); }</script><link media="print" type="text/css" rel="stylesheet" href="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/PrintView.css"><script src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/ms.js" type="text/javascript"></script></head>
+    <body class="library FF FF3">
+        <div id="page">
+            
+
+            
+            
+            
+
+    
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/UhfHeader.css" data-do-not-move="true">
+    <div id="uhf-header-wrapper">
+         
+
+ 
+
+
+
+
+ 
+<script data-requires="jQuery" data-provides="uhfHeader" src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/meversion"></script>
+
+
+ 
+
+
+
+
+<div id="shell-header" class="shell-rwd shell-bottomborder shell-header " lang="en">
+    <div class="shell-header-wrapper">
+        <div class="shell-header-top" data-bi-area="HeaderL0" data-bi-view="L0V1">
+            <div class="shell-header-topfix">
+                <div class="shell-header-brand">
+                    <a id="srv_shellHeaderMicrosoftLogo" href="https://www.microsoft.com/en-us/default.aspx" title="Microsoft" data-bi-name="BrandLogo">
+                        <img src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/microsoft.png" alt="Microsoft">
+                    </a>
+                </div>
+
+                <ul class="shell-header-toggle">
+                        <li>
+                            <button class="shell-header-toggle-search" type="button" data-bi-name="Toggle Search Icon">
+                                <i class="shell-icon-search"></i>
+                            </button>
+                        </li>
+                                        <li>
+                        <button class="shell-header-toggle-menu" type="button" data-bi-name="Toggle Menu">
+                            <i class="shell-icon-menu"></i>
+                        </button>
+                    </li>
+                </ul>
+
+                    <h2 class="shell-header-subtitle shell-header-mtop">
+                        <span class="shell-header-vertical-bar"></span>
+                        <a href="https://dev.windows.com/en-us" data-bi-name="Segment Title">Windows Dev Center</a>
+                    </h2>
+            </div>
+            <div class="shell-header-actions">
+                    <form id="srv_shellHeaderSearchForm" class="shell-header-search" action="https://social.msdn.microsoft.com/search/en-us/windows" method="GET" autocomplete="off" onsubmit=" return window.msCommonShell.onSearch(this) ">
+                        <label for="cli_shellHeaderSearchInput" class="sr-only">Search Microsoft</label>
+                        <input id="cli_shellHeaderSearchInput" name="query" data-bi-dnt="" placeholder="" maxlength="200" type="search">
+
+                            <input name="Refinement" data-bi-dnt="" value="183" type="hidden">
+
+                        <button type="submit" title="Search" data-bi-dnt="">
+                            <i class="shell-icon-search"></i>
+                            <span class="sr-only">Search</span>
+                        </button>
+                        <div id="cli_searchSuggestionsContainer" class="shell-header-search-dropdown-container">
+                            <div class="search-dropdown">
+                                <div class="dropdown-item">
+                                    <ul id="cli_searchSuggestionsResults"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                
+
+                <dl class="shell-header-user">
+                    <dt>
+                        <span id="meControl"><div class="msame_Header msame_unauth" tabindex="0"><div class="msame_Header_name msame_TxtTrunc">Sign in</div><div class="msame_Header_chev"></div></div></span>
+                    </dt>
+                </dl>
+            </div>
+
+                <h2 class="shell-header-subtitle shell-header-dtop">
+                    <span class="shell-header-vertical-bar"></span>
+                    <a href="https://dev.windows.com/en-us" data-bi-name="Segment Title">Windows Dev Center</a>
+                </h2>
+
+        </div>
+
+        <ul class="shell-header-nav" id="srv_shellHeaderNav" data-bi-area="L1" data-bi-view="Hovermenus">
+                            <li id="home" class="shell-header-dropdown-label  ">
+                                <a class="top-level-link-text ctl_headerNavLink" href="https://dev.windows.com/en-us" role="menuitem" data-bi-name="Home" data-bi-slot="1">
+
+                                    Home
+                                </a>
+                            </li>
+                            <li class="shell-header-dropdown" data-navcontainer="explore_NavContainer">
+                                <h2 id="explore" class="shell-header-dropdown-label">
+                                    <a href="javascript:void(0)" role="menu" data-bi-name="Explore" data-bi-slot="2">
+
+                                        Explore
+                                        <i class="shell-icon-dropdown"></i>
+                                    </a>
+                                </h2>
+
+
+
+
+
+<div class="shell-header-dropdown-content " role="menu">
+    <dl class="shell-header-dropdown-tab   active ">
+
+            <dt id="explore_apps" class="shell-header-dropdown-tab-label">
+                <a href="javascript:void(0)" role="menuitem" data-bi-dnt="">
+                    App development
+                </a>
+            </dt>
+            <dd class="shell-header-dropdown-tab-content" data-col="0">
+
+
+
+
+
+        <a href="https://dev.windows.com/en-us/windows-apps" class="shell-header-dropdown-tab-spotlight" data-bi-name="Explore_Apps_TabImage">
+                <img data-src="https://compass-ssl.microsoft.com/assets/10/97/10973225-8654-43bf-8730-f534dc369178.jpg?n=explore-apps.jpg" alt="">
+                <div class="shell-header-dropdown-tab-spotlight-caption">
+                            <h4>Universal Windows app development</h4>
+                    
+                            <p>Be more than mobile, reach every Windows screen</p>
+  
+                </div>
+
+        </a>
+
+
+
+            </dd>
+
+    </dl>
+    <dl class="shell-header-dropdown-tab    ">
+
+            <dt id="explore_games" class="shell-header-dropdown-tab-label">
+                <a href="javascript:void(0)" role="menuitem" data-bi-dnt="">
+                    Game development
+                </a>
+            </dt>
+            <dd class="shell-header-dropdown-tab-content" data-col="0">
+
+
+
+
+
+        <a href="https://dev.windows.com/en-us/games" class="shell-header-dropdown-tab-spotlight" data-bi-name="Explore_Games_TabImage">
+                <img data-src="https://compass-ssl.microsoft.com/assets/ca/80/ca809819-432a-4778-a713-0e9e94ba1481.jpg?n=explore-games.jpg" alt="">
+                <div class="shell-header-dropdown-tab-spotlight-caption">
+                            <h4>Create games on Windows 10</h4>
+                    
+                            <p>Reach millions of players across phone, PC, and Xbox One</p>
+  
+                </div>
+
+        </a>
+
+
+
+            </dd>
+
+    </dl>
+    <dl class="shell-header-dropdown-tab    ">
+
+            <dt id="explore_iot" class="shell-header-dropdown-tab-label">
+                <a href="javascript:void(0)" role="menuitem" data-bi-dnt="">
+                    Windows IoT
+                </a>
+            </dt>
+            <dd class="shell-header-dropdown-tab-content" data-col="0">
+
+
+
+
+
+        <a href="https://dev.windows.com/en-us/iot" class="shell-header-dropdown-tab-spotlight" data-bi-name="Explore_IoT_TabImage">
+                <img data-src="https://compass-ssl.microsoft.com/assets/14/0c/140c526f-ad9d-4372-9c00-7b6cd39993f5.jpg?n=explore-iot.jpg" alt="">
+                <div class="shell-header-dropdown-tab-spotlight-caption">
+                            <h4>Build what matters most to you</h4>
+                    
+                            <p>The Internet of your things</p>
+  
+                </div>
+
+        </a>
+
+
+
+            </dd>
+
+    </dl>
+    <dl class="shell-header-dropdown-tab    ">
+
+            <dt id="explore_spartan" class="shell-header-dropdown-tab-label">
+                <a href="javascript:void(0)" role="menuitem" data-bi-dnt="">
+                    Web development
+                </a>
+            </dt>
+            <dd class="shell-header-dropdown-tab-content" data-col="0">
+
+
+
+
+
+        <a href="https://dev.windows.com/en-us/microsoft-edge-for-devs" class="shell-header-dropdown-tab-spotlight" data-bi-name="Explore_Spartan_TabImage">
+                <img data-src="https://compass-ssl.microsoft.com/assets/a6/07/a607c651-4076-420b-9a4d-a76621839ace.jpg?n=explore-spartan.jpg" alt="">
+                <div class="shell-header-dropdown-tab-spotlight-caption">
+                            <h4>Web development for Microsoft Edge</h4>
+                    
+                            <p>Beyond browsing</p>
+  
+                </div>
+
+        </a>
+
+
+
+            </dd>
+
+    </dl>
+
+</div>
+
+                            </li>
+                            <li class="shell-header-dropdown" data-navcontainer="docs_NavContainer">
+                                <h2 id="docs" class="shell-header-dropdown-label">
+                                    <a href="javascript:void(0)" role="menu" data-bi-name="Docs" data-bi-slot="3">
+
+                                        Docs
+                                        <i class="shell-icon-dropdown"></i>
+                                    </a>
+                                </h2>
+
+
+
+
+
+<div class="shell-header-dropdown-content " role="menu">
+    <dl class="shell-header-dropdown-tab  shell-tab-mcol active ">
+
+            <dt id="docs_apps" class="shell-header-dropdown-tab-label">
+                <a href="javascript:void(0)" role="menuitem" data-bi-dnt="">
+                    Windows apps
+                </a>
+            </dt>
+            <dd class="shell-header-dropdown-tab-content" data-col="4">
+
+
+
+        <ul class="shell-header-dropdown-tab-list shell-l3-group">
+            <li>
+                <h3>
+Get started                </h3>
+            </li>
+                <li id="docs_apps_whatsuniversal" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/library/windows/apps/dn726767.aspx" role="menuitem" data-bi-name="Docs_Apps_WhatsUniversal">
+                        What's a Universal Windows app?
+                    </a>
+                </li>
+                <li id="docs_apps_setup" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/library/windows/apps/dn726766.aspx" role="menuitem" data-bi-name="Docs_Apps_Setup">
+                        Get set up
+                    </a>
+                </li>
+                <li id="docs_apps_signup" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/library/windows/apps/bg124287.aspx" role="menuitem" data-bi-name="Docs_Apps_SignUp">
+                        Sign up
+                    </a>
+                </li>
+                <li id="docs_apps_first" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/library/windows/apps/bg124288.aspx" role="menuitem" data-bi-name="Docs_Apps_First">
+                        Your first app
+                    </a>
+                </li>
+                <li id="docs_apps_new" data-mobile="0">
+                    <a href="https://dev.windows.com/en-US/getstarted/whats-new-windows-10" role="menuitem" data-bi-name="Docs_Apps_New">
+                        New for Windows 10
+                    </a>
+                </li>
+                <li id="docs_apps_all" data-mobile="1">
+                    <a href="https://dev.windows.com/en-us/getstarted" role="menuitem" data-bi-name="Docs_Apps_All">
+                        All Get started &gt;
+                    </a>
+                </li>
+
+        </ul>
+        <ul class="shell-header-dropdown-tab-list shell-l3-group">
+            <li>
+                <h3>
+Design                </h3>
+            </li>
+                <li id="docs_apps_basics" data-mobile="0">
+                    <a href="https://dev.windows.com/en-us/design/design-basics" role="menuitem" data-bi-name="Docs_Apps_Basics">
+                        Basics
+                    </a>
+                </li>
+                <li id="docs_apps_guidelines" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/library/windows/apps/hh465424.aspx" role="menuitem" data-bi-name="Docs_Apps_Guidelines">
+                        Guidelines
+                    </a>
+                </li>
+                <li id="docs_apps_downloads" data-mobile="0">
+                    <a href="https://dev.windows.com/en-us/design/assets" role="menuitem" data-bi-name="Docs_Apps_Downloads">
+                        Downloads
+                    </a>
+                </li>
+                <li id="docs_apps_alldesign" data-mobile="1">
+                    <a href="https://dev.windows.com/en-us/design" role="menuitem" data-bi-name="Docs_Apps_Alldesign">
+                        All Design &gt;
+                    </a>
+                </li>
+
+        </ul>
+        <ul class="shell-header-dropdown-tab-list shell-l3-group">
+            <li>
+                <h3>
+Develop                </h3>
+            </li>
+                <li id="docs_apps_platformguides" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/library/windows/apps/br211361.aspx" role="menuitem" data-bi-name="Docs_Apps_Platformguides">
+                        Platform overviews
+                    </a>
+                </li>
+                <li id="docs_apps_howguides" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/library/windows/apps/xaml/dn726537.aspx" role="menuitem" data-bi-name="Docs_Apps_Howguides">
+                        How-to guides
+                    </a>
+                </li>
+                <li id="docs_apps_apireference" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/library/windows/apps/bg124285.aspx" role="menuitem" data-bi-name="Docs_Apps_Apireference">
+                        API reference
+                    </a>
+                </li>
+                <li id="docs_apps_services" data-mobile="0">
+                    <a href="https://dev.windows.com/en-us/develop/microsoft-services" role="menuitem" data-bi-name="Docs_Apps_Services">
+                        Services
+                    </a>
+                </li>
+                <li id="docs_apps_alldevelop" data-mobile="1">
+                    <a href="https://dev.windows.com/en-us/develop" role="menuitem" data-bi-name="Docs_Apps_Alldevelop">
+                        All Develop &gt;
+                    </a>
+                </li>
+
+        </ul>
+        <ul class="shell-header-dropdown-tab-list shell-l3-group">
+            <li>
+                <h3>
+Publish                </h3>
+            </li>
+                <li id="docs_apps_submitapp" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/library/windows/apps/hh694062.aspx" role="menuitem" data-bi-name="Docs_Apps_Submitapp">
+                        Submit your app
+                    </a>
+                </li>
+                <li id="docs_apps_promoteandengage" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/library/windows/apps/mt148526.aspx" role="menuitem" data-bi-name="Docs_Apps_Promoteandengage">
+                        Promote and engage
+                    </a>
+                </li>
+                <li id="docs_apps_viewanalytics" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/library/windows/apps/mt148522.aspx" role="menuitem" data-bi-name="Docs_Apps_Viewanalytics">
+                        View analytics
+                    </a>
+                </li>
+                <li id="docs_apps_earlierdash" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/library/windows/apps/mt131781.aspx" role="menuitem" data-bi-name="Docs_Apps_Earlierdash">
+                        Using earlier dashboards
+                    </a>
+                </li>
+                <li id="docs_apps_storepolicies" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/library/windows/apps/dn764944.aspx" role="menuitem" data-bi-name="Docs_Apps_Storepolicies">
+                        Store Policies
+                    </a>
+                </li>
+                <li id="docs_apps_allpublish" data-mobile="1">
+                    <a href="https://dev.windows.com/en-us/publish" role="menuitem" data-bi-name="Docs_Apps_Allpublish">
+                        All Publish &gt;
+                    </a>
+                </li>
+
+        </ul>
+
+
+
+            </dd>
+
+    </dl>
+    <dl class="shell-header-dropdown-tab  shell-tab-mcol  ">
+
+            <dt id="docs_games" class="shell-header-dropdown-tab-label">
+                <a href="javascript:void(0)" role="menuitem" data-bi-dnt="">
+                    Games
+                </a>
+            </dt>
+            <dd class="shell-header-dropdown-tab-content" data-col="4">
+
+
+
+        <ul class="shell-header-dropdown-tab-list shell-l3-group">
+            <li>
+                <h3>
+Get started                </h3>
+            </li>
+                <li id="docs_games_windowsinsider" data-mobile="0">
+                    <a href="https://insider.windows.com/" role="menuitem" data-bi-name="Docs_Games_WindowsInsider">
+                        Windows Insider
+                    </a>
+                </li>
+                <li id="docs_games_windowsuniversalappplatform" data-mobile="0">
+                    <a href="https://dev.windows.com/en-us/develop" role="menuitem" data-bi-name="Docs_Games_WindowsUniversalAppPlatform">
+                        Universal Windows Platform (UWP)
+                    </a>
+                </li>
+                <li id="docs_games_choosetechnology" data-mobile="0">
+                    <a href="https://dev.windows.com/en-us/games/technology" role="menuitem" data-bi-name="Docs_Games_ChooseTechnology">
+                        Choose a technology
+                    </a>
+                </li>
+                <li id="docs_games_signup" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/library/windows/apps/bg124287.aspx" role="menuitem" data-bi-name="Docs_Games_SignUp">
+                        Sign up
+                    </a>
+                </li>
+                <li id="docs_games_all" data-mobile="1">
+                    <a href="https://dev.windows.com/en-us/games/getstarted" role="menuitem" data-bi-name="Docs_Games_All">
+                        All Get started &gt;
+                    </a>
+                </li>
+
+        </ul>
+        <ul class="shell-header-dropdown-tab-list shell-l3-group">
+            <li>
+                <h3>
+Design                </h3>
+            </li>
+                <li id="docs_games_appdesignbasics" data-mobile="0">
+                    <a href="https://dev.windows.com/en-us/design/design-basics" role="menuitem" data-bi-name="Docs_Games_AppDesignBasics">
+                        App design basics
+                    </a>
+                </li>
+                <li id="docs_games_appdesignguidelines" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/library/windows/apps/hh465424.aspx" role="menuitem" data-bi-name="Docs_Games_AppDesignGuidelines">
+                        App design guidelines
+                    </a>
+                </li>
+                <li id="docs_games_all" data-mobile="1">
+                    <a href="https://dev.windows.com/en-us/games/design" role="menuitem" data-bi-name="Docs_Games_All">
+                        All Design &gt;
+                    </a>
+                </li>
+
+        </ul>
+        <ul class="shell-header-dropdown-tab-list shell-l3-group">
+            <li>
+                <h3>
+Develop                </h3>
+            </li>
+                <li id="docs_games_developinggames" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/library/windows/apps/hh452744.aspx" role="menuitem" data-bi-name="Docs_Games_DevelopingGames">
+                        Developing games
+                    </a>
+                </li>
+                <li id="docs_games_graphicsandgaming" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/library/windows/desktop/ee663279" role="menuitem" data-bi-name="Docs_Games_GraphicsAndGaming">
+                        Graphics and gaming
+                    </a>
+                </li>
+                <li id="docs_games_direct3d12graphics" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/library/windows/desktop/dn903821" role="menuitem" data-bi-name="Docs_Games_Direct3D12Graphics">
+                        Direct3D 12 graphics
+                    </a>
+                </li>
+                <li id="docs_games_developwindowsapps" data-mobile="0">
+                    <a href="https://dev.windows.com/en-us/develop" role="menuitem" data-bi-name="Docs_Games_DevelopWindowsApps">
+                        Develop Windows apps
+                    </a>
+                </li>
+                <li id="docs_games_windowsappreference" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/library/windows/apps/br211369" role="menuitem" data-bi-name="Docs_Games_WindowsAppReference">
+                        Windows app reference
+                    </a>
+                </li>
+                <li id="docs_games_alldevelop" data-mobile="1">
+                    <a href="https://dev.windows.com/en-us/games/develop" role="menuitem" data-bi-name="Docs_Games_AllDevelop">
+                        All Develop &gt;
+                    </a>
+                </li>
+
+        </ul>
+        <ul class="shell-header-dropdown-tab-list shell-l3-group">
+            <li>
+                <h3>
+Publish                </h3>
+            </li>
+                <li id="docs_games_publishwindowsapps" data-mobile="0">
+                    <a href="https://dev.windows.com/en-us/publish" role="menuitem" data-bi-name="Docs_Games_PublishWindowsApps">
+                        Publish Windows apps
+                    </a>
+                </li>
+                <li id="docs_games_id@xbox" data-mobile="0">
+                    <a href="http://www.xbox.com/Developers/id" role="menuitem" data-bi-name="Docs_Games_ID@Xbox">
+                        ID@Xbox
+                    </a>
+                </li>
+                <li id="docs_games_all" data-mobile="1">
+                    <a href="https://dev.windows.com/en-us/games/publish" role="menuitem" data-bi-name="Docs_Games_All">
+                        All Publish &gt;
+                    </a>
+                </li>
+
+        </ul>
+
+
+
+            </dd>
+
+    </dl>
+    <dl class="shell-header-dropdown-tab  shell-tab-mcol  ">
+
+            <dt id="docs_desktop" class="shell-header-dropdown-tab-label">
+                <a href="javascript:void(0)" role="menuitem" data-bi-dnt="">
+                    Desktop applications
+                </a>
+            </dt>
+            <dd class="shell-header-dropdown-tab-content" data-col="4">
+
+
+
+        <ul class="shell-header-dropdown-tab-list shell-l3-group">
+            <li>
+                <h3>
+Get started                </h3>
+            </li>
+                <li id="docs_desktop_technology" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/library/windows/desktop/dn614993.aspx" role="menuitem" data-bi-name="Docs_Desktop_Technology">
+                        Choose your technology
+                    </a>
+                </li>
+                <li id="docs_desktop_whatnew" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/library/windows/desktop/hh848361.aspx" role="menuitem" data-bi-name="Docs_Desktop_Whatnew">
+                        What’s new 
+                    </a>
+                </li>
+                <li id="docs_desktop_prog" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/windows/desktop/ee663266.aspx" role="menuitem" data-bi-name="Docs_Desktop_Prog">
+                        Desktop programming
+                    </a>
+                </li>
+                <li id="docs_desktop_allgetstarted" data-mobile="1">
+                    <a href="https://msdn.microsoft.com/windows/desktop/bg161546.aspx" role="menuitem" data-bi-name="Docs_Desktop_Allgetstarted">
+                        All Get started &gt;
+                    </a>
+                </li>
+
+        </ul>
+        <ul class="shell-header-dropdown-tab-list shell-l3-group">
+            <li>
+                <h3>
+Design                </h3>
+            </li>
+                <li id="docs_desktop_principles" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/library/windows/desktop/dn742446.aspx" role="menuitem" data-bi-name="Docs_Desktop_principles">
+                        Design principles
+                    </a>
+                </li>
+                <li id="docs_desktop_guidelines" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/library/windows/desktop/dn688964.aspx" role="menuitem" data-bi-name="Docs_Desktop_Guidelines">
+                        Guidelines
+                    </a>
+                </li>
+                <li id="docs_desktop_visual" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/library/windows/desktop/dn688966.aspx" role="menuitem" data-bi-name="Docs_Desktop_Visual">
+                        Visual index
+                    </a>
+                </li>
+                <li id="docs_desktop_alldesign" data-mobile="1">
+                    <a href="https://msdn.microsoft.com/windows/desktop/aa511258.aspx" role="menuitem" data-bi-name="Docs_Desktop_Alldesign">
+                        All Design &gt;
+                    </a>
+                </li>
+
+        </ul>
+        <ul class="shell-header-dropdown-tab-list shell-l3-group">
+            <li>
+                <h3>
+Develop                </h3>
+            </li>
+                <li id="docs_desktop_desktoptech" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/library/windows/desktop/bg126469.aspx" role="menuitem" data-bi-name="Docs_Desktop_Desktoptech">
+                        Desktop technologies
+                    </a>
+                </li>
+                <li id="docs_desktop_serversystem" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/library/windows/desktop/bg125390.aspx" role="menuitem" data-bi-name="Docs_Desktop_Serversystem">
+                        Server and system
+                    </a>
+                </li>
+                <li id="docs_desktop_apireference" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/library/windows/desktop/hh920508.aspx" role="menuitem" data-bi-name="Docs_Desktop_Apireference">
+                        API reference
+                    </a>
+                </li>
+                <li id="docs_desktop_certify" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/windows/desktop/jj134964.aspx" role="menuitem" data-bi-name="Docs_Desktop_Certify">
+                        Certify
+                    </a>
+                </li>
+                <li id="docs_desktop_alldevelop" data-mobile="1">
+                    <a href="https://msdn.microsoft.com/windows/desktop/aa904962.aspx" role="menuitem" data-bi-name="Docs_Desktop_Alldevelop">
+                        All Develop &gt;
+                    </a>
+                </li>
+
+        </ul>
+        <ul class="shell-header-dropdown-tab-list shell-l3-group">
+            <li>
+                <h3>
+Test and deploy                </h3>
+            </li>
+                <li id="docs_desktop_deploy" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/windows/desktop/dn640662.aspx" role="menuitem" data-bi-name="Docs_Desktop_Deploy">
+                        Deploy
+                    </a>
+                </li>
+                <li id="docs_desktop_debug" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/windows/desktop/dn640617.aspx" role="menuitem" data-bi-name="Docs_Desktop_Debug">
+                        Debug
+                    </a>
+                </li>
+                <li id="docs_desktop_instrument" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/windows/desktop/dn640663.aspx" role="menuitem" data-bi-name="Docs_Desktop_Instrument">
+                        Instrument
+                    </a>
+                </li>
+                <li id="docs_desktop_tools" data-mobile="0">
+                    <a href="https://msdn.microsoft.com/windows/desktop/dn640664.aspx" role="menuitem" data-bi-name="Docs_Desktop_Tools">
+                        Tools
+                    </a>
+                </li>
+                <li id="docs_desktop_alltest" data-mobile="1">
+                    <a href="https://msdn.microsoft.com/windows/desktop/dn553326.aspx" role="menuitem" data-bi-name="Docs_Desktop_Alltest">
+                        All Test &gt;
+                    </a>
+                </li>
+
+        </ul>
+
+
+
+            </dd>
+
+    </dl>
+    <dl class="shell-header-dropdown-tab  shell-tab-mcol  ">
+
+            <dt id="docs_iot" class="shell-header-dropdown-tab-label">
+                <a href="javascript:void(0)" role="menuitem" data-bi-dnt="">
+                    Windows IoT
+                </a>
+            </dt>
+            <dd class="shell-header-dropdown-tab-content" data-col="4">
+
+
+
+        <ul class="shell-header-dropdown-tab-list shell-l3-group">
+            <li>
+                <h3>
+Get started                </h3>
+            </li>
+                <li id="docs_iot_platformoverview" data-mobile="0">
+                    <a href="http://go.microsoft.com/fwlink/p/?linkid=532975" role="menuitem" data-bi-name="Docs_IoT_Platformoverview">
+                        Platform overview
+                    </a>
+                </li>
+                <li id="docs_iot_register" data-mobile="0">
+                    <a href="http://go.microsoft.com/fwlink/p/?linkid=532947" role="menuitem" data-bi-name="Docs_IoT_Register">
+                        Register
+                    </a>
+                </li>
+                <li id="docs_iot_setup" data-mobile="0">
+                    <a href="http://go.microsoft.com/fwlink/p/?linkid=532974" role="menuitem" data-bi-name="Docs_IoT_Setup">
+                        Set up your device
+                    </a>
+                </li>
+                <li id="docs_iot_firstapp" data-mobile="0">
+                    <a href="http://go.microsoft.com/fwlink/p/?linkid=532945" role="menuitem" data-bi-name="Docs_IoT_FirstApp">
+                        Write your first app
+                    </a>
+                </li>
+                <li id="docs_iot_all" data-mobile="1">
+                    <a href="http://go.microsoft.com/fwlink/p/?linkid=532957" role="menuitem" data-bi-name="Docs_IoT_All">
+                        All Get started &gt;
+                    </a>
+                </li>
+
+        </ul>
+        <ul class="shell-header-dropdown-tab-list shell-l3-group">
+            <li>
+                <h3>
+Develop                </h3>
+            </li>
+                <li id="docs_iot_atbuild" data-mobile="0">
+                    <a href="http://go.microsoft.com/fwlink/p/?linkid=532963" role="menuitem" data-bi-name="Docs_IoT_AtBuild">
+                        Windows IoT at Build 2015
+                    </a>
+                </li>
+                <li id="docs_iot_codesamples" data-mobile="0">
+                    <a href="http://go.microsoft.com/fwlink/p/?linkid=532976" role="menuitem" data-bi-name="Docs_IoT_CodeSamples">
+                        Code samples
+                    </a>
+                </li>
+                <li id="docs_iot_faq" data-mobile="0">
+                    <a href="http://go.microsoft.com/fwlink/p/?linkid=532965" role="menuitem" data-bi-name="Docs_IoT_Faq">
+                        FAQ
+                    </a>
+                </li>
+                <li id="docs_iot_all" data-mobile="1">
+                    <a href="http://go.microsoft.com/fwlink/p/?linkid=532961" role="menuitem" data-bi-name="Docs_IoT_All">
+                        All Develop &gt;
+                    </a>
+                </li>
+
+        </ul>
+        <ul class="shell-header-dropdown-tab-list shell-l3-group">
+            <li>
+                <h3>
+Learn more                </h3>
+            </li>
+                <li id="docs_iot_projectgallery" data-mobile="0">
+                    <a href="http://go.microsoft.com/fwlink/p/?linkid=532977" role="menuitem" data-bi-name="Docs_IoT_ProjectGallery">
+                        IoT Project gallery
+                    </a>
+                </li>
+                <li id="docs_iot_downloads" data-mobile="0">
+                    <a href="http://go.microsoft.com/fwlink/p/?LinkID=532967" role="menuitem" data-bi-name="Docs_Iot_Downloads">
+                        Downloads
+                    </a>
+                </li>
+                <li id="docs_iot_community" data-mobile="1">
+                    <a href="http://go.microsoft.com/fwlink/p/?LinkID=532968" role="menuitem" data-bi-name="Docs_Iot_Community">
+                        Community
+                    </a>
+                </li>
+
+        </ul>
+        <ul class="shell-header-dropdown-tab-list shell-l3-group">
+            <li>
+                <h3>
+IoT Hardware                </h3>
+            </li>
+                <li id="docs_iot_getstartedguide" data-mobile="0">
+                    <a href="http://go.microsoft.com/fwlink/p/?linkid=532966" role="menuitem" data-bi-name="Docs_IoT_GetStartedGuide">
+                        IoT Getting started guide
+                    </a>
+                </li>
+                <li id="docs_iot_hardware" data-mobile="1">
+                    <a href="http://go.microsoft.com/fwlink/p/?linkid=532948" role="menuitem" data-bi-name="Docs_IoT_Hardware">
+                        IoT Hardware &gt;
+                    </a>
+                </li>
+
+        </ul>
+
+
+
+            </dd>
+
+    </dl>
+
+</div>
+
+                            </li>
+                            <li id="downloads" class="shell-header-dropdown-label  ">
+                                <a class="top-level-link-text ctl_headerNavLink" href="https://dev.windows.com/en-us/downloads" role="menuitem" data-bi-name="Downloads" data-bi-slot="4">
+
+                                    Downloads
+                                </a>
+                            </li>
+                            <li id="samples" class="shell-header-dropdown-label  ">
+                                <a class="top-level-link-text ctl_headerNavLink" href="https://dev.windows.com/en-us/samples" role="menuitem" data-bi-name="Samples" data-bi-slot="5">
+
+                                    Samples
+                                </a>
+                            </li>
+                            <li id="community" class="shell-header-dropdown-label  ">
+                                <a class="top-level-link-text ctl_headerNavLink" href="https://dev.windows.com/community" role="menuitem" data-bi-name="Community" data-bi-slot="6">
+
+                                    Community
+                                </a>
+                            </li>
+                            <li id="programs" class="shell-header-dropdown-label  ">
+                                <a class="top-level-link-text ctl_headerNavLink" href="https://dev.windows.com/en-us/programs" role="menuitem" data-bi-name="Programs" data-bi-slot="7">
+
+                                    Programs
+                                </a>
+                            </li>
+                            <li id="dashboard" class="shell-header-dropdown-label  rightAlignedMenu">
+                                <a class="top-level-link-text ctl_headerNavLink" href="https://dev.windows.com/overview?from=UHF" role="menuitem" data-bi-name="Dashboard" data-bi-slot="8">
+
+                                    Dashboard
+                                </a>
+                            </li>
+
+        </ul>
+
+
+    </div>
+</div>
+
+
+
+<script data-do-not-move="true" type="text/javascript">
+
+    
+    var meControlInitOptions = {
+        containerId: 'meControl',
+        custom: {chevHtml:'<i class="msame_chev_uhf shell-icon-dropdown"></i>'},
+
+        
+            
+        market: 'en-US',
+        
+
+            
+        mobileBreakpoints:
+    {
+        shortHeader: 1084,
+        mobile: 540
+        },
+        
+
+        lcaDisclaimerEnabled: false,
+
+        rpData:
+        {
+            msaInfo:
+                {
+                        
+                    signInUrl: '/en-us/store/signin',
+                    signOutUrl: '/en-us/store/signout',
+                    accountSettingsUrl: 'https://account.microsoft.com/',
+                    switchUrl: '',
+                    meUrl: 'https://login.live.com/me.srf?wa=wsignin1.0',
+                    isSupported: true
+                    
+                },
+            aadInfo:
+                {
+                },
+            preferredIdp: 'msa',
+        },
+        signInText: 'Sign In',
+        signOutText: 'Sign Out'
+    };
+</script>
+ 
+    </div>
+    <input id="UhfSignInOutLink" value="https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=12&amp;ct=1436940898&amp;rver=6.0.5276.0&amp;wp=MCMBI&amp;wlcxt=MSDN%24MSDN%24MSDN&amp;wreply=https%3a%2f%2fmsdn.microsoft.com%2fen-us%2flibrary%2fwindows%2fdesktop%2fms682499%2528v%3dvs.85%2529.aspx&amp;lc=1033&amp;id=254354&amp;mkt=en-US" type="hidden">
+    
+    
+
+
+
+
+
+
+  <div class="breadCrumb">
+        <span><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/mt162205.aspx" title="Windows Desktop Apps">Windows Desktop Apps</a></span>
+        <span><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa904962.aspx" title="Develop">Develop</a></span>
+        <span><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/bg126469%28v=vs.85%29.aspx" title="Desktop technologies">Desktop technologies</a></span>
+        <span><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ee663297%28v=vs.85%29.aspx" title="System Services">System Services</a></span>
+        <span><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms684841%28v=vs.85%29.aspx" title="Processes and Threads">Processes and Threads</a></span>
+        <span><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms686937%28v=vs.85%29.aspx" title="Using Processes and Threads">Using Processes and Threads</a></span>
+
+    <span><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms682499%28v=vs.85%29.aspx" title="Creating a Child Process with Redirected Input and Output">Creating a Child Process with Redirected Input and Output</a></span>
+  </div>
+
+
+            <div id="body">
+                
+
+
+
+
+
+
+
+    <div style="height: 370px;" id="leftNav">
+
+
+
+
+<div style="width: 227px; position: fixed; top: 60px;" id="tocnav" class="hide-archive">
+
+
+            <div style="padding-left: 0px;" class="toclevel0 " data-toclevel="0">
+<a class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/windows/desktop/mt162205.aspx" id="aa906039_MSDN.10_en-us" mtpsaliasid="" mtpsassetid="87082d4b-6cca-42cd-aadc-e3aa0279e5f8_MSDN.10_en-us" mtpsshortid="mt162205_MSDN.10_en-us" title="Windows Desktop Apps">Windows Desktop Apps</a>            </div>
+            <div style="padding-left: 0px;" class="toclevel0 " data-toclevel="0">
+<a class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa904962.aspx" id="bg125588_MSDN.10_en-us" mtpsaliasid="" mtpsassetid="C0D3A18C-D498-42B4-8015-883D16590B90_MSDN.10_en-us" mtpsshortid="aa904962_MSDN.10_en-us" title="Develop">Develop</a>            </div>
+            <div style="padding-left: 0px;" class="toclevel0 " data-toclevel="0">
+<a class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/windows/desktop/bg126469%28v=vs.85%29.aspx" id="bg126501_VS.85_en-us" mtpsaliasid="" mtpsassetid="FF115416-220F-4FCD-8690-F9C0890CD6CC_VS.85_en-us" mtpsshortid="bg126469_VS.85_en-us" title="Desktop technologies">Desktop technologies</a>            </div>
+            <div style="padding-left: 0px;" class="toclevel0 " data-toclevel="0">
+<a class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/windows/desktop/ee663297%28v=vs.85%29.aspx" id="bg126545_VS.85_en-us" mtpsaliasid="" mtpsassetid="3a3dc403-8bad-4464-9dda-361daaf8f8d3_VS.85_en-us" mtpsshortid="ee663297_VS.85_en-us" title="System Services">System Services</a>            </div>
+            <div style="padding-left: 0px;" class="toclevel0 " data-toclevel="0">
+<a class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms684841%28v=vs.85%29.aspx" id="gg513756_VS.85_en-us" mtpsaliasid="" mtpsassetid="6bff848c-0c55-41e7-aff1-84c6b21a1b8d_VS.85_en-us" mtpsshortid="ms684841_VS.85_en-us" title="Processes and Threads">Processes and Threads</a>            </div>
+            <div data-childrenloaded="true" style="padding-left: 13px;" class="toclevel1 " data-toclevel="1">
+<a class="toc_expanded" href="#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms686937%28v=vs.85%29.aspx" id="gg513764_VS.85_en-us" mtpsaliasid="" mtpsassetid="472fc0ac-e840-433d-9f1a-510f202e723e_VS.85_en-us" mtpsshortid="ms686937_VS.85_en-us" title="Using Processes and Threads">Using Processes and Threads</a>            </div>
+            <div style="padding-left: 26px;" class="toclevel2 " data-toclevel="2">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms682512%28v=vs.85%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Creating Processes">Creating Processes</a>            </div>
+            <div style="padding-left: 26px;" class="toclevel2 " data-toclevel="2">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms682516%28v=vs.85%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Creating Threads">Creating Threads</a>            </div>
+            <div style="padding-left: 26px;" class="toclevel2 current " data-toclevel="2">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms682499%28v=vs.85%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Creating a Child Process with Redirected Input and Output">Creating a Child Process with Redirected Input and Output</a>            </div>
+            <div style="padding-left: 26px;" class="toclevel2 " data-toclevel="2">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms682009%28v=vs.85%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Changing Environment Variables">Changing Environment Variables</a>            </div>
+            <div style="padding-left: 26px;" class="toclevel2 " data-toclevel="2">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms686991%28v=vs.85%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Using Thread Local Storage">Using Thread Local Storage</a>            </div>
+            <div style="padding-left: 26px;" class="toclevel2 " data-toclevel="2">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms686919%28v=vs.85%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Using Fibers">Using Fibers</a>            </div>
+            <div style="padding-left: 26px;" class="toclevel2 " data-toclevel="2">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms686980%28v=vs.85%29.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Using the Thread Pool Functions">Using the Thread Pool Functions</a>            </div>
+</div>
+        
+
+        
+
+        
+        
+        <div id="toc-resizable-ew" class="toc-resizable-ew"></div>
+        
+    </div>
+<div id="content" class="content">
+
+
+
+
+
+
+
+
+<div class="topic" xmlns="http://www.w3.org/1999/xhtml">
+  <h1 class="title">Creating a Child Process with Redirected Input and Output</h1>
+  
+  <div id="mainSection">
+<div class="clsServerSDKContent">
+
+</div>
+<p>The example in this topic demonstrates how to create a child process using the <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms682425%28v=vs.85%29.aspx"><strong xmlns="http://www.w3.org/1999/xhtml">CreateProcess</strong></a>
+ function from a console process. It also demonstrates a technique for 
+using anonymous pipes to redirect the child process's standard input and
+ output handles. Note that named pipes can also be used to redirect 
+process I/O.</p>
+<p>The 
+<a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa365152%28v=vs.85%29.aspx"><strong xmlns="http://www.w3.org/1999/xhtml">CreatePipe</strong></a> function uses the 
+<a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa379560%28v=vs.85%29.aspx"><strong xmlns="http://www.w3.org/1999/xhtml">SECURITY_ATTRIBUTES</strong></a>
+ structure to create inheritable handles to the read and write ends of 
+two pipes. The read end of one pipe serves as standard input for the 
+child process, and the write end of the other pipe is the standard 
+output for the child process. These pipe handles are specified in the 
+<a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms686331%28v=vs.85%29.aspx"><strong xmlns="http://www.w3.org/1999/xhtml">STARTUPINFO</strong></a> structure, which makes them the standard handles inherited by the child process.</p>
+<p>The parent process uses the opposite ends of these two pipes to write
+ to the child process's input and read from the child process's output. 
+As specified in the <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms686331%28v=vs.85%29.aspx"><strong xmlns="http://www.w3.org/1999/xhtml">STARTUPINFO</strong></a>
+ structure, these handles are also inheritable. However, these handles 
+must not be inherited. Therefore, before creating the child process, the
+ parent process uses 
+the <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms724935%28v=vs.85%29.aspx"><strong xmlns="http://www.w3.org/1999/xhtml">SetHandleInformation</strong></a>
+ function to ensure that the write handle for the child process's 
+standard input and the read handle for the child process's standard 
+input cannot be inherited. For more information, see 
+<a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa365780%28v=vs.85%29.aspx">Pipes</a>.</p>
+<p>The following is the code for the parent process. It takes a single command-line argument: the name of a text file.</p>
+
+<div id="code-snippet-1" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        <div class="codeSnippetContainerTabSingle" dir="ltr"><a>C++</a></div>
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="Copy to clipboard." href="javascript:if%20(window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_226f0c13-bdad-4f2e-8731-3bd7b6f8a8a0');">Copy</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_226f0c13-bdad-4f2e-8731-3bd7b6f8a8a0" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre>
+#include &lt;windows.h&gt; 
+#include &lt;tchar.h&gt;
+#include &lt;stdio.h&gt; 
+#include &lt;strsafe.h&gt;
+
+#define BUFSIZE 4096 
+ 
+HANDLE g_hChildStd_IN_Rd = NULL;
+HANDLE g_hChildStd_IN_Wr = NULL;
+HANDLE g_hChildStd_OUT_Rd = NULL;
+HANDLE g_hChildStd_OUT_Wr = NULL;
+
+HANDLE g_hInputFile = NULL;
+ 
+<span style="color:Blue;">void</span> CreateChildProcess(<span style="color:Blue;">void</span>); 
+<span style="color:Blue;">void</span> WriteToPipe(<span style="color:Blue;">void</span>); 
+<span style="color:Blue;">void</span> ReadFromPipe(<span style="color:Blue;">void</span>); 
+<span style="color:Blue;">void</span> ErrorExit(PTSTR); 
+ 
+<span style="color:Blue;">int</span> _tmain(<span style="color:Blue;">int</span> argc, TCHAR *argv[]) 
+{ 
+   SECURITY_ATTRIBUTES saAttr; 
+ 
+   printf(<span style="color:#A31515;">"\n-&gt;Start of parent execution.\n"</span>);
+
+<span style="color:Green;">// Set the bInheritHandle flag so pipe handles are inherited. </span>
+ 
+   saAttr.nLength = <span style="color:Blue;">sizeof</span>(SECURITY_ATTRIBUTES); 
+   saAttr.bInheritHandle = TRUE; 
+   saAttr.lpSecurityDescriptor = NULL; 
+
+<span style="color:Green;">// Create a pipe for the child process's STDOUT. </span>
+ 
+   <span style="color:Blue;">if</span> ( ! CreatePipe(&amp;g_hChildStd_OUT_Rd, &amp;g_hChildStd_OUT_Wr, &amp;saAttr, 0) ) 
+      ErrorExit(TEXT(<span style="color:#A31515;">"StdoutRd CreatePipe"</span>)); 
+
+<span style="color:Green;">// Ensure the read handle to the pipe for STDOUT is not inherited.</span>
+
+   <span style="color:Blue;">if</span> ( ! SetHandleInformation(g_hChildStd_OUT_Rd, HANDLE_FLAG_INHERIT, 0) )
+      ErrorExit(TEXT(<span style="color:#A31515;">"Stdout SetHandleInformation"</span>)); 
+
+<span style="color:Green;">// Create a pipe for the child process's STDIN. </span>
+ 
+   <span style="color:Blue;">if</span> (! CreatePipe(&amp;g_hChildStd_IN_Rd, &amp;g_hChildStd_IN_Wr, &amp;saAttr, 0)) 
+      ErrorExit(TEXT(<span style="color:#A31515;">"Stdin CreatePipe"</span>)); 
+
+<span style="color:Green;">// Ensure the write handle to the pipe for STDIN is not inherited. </span>
+ 
+   <span style="color:Blue;">if</span> ( ! SetHandleInformation(g_hChildStd_IN_Wr, HANDLE_FLAG_INHERIT, 0) )
+      ErrorExit(TEXT(<span style="color:#A31515;">"Stdin SetHandleInformation"</span>)); 
+ 
+<span style="color:Green;">// Create the child process. </span>
+   
+   CreateChildProcess();
+
+<span style="color:Green;">// Get a handle to an input file for the parent. </span>
+<span style="color:Green;">// This example assumes a plain text file and uses string output to verify data flow. </span>
+ 
+   <span style="color:Blue;">if</span> (argc == 1) 
+      ErrorExit(TEXT(<span style="color:#A31515;">"Please specify an input file.\n"</span>)); 
+
+   g_hInputFile = CreateFile(
+       argv[1], 
+       GENERIC_READ, 
+       0, 
+       NULL, 
+       OPEN_EXISTING, 
+       FILE_ATTRIBUTE_READONLY, 
+       NULL); 
+
+   <span style="color:Blue;">if</span> ( g_hInputFile == INVALID_HANDLE_VALUE ) 
+      ErrorExit(TEXT(<span style="color:#A31515;">"CreateFile"</span>)); 
+ 
+<span style="color:Green;">// Write to the pipe that is the standard input for a child process. </span>
+<span style="color:Green;">// Data is written to the pipe's buffers, so it is not necessary to wait</span>
+<span style="color:Green;">// until the child process is running before writing data.</span>
+ 
+   WriteToPipe(); 
+   printf( <span style="color:#A31515;">"\n-&gt;Contents of %s written to child STDIN pipe.\n"</span>, argv[1]);
+ 
+<span style="color:Green;">// Read from pipe that is the standard output for child process. </span>
+ 
+   printf( <span style="color:#A31515;">"\n-&gt;Contents of child process STDOUT:\n\n"</span>, argv[1]);
+   ReadFromPipe(); 
+
+   printf(<span style="color:#A31515;">"\n-&gt;End of parent execution.\n"</span>);
+
+<span style="color:Green;">// The remaining open handles are cleaned up when this process terminates. </span>
+<span style="color:Green;">// To avoid resource leaks in a larger application, close handles explicitly. </span>
+
+   <span style="color:Blue;">return</span> 0; 
+} 
+ 
+<span style="color:Blue;">void</span> CreateChildProcess()
+<span style="color:Green;">// Create a child process that uses the previously created pipes for STDIN and STDOUT.</span>
+{ 
+   TCHAR szCmdline[]=TEXT(<span style="color:#A31515;">"child"</span>);
+   PROCESS_INFORMATION piProcInfo; 
+   STARTUPINFO siStartInfo;
+   BOOL bSuccess = FALSE; 
+ 
+<span style="color:Green;">// Set up members of the PROCESS_INFORMATION structure. </span>
+ 
+   ZeroMemory( &amp;piProcInfo, <span style="color:Blue;">sizeof</span>(PROCESS_INFORMATION) );
+ 
+<span style="color:Green;">// Set up members of the STARTUPINFO structure. </span>
+<span style="color:Green;">// This structure specifies the STDIN and STDOUT handles for redirection.</span>
+ 
+   ZeroMemory( &amp;siStartInfo, <span style="color:Blue;">sizeof</span>(STARTUPINFO) );
+   siStartInfo.cb = <span style="color:Blue;">sizeof</span>(STARTUPINFO); 
+   siStartInfo.hStdError = g_hChildStd_OUT_Wr;
+   siStartInfo.hStdOutput = g_hChildStd_OUT_Wr;
+   siStartInfo.hStdInput = g_hChildStd_IN_Rd;
+   siStartInfo.dwFlags |= STARTF_USESTDHANDLES;
+ 
+<span style="color:Green;">// Create the child process. </span>
+    
+   bSuccess = CreateProcess(NULL, 
+      szCmdline,     <span style="color:Green;">// command line </span>
+      NULL,          <span style="color:Green;">// process security attributes </span>
+      NULL,          <span style="color:Green;">// primary thread security attributes </span>
+      TRUE,          <span style="color:Green;">// handles are inherited </span>
+      0,             <span style="color:Green;">// creation flags </span>
+      NULL,          <span style="color:Green;">// use parent's environment </span>
+      NULL,          <span style="color:Green;">// use parent's current directory </span>
+      &amp;siStartInfo,  <span style="color:Green;">// STARTUPINFO pointer </span>
+      &amp;piProcInfo);  <span style="color:Green;">// receives PROCESS_INFORMATION </span>
+   
+   <span style="color:Green;">// If an error occurs, exit the application. </span>
+   <span style="color:Blue;">if</span> ( ! bSuccess ) 
+      ErrorExit(TEXT(<span style="color:#A31515;">"CreateProcess"</span>));
+   <span style="color:Blue;">else</span> 
+   {
+      <span style="color:Green;">// Close handles to the child process and its primary thread.</span>
+      <span style="color:Green;">// Some applications might keep these handles to monitor the status</span>
+      <span style="color:Green;">// of the child process, for example. </span>
+
+      CloseHandle(piProcInfo.hProcess);
+      CloseHandle(piProcInfo.hThread);
+   }
+}
+ 
+<span style="color:Blue;">void</span> WriteToPipe(<span style="color:Blue;">void</span>) 
+
+<span style="color:Green;">// Read from a file and write its contents to the pipe for the child's STDIN.</span>
+<span style="color:Green;">// Stop when there is no more data. </span>
+{ 
+   DWORD dwRead, dwWritten; 
+   CHAR chBuf[BUFSIZE];
+   BOOL bSuccess = FALSE;
+ 
+   <span style="color:Blue;">for</span> (;;) 
+   { 
+      bSuccess = ReadFile(g_hInputFile, chBuf, BUFSIZE, &amp;dwRead, NULL);
+      <span style="color:Blue;">if</span> ( ! bSuccess || dwRead == 0 ) <span style="color:Blue;">break</span>; 
+      
+      bSuccess = WriteFile(g_hChildStd_IN_Wr, chBuf, dwRead, &amp;dwWritten, NULL);
+      <span style="color:Blue;">if</span> ( ! bSuccess ) <span style="color:Blue;">break</span>; 
+   } 
+ 
+<span style="color:Green;">// Close the pipe handle so the child process stops reading. </span>
+ 
+   <span style="color:Blue;">if</span> ( ! CloseHandle(g_hChildStd_IN_Wr) ) 
+      ErrorExit(TEXT(<span style="color:#A31515;">"StdInWr CloseHandle"</span>)); 
+} 
+ 
+<span style="color:Blue;">void</span> ReadFromPipe(<span style="color:Blue;">void</span>) 
+
+<span style="color:Green;">// Read output from the child process's pipe for STDOUT</span>
+<span style="color:Green;">// and write to the parent process's pipe for STDOUT. </span>
+<span style="color:Green;">// Stop when there is no more data. </span>
+{ 
+   DWORD dwRead, dwWritten; 
+   CHAR chBuf[BUFSIZE]; 
+   BOOL bSuccess = FALSE;
+   HANDLE hParentStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+
+   <span style="color:Blue;">for</span> (;;) 
+   { 
+      bSuccess = ReadFile( g_hChildStd_OUT_Rd, chBuf, BUFSIZE, &amp;dwRead, NULL);
+      <span style="color:Blue;">if</span>( ! bSuccess || dwRead == 0 ) <span style="color:Blue;">break</span>; 
+
+      bSuccess = WriteFile(hParentStdOut, chBuf, 
+                           dwRead, &amp;dwWritten, NULL);
+      <span style="color:Blue;">if</span> (! bSuccess ) <span style="color:Blue;">break</span>; 
+   } 
+} 
+ 
+<span style="color:Blue;">void</span> ErrorExit(PTSTR lpszFunction) 
+
+<span style="color:Green;">// Format a readable error message, display a message box, </span>
+<span style="color:Green;">// and exit from the application.</span>
+{ 
+    LPVOID lpMsgBuf;
+    LPVOID lpDisplayBuf;
+    DWORD dw = GetLastError(); 
+
+    FormatMessage(
+        FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+        FORMAT_MESSAGE_FROM_SYSTEM |
+        FORMAT_MESSAGE_IGNORE_INSERTS,
+        NULL,
+        dw,
+        MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+        (LPTSTR) &amp;lpMsgBuf,
+        0, NULL );
+
+    lpDisplayBuf = (LPVOID)LocalAlloc(LMEM_ZEROINIT, 
+        (lstrlen((LPCTSTR)lpMsgBuf)+lstrlen((LPCTSTR)lpszFunction)+40)*<span style="color:Blue;">sizeof</span>(TCHAR)); 
+    StringCchPrintf((LPTSTR)lpDisplayBuf, 
+        LocalSize(lpDisplayBuf) / <span style="color:Blue;">sizeof</span>(TCHAR),
+        TEXT(<span style="color:#A31515;">"%s failed with error %d: %s"</span>), 
+        lpszFunction, dw, lpMsgBuf); 
+    MessageBox(NULL, (LPCTSTR)lpDisplayBuf, TEXT(<span style="color:#A31515;">"Error"</span>), MB_OK); 
+
+    LocalFree(lpMsgBuf);
+    LocalFree(lpDisplayBuf);
+    ExitProcess(1);
+}
+
+
+</pre></div>
+            
+        </div>
+    </div>
+</div>
+
+<p>The following is the code for the child process. It uses the 
+inherited handles for STDIN and STDOUT to access the pipe created by the
+ parent. The parent process reads from its input file and writes the 
+information to a pipe. The child receives text through the pipe using 
+STDIN and writes to the pipe using STDOUT. The parent  reads from the 
+read end of the pipe and displays the information to its STDOUT.</p>
+
+<div id="code-snippet-2" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        <div class="codeSnippetContainerTabSingle" dir="ltr"><a>C++</a></div>
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="Copy to clipboard." href="javascript:if%20(window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_ce96d156-cba4-4354-88b1-3af0380c0f78');">Copy</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_ce96d156-cba4-4354-88b1-3af0380c0f78" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre>
+#include &lt;windows.h&gt;
+#include &lt;stdio.h&gt;
+
+#define BUFSIZE 4096 
+ 
+<span style="color:Blue;">int</span> main(<span style="color:Blue;">void</span>) 
+{ 
+   CHAR chBuf[BUFSIZE]; 
+   DWORD dwRead, dwWritten; 
+   HANDLE hStdin, hStdout; 
+   BOOL bSuccess; 
+ 
+   hStdout = GetStdHandle(STD_OUTPUT_HANDLE); 
+   hStdin = GetStdHandle(STD_INPUT_HANDLE); 
+   <span style="color:Blue;">if</span> ( 
+       (hStdout == INVALID_HANDLE_VALUE) || 
+       (hStdin == INVALID_HANDLE_VALUE) 
+      ) 
+      ExitProcess(1); 
+ 
+   <span style="color:Green;">// Send something to this process's stdout using printf.</span>
+   printf(<span style="color:#A31515;">"\n ** This is a message from the child process. ** \n"</span>);
+
+   <span style="color:Green;">// This simple algorithm uses the existence of the pipes to control execution.</span>
+   <span style="color:Green;">// It relies on the pipe buffers to ensure that no data is lost.</span>
+   <span style="color:Green;">// Larger applications would use more advanced process control.</span>
+
+   <span style="color:Blue;">for</span> (;;) 
+   { 
+   <span style="color:Green;">// Read from standard input and stop on error or no data.</span>
+      bSuccess = ReadFile(hStdin, chBuf, BUFSIZE, &amp;dwRead, NULL); 
+      
+      <span style="color:Blue;">if</span> (! bSuccess || dwRead == 0) 
+         <span style="color:Blue;">break</span>; 
+ 
+   <span style="color:Green;">// Write to standard output and stop on error.</span>
+      bSuccess = WriteFile(hStdout, chBuf, dwRead, &amp;dwWritten, NULL); 
+      
+      <span style="color:Blue;">if</span> (! bSuccess) 
+         <span style="color:Blue;">break</span>; 
+   } 
+   <span style="color:Blue;">return</span> 0;
+}
+
+
+</pre></div>
+            
+        </div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+</div>
+
+
+    
+
+
+
+<script id="CommentTemplate" type="text/x-jquery-tmpl">
+    <div class="communityContentAnnotation">
+        <a name="${Index}"></a>
+        <h3>
+            ${Title}
+        </h3>
+        <div class="communityContentAnnotationBody">
+            {{html Body}}
+        </div>
+        <div class="communityContentAnnotationInfo">
+            <div class="communityContentAnnotationAvatarContainer">
+                <a href="${UserAvatar.Href}" title="${UserAvatar.ToolTip}" class="communityContentAnnotationAvatar"><img src="${UserAvatar.ImageUrl}" alt="${UserAvatar.ImageAltText}" width="34" height="34" /></a>
+            </div>
+            <div class="communityContentAnnotationUserDateContainer">
+                <div class="communityContentAnnotationUserContainer">
+                    <a href="${UserAvatar.Href}">
+                        ${User}
+                    </a>
+                </div>
+                <div class="communityContentAnnotationDateContainer">
+                    <span>${Date}</span>
+                    
+                    {{if EditLink}}
+                        <span>
+                            <a href="${EditLink.Href}" title="${EditLink.ToolTip}" class="communityContentCommentEditLink">${EditLink.Title}</a>
+                        </span>
+                    {{/if}}
+
+                    {{if DeleteLink}}
+                        <span>
+                            <a href="${DeleteLink.Href}" title="${DeleteLink.ToolTip}" class="communityContentDeleteLink">${DeleteLink.Title}</a>
+                        </span>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<div class="communityContentContainer">
+    <div id="CommunityContentHeader" class="communityContentHeader">
+        <div class="communityContentHeaderTitleContainer">
+            <h2>Community Additions</h2>
+                <a class="communityContentAddLink" href="https://msdn.microsoft.com/en-us/library/windows/desktop/community/add/ms682499%28v=vs.85%29.aspx">
+                    <span class="communityContentAddButton" title="Add">
+                        ADD
+                    </span>
+                </a>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+    
+    <div id="CommunityComments" data-url="/en-us/library/windows/desktop/community/comments/ms682499(v=vs.85).aspx"><div class="communityContentAnnotation">         <a name="23"></a>         <h3>             Sample using named pipes?         </h3>         <div class="communityContentAnnotationBody">             <p><br>  <span>"Note that named pipes can also be used to redirect process I/O."</span><br></p><br><p><br>  <span>A full example on using named pipes would be useful.</span><br></p>         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/fernando%20gonzalez%20sanchez/" title="" class="communityContentAnnotationAvatar"><img src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/avatar_017.jpg" alt="" height="34" width="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/fernando%20gonzalez%20sanchez/">                         Fernando Gonzalez Sanchez                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>1/22/2015</span>                                                                                 </div>             </div>         </div>     </div><div class="communityContentAnnotation">         <a name="22"></a>         <h3>             Another way to fix parent hang         </h3>         <div class="communityContentAnnotationBody">             <p>On the function ReadFromPipe, from parent, change the code for reading to peek first like</p><br><p>(ReadFile hangs on the pipe if there is nothing to read).</p><br><p>for (;;)<br>&nbsp; {<br>&nbsp; &nbsp; DWORD dwTotalAvailBytes;<br>&nbsp; &nbsp; DWORD dwBytesLeft;<br><br>&nbsp;
+ &nbsp; bSuccess = PeekNamedPipe(g_hChildStd_OUT_Rd, NULL, BUFSIZE, 
+&amp;dwRead, &amp;dwTotalAvailBytes, &amp;dwBytesLeft );<br>&nbsp; &nbsp; if (!bSuccess || dwRead == 0) break;<br>&nbsp; &nbsp; bSuccess = ReadFile(g_hChildStd_OUT_Rd, chBuf, BUFSIZE, &amp;dwRead, NULL);</p><br><p>&nbsp; &nbsp; // rest of code...</p><br><p></p><br><p><br>  <br><br></p><br><p></p>         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/fernando%20gonzalez%20sanchez/" title="" class="communityContentAnnotationAvatar"><img src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/avatar_017.jpg" alt="" height="34" width="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/fernando%20gonzalez%20sanchez/">                         Fernando Gonzalez Sanchez                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>1/16/2015</span>                                                                                 </div>             </div>         </div>     </div><div class="communityContentAnnotation">         <a name="21"></a>         <h3>             Add One line to your code, It works!!         </h3>         <div class="communityContentAnnotationBody">             <p>I added one line of code: </p><br><p>CloseHandle(g_hChildStd_OUT_Wr);</p><br><p></p><br><p>in the 'else' part of "CreateChildProcess()" function.</p><br><p>NOW IT IS WORKING!!!!!!!!!!!!!!!!!!!!!</p>         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/mrcracker/" title="" class="communityContentAnnotationAvatar"><img src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/avatar_006.jpg" alt="" height="34" width="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/mrcracker/">                         mrCracker                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>10/14/2014</span>                                                                                 </div>             </div>         </div>     </div><div class="communityContentAnnotation">         <a name="20"></a>         <h3>             Message to breadpan         </h3>         <div class="communityContentAnnotationBody">             Try using fflush() after the printf() statement or kill the buffer (as in a previous comment)         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/paul%20olaru/" title="" class="communityContentAnnotationAvatar"><img src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/avatar_011.jpg" alt="" height="34" width="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/paul%20olaru/">                         Paul Olaru                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>8/29/2014</span>                                                                                 </div>             </div>         </div>     </div><div class="communityContentAnnotation">         <a name="19"></a>         <h3>             May not work for larger data or pipe buffer overflow         </h3>         <div class="communityContentAnnotationBody">
+             I am not sure how to fix the child or the parent process. 
+When trying to write to pipe on windows 8.1 beyond 16k of data the pipe 
+buffer is full. I think the parent is waiting for the child to release 
+the buffer but child isn't exactly doing that. There is a dead lock in 
+this state.<br><br>As such using the example will work partially because
+ ReadFile in the ReadFromPipe will not come back as it would wait for 
+the handle to be closed.         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/ganesh%20kumar.s/" title="" class="communityContentAnnotationAvatar"><img src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/avatar_009.jpg" alt="" height="34" width="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/ganesh%20kumar.s/">                         Ganesh Kumar.S                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>6/22/2014</span>                                                                                 </div>             </div>         </div>     </div><div class="communityContentAnnotation">         <a name="18"></a>         <h3>             SetHandeInformation is useful?         </h3>         <div class="communityContentAnnotationBody">             the function SetHandleInformation is not consistent with the comment,Comment this code also run ok.         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/jeff%20y%20wang/" title="" class="communityContentAnnotationAvatar"><img src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/avatar_004.jpg" alt="" height="34" width="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/jeff%20y%20wang/">                         Jeff Y Wang                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>12/22/2013</span>                                                                                 </div>             </div>         </div>     </div><div class="communityContentAnnotation">         <a name="17"></a>         <h3>             What Happens to child processes when the parent thread or process exits?         </h3>         <div class="communityContentAnnotationBody">             <p>I have a program that spawns a thread and creates a child process, like this example.</p><br><p>I
+ am trying to understand what happens to these child processes when the 
+parent thread or process exits. Is a clean shutdown of the child process
+ necessary, or can I rely on it being destroyed and reclaimed by 
+Windows? I have not been able to find an answer to this.</p>         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/shimshonw/" title="" class="communityContentAnnotationAvatar"><img src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/avatar_010.jpg" alt="" height="34" width="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/shimshonw/">                         ShimshonW                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>10/4/2013</span>                                                                                 </div>             </div>         </div>     </div><div class="communityContentAnnotation">         <a name="16"></a>         <h3>             Reading line by line         </h3>         <div class="communityContentAnnotationBody">             <p></p><br><p>How can Read from Pipe line by line using ReadFile.<br>I wasn't able to convert g_hChildStd_OUT_Rd to FILE* type so that i can use the fgets function.<br></p><br><p><br>  <br><br></p>         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/wissem%20boussetta/" title="" class="communityContentAnnotationAvatar"><img src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/avatar_014.jpg" alt="" height="34" width="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/wissem%20boussetta/">                         Wissem BOUSSETTA                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>5/7/2013</span>                                                                                 </div>             </div>         </div>     </div><div class="communityContentAnnotation">         <a name="15"></a>         <h3>             Fixing endless wait on read         </h3>         <div class="communityContentAnnotationBody">             <p>After CreateChildProcess(); you need to close write handle of pipe. Something like:</p><br><p>&nbsp;&nbsp; CreateChildProcess();</p><br><p>&nbsp;&nbsp; CloseHandle(g_hChildStd_OUT_Wr);</p><br><p>&nbsp;&nbsp; ReadFromPipe(); </p><br><p>&nbsp;&nbsp; CloseHandle(g_hChildStd_OUT_Rd);</p><br><p>I only read from g_hChildStd_OUT_Rd and wirte to nothing so your results may vary. </p><br><p></p>         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/eccenux/" title="" class="communityContentAnnotationAvatar"><img src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/avatar_012.jpg" alt="" height="34" width="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/eccenux/">                         Eccenux                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>10/26/2012</span>                                                                                 </div>             </div>         </div>     </div><div class="communityContentAnnotation">         <a name="14"></a>         <h3>             Readfile error         </h3>         <div class="communityContentAnnotationBody">             <p>when read pipe got nothing and readfile , this program exit. </p><br><p>is there any way to check the state of Pipe before Readfile()? </p><br><p></p>         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/taehoon%20oh/" title="" class="communityContentAnnotationAvatar"><img src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/avatar.jpg" alt="" height="34" width="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/taehoon%20oh/">                         Taehoon Oh                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>7/29/2012</span>                                                                                 </div>             </div>         </div>     </div><div class="communityContentAnnotation">         <a name="13"></a>         <h3>             SetHandleInformation flags         </h3>         <div class="communityContentAnnotationBody">             <p>I
+ didn't test out this specific example. But in my experience with 
+redirecting the standard input and output handles with CreateProcess, 
+you have to set the last two arguments to HANDLE_FLAG_INHERIT for 
+SetHandleInformation. So after using CreatePipe, call 
+SetHandleInformation(thehandle, HANDLE_FLAG_INHERIT, 
+HANDLE_FLAG_INHERIT).</p>         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/markswoope/" title="" class="communityContentAnnotationAvatar"><img src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/avatar_003.jpg" alt="" height="34" width="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/markswoope/">                         MarkSwoope                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>6/21/2012</span>                                                                                 </div>             </div>         </div>     </div><div class="communityContentAnnotation">         <a name="12"></a>         <h3>             Missing close statements         </h3>         <div class="communityContentAnnotationBody">
+             Parent process needs to close handles that it passes to 
+child process after the CreateProcess() call. Not doing so will cause 
+the parent to wait forever on ReadFile().         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/jim%20eberle/" title="" class="communityContentAnnotationAvatar"><img src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/avatar_015.jpg" alt="" height="34" width="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/jim%20eberle/">                         Jim Eberle                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>6/2/2012</span>                                                                                 </div>             </div>         </div>     </div><div class="communityContentAnnotation">         <a name="11"></a>         <h3>             Even stranger behaviour... please Microsoft tell us what lies behind this         </h3>         <div class="communityContentAnnotationBody">             <p>Further to my previous post, this example, exactly as it is written here, does not really work.</p><br><p>1. The parent does not terminate.</p><br><p>2.
+ The message from the child by printf("\n ** This is a message from the 
+child process. ** \n") appears at the parent AFTER the contents of the 
+file (which is output by the child BEFORE the message)! So, it would 
+seem that printf(...) is actually writing to a different stream 
+than&nbsp;WriteFile(hStdout,...).</p><br><p>What on earth is going on here?<br>I am running this on Windows7 (64), using Visual Studio 10.</p>         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/timgclark/" title="" class="communityContentAnnotationAvatar"><img src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/avatar_013.jpg" alt="" height="34" width="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/timgclark/">                         timgclark                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>4/6/2012</span>                                                                                 </div>             </div>         </div>     </div><div class="communityContentAnnotation">         <a name="10"></a>         <h3>             This *does not work* properly         </h3>         <div class="communityContentAnnotationBody">             <p>If the parent program wants to fully control the child program, this does NOT work - it just hangs up.</p><br><p>That
+ is, the parent wants to behave like a human would if the child program 
+was simply run in a console, seeing output, typing in corresponding 
+input, ... and so on.</p><br><p>It's obvious that cmd.exe does this correcly - the question is HOW DOES IT DO IT???</p><br><p>This
+ is essential for creating software that uses third-party command line 
+tools that require interaction in a programmatic way. For example, I am 
+creating Automatic Test software for testing electronic components; the 
+tools from the semiconductor manufacturers are often of a command-line 
+variety.</p><br><p>PLEASE - can someone at Microsoft tell us how to do this so that it works?</p><br><p></p><br><p></p>         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/timgclark/" title="" class="communityContentAnnotationAvatar"><img src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/avatar_013.jpg" alt="" height="34" width="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/timgclark/">                         timgclark                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>4/6/2012</span>                                                                                 </div>             </div>         </div>     </div><div class="communityContentAnnotation">         <a name="9"></a>         <h3>             setvbuf()         </h3>         <div class="communityContentAnnotationBody">
+             If you have too many printf()s to fflush you can just kill 
+the in-process buffering at the program entry point: &nbsp; &nbsp; 
+&nbsp;&nbsp;<span>setvbuf(stdout,NULL,_IONBF,0); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span><span>setvbuf(stderr,NULL,_IONBF,0);</span></span>         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/codesf/" title="" class="communityContentAnnotationAvatar"><img src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/avatar_005.jpg" alt="" height="34" width="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/codesf/">                         CodeSF                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>5/15/2011</span>                                                                                 </div>             </div>         </div>     </div><div class="communityContentAnnotation">         <a name="8"></a>         <h3>             CreateProcess and inheriting handles in multithreaded apps - design flaw         </h3>         <div class="communityContentAnnotationBody">             Warning: CreateProcess design flaw under multithreaded app that freq. starts child process. <br><br>http://support.microsoft.com/kb/315939 -<br>PRB: Child Inherits Unintended Handles During CreateProcess Call <br><br>This
+ also doesn't fix in all sutialtion, because (eg. third party) dll's 
+also can start child processes, and somethimes you may not be able to 
+protect it by critical section (eg. if dll starts child processes in 
+separate thread).<br><br>Not a really big problem for most applications,
+ but this should be noticed. Also thisproblem is workarounded/fixed in 
+Vista+ by using STARTUPINFOEX where you can add list of inherited 
+handled to lpAttributeList (but your whole app/dlls must use this)      
+   </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/thomas%20lee/" title="" class="communityContentAnnotationAvatar"><img src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/avatar_007.jpg" alt="" height="34" width="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/thomas%20lee/">                         Thomas Lee                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>6/6/2010</span>                                                                                 </div>             </div>         </div>     </div><div class="communityContentAnnotation">         <a name="7"></a>         <h3>             Emulating console behaviour         </h3>         <div class="communityContentAnnotationBody">             What, if the child process is some lagacy program, that I can't change?<br><br><br>When
+ started on a console (cmd.exe) it behaves just fine. But when 
+redirected, using pipes, the child process *itself* buffers its output 
+until either the buffer is full, in which case all buffered content is 
+written out in one large chunk or the process exits, in which case 
+closing stdout implies a fflush.<br><br><br>This is beacuse the MS C-Runtime (and 99% of all the programs out there use that) does something like:<br><br><pre>DWORD isdev = GetFileType(hStdout);<br><br>if (isdev == FILE_TYPE_CHAR)<br>    // Handle is from a console or a printer -&gt; don't buffer output<br>else if (isdev == FILE_TYPE_PIPE)<br>    // Handle is not from a console or a printer -&gt; do buffer output</pre><p>The trick would be now to create a pipe handle (or any other handle, for that matter) that has FILE_TYPE_CHAR.</p><p>If anyone knows how to do that, I would be more than happy to hear it!</p>         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/wkleinschmit/" title="" class="communityContentAnnotationAvatar"><img src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/avatar_008.jpg" alt="" height="34" width="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/wkleinschmit/">                         WKleinschmit                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>11/5/2009</span>                                                                                 </div>             </div>         </div>     </div><div class="communityContentAnnotation">         <a name="5"></a>         <h3>             Output is not captured until child process ends (resolved)         </h3>         <div class="communityContentAnnotationBody">             <p>(Follows my previous post)<br><br>With
+ some experiments, I found the output is buffered at child side's STDOUT
+ with every 4096 bytes.  So, I add a "fflush(stdout)" after printf(), 
+the output redirect to parent without problem then.</p><br><p></p><br><p>BreadPan  3/26/2009</p>         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/breadpan/" title="" class="communityContentAnnotationAvatar"><img src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/avatar_016.jpg" alt="" height="34" width="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/breadpan/">                         breadpan                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>3/26/2009</span>                                                                                 </div>             </div>         </div>     </div><div class="communityContentAnnotation">         <a name="4"></a>         <h3>             Output is not captured until child process ends         </h3>         <div class="communityContentAnnotationBody">             <p>Hi All,<br><br>Same
+ thing LB encountered happens on me. For test purpose, I even write a 
+very simple DOS program as below and built by MINGW gcc to be the child 
+process.<br><br>#include &lt;windows.h&gt;</p><br><p>main(void)<br>{<br>printf("Start test.c");<br>Sleep(10000); //Wait 10 seconds<br>}<br><br>Parent side receives the printf string after 10 seconds while the child terminates itself.<br><br>However,
+ if I replace the child with "ping 127.0.0.1 -t", parent continuously 
+receives the ping result every second as expected. Maybe someone can 
+shed the light on this.<br><br>BreadPan</p>         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/breadpan/" title="" class="communityContentAnnotationAvatar"><img src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/avatar_016.jpg" alt="" height="34" width="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/breadpan/">                         breadpan                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>3/26/2009</span>                                                                                 </div>             </div>         </div>     </div><div class="communityContentAnnotation">         <a name="1"></a>         <h3>             Thread Deadlock         </h3>         <div class="communityContentAnnotationBody">
+             According to some info I've come across elsewhere, having 
+the same non-async pipe for std out and std err causes a thread 
+deadlock. I've seen it happen in Vista on code that runs flawlessly in 
+XP.<br>         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/vvanders/" title="" class="communityContentAnnotationAvatar"><img src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/avatar_002.jpg" alt="" height="34" width="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/vvanders/">                         vvanders                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>9/29/2008</span>                                                                                 </div>             </div>         </div>     </div></div>
+</div>
+
+
+
+
+<div class="libraryMemberFilter">
+    <div class="filterContainer">
+        <span>Show:</span>
+        <label>
+            <input class="libraryFilterInherited" checked="checked" value="Inherit" type="checkbox">Inherited
+        </label>
+        <label>
+            <input class="libraryFilterProtected" checked="checked" value="Protected" type="checkbox">Protected
+        </label>
+    </div>
+</div>
+    
+<input id="libraryMemberFilterEmptyWarning" value="There are no members available with your current filter settings." type="hidden">
+
+
+ 
+</div>
+
+
+
+
+            </div>
+            <div class="clear"></div>
+
+            
+    
+<input name="__RequestVerificationToken" value="RKeiqpw-XWWVIZMz7B1fNl42iSCtzVrkdK5WEqqQwy6sc0ZfC15CxxrrKSQf9fM6CZcQgDlQD8iVppwL0QQRYKApss81" type="hidden">
+<input id="ratingSubmitUrl" value="https://msdn.microsoft.com/en-us/library/feedback/add/ms682499(v=vs.85).aspx" type="hidden">
+<input id="isTopicRated" value="false" type="hidden">
+
+
+    
+
+
+    <div id="ux-footer" class="ltr">
+        
+            <div id="footerSock">
+                <div id="footerSockInner">
+                    <a name="feedback"></a>
+                    <div data-fragmentname="Survey" id="Fragment_Survey" xmlns="http://www.w3.org/1999/xhtml"></div>
+
+<div class="rating">
+    <div id="ratingSection1">
+        <div class="title">
+            Was this page helpful?
+        </div>
+        <div class="description">
+            Your feedback about this content is important.<br>Let us know what you think.
+        </div>
+        <div class="buttons">
+            <button class="button" id="ratingYes">Yes</button>
+            <button class="button" id="ratingNo">No</button>
+        </div>
+        <input id="ratingValue" value="" type="hidden">
+    </div>
+    <div id="ratingSection2">
+        <div class="title">
+            Additional feedback?
+        </div>
+        <textarea id="ratingText" rows="6" cols="" maxlength="1500"></textarea>
+        <div class="counter right">
+            <span id="feedbackTextCounter">1500</span> characters remaining
+        </div>
+        <div class="buttons left">
+            <button class="button" id="ratingSubmit">Submit</button>
+            <button class="button" id="ratingSkipThis">Skip this</button>
+        </div>
+    </div>
+    <div id="ratingSection3">
+        <div class="title">
+            Thank you!
+        </div>
+        <div class="description">
+            We appreciate your feedback.
+        </div>
+    </div>
+    
+    
+    <div id="contentFeedbackQAContainer" style="display: none;"></div>
+</div>
+    
+
+                    <div data-fragmentname="SockLinks" id="Fragment_SockLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <ul class="links">
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?LinkId=317809" id="SockLinks_726_11" xmlns="http://www.w3.org/1999/xhtml">Find us on Facebook</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?LinkId=317811" id="SockLinks_726_12" xmlns="http://www.w3.org/1999/xhtml">Follow us on Twitter</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?linkid=393788" id="SockLinks_726_42" xmlns="http://www.w3.org/1999/xhtml">Read the blog</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        <div id="footerContainer">
+            <div id="fourColumnFooter">
+                <div data-fragmentname="Column1" id="Fragment_Column1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">What's new</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?LinkId=534183" id="Column1_726_13" xmlns="http://www.w3.org/1999/xhtml">Windows apps</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?LinkId=534184" id="Column1_726_17" xmlns="http://www.w3.org/1999/xhtml">Game apps</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?LinkId=534185" id="Column1_726_16" xmlns="http://www.w3.org/1999/xhtml">Desktop applications</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?LinkId=534186" id="Column1_726_47" xmlns="http://www.w3.org/1999/xhtml">Windows IoT</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?LinkId=534187" id="Column1_726_15" xmlns="http://www.w3.org/1999/xhtml">Microsoft Edge</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?LinkId=534188" id="Column1_726_56" xmlns="http://www.w3.org/1999/xhtml">Windows Hardware</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+                <div data-fragmentname="Column2" id="Fragment_Column2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Related developer sites</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=394423" id="Column2_726_18" xmlns="http://www.w3.org/1999/xhtml">Microsoft Azure</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=282086" id="Column2_726_48" xmlns="http://www.w3.org/1999/xhtml">OneDrive</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=282089" id="Column2_726_20" xmlns="http://www.w3.org/1999/xhtml">Visual Studio</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285623" id="Column2_726_19" xmlns="http://www.w3.org/1999/xhtml">.NET Framework</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?LinkId=400474" id="Column2_726_49" xmlns="http://www.w3.org/1999/xhtml">Windows Embedded</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=282087" id="Column2_726_22" xmlns="http://www.w3.org/1999/xhtml">Windows Server</a>
+          </li>
+          <li>
+            <a href="https://msdn.microsoft.com/enable/" id="Column2_726_55" xmlns="http://www.w3.org/1999/xhtml">Accessibility hub</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+                <div data-fragmentname="Column3" id="Fragment_Column3" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Downloads and tools</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?LinkId=534193" id="Column3_726_29" xmlns="http://www.w3.org/1999/xhtml">Visual Studio 2013</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=328183" id="Column3_726_28" xmlns="http://www.w3.org/1999/xhtml">Windows SDK</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?LinkId=534189" id="Column3_726_27" xmlns="http://www.w3.org/1999/xhtml">Windows 10 tools preview</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?LinkID=280677" id="Column3_726_51" xmlns="http://www.w3.org/1999/xhtml">Code samples</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?LinkId=534236" id="Column3_726_54" xmlns="http://www.w3.org/1999/xhtml">Windows Store badges</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280676" id="Column3_726_30" xmlns="http://www.w3.org/1999/xhtml">More downloads</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+                <div data-fragmentname="Column4" id="Fragment_Column4" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Essentials</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?LinkId=534191" id="Column4_726_52" xmlns="http://www.w3.org/1999/xhtml">Get a dev account</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?LinkID=246847" id="Column4_726_57" xmlns="http://www.w3.org/1999/xhtml">App Developer Agreement</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?LinkId=534192" id="Column4_726_53" xmlns="http://www.w3.org/1999/xhtml">API reference (Windows apps)</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285627" id="Column4_726_35" xmlns="http://www.w3.org/1999/xhtml">API reference (Windows desktop)</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?LinkId=534190" id="Column4_726_36" xmlns="http://www.w3.org/1999/xhtml">Videos</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?LinkId=534194" id="Column4_726_37" xmlns="http://www.w3.org/1999/xhtml">Community and support</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?LinkId=534195" id="Column4_726_45" xmlns="http://www.w3.org/1999/xhtml">MSDN subscription management</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+            </div>
+
+            <div id="baseFooterLogos">
+                <span class="microsoftlogo" title="Microsoft"></span>
+                <a href="https://msdn.microsoft.com/en-us" class="msdnlogo" title="MSDN"></a>
+            </div>
+        
+            <div id="baseFooter">
+                <div id="FooterCopyright">© 2015 Microsoft</div>
+                <div data-fragmentname="BaseFooter" id="Fragment_BaseFooter" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <ul class="links horizontal">
+      <li>
+        <a href="http://go.microsoft.com/fwlink/?LinkId=248681" id="BaseFooter_35351_3" xmlns="http://www.w3.org/1999/xhtml">Privacy and Cookies</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?linkid=248155" id="BaseFooter_35351_1" xmlns="http://www.w3.org/1999/xhtml">Terms of Use</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?linkid=248154" id="BaseFooter_35351_2" xmlns="http://www.w3.org/1999/xhtml">Trademarks</a>
+      </li>
+    </ul>
+  </div>
+</div>  
+                  
+                        
+    
+    <span id="selectLocaleFromPopUp">
+        <div class="locale-selector" style="position: relative">
+            <a class="current-locale" href="javascript:void(0)">
+                <span class="text">English</span>
+                <span class="gear"></span>
+            </a>
+            <div class="locale-selection-panel site-flag site-flag-lang" style="top: -245px; display: none;">
+                <div class="content">
+                    <table class="all-locales" autogeneratecolumns="false" allowpaging="false" allowsorting="false" style="border-collapse: collapse;" cellspacing="0">
+                        <tbody>
+                            <tr>
+
+
+                                    <td><a title="Deutsch" href="https://msdn.microsoft.com/en-us/?action=SelectLocale&amp;currentLocale=en-us&amp;newLocale=de-de&amp;fromPage=/en-us/library/windows/desktop/ms682499%28v=vs.85%29.aspx" class="locale-link">Deutsch</a></td>
+                                    <td><a title="English" href="https://msdn.microsoft.com/en-us/?action=SelectLocale&amp;currentLocale=en-us&amp;newLocale=en-us&amp;fromPage=/en-us/library/windows/desktop/ms682499%28v=vs.85%29.aspx" class="locale-link selected">English</a></td>
+                                    <td><a title="Español" href="https://msdn.microsoft.com/en-us/?action=SelectLocale&amp;currentLocale=en-us&amp;newLocale=es-es&amp;fromPage=/en-us/library/windows/desktop/ms682499%28v=vs.85%29.aspx" class="locale-link">Español</a></td>
+                                    <td><a title="Français" href="https://msdn.microsoft.com/en-us/?action=SelectLocale&amp;currentLocale=en-us&amp;newLocale=fr-fr&amp;fromPage=/en-us/library/windows/desktop/ms682499%28v=vs.85%29.aspx" class="locale-link">Français</a></td>
+                                        </tr><tr>
+                                    <td><a title="Italiano" href="https://msdn.microsoft.com/en-us/?action=SelectLocale&amp;currentLocale=en-us&amp;newLocale=it-it&amp;fromPage=/en-us/library/windows/desktop/ms682499%28v=vs.85%29.aspx" class="locale-link">Italiano</a></td>
+                                    <td><a title="日本語" href="https://msdn.microsoft.com/en-us/?action=SelectLocale&amp;currentLocale=en-us&amp;newLocale=ja-jp&amp;fromPage=/en-us/library/windows/desktop/ms682499%28v=vs.85%29.aspx" class="locale-link">日本語</a></td>
+                                    <td><a title="한국어" href="https://msdn.microsoft.com/en-us/?action=SelectLocale&amp;currentLocale=en-us&amp;newLocale=ko-kr&amp;fromPage=/en-us/library/windows/desktop/ms682499%28v=vs.85%29.aspx" class="locale-link">한국어</a></td>
+                                    <td><a title="Português" href="https://msdn.microsoft.com/en-us/?action=SelectLocale&amp;currentLocale=en-us&amp;newLocale=pt-br&amp;fromPage=/en-us/library/windows/desktop/ms682499%28v=vs.85%29.aspx" class="locale-link">Português</a></td>
+                                        </tr><tr class="last">
+                                    <td><a title="Pусский" href="https://msdn.microsoft.com/en-us/?action=SelectLocale&amp;currentLocale=en-us&amp;newLocale=ru-ru&amp;fromPage=/en-us/library/windows/desktop/ms682499%28v=vs.85%29.aspx" class="locale-link">Pусский</a></td>
+                                    <td><a title="简体中文" href="https://msdn.microsoft.com/en-us/?action=SelectLocale&amp;currentLocale=en-us&amp;newLocale=zh-cn&amp;fromPage=/en-us/library/windows/desktop/ms682499%28v=vs.85%29.aspx" class="locale-link">简体中文</a></td>
+                                    <td><a title="繁體中文" href="https://msdn.microsoft.com/en-us/?action=SelectLocale&amp;currentLocale=en-us&amp;newLocale=zh-tw&amp;fromPage=/en-us/library/windows/desktop/ms682499%28v=vs.85%29.aspx" class="locale-link">繁體中文</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="arrow">
+                        &nbsp;</div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+  
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div> 
+
+
+            <div class="footerPrintView">
+                <div class="footerCopyrightPrintView">© 2015 Microsoft</div>
+            </div>
+
+            
+            
+    
+
+
+
+            <input id="MtpsDevice" value="Default" type="hidden">
+
+
+<!--[CDATA[ Third party scripts and code linked to or referenced from this website are licensed to you by the parties that own such code, not by Microsoft.  See ASP.NET Ajax CDN Terms of Use – http://www.asp.net/ajaxlibrary/CDN.ashx. ]]-->
+
+            
+            
+            
+            
+            
+
+
+
+
+
+
+<noscript><div><img alt="DCSIMG" id="Img1" width="1" height="1" src="https://m.webtrends.com/dcsmgru7m99k7mqmgrhudo0k8_8c6m/njs.gif?dcsuri=/nojavascript&amp;WT.js=No" /></div></noscript>
+
+
+
+
+
+
+
+
+<div id="globalRequestVerification">
+    <input name="__RequestVerificationToken" value="zNinxcDBtoyGAuWk6BjD0WoA1AY-XspPhhFR78CyysgjMb8HNLv7JPG1cZ55u-ZKFNQT6znlee2wszV0OAs2K5dzfqA1" type="hidden">
+</div>
+
+
+        </div>
+
+        
+        
+        
+        
+    <script type="text/javascript" class="mtps-injected">
+/*<![CDATA[*/
+(function(window,document){"use strict";function preload(scripts){for(var result=[],script,e,i=0;i<scripts.length;i++)script=scripts[i],script.hasOwnProperty("url")&&(e=document.createElement("script"),e.src=script.url,script.throwaway=e),result.push(script);return result}function inject(scripts,index){var script,elem;if(index>=scripts.length){delete mtps.injectScripts;return}script=scripts[index];elem=document.createElement("script");elem.className="mtps-injected";elem.async=!1;var isLoaded=!1,timeoutId=0,injectNextFnName="",injectNext=elem.onerror=function(){isLoaded||(isLoaded=!0,inject(scripts,index+1),window.clearTimeout(timeoutId),elem.onload=elem.onerror=elem.onreadystatechange=null,injectNextFnName&&delete mtps[injectNextFnName],elem.removeEventListener&&elem.removeEventListener("load",injectNext,!1))};elem.addEventListener?elem.addEventListener("load",injectNext,!1):elem.readyState==="uninitialized"?elem.onreadystatechange=function(){(this.readyState==="loaded"||this.readyState==="complete")&&injectNext()}:elem.onload=injectNext;script.hasOwnProperty("url")?(timeoutId=window.setTimeout(injectNext,12e4),elem.src=script.url):(injectNextFnName="_injectNextScript_"+index,mtps[injectNextFnName]=injectNext,timeoutId=window.setTimeout(injectNext,2e3),elem.text="try {\n"+script.txt+"\n} finally { MTPS."+injectNextFnName+" && MTPS."+injectNextFnName+"(); }");parent.appendChild(elem)}var mtps=window.MTPS||(window.MTPS={}),parent=document.getElementsByTagName("head")[0];mtps.injectScripts=function(scripts){inject(preload(scripts),0)}})(window,document);
+MTPS.injectScripts([
+	{ txt: "/**/\r\n(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { \r\n\t\"image\": \"https://i-msdn.sec.s-msft.com\", \r\n\t\"js\": \"https://i2-msdn.sec.s-msft.com\", \r\n\t\"css\": \"https://i-msdn.sec.s-msft.com\", \r\n\t\"xap\": \"https://msdn.microsoft.com\"\r\n});\r\n/**/" },
+	{ url: "https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js" },
+	{ url: "https://assets.onestore.ms/cdnfiles/onestorerolling-1507-14000/shell/generated/shellservice.v1_2.min.js" },
+	{ url: "https://assets.onestore.ms/cdnfiles/onestorerolling-1507-14000/store/blender/js/blender.js" },
+	{ txt: "var isAuthenticated = (false);\n\n        var ssoProperties = {\n          signedIn: isAuthenticated,\n          signInOutUrl: $(\"#UhfSignInOutLink\").val(),\n        };\n\n        if (isAuthenticated) {\n          ssoProperties.userHasProfile = (false);\n          ssoProperties.profileText = \":ProfileText:\";\n          ssoProperties.createViewProfileText = \":CreateViewMSDNProfileText:\";\n          ssoProperties.createViewProfileLink = \":ProfileLink:\";\n          ssoProperties.MsaMemberName = \":MsaMemberName:\";\n          ssoProperties.MsaFirstName = \":MsaFirstName:\";\n          ssoProperties.MsaLastName = \":MsaLastName:\";\n          ssoProperties.MsaCID = \":MsaCID:\";\n        }" },
+	{ txt: "//\n  var literalNormalizedUrl = \u0027/en-us/library/windows/desktop/ms682499(l=en-us,v=vs.85).aspx\u0027;\n  var wt_nvr_ru = \u0027WT_NVR_RU\u0027;\n  var wt_fpcdom = \u0027.microsoft.com\u0027;\n  var wt_domlist = \u0027msdn.microsoft.com\u0027;\n  var wt_pathlist = \u0027\u0027;\n  var wt_paramlist = \u0027DCSext.mtps_devcenter\u0027;\n  var wt_siteid = \u0027MSDN\u0027;\n  var gDomain = \u0027m.webtrends.com\u0027;\n  var gDcsId = \u0027dcsmgru7m99k7mqmgrhudo0k8_8c6m\u0027;\n  var gFpc = \u0027WT_FPC\u0027;\n\n\n\n  if (document.cookie.indexOf(gFpc + \"=\") == -1) {\n    var wtidJs = document.createElement(\"script\");\n    wtidJs.src = \"//\" + gDomain + \"/\" + gDcsId + \"/wtid.js\";\n    document.getElementsByTagName(\"head\")[0].appendChild(wtidJs);\n  }\n\n\n\n  var detectedLocale = \u0027en-us\u0027;\n  var wtsp = \u0027_msdn_\u0027;\n  var gTrackEvents = \u00270\u0027;\n/**/" },
+	{ txt: "//\n\n            window.appInsightsId = \u002760854590-027a-4ae4-98be-2741a40f355f\u0027;\n            //" },
+	{ url: "https://i2-msdn.sec.s-msft.com/Combined.js?resources=0:Utilities,1:UhfHeader,2:Rating,0:Topic,3:webtrendsscript,4:WEDCS,0:AppInsightsPerf,5:Toc,1:TocDropDown;/Areas/Epx/Content/Scripts:0,/Areas/Epx/Themes/Windows/Content:1,/Areas/Epx/Themes/Base/Content:2,/Areas/Global/Content/Webtrends/resources:3,/Areas/Library/Themes/Base/Content:4,/Areas/Library/Content:5\u0026amp;hashKey=0FD8030E50267476652B3FEBA79EE830\u0026amp;v=D12A0552092E62A89EDC5A917F272F74" },
+	{ url: "https://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js" },
+	{ url: "https://i2-msdn.sec.s-msft.com/Combined.js?resources=0:CommunityContent,0:LibraryMemberFilter,1:Toc_Fixed,2:SelectLocaleFromPopUp,1:CodeSnippet,1:TopicNotInScope,1:CollapsibleArea,1:VersionSelector,1:SurveyBroker;/Areas/Library/Content:0,/Areas/Epx/Content/Scripts:1,/Areas/Epx/Themes/Base/Content:2\u0026amp;hashKey=7806B2478E0DC4023BB82CB6D0A73A70\u0026amp;v=D12A0552092E62A89EDC5A917F272F74" },
+	{ txt: "$(document).ready(function() {\n        try {\n            var token = $(\"#globalRequestVerification input[name=\u0027__RequestVerificationToken\u0027]\").clone();\n            $(\"#siteFeedbackForm\").append(token);\n        } catch(err) {\n            \n        }\n    });" }
+]);
+
+/*]]>*/
+</script>
+<script src="Creating%20a%20Child%20Process%20with%20Redirected%20Input%20and%20Output%20%28Windows%29_files/broker-config.js"></script><div id="meControlDropdown" class="msame_Drop_root" style="display: none;"><div class="msame_Drop_topb"></div><div class="msame_Drop_content"><div class="msame_Drop_active"></div><div class="msame_Drop_account"></div><div class="msame_Drop_links" style="display: none;"><div class="msame_Drop_links_list"></div></div><div class="msame_Drop_signIn"><div id="msame_si0" class="msame_Drop_SI"><a href="#" class="msame_TxtTrunc">Sign in with another account</a></div></div><div class="msame_Drop_signOut"></div><div class="msame_Drop_accts" style="display: none;"><div class="msame_Drop_sep"></div><div class="msame_Drop_accts_list"></div></div></div></div></body></html>

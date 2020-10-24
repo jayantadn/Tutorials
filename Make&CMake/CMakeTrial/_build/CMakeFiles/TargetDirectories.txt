@@ -1,0 +1,3 @@
+D:/Tutorials/CMake/CMakeTrial/_build/CMakeFiles/test.dir
+D:/Tutorials/CMake/CMakeTrial/_build/CMakeFiles/ALL_BUILD.dir
+D:/Tutorials/CMake/CMakeTrial/_build/CMakeFiles/ZERO_CHECK.dir

@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+<title>Excel VBA String Manipulation - Easy Excel Macros</title>
+<meta name="keywords" content="excel vba string, excel vba string manipulation, string variables, join strings, excel vba string length, excel vba string handling, excel vba string mid, excel vba string right, excel vba string manipulation, excel vba string instr, excel vba string concatenate, excel vba string variable, excel vba, excel visual basic, excel macro, excel vba tutorial, learn excel vba, excel vba examples">
+<meta name="description" content="There are many functions in Excel VBA we can use to manipulate strings. Below you can find a review of the most important functions.">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="robots" content="index, follow">
+<meta content="EN-US" name="LANGUAGE">
+<link href="Excel%20VBA%20String%20Manipulation%20-%20Easy%20Excel%20Macros_files/style.css" rel="stylesheet" type="text/css" media="screen">
+<style type="text/css">
+<!--
+.style3 {color: #339CCB}
+-->
+</style>
+<script src="Excel%20VBA%20String%20Manipulation%20-%20Easy%20Excel%20Macros_files/ga.js" async="" type="text/javascript"></script><script async="" src="Excel%20VBA%20String%20Manipulation%20-%20Easy%20Excel%20Macros_files/cbgapi.loaded_0"></script><script gapi_processed="true" type="text/javascript" src="Excel%20VBA%20String%20Manipulation%20-%20Easy%20Excel%20Macros_files/plusone.js"></script>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h2><a href="http://www.excel-vba-easy.com/"><img src="Excel%20VBA%20String%20Manipulation%20-%20Easy%20Excel%20Macros_files/excel-vba.jpg" alt="Excel VBA" title="Excel VBA" border="0" height="40" width="44">excel vba</a></h2>
+			  <p>#1 Source for <a href="http://www.excel-vba-easy.com/">Excel macros</a> on the net</p>
+			</div>
+            
+			<div id="menu">
+				<ul>
+					<li><a href="http://www.excel-vba-easy.com/">Excel VBA</a></li>
+				  <li><a href="http://www.excel-vba-easy.com/excel-macro.html">Macro?</a></li>
+				  <li><a href="http://www.excel-vba-easy.com/excel-vba-basics.html">Basics</a></li>
+				  <li class="current_page_item"><a href="http://www.excel-vba-easy.com/excel-vba-programming.html">Programming</a></li>
+				  <li><a href="http://www.excel-vba-easy.com/excel-vba-controls.html">Controls</a></li>
+                  <li class="pro"><a href="http://www.excel-vba-easy.com/excel-vba-programs.html" rel="nofollow">100 Examples</a></li>
+                  <li><a href="http://www.excel-vba-easy.com/contact-excel-vba-easy.html" rel="nofollow">Ask us</a></li>
+			  </ul>
+			</div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+				<div id="content">
+<div class="post">
+						<h1 class="title" style="float:left">String Manipulation</h1>
+						<table>
+                          <tbody><tr>
+                            <td style="padding-left:7px; padding-top:11px"><div id="___plusone_0" style="height: 24px; width: 170px; display: inline-block; text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline;"><iframe title="+1" data-gapiattached="true" allowtransparency="true" src="Excel%20VBA%20String%20Manipulation%20-%20Easy%20Excel%20Macros_files/fastbutton.htm" name="I0_1363889935959" id="I0_1363889935959" vspace="0" tabindex="0" style="position: static; top: 0px; width: 170px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div></td>
+                          </tr>
+                        </tbody></table>
+
+			<div style="clear: both;">&nbsp;</div>
+<div class="entry">
+<p><span class="style3"><a href="#string-manipulation-join">Join Strings</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#string-manipulation-left">Left</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#string-manipulation-right">Right</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#string-manipulation-length">Len</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#string-manipulation-instr">Instr</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#string-manipulation-mid">Mid</a></span></p>  
+ <p>There are many functions in Excel VBA we can use to <strong>manipulate</strong> <strong>strings</strong>. Below you can find a review of the most important functions.</p>
+ <p>Place a <a href="http://www.excel-vba-easy.com/vba-how-to-create-macro-excel.html">command button</a>
+ on your worksheet and add the code lines described in this chapter. To 
+execute the code lines, click the command button on the sheet.</p>
+ <h3><a name="string-manipulation-join" id="string-manipulation-join"></a>Join Strings</h3>
+ <p>We use the &amp; operator to concatenate (join) strings.</p>
+ <p>Code:</p>
+ <div class="code">
+  <span class="predifined">Dim</span> text1 <span class="predifined">As</span> <span class="predifined">String</span>, text2 <span class="predifined">As</span> <span class="predifined">String</span><br>
+  text1 = "Hi "<br>
+  text2 = "Tim"<br>
+  <br>
+  MsgBox text1 &amp; text2   </div>
+ <br>
+
+ <p>Result:</p>
+ <p><img src="Excel%20VBA%20String%20Manipulation%20-%20Easy%20Excel%20Macros_files/String-manipulation-join.PNG" alt="Join Two Strings" title="Join Two Strings" border="0" height="154" width="154"></p>
+ <h3><a name="string-manipulation-left" id="string-manipulation-left"></a>Left</h3>
+ <p>To extract the leftmost characters from a <strong>string</strong>, use Left.</p>
+ <p>Code:</p>
+ <div class="code">
+ <span class="predifined">Dim</span> text <span class="predifined">As</span> <span class="predifined">String</span><br>
+     text = "example text"<br>
+     <br>
+     MsgBox Left(text, 4)<br>
+   </div>
+ <p><br>
+   Result:</p>
+ <p><img src="Excel%20VBA%20String%20Manipulation%20-%20Easy%20Excel%20Macros_files/String-manipulation-left.PNG" alt="String Manipulation Left Function" title="String Manipulation Left Function" border="0" height="154" width="154"></p>
+ <h3><a></a><a name="string-manipulation-right" id="string-manipulation-right"></a>Right</h3>
+ <p>To extract the rightmost characters from a string, use Right. We can directly insert text in a function as well.</p>
+ <p>Code:</p>
+ <div class="code">MsgBox Right("example text", 2)<br>
+ </div>
+ <p><br>
+   Result:</p>
+ <p><img src="Excel%20VBA%20String%20Manipulation%20-%20Easy%20Excel%20Macros_files/String-manipulation-right.PNG" alt="Right Function" title="Right Function"></p>
+ <h3><a></a><a name="string-manipulation-length" id="string-manipulation-length"></a>Len</h3>
+ <p>To get the length of a string, use Len.</p>
+ <p>Code:</p>
+ <div class="code">MsgBox Len("example text")<br>
+ </div>
+ <p><br>
+   Result:</p>
+ <p><img src="Excel%20VBA%20String%20Manipulation%20-%20Easy%20Excel%20Macros_files/String-manipulation-length.PNG" alt="Len Function" title="Len Function"></p>
+ <p>Note: space (position 8) included!</p>
+ <h3><a></a><a name="string-manipulation-instr" id="string-manipulation-instr"></a>Instr</h3>
+ <p>To find the position of a substring in a string, use Instr.</p>
+ <p>Code:</p>
+ <div class="code">MsgBox Instr("example text", "am") <br>
+ </div>
+ <p><br>
+   Result:</p>
+ <p><img src="Excel%20VBA%20String%20Manipulation%20-%20Easy%20Excel%20Macros_files/String-manipulation-inst.PNG" alt="Instr Function" title="Instr Function"></p>
+ <p>Note: string "am" found at position 3.</p>
+ <h3><a name="string-manipulation-mid" id="string-manipulation-mid"></a>Mid</h3>
+ <p>To extract a substring, starting in the middle of a string, use Mid.</p>
+ <p>Code:</p>
+ <div class="code">MsgBox Mid("example text", 9, 4)<br>
+ </div>
+ <p><br>
+   Result:</p>
+ <p><img src="Excel%20VBA%20String%20Manipulation%20-%20Easy%20Excel%20Macros_files/String-manipulation-mid.PNG" alt="Mid function" title="Mid function"></p>
+ <p>Note: started at position 9 (t) with length 4.</p>
+ <p>Did you find this information helpful? Show your appreciation, vote for us.</p>
+ <p><div id="___plusone_1" style="height: 24px; width: 170px; display: inline-block; text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline;"><iframe title="+1" data-gapiattached="true" allowtransparency="true" src="Excel%20VBA%20String%20Manipulation%20-%20Easy%20Excel%20Macros_files/fastbutton_002.htm" name="I1_1363889935979" id="I1_1363889935979" vspace="0" tabindex="0" style="position: static; top: 0px; width: 170px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div></p>
+ <p>Go to Top: <a href="http://www.excel-vba-easy.com/vba-programming-string-manipulation.html">String Manipulation</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Go to Next Topic: <a href="http://www.excel-vba-easy.com/vba-programming-calculate-excel-visual-basic.html">Calculate</a></p>
+ </div>
+				  </div>
+                  <div class="post">
+					<div style="clear: both;"></div>
+                    <div class="entrylearn">   
+                      <p align="left"><span class="buttonp"> <a href="#">More about string manipulation, Login to the right &gt;&gt;<br>
+                      </a></span>100 easy to follow Excel VBA <a href="http://www.excel-vba-easy.com/excel-vba-programs.html">examples</a>. Limited time-offer: <strike>$39.00</strike> but only $29.00. Ends on 31 March.</p>
+</div>
+				  </div>
+                                    
+              </div>
+				<div id="sidebar">
+                <p>&nbsp;</p>
+				  <ul><li></li>
+                  <li>
+					    <h3><a href="http://www.excel-vba-easy.com/excel-vba-programs.html" rel="nofollow" style="text-decoration:none">Learn more, Get a login &gt;&gt;</a></h3>
+				    </li>
+					  <li><ul>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/reverse-strings.shtml" rel="nofollow">Reverse Strings</a></li>                            
+                      	<li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/separate-strings.shtml" rel="nofollow">Separate Strings</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/count-words.shtml" rel="nofollow">Count Words</a></li>                       
+					  </ul>
+				    </li>
+                    <li></li>
+				  </ul>
+			  </div>
+                <!-- end #sidebar -->
+			  <div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p>Copyright (c) 2010-2013 <a href="http://www.excel-vba-easy.com/">www.excel-vba-easy.com</a>. <a href="http://www.excel-vba-easy.com/vba-programming-string-manipulation.html">Excel VBA String Handling</a>. All rights reserved.<br>
+	<a href="http://www.excel-vba-easy.com/">excel vba</a> | <a href="http://www.excel-vba-easy.com/">macros in excel</a> | <a href="http://www.excel-vba-easy.com/">vba macro</a> | <a href="http://www.excel-vba-easy.com/">excel visual basic</a> | <a href="http://www.excel-easy.com/excel-function-text.html">text functions excel</a> | <a href="http://www.excel-vba-easy.com/">vba for microsoft excel</a>
+</p></div>
+<!-- end #footer -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15754101-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+</body></html>

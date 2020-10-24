@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Amplifier" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAQACAAQAEAQCABAgAgAAAEAAAAAAggAAJAAA=</HashCode>
+      <FileName>Amplifier.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CdPlayer" Collapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAKCAAAAEAAAABAAAAACgAAAAEAAgAAACYAA=</HashCode>
+      <FileName>CdPlayer.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DvdPlayer" Collapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAADCAAAAEAABABCAAAACgAAAAEAAiAAAAYAA=</HashCode>
+      <FileName>DvdPlayer.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HomeTheaterFacade">
+    <Position X="2.5" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>IAAAAACAgAAAAQQAAAAAABggAEAAAAAAAAAgIAAZAgg=</HashCode>
+      <FileName>HomeTheaterFacade.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PopcornPopper" Collapsed="true">
+    <Position X="8.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAACAAAgEAAAABIAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>PopcornPopper.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projector" Collapsed="true">
+    <Position X="10" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EIAAgAAAAACAAAAEAAAABAAKAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Projector.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Screen" Collapsed="true">
+    <Position X="6.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAEBAAABAAAAAAAAAAAAAAgAgAAAAA=</HashCode>
+      <FileName>Screen.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheaterLights" Collapsed="true">
+    <Position X="8.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAACCAAAAEAAAABAAAAAAAAAAAAAAgAAAAAAI=</HashCode>
+      <FileName>TheaterLights.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tuner" Collapsed="true">
+    <Position X="10" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACgQAAACCIAAAEAAAABAAAAAAEAAIAAAAgAAAAAAA=</HashCode>
+      <FileName>Tuner.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

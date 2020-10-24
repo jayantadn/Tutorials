@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+<title>Excel VBA Loop - Easy Excel Macros</title>
+<meta name="keywords" content="excel vba loop, for next loop, loop through a range, loop, double loop, looping, triple loop, loop through one-dimensional range, loop through two-dimensional range, excel visual basic, excel macro, excel vba tutorial, learn excel vba, excel vba examples, do while loop">
+<meta name="description" content="The Excel VBA Loop (or For Next loop) is a very useful programming statement which is often used in Excel VBA. First, we will look at an easy example of how to loop through a one-dimensional range.">
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="Excel%20VBA%20Loop%20-%20Easy%20Excel%20Macros_files/style.css" rel="stylesheet" type="text/css" media="screen">
+<style type="text/css">
+<!--
+body {
+	margin-bottom: -67px;
+}
+.style3 {color: #339CCB}
+-->
+</style>
+<script src="Excel%20VBA%20Loop%20-%20Easy%20Excel%20Macros_files/ga.js" async="" type="text/javascript"></script><script async="" src="Excel%20VBA%20Loop%20-%20Easy%20Excel%20Macros_files/cbgapi.loaded_0"></script><script gapi_processed="true" type="text/javascript" src="Excel%20VBA%20Loop%20-%20Easy%20Excel%20Macros_files/plusone.js"></script>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h2><a href="http://www.excel-vba-easy.com/"><img src="Excel%20VBA%20Loop%20-%20Easy%20Excel%20Macros_files/excel-vba.jpg" alt="Excel VBA" title="Excel VBA" border="0" height="40" width="44">excel vba</a></h2>
+			  <p>#1 Source for <a href="http://www.excel-vba-easy.com/">Excel macros</a> on the net</p>
+			</div>
+            
+			<div id="menu">
+				<ul>
+					<li><a href="http://www.excel-vba-easy.com/">Excel VBA</a></li>
+				  <li><a href="http://www.excel-vba-easy.com/excel-macro.html">Macro?</a></li>
+				  <li><a href="http://www.excel-vba-easy.com/excel-vba-basics.html">Basics</a></li>
+				  <li class="current_page_item"><a href="http://www.excel-vba-easy.com/excel-vba-programming.html">Programming</a></li>
+				  <li><a href="http://www.excel-vba-easy.com/excel-vba-controls.html">Controls</a></li>
+                  <li class="pro"><a href="http://www.excel-vba-easy.com/excel-vba-programs.html" rel="nofollow">100 Examples</a></li>
+                  <li><a href="http://www.excel-vba-easy.com/contact-excel-vba-easy.html" rel="nofollow">Ask us</a></li>
+			  </ul>
+			</div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+				<div id="content">
+					<div class="post">
+						<h1 class="title" style="float:left">Loop</h1>
+						<table>
+                          <tbody><tr>
+                            <td style="padding-left:7px; padding-top:11px"><div id="___plusone_0" style="height: 24px; width: 170px; display: inline-block; text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline;"><iframe title="+1" data-gapiattached="true" allowtransparency="true" src="Excel%20VBA%20Loop%20-%20Easy%20Excel%20Macros_files/fastbutton.htm" name="I0_1363891483332" id="I0_1363891483332" vspace="0" tabindex="0" style="position: static; top: 0px; width: 170px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div></td>
+                          </tr>
+                        </tbody></table>
+
+					  <div style="clear: both;">&nbsp;</div>
+<div class="entry">  
+  <p>The <strong>Excel VBA loop</strong> (or For Next loop) is a very 
+useful programming statement which is often used in Excel VBA. First, we
+ will look at an easy example of how to <strong>loop</strong> through a one-dimensional range.</p>
+  <h3><a name="excel-vba-loop-single" id="excel-vba-loop-single"></a>Single Loop</h3>
+  <p>You can use a single loop to loop through a one dimensional range.</p>
+  <p><img src="Excel%20VBA%20Loop%20-%20Easy%20Excel%20Macros_files/single-excel-vba-loop-example.png" alt="Single Excel VBA Loop Example" title="Single Excel VBA Loop Example" height="125" width="474"></p>
+  <p>Place a <a href="http://www.excel-vba-easy.com/vba-how-to-create-macro-excel.html">command button</a> on your worksheet and add the following code lines:</p>
+  <div class="code"><span class="predifined">Dim</span> total <span class="predifined">As</span> <span class="predifined">Integer</span>, i <span class="predifined">As</span> <span class="predifined">Integer</span><br>
+    total = 0<br>
+    <br>
+    <span class="predifined">For</span> i = 1 <span class="predifined">To</span> 4<br>
+    &nbsp;&nbsp;&nbsp;<span class="comment">'ignore the two code lines below, they are only added to illustrate the loop</span><br>
+&nbsp;&nbsp;&nbsp;
+Cells(i, 1).Select<br>
+&nbsp;&nbsp;&nbsp;
+MsgBox "i = " &amp; i<br>
+<br>
+&nbsp;&nbsp;&nbsp;
+<span class="predifined">If</span> Cells(i, 1).Value &gt; 40 <span class="predifined">Then</span> total = total + 1<br>
+<span class="predifined">Next</span> i<br>
+<br>
+MsgBox total &amp; " values higher than 40"<br>
+  </div>
+  <br>
+  <p>1. The first two code lines declare two variables of type Integer. One named total and one named i.</p>
+  <p>2. Next, we initialize the variable total with value 0.</p>
+  <p>3. Add the For Next loop which runs from 1 to 4.</p>
+  <p>4. Create an If Then statement which increments total by 1  if a value is higher than 40.</p>
+  <p>5. Finally, use a message box to display the total number of values higher than 40.</p>
+  <p>Result when you click the command button on the sheet a few times:</p>
+  <p><img src="Excel%20VBA%20Loop%20-%20Easy%20Excel%20Macros_files/single-loop-first-step.png" alt="Single Loop, First Run" title="Single Loop, First Run" height="205" width="282"></p>
+  <p><img src="Excel%20VBA%20Loop%20-%20Easy%20Excel%20Macros_files/single-loop-second-step.png" alt="Single Loop, Second Run" title="Single Loop, Second Run" height="205" width="282"></p>
+  <p><img src="Excel%20VBA%20Loop%20-%20Easy%20Excel%20Macros_files/single-loop-third-step.png" alt="Single Loop, Third Run" title="Single Loop, Third Run" height="205" width="282"></p>
+  <p><img src="Excel%20VBA%20Loop%20-%20Easy%20Excel%20Macros_files/single-loop-fourth-step.png" alt="Single Loop, Fourth Run" title="Single Loop, Fourth Run" height="205" width="282"></p>
+  <p>Explanation: The code lines between For and Next will be executed 
+four times. For i = 1, 2, 3 and 4. For i =1, Excel VBA fills in 1 for i 
+and gets Cells(1,1).value. This is the first value. When Excel VBA 
+reaches Next i, it jumps back to the For statement increasing i with 1. 
+For i = 2, Excel VBA fills in 2 for i and gets Cells(1,2).value. This is
+ the second value. For i = 2, Excel VBA also increments total by 1  
+because the second value is higher than 40. For i = 3, etc.</p>
+  <p>Excel VBA  loops through the code four times and after that leaves the For Next loop and executes the rest of the code.</p>
+  <p>Result:</p>
+  <p><img src="Excel%20VBA%20Loop%20-%20Easy%20Excel%20Macros_files/single-excel-vba-loop-result.png" alt="Single Loop Result" title="Single Loop Result" height="154" width="188"></p>
+  <p>Note: it is good practice to always indent (tab) the code between the words For and Next. This makes your code easier to read.</p>
+  <p>Did you find this information helpful? Show your appreciation, vote for us.</p>
+  <p><div id="___plusone_1" style="height: 24px; width: 170px; display: inline-block; text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline;"><iframe title="+1" data-gapiattached="true" allowtransparency="true" src="Excel%20VBA%20Loop%20-%20Easy%20Excel%20Macros_files/fastbutton_002.htm" name="I1_1363891483351" id="I1_1363891483351" vspace="0" tabindex="0" style="position: static; top: 0px; width: 170px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div></p>
+  <p>Go to Top: <a href="http://www.excel-vba-easy.com/vba-programming-excel-vba-loop.html">Loop</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Go to Next Topic: <a href="http://www.excel-vba-easy.com/vba-programming-logical-operators.html">Logical Operators</a></p>
+  </div>
+				  </div>
+                  <div class="post">
+					<div style="clear: both;"></div>
+                    <div class="entrylearn">
+                      <p align="left"><span class="buttonp"> <a href="#">Learn more about loops, Login to the right &gt;&gt;<br>
+                      </a></span>100 easy to follow Excel VBA <a href="http://www.excel-vba-easy.com/excel-vba-programs.html">examples</a>. Limited time-offer: <strike>$39.00</strike> but only $29.00. Ends on 31 March.</p>
+                    </div>
+				  </div>
+                  
+              </div>
+                  <div id="sidebar">
+                  <p>&nbsp;</p>
+                <ul><li>
+				      <h3><a href="http://www.excel-vba-easy.com/excel-vba-programs.html" rel="nofollow" style="text-decoration:none">Learn more, Get a login &gt;&gt;</a></h3>
+				    </li>
+					  <li><ul> 
+                      	<li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/double-loop.shtml" rel="nofollow">Double Loop</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/triple-loop.shtml" rel="nofollow">Triple Loop</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/do-while-loop.shtml" rel="nofollow">Do While Loop</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/do-until-loop.shtml" rel="nofollow">Do Until Loop</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/loop-through-defined-ranges.shtml" rel="nofollow">Loop through Defined Ranges</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/loop-through-entire-column.shtml" rel="nofollow">Loop through Entire Column</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/create-a-pattern.shtml" rel="nofollow">Create a Pattern</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/sort-numbers.shtml" rel="nofollow">Sort Numbers</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/tasks-on-schedule.shtml" rel="nofollow">Tasks on Schedule</a></li>  
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/randomly-sort-data.shtml" rel="nofollow">Randomly Sort Data</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/remove-duplicates.shtml" rel="nofollow">Remove Duplicates</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/count-words.shtml" rel="nofollow">Count Words</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/sales-calculator.shtml" rel="nofollow">Sales Calculator</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/loop-through-books-sheets.shtml" rel="nofollow">Loop through Books and Sheets</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/files-in-a-directory.shtml" rel="nofollow">Files in a Directory</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/import-sheets.shtml" rel="nofollow">Import Sheets</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/knapsack-problem.shtml" rel="nofollow">Knapsack Problem</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/loop-through-controls.shtml" rel="nofollow">Loop through Controls</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/controls-collection.shtml" rel="nofollow">Controls Collection</a></li>       	
+                        </ul>
+			      </li>
+                      <li></li>
+	            </ul>
+	          </div>
+                  <!-- end #sidebar -->
+			  <div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p>Copyright (c) 2010-2013 <a href="http://www.excel-vba-easy.com/">www.excel-vba-easy.com</a>. <a href="http://www.excel-vba-easy.com/vba-programming-excel-vba-loop.html">Excel VBA Loop</a>. All rights reserved.<br>
+	<a href="http://www.excel-vba-easy.com/">excel vba</a> | <a href="http://www.excel-vba-easy.com/">macros in excel</a> | <a href="http://www.excel-vba-easy.com/">vba macro</a> | <a href="http://www.excel-vba-easy.com/">excel visual basic</a> | <a href="http://www.excel-easy.com/excel-function-vlookup.html">vlookup excel</a> | <a href="http://www.excel-vba-easy.com/">vba for microsoft excel</a>
+</p></div>
+<!-- end #footer -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15754101-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+</body></html>

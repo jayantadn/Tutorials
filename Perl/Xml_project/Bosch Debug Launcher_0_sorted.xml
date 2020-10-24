@@ -1,0 +1,60 @@
+<launchConfiguration type="com.bosch.debugger.launchconfigtype">
+  <intAttribute key="org.eclipse.cdt.debug.gdbjtag.core.delay" value="0"/>
+  <intAttribute key="org.eclipse.cdt.debug.gdbjtag.core.portNumber" value="3000"/>
+  <intAttribute key="org.eclipse.cdt.launch.ATTR_BUILD_BEFORE_LAUNCH_ATTR" value="0"/>
+  <stringAttribute key="ProjectPath" value="D:\Workspace\DebugAssist\C_Step_Project_Release2015Jan"/>
+  <stringAttribute key="controller" value="TC29x_A"/>
+  <stringAttribute key="controllertype" value="IFX"/>
+  <stringAttribute key="coreindex" value="0"/>
+  <stringAttribute key="device" value="Dev4"/>
+  <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.imageFileName" value=""/>
+  <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.imageOffset" value=""/>
+  <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.initCommands" value=""/>
+  <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.ipAddress" value="localhost"/>
+  <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.jtagDevice" value="Generic TCP/IP"/>
+  <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.pcRegister" value=""/>
+  <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.runCommands" value=""/>
+  <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.stopAt" value=""/>
+  <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.symbolsFileName" value=""/>
+  <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.symbolsOffset" value=""/>
+  <stringAttribute key="org.eclipse.cdt.debug.mi.core.DEBUG_NAME" value=""/>
+  <stringAttribute key="org.eclipse.cdt.debug.mi.core.commandFactory" value="Standard (Windows)"/>
+  <stringAttribute key="org.eclipse.cdt.debug.mi.core.protocol" value="mi"/>
+  <stringAttribute key="org.eclipse.cdt.dsf.gdb.DEBUG_NAME" value="gdb"/>
+  <stringAttribute key="org.eclipse.cdt.launch.COREFILE_PATH" value=""/>
+  <stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="D:\Workspace\DebugAssist\C_Step_Project_Release2015Jan\_bin\mx18_make.elf"/>
+  <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="C_Step_Project_Release2015Jan"/>
+  <stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value="com.bosch.debugger.launchconfigtype"/>
+  <stringAttribute key="org.eclipse.debug.core.source_locator_id" value="org.eclipse.cdt.debug.core.sourceLocator"/>
+  <stringAttribute key="platform" value="MDG1"/>
+  <stringAttribute key="process_factory_id" value="org.eclipse.cdt.dsf.gdb.GdbProcessFactory"/>
+  <stringAttribute key="step" value="A"/>
+  <stringAttribute key="type" value="Normal"/>
+  <booleanAttribute key="isInitialized" value="true"/>
+  <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.doHalt" value="true"/>
+  <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.doReset" value="true"/>
+  <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.loadImage" value="false"/>
+  <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.loadSymbols" value="true"/>
+  <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.setPcRegister" value="false"/>
+  <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.setResume" value="false"/>
+  <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.setStopAt" value="false"/>
+  <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.useFileForImage" value="false"/>
+  <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.useFileForSymbols" value="false"/>
+  <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.useProjBinaryForImage" value="true"/>
+  <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.useProjBinaryForSymbols" value="true"/>
+  <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.useRemoteTarget" value="true"/>
+  <booleanAttribute key="org.eclipse.cdt.debug.mi.core.verboseMode" value="false"/>
+  <booleanAttribute key="org.eclipse.cdt.dsf.gdb.UPDATE_THREADLIST_ON_SUSPEND" value="false"/>
+  <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="true"/>
+  <booleanAttribute key="org.eclipse.debug.ui.ATTR_LAUNCH_IN_BACKGROUND" value="true"/>
+  <booleanAttribute key="projectcheck" value="true"/>
+  <booleanAttribute key="SELECTED" value="true"/>
+  <setAttribute key="org.eclipse.debug.core.LAUNCH_MODES">
+    <setEntry value="debug"/></setAttribute>
+  <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+    <listEntry value="/C_Step_Project_Release2015Jan"/></listAttribute>
+  <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+    <listEntry value="4"/></listAttribute>
+  <mapAttribute key="org.eclipse.debug.core.preferred_launchers">
+    <mapEntry key="[debug]" value="com.bosch.debugger.launchconfig.launchDelegate"/></mapAttribute>
+</launchConfiguration>  

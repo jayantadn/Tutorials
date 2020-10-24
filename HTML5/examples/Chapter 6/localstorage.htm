@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+   <head>
+      <title>Using local storage</title>
+   <body>
+      <script>
+         if (typeof localStorage == 'undefined')
+         {
+            alert("Sorry, your browsr doesn't support local storage.")
+         }
+         else
+         {
+            localStorage.setItem('username', 'Muhammad-Ali')
+            localStorage.setItem('password', 'IAmTheGreatest')
+
+            username  = localStorage.getItem('username')
+            password  = localStorage.getItem('password')
+
+            alert("Data retrieved: username = '" + username +
+               "', password = '" + password + "'.")
+         }
+      </script>
+   </body>
+</html>
+

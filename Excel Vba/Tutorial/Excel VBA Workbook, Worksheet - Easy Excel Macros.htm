@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+<title>Excel VBA Workbook, Worksheet - Easy Excel Macros</title>
+<meta name="keywords" content="workbook, worksheet, properties, methods, excel vba workbook, excel vba worksheet, object, excel vba, excel visual basic, excel macro, excel vba tutorial, learn excel vba, excel vba examples">
+<meta name="description" content="In this chapter you will learn more about the Excel VBA Workbook and Excel VBA Worksheet object. You will see that the Worksheet and Workbook object have properties and methods as well, such as the count property which counts the number of active workbooks or worksheets.">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="robots" content="index, follow">
+<meta content="EN-US" name="LANGUAGE">
+<link href="Excel%20VBA%20Workbook,%20Worksheet%20-%20Easy%20Excel%20Macros_files/style.css" rel="stylesheet" type="text/css" media="screen">
+<script src="Excel%20VBA%20Workbook,%20Worksheet%20-%20Easy%20Excel%20Macros_files/ga.js" async="" type="text/javascript"></script><script async="" src="Excel%20VBA%20Workbook,%20Worksheet%20-%20Easy%20Excel%20Macros_files/cbgapi.loaded_0"></script><script gapi_processed="true" type="text/javascript" src="Excel%20VBA%20Workbook,%20Worksheet%20-%20Easy%20Excel%20Macros_files/plusone.js"></script>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h2><a href="http://www.excel-vba-easy.com/"><img src="Excel%20VBA%20Workbook,%20Worksheet%20-%20Easy%20Excel%20Macros_files/excel-vba.jpg" alt="Excel VBA" title="Excel VBA" border="0" height="40" width="44">excel vba</a></h2>
+			  <p>#1 Source for <a href="http://www.excel-vba-easy.com/">Excel macros</a> on the net</p>
+			</div>
+            
+			<div id="menu">
+				<ul>
+				  <li><a href="http://www.excel-vba-easy.com/">Excel VBA</a></li>
+				  <li><a href="http://www.excel-vba-easy.com/excel-macro.html">Macro?</a></li>
+				  <li class="current_page_item"><a href="http://www.excel-vba-easy.com/excel-vba-basics.html">Basics</a></li>
+				  <li><a href="http://www.excel-vba-easy.com/excel-vba-programming.html">Programming</a></li>
+				  <li><a href="http://www.excel-vba-easy.com/excel-vba-controls.html">Controls</a></li>
+                  <li class="pro"><a href="http://www.excel-vba-easy.com/excel-vba-programs.html" rel="nofollow">100 Examples</a></li>
+                  <li><a href="http://www.excel-vba-easy.com/contact-excel-vba-easy.html" rel="nofollow">Ask us</a></li>
+			  </ul>
+			</div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+				<div id="content">
+					<div class="post">
+						<h1 class="title" style="float:left">Workbook and Worksheet</h1>
+						<table>
+                          <tbody><tr>
+                            <td style="padding-left:7px; padding-top:11px"><div id="___plusone_0" style="height: 24px; width: 170px; display: inline-block; text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline;"><iframe title="+1" data-gapiattached="true" allowtransparency="true" src="Excel%20VBA%20Workbook,%20Worksheet%20-%20Easy%20Excel%20Macros_files/fastbutton.htm" name="I0_1363887349455" id="I0_1363887349455" vspace="0" tabindex="0" style="position: static; top: 0px; width: 170px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div></td>
+                          </tr>
+                        </tbody></table>
+					  <div style="clear: both;">&nbsp;</div>
+<div class="entry"> 
+<p><a href="#object-hierarchy">Object Hierarchy</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#workbook-worksheet-properties-methods">Properties and Methods of the Workbook and Worksheet Object</a></p>
+			  <p>If you are not familiar with <a href="http://www.excel-vba-easy.com/vba-basic-objects-properties-methods.html">Objects, Properties and Methods</a> yet, we highly recommend you to read this chapter first.</p>
+							<h3><a name="object-hierarchy" id="object-hierarchy"></a>Object Hierarchy</h3>
+			  <p>Now that you have seen the Range object, you can understand the <strong>Workbook</strong> and <strong>Worksheet</strong>
+ object better. In Excel Visual Basic each object can contain another 
+object, and that object can contain another object, etc. In other words,
+ <strong>Excel VBA</strong> programming involves working with an object hierarchy. This probably sounds quite confusing, but we will make it clear. </p>
+              <p>The mother of all objects is Excel itself. We call it 
+the Application object. The application object contains other objects. 
+An example of an <strong>object</strong> of the Application object is 
+the Workbook object (Excel File). This can be any workbook  you have 
+created. The Workbook object contains other objects, such as the 
+Worksheet object. The Worksheet object contains other objects, such as 
+the Range object.</p>
+              <p>We have used the following code line a lot:</p>
+                            <div class="code">Range("A1").Value</div>
+              <p><br>
+              but what we really meant was cell A1 on the first 
+worksheet of  Book1. Thus we should actually add the following line in 
+Excel VBA:</p>
+              <div class="code">Application.Workbooks("Book1").Worksheets(1).Range("A1").Value</div>
+              <p><br>
+              Fortunately we do not have to add a code line this way. 
+This is because Excel Visual Basic knew we meant Book1 and the first 
+worksheet because we placed our command button there (remember?). Now 
+also remember the automatically created module when we recorded a macro 
+with the <a href="http://www.excel-vba-easy.com/vba-how-to-excel-macro-recorder.html">Excel Macro Recorder</a>. Code placed into a module  is available to all workbooks and worksheets.</p>
+              <p> Place the Sub test into a module (In the Visual Basic Editor, click on Insert and then Module).</p>
+              <div class="code"><span class="predifined">Sub</span> test()<br>
+                <br>
+                Range("A1").Value = "code placed here"<br>
+                <br>
+                <span class="predifined">End</span> <span class="predifined">Sub</span></div>
+              <p><br>
+              1. Execute the code (Click on Macros and then Run, or 
+click on Run from the Visual Basic Editor). The words "code placed here"
+ will be placed into cell A1. No surprise.</p>
+              <p>2. Now go to the second worksheet. Execute the code 
+again. You will see that the words will be placed on the second 
+worksheet as well!</p>
+                            <p>3. Now even open a new workbook and 
+execute the macro again. You will see that the words will be placed 
+there as well! That is because we didn't specify a <strong>workbook</strong> or <strong>worksheet</strong>
+ name and Excel VBA automatically takes the active workbook and active 
+worksheet. Be aware that if you want to change different things on 
+different sheets to include the Worksheet object.</p>
+                            <h3><a name="workbook-worksheet-properties-methods" id="workbook-worksheet-properties-methods"></a>Properties and methods of the Workbook and Worksheet object</h3>
+              <p>You may have noticed that worksheets and workbooks are 
+both plural (see the complete code line mentioned earlier). That's 
+because they are actually collections. The Workbooks collection contains
+ all the Workbook objects that are currently open. The Worksheets 
+collection contains all the Worksheet objects in a workbook.</p>
+              <p>You can refer to a member of the collection, that is: a
+ single workbook or single worksheet, in two ways. Using the index 
+number, Worksheets(1) is the first worksheet starting from the left. 
+Using the member's name: Worksheets("sheet1").</p>
+              <p>It probably doesn't surprise you that the collections 
+and the members of the collections have properties and methods as well. 
+Here are some examples.</p>
+                            <p>1. The Count property of the Worksheets 
+collection and Workbooks collection. The following code line counts the 
+number of worksheets of a workbook. <span class="bodyText">Place a <a href="http://www.excel-vba-easy.com/vba-how-to-create-macro-excel.html">command button</a> on your worksheet and add the code line:</span></p>
+              <div class="code">MsgBox Worksheets.Count<br>
+              </div>
+              <p><br>
+              Result when you click the command button on the sheet:</p>
+              <p><img src="Excel%20VBA%20Workbook,%20Worksheet%20-%20Easy%20Excel%20Macros_files/worksheets-count-property-result.png" alt="Worksheets Count Property Result" title="Worksheets Count Property Result" height="154" width="154"></p>
+              <p>You can also use the Count property  to count the number of active workbooks.</p>
+              <p>2. The Add method of the Workbooks collection and Worksheets collection. The following code line creates a new worksheet.</p>
+              <div class="code">Worksheets.Add<br>
+              </div>
+              <p><br>
+              You can  also use the Add method  to add a new workbook.</p>
+              <p>3. The Worksheet object contains more interesting 
+collections, such as the Rows collection. In Excel VBA you can use the 
+Select method to select a row. The code line below selects row 2.</p>
+                            <div class="code">Worksheets(1).Rows(2).Select</div>
+              <p><br>
+              In a similar way, you can select a column. The code line below selects column 7.</p>
+              <div class="code">Worksheets(1).Columns(7).Select</div><br>
+              <p>Did you find this information helpful? Show your appreciation, vote for us.</p>
+              <p><div id="___plusone_1" style="height: 24px; width: 170px; display: inline-block; text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline;"><iframe title="+1" data-gapiattached="true" allowtransparency="true" src="Excel%20VBA%20Workbook,%20Worksheet%20-%20Easy%20Excel%20Macros_files/fastbutton_002.htm" name="I1_1363887349459" id="I1_1363887349459" vspace="0" tabindex="0" style="position: static; top: 0px; width: 170px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div></p>
+              <p>Go to Top: <a href="http://www.excel-vba-easy.com/vba-basic-workbook-worksheet.html">Workbook and Worksheet</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Go to Next Topic: <a href="http://www.excel-vba-easy.com/vba-basic-application-object.html">Application Object</a></p>
+              </div>
+				  </div>
+                  <div class="post">
+					<div style="clear: both;"></div>
+                    <div class="entrylearn"> 
+                      <p align="left"><span class="buttonp"> <a href="#">More about workbook &amp; worksheets, Login to the right &gt;&gt;<br>
+                      </a></span>100 easy to follow Excel VBA <a href="http://www.excel-vba-easy.com/excel-vba-programs.html">examples</a>. Limited time-offer: <strike>$39.00</strike> but only $29.00. Ends on 31 March.</p>
+</div>
+				  </div>
+                                    
+              </div>
+		  </div>
+          <div id="sidebar">
+              <p>&nbsp;</p>
+				  <ul><li></li>
+				    <li>
+				      <h3><a href="http://www.excel-vba-easy.com/excel-vba-programs.html" rel="nofollow" style="text-decoration:none">Learn more, Get a login &gt;&gt;</a></h3>
+				    </li>
+	    </ul>
+		          
+        <ul><li></li>
+          <li><ul>
+              <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/sales-calculator.shtml" rel="nofollow">Sales Calculator</a></li>
+              <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/path-fullname.shtml" rel="nofollow">Path and FullName</a></li>
+              <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/close-open-workbooks.shtml" rel="nofollow">Close and Open Workbooks</a></li>
+              <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/entire-rows-columns.shtml" rel="nofollow">Entire Rows and Columns</a></li>
+              <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/loop-through-books-sheets.shtml" rel="nofollow">Loop through Books and Sheets</a></li>
+              <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/files-in-a-directory.shtml" rel="nofollow">Files in a Directory</a></li>
+              <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/import-sheets.shtml" rel="nofollow">Import Sheets</a></li>
+                      </ul>
+          </li>
+        </ul>
+          </div>
+          <!-- end #sidebar -->
+<div style="clear: both;">&nbsp;</div>
+	  </div>
+		</div>
+	</div>
+	<!-- end #page -->
+
+<div id="footer">
+	<p>Copyright (c) 2010-2013 <a href="http://www.excel-vba-easy.com/">www.excel-vba-easy.com</a>. <a href="http://www.excel-vba-easy.com/vba-basic-workbook-worksheet.html">Excel VBA Workbook, Worksheet</a>. All rights reserved.<br>
+<a href="http://www.excel-vba-easy.com/">excel vba</a> | <a href="http://www.excel-vba-easy.com/">macros in excel</a> | <a href="http://www.excel-vba-easy.com/">vba macro</a> | <a href="http://www.excel-vba-easy.com/">excel visual basic</a> | <a href="http://www.excel-easy.com/excel-basic-workbook.html">workbook excel</a> | <a href="http://www.excel-vba-easy.com/">vba for microsoft excel</a></p></div>
+<!-- end #footer -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15754101-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+</body></html>

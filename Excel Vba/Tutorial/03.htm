@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+<title>Excel VBA Objects, Properties, Methods - Easy Excel Macros</title>
+<meta name="keywords" content="object, properties, method, excel vba object, excel vba property, excel vba method, excel vba, excel visual basic, excel macro, excel vba tutorial, learn excel vba, excel vba examples">
+<meta name="description" content="In Excel VBA, objects, properties and methods are connected with a dot. Properties are something which an object has (they describe the object), while methods do something (they perform an action with an object).">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="robots" content="index, follow">
+<meta content="EN-US" name="LANGUAGE">
+<link href="03_files/style.css" rel="stylesheet" type="text/css" media="screen">
+<script src="03_files/ga.js" async="" type="text/javascript"></script><script async="" src="03_files/cbgapi.loaded_0"></script><script gapi_processed="true" type="text/javascript" src="03_files/plusone.js"></script>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h2><a href="http://www.excel-vba-easy.com/"><img src="03_files/excel-vba.jpg" alt="Excel VBA" title="Excel VBA" border="0" height="40" width="44">excel vba</a></h2>
+			  <p>#1 Source for <a href="http://www.excel-vba-easy.com/">Excel macros</a> on the net</p>
+			</div>
+            
+			<div id="menu">
+				<ul>
+				  <li><a href="http://www.excel-vba-easy.com/">Excel VBA</a></li>
+				  <li><a href="http://www.excel-vba-easy.com/excel-macro.html">Macro?</a></li>
+				  <li class="current_page_item"><a href="http://www.excel-vba-easy.com/excel-vba-basics.html">Basics</a></li>
+				  <li><a href="http://www.excel-vba-easy.com/excel-vba-programming.html">Programming</a></li>
+				  <li><a href="http://www.excel-vba-easy.com/excel-vba-controls.html">Controls</a></li>
+                  <li class="pro"><a href="http://www.excel-vba-easy.com/excel-vba-programs.html" rel="nofollow">100 Examples</a></li>
+                  <li><a href="http://www.excel-vba-easy.com/contact-excel-vba-easy.html" rel="nofollow">Ask us</a></li>
+			  </ul>
+			</div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+				<div id="content">
+					<div class="post">
+                    	<h1 class="title" style="float:left">Objects, Properties &amp; Methods</h1>
+						<div style="clear: both;">&nbsp;</div>
+<div class="entry">  
+<p><a href="#excel-vba-property">Excel VBA Property</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#excel-vba-method">Excel VBA Method</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#all-properties-methods-object">See all the properties and methods of an Object</a></p>
+
+			  <p>In Excel VBA, objects, properties and methods are connected with a dot. <strong>Properties</strong> are something which an object has (they describe the object), while <strong>methods</strong> do something (they perform an action with an object).</p>
+			  <h3><a name="excel-vba-property" id="excel-vba-property"></a>Excel VBA Property</h3>
+			  <p>Let's take a look at an <strong>Excel VBA object</strong> and an <strong>Excel VBA property</strong>.
+ We will use the Range object and the Formula property. The Range object
+ is nothing more than a cell (or cells) on your worksheet. We already 
+know from Excel that a cell can contain a formula. </p>
+              <p>1. Place the  value 10 into cell A1.</p>
+                            <p>2. Create a command button.</p>
+              <p>3. Add the line: </p>
+                            <div class="code">Range("B1").Formula = Range("A1") * 2</div>
+              <p><br>
+              4. Execute the macro. This macro places the formula into cell B1 and the result will be calculated (20).</p>
+              <h3><a name="excel-vba-method" id="excel-vba-method"></a>Excel VBA Method</h3>
+              <p>Now let's take a look at an Excel VBA object and an <strong>Excel VBA method</strong>. We will use the Range object again and the ClearContents method.</p>
+              <p>1. Place the value  10 into cell A1.</p>
+                            <p>2. Create a command button.</p>
+                            <p>3. Add the line:</p>
+                            <div class="code">Range("A1").ClearContents</div>
+              <p><br>
+              4. Execute the macro. Cell A1 is now empty!</p>
+              <p>That's how easy object-oriented programming in Excel Visual Basic is!</p>
+                            <h3><a name="all-properties-methods-object" id="all-properties-methods-object"></a>See all the properties and methods of an object. </h3>
+              <p>The Range object has many more properties and methods. Want to see more?</p>
+                            <p>1. Launch the Visual Basic Editor.</p>
+                            <p>2. Type in: Range.</p>
+                            <p>3. A list will appear showing you all the
+ Excel VBA methods and properties of the Range object. The fingers are 
+the properties and the green boxes are the methods of the Range object.</p>
+              <p><img src="03_files/properties-methods.png" alt="All properties and methods of the Range object" title="All properties and methods of the Range object" height="154" width="247"></p>
+              <p>Did you find this information helpful? Show your appreciation, vote for us.</p>
+              <p><div id="___plusone_0" style="height: 24px; width: 170px; display: inline-block; text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline;"><iframe title="+1" data-gapiattached="true" allowtransparency="true" src="03_files/fastbutton.htm" name="I0_1363886863699" id="I0_1363886863699" vspace="0" tabindex="0" style="position: static; top: 0px; width: 170px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div></p>                            
+              <p>Go to Top: <a href="http://www.excel-vba-easy.com/vba-basic-objects-properties-methods.html">Objects, Properties and Methods</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Go to Next Topic: <a href="http://www.excel-vba-easy.com/vba-basic-workbook-worksheet.html">Workbook and Worksheet</a></p>
+</div>
+				  </div>
+                    <div class="post">
+					<div style="clear: both;"></div>
+                    <div class="entrylearn"> 
+                      <p align="left"><span class="buttonp"> <a href="#">More about  properties &amp; methods, Login to the right &gt;&gt;<br>
+                      </a></span>100 easy to follow Excel VBA <a href="http://www.excel-vba-easy.com/excel-vba-programs.html">examples</a>. Limited time-offer: <strike>$39.00</strike> but only $29.00. Ends on 31 March.</p>
+</div>
+				  </div>
+                  
+              </div>
+			</div>
+				<div id="sidebar">
+                 <p>&nbsp;</p>
+					<ul><li></li>
+                      <li>
+					    <h3><a href="http://www.excel-vba-easy.com/excel-vba-programs.html" rel="nofollow" style="text-decoration:none">Learn more, Get a login &gt;&gt;</a></h3>
+				    </li>
+					  <li><ul>
+                      	<li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/convert-to-proper-case.shtml" rel="nofollow">Convert to Proper Case</a></li>
+                      	<li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/font-property.shtml" rel="nofollow">Font Property</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/background-colors.shtml" rel="nofollow">Background Colors</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/working-with-charts.shtml" rel="nofollow">Working with Charts</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/formulaR1C1.shtml" rel="nofollow">FormulaR1C1</a></li>                                  
+					  </ul>
+				    </li>
+                      <li></li>
+				  </ul>
+		  </div>
+            
+		    <!-- end #sidebar -->
+				<div style="clear: both;">&nbsp;</div>
+		  </div>
+		</div>
+	</div>
+	<!-- end #page -->
+
+<div id="footer">
+	<p>Copyright (c) 2010-2013 <a href="http://www.excel-vba-easy.com/">www.excel-vba-easy.com</a>. <a href="http://www.excel-vba-easy.com/vba-basic-objects-properties-methods.html">VBA Objects, Properties, Methods</a>. All rights reserved.<br>
+	<a href="http://www.excel-vba-easy.com/">excel vba</a> | <a href="http://www.excel-vba-easy.com/">macros in excel</a> | <a href="http://www.excel-vba-easy.com/">vba macro</a> | <a href="http://www.excel-vba-easy.com/">excel visual basic</a> | <a href="http://www.excel-easy.com/excel-data-analysis-charts.html">chart excel</a> | <a href="http://www.excel-vba-easy.com/">vba for microsoft excel</a>
+</p></div>
+<!-- end #footer -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15754101-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+</body></html>

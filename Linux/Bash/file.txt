@@ -1,0 +1,9 @@
+- revert all test script, build script, debug.hpp, main.cpp modifications
+- delete all cout, printf and iostream statements	
+- doxygen for changed code  
+- README.md and *.md file changes under doc folder
+- execute integration test cases in linux, see difference in log
+update project config
+- check qnx exm build	
+- verify all changes in "Diff" view of bitbucket
+- trigger build in bitbucket 

@@ -1,0 +1,184 @@
+$VAR1 = {
+          'mapAttribute' => {
+                            'mapEntry' => {
+                                          'value' => 'com.bosch.debugger.launchconfig.launchDelegate',
+                                          'key' => '[debug]'
+                                        },
+                            'key' => 'org.eclipse.debug.core.preferred_launchers'
+                          },
+          'booleanAttribute' => {
+                                'org.eclipse.cdt.dsf.gdb.UPDATE_THREADLIST_ON_SUSPEND' => {
+                                                                                          'value' => 'false'
+                                                                                        },
+                                'org.eclipse.cdt.debug.gdbjtag.core.useRemoteTarget' => {
+                                                                                        'value' => 'true'
+                                                                                      },
+                                'SELECTED' => {
+                                              'value' => 'true'
+                                            },
+                                'org.eclipse.cdt.debug.gdbjtag.core.useProjBinaryForSymbols' => {
+                                                                                                'value' => 'true'
+                                                                                              },
+                                'projectcheck' => {
+                                                  'value' => 'true'
+                                                },
+                                'org.eclipse.cdt.debug.gdbjtag.core.setResume' => {
+                                                                                  'value' => 'false'
+                                                                                },
+                                'org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR' => {
+                                                                                           'value' => 'true'
+                                                                                         },
+                                'org.eclipse.cdt.debug.mi.core.verboseMode' => {
+                                                                               'value' => 'false'
+                                                                             },
+                                'org.eclipse.cdt.debug.gdbjtag.core.setStopAt' => {
+                                                                                  'value' => 'false'
+                                                                                },
+                                'org.eclipse.cdt.debug.gdbjtag.core.setPcRegister' => {
+                                                                                      'value' => 'false'
+                                                                                    },
+                                'org.eclipse.cdt.debug.gdbjtag.core.doHalt' => {
+                                                                               'value' => 'true'
+                                                                             },
+                                'org.eclipse.cdt.debug.gdbjtag.core.useProjBinaryForImage' => {
+                                                                                              'value' => 'true'
+                                                                                            },
+                                'org.eclipse.cdt.debug.gdbjtag.core.loadSymbols' => {
+                                                                                    'value' => 'true'
+                                                                                  },
+                                'org.eclipse.cdt.debug.gdbjtag.core.loadImage' => {
+                                                                                  'value' => 'false'
+                                                                                },
+                                'isInitialized' => {
+                                                   'value' => 'true'
+                                                 },
+                                'org.eclipse.cdt.debug.gdbjtag.core.useFileForImage' => {
+                                                                                        'value' => 'false'
+                                                                                      },
+                                'org.eclipse.cdt.debug.gdbjtag.core.useFileForSymbols' => {
+                                                                                          'value' => 'false'
+                                                                                        },
+                                'org.eclipse.debug.ui.ATTR_LAUNCH_IN_BACKGROUND' => {
+                                                                                    'value' => 'true'
+                                                                                  },
+                                'org.eclipse.cdt.debug.gdbjtag.core.doReset' => {
+                                                                                'value' => 'true'
+                                                                              }
+                              },
+          'setAttribute' => {
+                            'setEntry' => {
+                                          'value' => 'debug'
+                                        },
+                            'key' => 'org.eclipse.debug.core.LAUNCH_MODES'
+                          },
+          'intAttribute' => {
+                            'org.eclipse.cdt.launch.ATTR_BUILD_BEFORE_LAUNCH_ATTR' => {
+                                                                                      'value' => '0'
+                                                                                    },
+                            'org.eclipse.cdt.debug.gdbjtag.core.delay' => {
+                                                                          'value' => '0'
+                                                                        },
+                            'org.eclipse.cdt.debug.gdbjtag.core.portNumber' => {
+                                                                               'value' => '3000'
+                                                                             }
+                          },
+          'listAttribute' => {
+                             'org.eclipse.debug.core.MAPPED_RESOURCE_TYPES' => {
+                                                                               'listEntry' => {
+                                                                                              'value' => '4'
+                                                                                            }
+                                                                             },
+                             'org.eclipse.debug.core.MAPPED_RESOURCE_PATHS' => {
+                                                                               'listEntry' => {
+                                                                                              'value' => '/C_Step_Project_Release2015Jan'
+                                                                                            }
+                                                                             }
+                           },
+          'stringAttribute' => {
+                               'process_factory_id' => {
+                                                       'value' => 'org.eclipse.cdt.dsf.gdb.GdbProcessFactory'
+                                                     },
+                               'org.eclipse.cdt.debug.mi.core.commandFactory' => {
+                                                                                 'value' => 'Standard (Windows)'
+                                                                               },
+                               'org.eclipse.cdt.debug.gdbjtag.core.pcRegister' => {
+                                                                                  'value' => ''
+                                                                                },
+                               'controllertype' => {
+                                                   'value' => 'IFX'
+                                                 },
+                               'org.eclipse.cdt.debug.gdbjtag.core.jtagDevice' => {
+                                                                                  'value' => 'Generic TCP/IP'
+                                                                                },
+                               'ProjectPath' => {
+                                                'value' => 'D:\\Workspace\\DebugAssist\\C_Step_Project_Release2015Jan'
+                                              },
+                               'controller' => {
+                                               'value' => 'TC29x_A'
+                                             },
+                               'org.eclipse.cdt.debug.gdbjtag.core.imageOffset' => {
+                                                                                   'value' => ''
+                                                                                 },
+                               'step' => {
+                                         'value' => 'A'
+                                       },
+                               'org.eclipse.cdt.launch.PROJECT_ATTR' => {
+                                                                        'value' => 'C_Step_Project_Release2015Jan'
+                                                                      },
+                               'coreindex' => {
+                                              'value' => '0'
+                                            },
+                               'platform' => {
+                                             'value' => 'MDG1'
+                                           },
+                               'org.eclipse.cdt.debug.mi.core.protocol' => {
+                                                                           'value' => 'mi'
+                                                                         },
+                               'org.eclipse.cdt.debug.gdbjtag.core.runCommands' => {
+                                                                                   'value' => ''
+                                                                                 },
+                               'org.eclipse.debug.core.source_locator_id' => {
+                                                                             'value' => 'org.eclipse.cdt.debug.core.sourceLocator'
+                                                                           },
+                               'org.eclipse.cdt.debug.gdbjtag.core.symbolsFileName' => {
+                                                                                       'value' => ''
+                                                                                     },
+                               'org.eclipse.cdt.launch.COREFILE_PATH' => {
+                                                                         'value' => ''
+                                                                       },
+                               'org.eclipse.cdt.debug.gdbjtag.core.ipAddress' => {
+                                                                                 'value' => 'localhost'
+                                                                               },
+                               'org.eclipse.cdt.dsf.gdb.DEBUG_NAME' => {
+                                                                       'value' => 'gdb'
+                                                                     },
+                               'org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR' => {
+                                                                                        'value' => 'com.bosch.debugger.launchconfigtype'
+                                                                                      },
+                               'device' => {
+                                           'value' => 'Dev4'
+                                         },
+                               'org.eclipse.cdt.debug.gdbjtag.core.symbolsOffset' => {
+                                                                                     'value' => ''
+                                                                                   },
+                               'org.eclipse.cdt.debug.gdbjtag.core.imageFileName' => {
+                                                                                     'value' => ''
+                                                                                   },
+                               'org.eclipse.cdt.debug.gdbjtag.core.stopAt' => {
+                                                                              'value' => ''
+                                                                            },
+                               'type' => {
+                                         'value' => 'Normal'
+                                       },
+                               'org.eclipse.cdt.launch.PROGRAM_NAME' => {
+                                                                        'value' => 'D:\\Workspace\\DebugAssist\\C_Step_Project_Release2015Jan\\_bin\\mx18_make.elf'
+                                                                      },
+                               'org.eclipse.cdt.debug.gdbjtag.core.initCommands' => {
+                                                                                    'value' => ''
+                                                                                  },
+                               'org.eclipse.cdt.debug.mi.core.DEBUG_NAME' => {
+                                                                             'value' => ''
+                                                                           }
+                             },
+          'type' => 'com.bosch.debugger.launchconfigtype'
+        };

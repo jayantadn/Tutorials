@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+<title>Create Excel Macros - Excel VBA Easy</title>
+<meta name="keywords" content="create a macro, excel vba, macro, create a macro in excel, macro excel vba 2007, macro excel vba 2010, macro excel vba 2003, excel vba 2003, excel vba 2007, excel vba 2010, excel visual basic macro, excel macro, excel vba macro, excel vba, excel visual basic, excel macro, excel vba tutorial, learn excel vba, excel vba examples">
+<meta name="description" content="To create a macro in Excel VBA, first activate Excel Visual Basic. Next, you can create a command button and assign a macro to the command button.">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="robots" content="index, follow">
+<meta content="EN-US" name="LANGUAGE">
+<link href="01_files/style.css" rel="stylesheet" type="text/css" media="screen">
+<script src="01_files/ga.js" async="" type="text/javascript"></script><script async="" src="01_files/cbgapi.loaded_0"></script><script gapi_processed="true" type="text/javascript" src="01_files/plusone.js"></script>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h2><a href="http://www.excel-vba-easy.com/"><img src="01_files/excel-vba.jpg" alt="Excel VBA" title="Excel VBA" border="0" height="40" width="44">excel vba</a></h2>
+			  <p>#1 Source for <a href="http://www.excel-vba-easy.com/">Excel macros</a> on the net</p>
+			</div>
+            
+			<div id="menu">
+				<ul>
+                  <li><a href="http://www.excel-vba-easy.com/">Excel VBA</a></li>
+				  <li class="current_page_item"><a href="http://www.excel-vba-easy.com/excel-macro.html">Macro?</a></li>
+				  <li><a href="http://www.excel-vba-easy.com/excel-vba-basics.html">Basics</a></li>
+				  <li><a href="http://www.excel-vba-easy.com/excel-vba-programming.html">Programming</a></li>
+				  <li><a href="http://www.excel-vba-easy.com/excel-vba-controls.html">Controls</a></li>
+                  <li class="pro"><a href="http://www.excel-vba-easy.com/excel-vba-programs.html" rel="nofollow">100 Examples</a></li>
+                  <li><a href="http://www.excel-vba-easy.com/contact-excel-vba-easy.html" rel="nofollow">Ask us</a></li>
+			  </ul>
+			</div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+				<div id="content">
+					<div class="post">
+						<h1 class="title" style="float:left">Create a Macro</h1>
+						<table>
+                          <tbody><tr>
+                            <td style="padding-left:7px; padding-top:11px"><div id="___plusone_0" style="height: 24px; width: 170px; display: inline-block; text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline;"><iframe title="+1" data-gapiattached="true" allowtransparency="true" src="01_files/fastbutton.htm" name="I0_1363886576493" id="I0_1363886576493" vspace="0" tabindex="0" style="position: static; top: 0px; width: 170px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div></td>
+                          </tr>
+                        </tbody></table>
+					  <div style="clear: both;">&nbsp;</div>
+<div class="entryshort">  
+ <p>Activating Excel VBA and creating command buttons differs from one Excel version to another. Please choose your version.<br>
+   <a href="#create-macro-excel-2010"><br>
+   Excel 2010</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#create-macro-excel-2007">Excel 2007</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#create-macro-excel-2003">Excel 2003</a></p>
+ </div>
+				  </div>
+      <div class="post">
+						<h2 class="title2"><a name="create-macro-excel-2010" id="create-macro-excel-2010"></a>Create a Macro in Excel 2010</h2>
+					<div style="clear: both;">&nbsp;</div>
+<div class="entry">  
+ <p><a href="#turn-on-developer-tab-excel-2010">Turn on the Developer Tab</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#create-command-button-excel-2010">Create a command button</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#create-assign-macro-excel-2010">Create and Assign the Macro</a></p>
+ <p>To <strong>create a macro</strong> in Excel 2010, you have to turn 
+on the Developer tab. Next, you can create a macro which will be 
+executed after clicking on a command button.</p>
+ <h3><a name="turn-on-developer-tab-excel-2010" id="turn-on-developer-tab-excel-2010"></a>Turn on the Developer Tab</h3>
+ <p>1. Click on  the File tab and choose Options. The Excel Options dialog box appears (see picture below).<br>
+   <br>
+	          2. Click Customize Ribbon on the left side of the dialog box.<br>
+	          3. Under Choose commands from on the left side of the dialog box,   select Popular Commands (if necessary).<br>
+4. Under Customize the ribbon on the right side of the dialog box,   select Main tabs (if necessary).<br>
+5. Check the Developer check box and click OK.</p>
+ <p><img src="01_files/activate-developer-tab-excel-2010.png" alt="Activate the Developer Tab in Excel 2010" title="Activate the Developer Tab in Excel 2010" height="472" width="604"></p>
+			  <h3><a name="create-command-button-excel-2010" id="create-command-button-excel-2010"></a>Create a command button</h3>
+<p>You can now click on the Developer tab which has been placed next to the View tab.</p>
+			  <p>1. Click on Insert.<br>
+		      2. Click on Command Button in the ActiveX Controls section.</p>
+			  <p><img src="01_files/create-command-button-excel-2010.png" alt="Create a Command Button" title="Create a Command Button" height="259" width="604"><br>
+						    3. Now you can drag a command button on your worksheet. </p>
+<h3><a name="create-assign-macro-excel-2010" id="create-assign-macro-excel-2010"></a>Create and Assign the Macro</h3>
+			  <p>Now it is time to <strong>create a macro</strong> (a piece of code) and assign it to the command button.</p>
+			  <p>1. Right click on CommandButton1.<br>
+			  2. Click on View Code.</p>
+			  <p><img src="01_files/assign-macro-excel-2010.png" alt="Assign a Macro" title="Assign a Macro" height="459" width="604"></p>
+			  <p>3. The Visual Basic Editor appears. Place you cursor between 'Private Sub CommandButton1_Click()' and 'End Sub'.<br>
+			  </p>
+			  <p>4. For example, add the following code line:</p>
+			  <div class="code">Range("A1").Value = "Hello"<br>
+              </div>
+			  <p>&nbsp;</p>
+			  <p><img src="01_files/create-macro-excel-2010.png" alt="Create a Macro in Excel VBA" title="Create a Macro in Excel VBA" height="274" width="604"></p>
+			  <p> This <strong>macro</strong> places the word Hello into cell A1.</p>
+			  <p>5. Close the <strong>Visual Basic Editor</strong>.</p>
+			  <p>6. Before you click the command button on the sheet, make sure 
+Design Mode is deselected. You can do this by clicking on Design Mode 
+again.</p>
+			  <p>Result when you click the command button on the sheet:</p>
+			  <p><img src="01_files/excel-macro-result.png" alt="Excel Macro Result" title="Excel Macro Result" height="105" width="346"></p>
+			  <p>Congratulations. You've just created a macro in Excel VBA!</p>
+              <p>Did you find this information helpful? Show your appreciation, vote for us.</p>
+              <p><div id="___plusone_1" style="height: 24px; width: 170px; display: inline-block; text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline;"><iframe title="+1" data-gapiattached="true" allowtransparency="true" src="01_files/fastbutton_002.htm" name="I1_1363886576516" id="I1_1363886576516" vspace="0" tabindex="0" style="position: static; top: 0px; width: 170px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div></p>
+			  <p>Go to Top: <a href="http://www.excel-vba-easy.com/vba-how-to-create-macro-excel.html">Create a Macro</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Go to Next Topic: <a href="http://www.excel-vba-easy.com/vba-how-to-excel-macro-recorder.html">Excel Macro Recorder</a></p>
+                    </div>
+				  </div>
+                  <div class="post">
+					<div style="clear: both;"></div>
+                    <div class="entrylearn">
+                      <p align="left"><span class="buttonp"> <a href="#">Learn more about excel macros, Login to the right &gt;&gt;<br>
+                      </a></span>100 easy to follow Excel VBA <a href="http://www.excel-vba-easy.com/excel-vba-programs.html">examples</a>. Limited time-offer: <strike>$39.00</strike> but only $29.00. Ends on 31 March.</p>
+</div>
+				  </div>
+                  
+      <div class="post">
+						<h2 class="title2"><a name="create-macro-excel-2007" id="create-macro-excel-2007"></a>Create a Macro in Excel 2007</h2>
+					<div style="clear: both;">&nbsp;</div>
+<div class="entry">  
+<p><a href="#turn-on-developer-tab-excel-2007">Turn on the Developer Tab</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#create-command-button-excel-2007">Create a command button</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#create-assign-macro-excel-2007">Create and Assign the Macro</a></p>
+
+ <p>To create a macro in <strong>Excel</strong> 2007, you have to turn 
+on the Developer tab. Next, you can create a macro which will be 
+executed after clicking on a command button.</p>
+ <h3><a name="turn-on-developer-tab-excel-2007" id="turn-on-developer-tab-excel-2007"></a>Turn on the Developer Tab<br>
+ </h3>
+ <p>1. Click on the Office button in the upper left corner of your screen.<br>
+   2. Click on Excel Options. The Excel Options dialog box appears (see picture below).<br>
+   <br>
+ 3. Check Show Developer tab in the Ribbon.</p>
+ <p><img src="01_files/Activate-developer-tab-excel-2007.jpg" alt="Activate the Developer Tab in Excel 2007" title="Activate the Developer Tab in Excel 2007" height="553" width="591"><br>
+ <br>
+			  4. Click OK.</p>
+			  <h3><a name="create-command-button-excel-2007" id="create-command-button-excel-2007"></a>Create a command button</h3>
+<p>You can now click on the Developer tab which has been placed next to the View tab.</p>
+			  <p>1. Click on Insert.<br>
+			  2. Click on Command Button in the ActiveX Controls section.</p>
+							<p><img src="01_files/create-commandbutton-excel-2007.jpg" alt="Create a Command Button in Excel 2007" title="Create a Command Button in Excel 2007" height="242" width="591"></p>
+<p>3. Now you can drag a command button on your worksheet. </p>
+			  <h3><a name="create-assign-macro-excel-2007" id="create-assign-macro-excel-2007"></a>Create and Assign the Macro</h3>
+			  <p>Now it is time to <strong>create a macro</strong> (a piece of code) and assign it to the command button.</p>
+			  <p>1. Right click on CommandButton1.<br>
+			  2. Click on View Code.</p>
+							<p><img src="01_files/assgin-macro-excel-2007.jpg" alt="Assign Code" title="Assign Code" height="429" width="591"></p>
+			  <p>3. The Visual Basic Editor appears. Place you cursor between 'Private Sub CommandButton1_Click()' and 'End Sub'.<br>
+			  </p>
+			  <p>4. For example, add the following code line:</p>
+			  <div class="code">Range("A1").Value = "Hello"<br>
+              </div>
+			  <p><br>
+		      <img src="01_files/create-a-macro-excel-2007.jpg" alt="Create a Macro in Excel VBA" title="Create a Macro in Excel VBA" height="318" width="591"></p>
+			  <p>This <strong>macro</strong> places the word Hello into cell A1.</p>
+			  <p>5. Close the <strong>Visual Basic Editor</strong>.</p>
+			  <p>6. Before you click on CommandButton1, make sure Design Mode is deselected. You can do this by clicking on Design Mode again. </p>
+			  <p>7. Click on CommandButton1.</p>
+			  <p>Cell A1 should contain the word Hello now.  Congratulations. You've just created a macro in Excel VBA!</p>
+              <p>Did you find this information helpful? Show your appreciation, vote for us.</p>
+              <p><div id="___plusone_2" style="height: 24px; width: 170px; display: inline-block; text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline;"><iframe title="+1" data-gapiattached="true" allowtransparency="true" src="01_files/fastbutton_003.htm" name="I2_1363886576525" id="I2_1363886576525" vspace="0" tabindex="0" style="position: static; top: 0px; width: 170px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div></p>							
+              <p>Go to Top: <a href="http://www.excel-vba-easy.com/vba-how-to-create-macro-excel.html">Create a Macro</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Go to Next Topic: <a href="http://www.excel-vba-easy.com/vba-how-to-excel-macro-recorder.html">Excel Macro Recorder</a></p>
+                    </div>
+				  </div>
+                  <div class="post">
+					<div style="clear: both;"></div>
+                    <div class="entrylearn">
+                      <p align="left"><span class="buttonp"> <a href="#">Learn more about excel macros, Login to the right &gt;&gt;<br>
+                      </a></span>100 easy to follow Excel VBA <a href="http://www.excel-vba-easy.com/excel-vba-programs.html">examples</a>. Limited time-offer: <strike>$39.00</strike> but only $29.00. Ends on 31 March.</p>
+</div>
+				  </div>
+                                    
+<div class="post">
+						<h2 class="title2"><a name="create-macro-excel-2003" id="create-macro-excel-2003"></a>Create a Macro in Excel 2003</h2>
+			<div style="clear: both;">&nbsp;</div>
+						<div class="entry">  
+                        <p><a href="#activate-control-toolbox">Activate the Control Toolbox</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#create-command-button-excel-2003">Create a Command Button</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#create-assign-macro-excel-2003">Create and Assign the Macro</a></p>
+						  <p>To create a macro in <strong>Excel</strong> 2003, you have to
+ activate the Control Toolbox. Next, you can create a macro which will 
+be executed after clicking on a command button.</p>
+						  <h3><a name="activate-control-toolbox" id="activate-control-toolbox"></a>Activate the Control Toolbox</h3>
+						  <p>In order to use Excel VBA in Excel 2003, you have to activate the Control Toolbox. </p>
+							<p>1. Click on View, Toolbars, Control Toolbox.<br>
+						  </p>
+							<p><img src="01_files/Control-ToolBox-Excel-2003.jpg" alt="Activate the Control Toolbox in Excel 2003" title="Activate the Control Toolbox in Excel 2003" height="226" width="532"></p>
+						  <p>2. You can integrate the Control Toolbox if you want by simply dragging it into your menu.</p>
+							<p><span class="bodyText"><img src="01_files/Control-ToolBox-integrated.jpg" alt="Integrate the Control Toolbox" title="Integrate the Control Toolbox" height="175" width="591"></span></p>
+						    <h3><a name="create-command-button-excel-2003" id="create-command-button-excel-2003"></a>Create a Command Button</h3>
+					      <p>1. Click on Command Button from the Control Toolbox.<br>
+						  </p>
+						  <p><img src="01_files/Click-CommandButton.jpg" alt="Click on Command Button" title="Click on Command Button" height="174" width="591"></p>
+						  <p>2. Now you can drag a command button on your worksheet. </p>
+							<h3><a name="create-assign-macro-excel-2003" id="create-assign-macro-excel-2003"></a>Create and Assign the Macro</h3>
+						  <p>Now it is time to create a macro and assign it to the command button.</p>
+							<p>1. Right click on CommandButton1.</p>
+							<p>2. Click on View Code.</p>
+							<p><img src="01_files/Right-Click-View-code.jpg" alt="Right Click and then click on View Code" title="Right Click and then click on View Code" height="446" width="591"></p>
+						  <p>3. The Visual Basic Editor appears. Place you cursor between 'Private Sub CommandButton1_Click()' and 'End Sub'.<br>
+						  </p>
+						  <p>4. Add the line:</p>
+						  <div class="code">Range("A1").Value = "Hello"<br>
+                          </div>
+						  <p><br>
+					      <img src="01_files/Visual-Basic-Editor-2003.jpg" alt="The Visual Basic Editor in Excel 2003" title="The Visual Basic Editor in Excel 2003" =width="591" height="301"></p>
+						  <p>5. Close the Visual Basic Editor.</p>
+							<p>6. Before you click on the command button, make sure Design 
+Mode (most left field of the Control Toolbox) is deselected. You can do 
+this by clicking on Design Mode again. </p>
+						  <p>7. Click on CommandButton1.</p>
+						  <p>Result:</p>
+						  <p><img src="01_files/Result-macro-excel-2003.jpg" alt="First Macro Result" title="First Macro Result" height="97" width="403"></p>
+						  <p>Well done! You've just created a macro in Excel VBA!</p>
+                          <p>Did you find this information helpful? Show your appreciation, vote for us.</p>
+                          <p><div id="___plusone_3" style="height: 24px; width: 170px; display: inline-block; text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline;"><iframe title="+1" data-gapiattached="true" allowtransparency="true" src="01_files/fastbutton_004.htm" name="I3_1363886576534" id="I3_1363886576534" vspace="0" tabindex="0" style="position: static; top: 0px; width: 170px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div></p>
+						  <p>Go to Top: <a href="http://www.excel-vba-easy.com/vba-how-to-create-macro-excel.html">Create a Macro</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Go to Next Topic: <a href="http://www.excel-vba-easy.com/vba-how-to-excel-macro-recorder.html">Excel Macro Recorder</a></p>
+                </div>
+				  </div>
+                  <div class="post">
+					<div style="clear: both;"></div>
+                    <div class="entrylearn">
+                      <p align="left"><span class="buttonp"> <a href="#">Learn more about excel macros, Login to the right &gt;&gt;<br>
+                      </a></span>100 easy to follow Excel VBA <a href="http://www.excel-vba-easy.com/excel-vba-programs.html">examples</a>. Limited time-offer: <strike>$39.00</strike> but only $29.00. Ends on 31 March.</p>
+</div>
+				  </div>
+                                    
+              </div>
+				<div id="sidebar">
+                 <p>&nbsp;</p>
+					<ul><li></li>
+                      <li>
+					    <h3><a href="http://www.excel-vba-easy.com/excel-vba-programs.html" rel="nofollow" style="text-decoration:none">Learn more, Get a login &gt;&gt;</a></h3>
+				    </li>
+					  <li><ul>                                              
+                      	<li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/swap-values.shtml" rel="nofollow">Swap Values</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/running-code-from-a-module.shtml" rel="nofollow">Running Code from a Module</a></li>
+					  </ul>
+				    </li>
+                      <li></li>
+                  </ul>
+			  </div>
+                <!-- end #sidebar -->
+			  <div style="clear: both;">&nbsp;</div>
+		  </div>
+		</div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p>Copyright (c) 2010-2013 <a href="http://www.excel-vba-easy.com/">www.excel-vba-easy.com</a>. <a href="http://www.excel-vba-easy.com/vba-how-to-create-macro-excel.html">Create Excel Macros</a>. All rights reserved.<br>
+	<a href="http://www.excel-vba-easy.com/">excel vba</a> | <a href="http://www.excel-vba-easy.com/">macros in excel</a> | <a href="http://www.excel-vba-easy.com/">vba macro</a> | <a href="http://www.excel-vba-easy.com/">excel visual basic</a> | <a href="http://www.excel-easy.com/excel-examples.html">excel examples</a> | <a href="http://www.excel-vba-easy.com/">vba for microsoft excel</a>
+</p></div>
+<!-- end #footer -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15754101-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+</body></html>

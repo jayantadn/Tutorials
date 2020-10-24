@@ -1,0 +1,44 @@
+body{font-family:Arial,Helvetica,sans-serif;font-size:14px;margin:0;padding:0;margin:0 auto;background-color:#112233;color:#ADB1B8;text-align:justify;}
+h1{width:600px;font-size:30px;font-family:"Trebuchet MS";color:#FFFFFF;margin:0;padding:0;padding-left:10px;padding-top:10px;padding-bottom:10px;margin-bottom:10px;border-bottom:#304050 1px solid;}
+h2{width:600px;font-size:24px;font-family:"Trebuchet MS";color:#FFFFFF;margin:0;padding:0;padding-left:10px;padding-top:10px;padding-bottom:10px;margin-bottom:10px;border-bottom:#304050 1px solid;}
+h3{width:150px;font-size:18px;font-family:"Trebuchet MS";color:#FFFFFF;margin:0;padding:0;padding-left:10px;padding-top:10px;padding-bottom:10px;margin-bottom:10px;border-bottom:#304050 1px solid;}
+img{padding-left:10px;padding-top:10px;padding-bottom:10px;}
+
+#leftpanel{width:198px;height:auto;float:left;clear:left;}
+
+#content{width:1000px;height:auto;margin:0 auto;background-color:#112233;}
+#header{width:100%;height:80px;margin:0 auto;}
+.logo_style{font-size:32px;color:#E2E2EA;font-family:"Trebuchet MS";text-align:center;padding-top:20px;padding-bottom:20px;}
+.logo2_style{font-size:14px;font-family:"Trebuchet MS";color:#8B8B95;}
+
+#navbar{width:198px;height:auto;float:left;border:solid 1px #020304;background-color:#111A23;background-position:-80px -80px;clear:left;}
+.menubar{font-size:14px;font-family:"Trebuchet MS";background:url(../images/menubar.jpg) repeat-x;background-position:0px 0px;float:left;width:198px;height:13px;border-bottom:solid 1px #020304;}
+.menubar h6{margin:0;padding:0;background:url(../images/close.jpg) top right no-repeat;list-style-type:none;color:#102030;}
+
+#membernavbar{width:198px;margin-top:20px;height:auto;float:left;border:solid 1px #020304;background-color:#111A23;background-position:-80px -80px;clear:left;}
+
+#news{width:198px;margin-top:20px;height:auto;float:left;border:solid 1px #020304;background-color:#111A23;background-position:-80px -80px;clear:left;}
+.newstext{font-size:12px;font-family:"Trebuchet MS";color:#FFFFFF;}
+#newsstyle{padding:0px 10px;}
+
+/*#mainbody{width:778px;height:auto;float:left;border:solid 1px #020304;background-image:url(../images/gradient.jpg);background-position:-80px -80px;margin-left:20px;}*/
+#mainbody{width:778px;height:auto;float:left;border:solid 1px #020304;margin-left:20px;background-color:#111A23;}
+#maintext{padding:10px 20px;}
+
+.menubar2{font-size:14px;font-family:"Trebuchet MS";background:url(../images/menubar.jpg) repeat-x;background-position:0px 0px;float:left;width:778px;height:13px;border-bottom:solid 1px #020304;}
+.menubar2 img{margin:0;padding:0;list-style-type:none;color:#102030;float:right;}
+
+a:link{color:#D6CECE;text-decoration:none;}
+a:visited{text-decoration:none;color:#D6CECE;}
+a:hover{text-decoration:none;color:#D6CECE;}
+a:active{text-decoration:none;color:#D6CECE;}
+
+.menu{font-family:Arial,Helvetica,sans-serif;font-size:11px;}
+.menu ul{margin:0;padding:0;display:block;list-style-type:none;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;width:180px;}
+.menu ul li{width:150px;border-bottom:1px #304050 solid;}
+.menu ul li a{font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;padding-left:20px;padding-top:8px;padding-bottom:8px;line-height:30px;}
+.menu ul li a:hover{padding-top:8px;padding-bottom:8px;padding-left:20px;border-left:5px solid #E35F3F;}
+
+.code{width:716px;height:auto;float:left;border:solid 1px #020304;margin-left:10px;margin-right:10px;background-color:#112233;clear:both;margin-bottom:10px;}
+
+#footer{font-size:12px;width:600px;height:auto;margin:20px auto;float:left;text-align:center;}

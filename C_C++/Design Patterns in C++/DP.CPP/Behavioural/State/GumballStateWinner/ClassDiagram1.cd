@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GumballMachine" Collapsed="true">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QEQIAAgQACBAAAAEACiADEAAIBAAAAEAAACgAAAEAgQ=</HashCode>
+      <FileName>GumballMachine.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HasQuarterState">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAABAAAAAAAAAEAAAAgAIQAAgE=</HashCode>
+      <FileName>HasQuarterState.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NoQuarterState">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAABAAAAAAAAQEAAAAgAAQAAgE=</HashCode>
+      <FileName>NoQuarterState.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoldOutState">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAgAAAAAAAAAAAAABAAAAAAAAAEAAAAgAAQAAgE=</HashCode>
+      <FileName>SoldOutState.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoldState">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAABAABAAAAAAAAAEAAAAgAAQAAgE=</HashCode>
+      <FileName>SoldState.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="State" Collapsed="true">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAABAAAAAAAAAEAAAAAABQAAgA=</HashCode>
+      <FileName>State.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinnerState">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAIAAAAAAABAAAAAAAAAEAAAAgAAQAAgE=</HashCode>
+      <FileName>WinnerState.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

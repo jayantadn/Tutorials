@@ -1,0 +1,5 @@
+1. Create build files:
+	cmake -H. -B<build dir>
+
+2. trigger build:
+	cmake --build<build dir>

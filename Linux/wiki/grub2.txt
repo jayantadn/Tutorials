@@ -1,0 +1,11 @@
+change grub config:
+edit the file /etc/default/grub
+
+execute command update-grub
+
+
+reinstall grub:
+sudo -i
+mount /dev/sda7 /mnt
+mount /dev/sda6 /mnt/boot  #skip this one if not have a separate /boot partition
+grub-install --root-directory=/mnt/ /dev/sda

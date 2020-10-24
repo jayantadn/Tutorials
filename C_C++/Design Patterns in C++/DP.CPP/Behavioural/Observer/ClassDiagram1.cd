@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CurrentConditionsDisplay" Collapsed="true">
+    <Position X="6.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAACAAAAAAAAEAAAAAAAUgAAAEBAA=</HashCode>
+      <FileName>CurrentConditionsDisplay.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DisplayElement">
+    <Position X="1.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>DisplayElement.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForecastDisplay" Collapsed="true">
+    <Position X="1" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAACAQIAAAAAAAAAAEAAAAAAAAkAAAEAAA=</HashCode>
+      <FileName>ForecastDisplay.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HeatIndexDisplay" Collapsed="true">
+    <Position X="3.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAEQAAAAAAAAAAAAAEAAAACAAAgAAAEACA=</HashCode>
+      <FileName>HeatIndexDisplay.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Observer">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Observer.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StatisticsDisplay" Collapsed="true">
+    <Position X="8.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAACAAAAAAAAgIAAEAAABAAAAgAEAEAEA=</HashCode>
+      <FileName>StatisticsDisplay.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Subject" Collapsed="true">
+    <Position X="6.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAACAAAIAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Subject.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeatherData" Collapsed="true">
+    <Position X="6.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAECAIAYAGAAAAAAAAAAAAAAAABAAQgCAQABIA=</HashCode>
+      <FileName>WeatherData.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

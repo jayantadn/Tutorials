@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+<title>Excel VBA Application Object - Easy Excel Macros</title>
+<meta name="keywords" content="Application object, screen updating, display alerts, worksheet function, excel vba application object">
+<meta name="description" content="The mother of all objects is Excel itself. We call it the Application object. The application object gives access to a lot of Excel related options.">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="robots" content="index, follow">
+<meta content="EN-US" name="LANGUAGE">
+<link href="Excel%20VBA%20Application%20Object%20-%20Easy%20Excel%20Macros_files/style.css" rel="stylesheet" type="text/css" media="screen">
+<style type="text/css">
+<!--
+.style3 {color: #3E3530}
+-->
+</style>
+<script src="Excel%20VBA%20Application%20Object%20-%20Easy%20Excel%20Macros_files/ga.js" async="" type="text/javascript"></script><script async="" src="Excel%20VBA%20Application%20Object%20-%20Easy%20Excel%20Macros_files/cbgapi.loaded_0"></script><script gapi_processed="true" type="text/javascript" src="Excel%20VBA%20Application%20Object%20-%20Easy%20Excel%20Macros_files/plusone.js"></script>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h2><a href="http://www.excel-vba-easy.com/"><img src="Excel%20VBA%20Application%20Object%20-%20Easy%20Excel%20Macros_files/excel-vba.jpg" alt="Excel Visual Basic" title="Excel Visual Basic" border="0" height="40" width="44">excel vba</a></h2>
+			  <p>#1 Source for <a href="http://www.excel-vba-easy.com/">Excel macros</a> on the net</p>
+		  </div>
+            
+			<div id="menu">
+				<ul>
+				  <li><a href="http://www.excel-vba-easy.com/">Excel VBA</a></li>
+				  <li><a href="http://www.excel-vba-easy.com/excel-macro.html">Macro?</a></li>
+				  <li class="current_page_item"><a href="http://www.excel-vba-easy.com/excel-vba-basics.html">Basics</a></li>
+				  <li><a href="http://www.excel-vba-easy.com/excel-vba-programming.html">Programming</a></li>
+				  <li><a href="http://www.excel-vba-easy.com/excel-vba-controls.html">Controls</a></li>
+                  <li class="pro"><a href="http://www.excel-vba-easy.com/excel-vba-programs.html" rel="nofollow">100 Examples</a></li>
+                  <li><a href="http://www.excel-vba-easy.com/contact-excel-vba-easy.html" rel="nofollow">Ask us</a></li>
+			  </ul>
+			</div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+				<div id="content">
+					<div class="post">
+						<h1 class="title" style="float:left">Application Object</h1>
+						<table>
+                          <tbody><tr>
+                            <td style="padding-left:7px; padding-top:11px"><div id="___plusone_0" style="height: 24px; width: 170px; display: inline-block; text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline;"><iframe title="+1" data-gapiattached="true" allowtransparency="true" src="Excel%20VBA%20Application%20Object%20-%20Easy%20Excel%20Macros_files/fastbutton.htm" name="I0_1363889410260" id="I0_1363889410260" vspace="0" tabindex="0" style="position: static; top: 0px; width: 170px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div></td>
+                          </tr>
+                        </tbody></table>
+					  <div style="clear: both;">&nbsp;</div>
+<div class="entry">
+  <p>The mother of all objects is Excel itself. We call it the <strong>Application object</strong>. The application object gives access to a lot of Excel related options.</p>
+<h3><a name="worksheet-function" id="worksheet-function"></a>WorksheetFunction</h3>
+<p>You can access almost any Excel function through the <strong>Application object</strong>.</p>
+<p>1.  For example, place a <a href="http://www.excel-vba-easy.com/vba-how-to-create-macro-excel.html">command button</a> on your worksheet and add the following code line:</p>
+<div class="code">Range("A3").Value = Application.WorksheetFunction.Average(Range("A1:A2"))</div>
+<p><br>
+  When you click the command button on the worksheet, Excel VBA 
+calculates the average of the values in Cell A1 and Cell A2 and places 
+the result into cell A3.</p>
+<p><img src="Excel%20VBA%20Application%20Object%20-%20Easy%20Excel%20Macros_files/application-object-worksheet-function.png" alt="WorksheetFunction" title="WorksheetFunction" height="105" width="346"></p>
+<p>Note: instead of Application.WorksheetFunction.Average, you can also just use WorksheetFunction.Average.</p>
+<p>There are many more worksheet functions you can use in Excel VBA. Want to see more?</p>
+<p>1. Launch the Visual Basic Editor.</p>
+<p>2. Type in: worksheetfunction.</p>
+<p>3. A list will appear showing you all the worksheet functions available.</p>
+<p><img src="Excel%20VBA%20Application%20Object%20-%20Easy%20Excel%20Macros_files/application-object-more-worksheet-functions.png" alt="More Worksheet Functions" title="More Worksheet Functions" height="155" width="294"></p>
+<p>Did you find this information helpful? Show your appreciation, vote for us.</p>
+<p><div id="___plusone_1" style="height: 24px; width: 170px; display: inline-block; text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline;"><iframe title="+1" data-gapiattached="true" allowtransparency="true" src="Excel%20VBA%20Application%20Object%20-%20Easy%20Excel%20Macros_files/fastbutton_002.htm" name="I1_1363889410269" id="I1_1363889410269" vspace="0" tabindex="0" style="position: static; top: 0px; width: 170px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div></p>
+<p>Go to Top: <a href="http://www.excel-vba-easy.com/vba-basic-application-object.html">Application Object</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Go to Next Section: <a href="http://www.excel-vba-easy.com/excel-vba-programming.html">Programming</a></p>
+</div>
+				  </div>
+                  <div class="post">
+					<div style="clear: both;"></div>
+                    <div class="entrylearn"> 
+                      <p align="left"><span class="buttonp"> <a href="#">More about the application object, Login to the right &gt;&gt;<br>
+                      </a></span>100 easy to follow Excel VBA <a href="http://www.excel-vba-easy.com/excel-vba-programs.html">examples</a>. Limited time-offer: <strike>$39.00</strike> but only $29.00. Ends on 31 March.</p>
+</div>
+				  </div>
+                  
+                  </div>
+			</div>
+				<div id="sidebar">
+                 <p>&nbsp;</p>
+					<ul><li>
+				      <h3><a href="http://www.excel-vba-easy.com/excel-vba-programs.html" rel="nofollow" style="text-decoration:none">Learn more, Get a login &gt;&gt;</a></h3>
+				    </li>
+					  <li>
+					    <ul>                        
+                      	<li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/automatic-calculation.shtml" rel="nofollow">Automatic Calculation</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/screenupdating.shtml" rel="nofollow">ScreenUpdating</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/display-alerts.shtml" rel="nofollow">Display Alerts</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/insert-a-formula.shtml" rel="nofollow">Insert a Formula</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/status-bar.shtml" rel="nofollow">Status Bar</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/read-data-from-text-file.shtml" rel="nofollow">Read Data from Text File</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/write-data-to-text-file.shtml" rel="nofollow">Write Data to Text File</a></li>
+                        </ul>
+				    </li>
+                      <li></li>
+				  </ul>
+		  </div>
+             
+		    <!-- end #sidebar -->
+				<div style="clear: both;">&nbsp;</div>
+		  </div>
+		</div>
+	</div>
+	<!-- end #page -->
+
+<div id="footer">
+	<p>Copyright (c) 2010-2013 <a href="http://www.excel-vba-easy.com/">www.excel-vba-easy.com</a>. <a href="http://www.excel-vba-easy.com/vba-basic-application-object.html">Excel VBA Application Object</a>. All rights reserved.<br>
+	<a href="http://www.excel-vba-easy.com/">excel vba</a> | <a href="http://www.excel-vba-easy.com/">macros in excel</a> | <a href="http://www.excel-vba-easy.com/">vba macro</a> | <a href="http://www.excel-vba-easy.com/">excel visual basic</a> | <a href="http://www.excel-easy.com/excel-basic-data-validation.html">data validation excel</a> | <a href="http://www.excel-vba-easy.com/">vba for microsoft excel</a>
+</p></div>
+<!-- end #footer -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15754101-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+</body></html>

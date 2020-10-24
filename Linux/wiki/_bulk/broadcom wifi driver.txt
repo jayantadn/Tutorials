@@ -1,0 +1,3 @@
+wired internet connection should be available.
+download the package b43-fwcutter using only Synaptic package manager. 
+during the installation it will get all files from internet and configure automatically.

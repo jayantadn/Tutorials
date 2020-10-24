@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<link rel="shortcut icon" href="http://www.win32developer.com/images/favicon.ico">
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<link type="text/css" rel="stylesheet" href="Win32%20Developer%20%28The%20Client%29_files/styles.css">
+	<title>Win32 Developer - Winsock tutorial 1: Blocking Sockets in TCP/IP (The Client)</title>
+	<meta name="keywords" content="win32,programming,tutorials,winsock,async,sockets,overlapped io,windows,tutorial,developer,c,c++,games,mmorpg,blocking,non blocking">
+	<meta name="description" content="Win32 programming tutorials in C++. We cover basic to advanced Win32 programming in the Win32 API, including networking using Winsock, blocking sockets, non-blocking sockets, async or asyncronous sockets, overlapped I/O, and much more!">
+</head>
+<body>
+
+<div id="header" class="logo_style">Win32 Developer<br>
+	<div class="logo2_style">Winsock tutorial in C++</div>
+</div>
+
+<div id="content">
+<div id="leftpanel">
+	<div id="navbar" class="menu">
+	<span class="menubar"></span>
+	<ul>
+		<li><a href="http://www.win32developer.com/" rel="dofollow">HOME</a></li>
+		<li><a href="http://www.win32developer.com/tutorial.shtm" rel="dofollow">TUTORIALS (C++)</a></li>
+		<li><a href="http://www.win32developer.com/asm/windows_tutorial_1.shtm" rel="dofollow">TUTORIALS (ASM)</a></li>
+	</ul>
+</div>
+	<div id="news" class="menu">
+<span class="menubar"></span><div id="newsstyle"><h3>News Items</h3>		
+	<p>17 February 2014<br>
+	<span class="newstext">Game development still going strong</span><br>
+	Each day the base engine gets closer to completion<br><br>
+	</p>
+	<p>20 November 2013<br>
+	<span class="newstext">We are making a game!</span><br>
+	Follow us on twitter to find out more.<br><br>
+	</p>
+	<p>		27 March 2012<br>		<span class="newstext">New XAudio tutorial</span><br>			In this tutorial we look into streaming audio from the disk.		<br><br>	</p>	<p>		17 March 2012<br>		<span class="newstext">Two Part XAudio2 Tutorial</span><br>			Jay explains how to use events and asynchronous I/O in his two part XAudio installment.		<br><br>	</p>	<p>		6 March 2012<br>		<span class="newstext">Another XAudio2 Tutorial</span><br>			Part two investigates how to play multiple voices from a single buffer.		<br><br>	</p>	<p>		5 March 2012<br>		<span class="newstext">XAudio2 Tutorial added</span><br>			Jay Tennant explains how to handle sound audio in XAudio2. 		<br><br>	</p>	<p>		5 March 2012<br>		<span class="newstext">Jay Tennant joins the team!</span><br>
+			Win32 Developer gets a new lease of life with Jay Tennant joining the
+ team. His vast knowlegde, experience, and overall helpfulness is 
+greatly appreciated around these parts. He			also lurks around the 
+forums as Hieran_Del8. Be sure to say 'hello'.		<br><br>	</p>	<p>		5 March 2012<br>		<span class="newstext">DirectX 9.0c Tutorial added</span><br>
+			In the first tutorial in our DirectX series, we explore how to create
+ a render window, that will become the setting for our graphic 
+environment.		<br><br>	</p></div></div>
+</div>
+	<div id="mainbody"><span class="menubar2"><h6>&nbsp;</h6></span>
+		<div id="maintext">
+				<h1>Winsock Tutorial 1</h1>
+				<h2>Blocking Sockets in TCP/IP (The Client)</h2>
+				This tutorial is to designed to get a feel for the most basic Winsock model, the blocking socket. By the end you will have
+				a working client. The server can be found in Tutorial 2.
+				<br><br>
+				First we should clear up some terminology, Socket, TCP/IP, UDP.
+				<br><br>
+				For the uninitiated, a socket is an abstraction where an application can communicate over a network or
+				dial-up connection. Essentially you send data to the socket, the socket sends the data across the network
+				or maybe even the internet, and all going well, someone will recieve the data at the other end.
+				<br><br>
+				<center>
+				<script type="text/javascript"><!--
+google_ad_client = "pub-2615336831026624";
+/* 728x90, created 9/17/09 */
+google_ad_slot = "5954503072";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="Win32%20Developer%20%28The%20Client%29_files/show_ads.js">
+</script>
+				</center><br>
+				TCP/IP stands for Transmission Control Protocol/Internet Protocol. This handles all of the behind the scenes
+				handshaking and guarantees that data will travel to the reciever (provided someones network cable hasn't been unplugged).
+				If the send command comes back successful, then the data is guaranteed to have arrived at the other end. We will be
+				concentrating on TCP/IP for Tutorial 1.
+				<br><br>
+				UDP stands for User Datagram Protocol. UDP is connectionless, which means the application does not have to go through
+				initial setup of TCP/IP which creates a connection to another socket. With UDP, packets are simply fired at an IP address
+				and port, whether someone is there to recieve them or not is not known. UDP is not reliable. Packets can arrive
+				out of sequence, be doubled up, or simply never arrive at all. Therefore, it is upto the programmer to decide how to handle
+				loss of data and duplications. Most online games use UDP as it does not have the overhead of TCP/IP, but this comes at the
+				price of reliability.
+				<br><br>
+				There are various methods of using Winsock. Eg. Blocking, 
+non-blocking, asyncronous, overlapped I/O. We will be concentrating
+				on blocking sockets at the moment.
+				<br><br>
+			<h2>Prerequisties</h2>
+				<span class="code">				
+				<b>Project type:</b> Console<br>
+				<b>Include files:</b> winsock2.h, iostream.h<br>
+				<b>Library files:</b> ws2_32.lib</span>
+				<br><br><br>
+			<h2>The Client</h2>
+				As expected the client's purpose is the connect to a server to send 
+and recieve data. For readability we will omit error checking
+				until the final code at the end of the section.
+				<br><br>
+				First we need to initialise Winsock.
+				<br><br>
+				<span class="code">
+					WSADATA WsaDat;<br>
+					WSAStartup(MAKEWORD(2,2),&amp;WsaDat);
+				</span>
+				<br><br>
+				These lines tell Winsock to use version 2.2. Winsock functions will normally return 0 if the command executed sucessfully.
+				<br><br>
+				Now that Winsock has been initialised we need to create a socket.
+				<br><br>
+				<span class="code">
+					SOCKET Socket=socket(AF_INET,SOCK_STREAM,IPPROTO_TCP);
+				</span>
+				<br>
+				This sets up a socket convieniently called 'Socket'. The first parameter is always AF_INET for TCP/IP sockets. The second
+				and third parameters are always set as shown when using TCP/IP protocol.
+				<br><br>
+				The next code snippet is used to resolve a hostname to an IP 
+address. The neat thing about it is that you can still replace the 
+hostname 
+				with an IP address is nessesary and it will still work. In this 
+example we are connecting to ourselves (localhost).
+				<br><br>
+				<span class="code">
+					struct hostent *host;<br>
+					host=gethostbyname("localhost");
+				</span>
+				<br>
+				Next we setup the IP address and port that we want to communicate 
+with. A port is comparable to a unit number, where an IP address might
+				be a street address. When the postman comes to deliver the mail he 
+needs to know what letterbox to put the mail into.
+				<br><br>
+				<span class="code">
+					SOCKADDR_IN SockAddr;<br>
+					SockAddr.sin_port=htons(8888);<br>
+					SockAddr.sin_family=AF_INET;<br>
+					SockAddr.sin_addr.s_addr=*((unsigned long*)host-&gt;h_addr);
+				</span>
+				<br>
+				Now that all of our initial setup is taken care of, we can now attempt to connect our socket to the server.	
+				<br><br>
+				<span class="code">
+					connect(Socket,(SOCKADDR*)(&amp;SockAddr),sizeof(SockAddr));
+				</span>	
+				<br>
+				All going well, we should be now connected to the server, ready to send and recieve data.
+				<br><br>
+				Assuming the server sends out some sort of welcome message we can wait and listen for it.
+				<br><br>
+				<span class="code">
+					char buffer[1000];<br>
+					int nDataLength=recv(Socket,buffer,1000,0);<br>
+					std::cout&lt;&lt;buffer;
+				</span>
+				<br>
+				The first line creates a buffer for our incoming data. The 'recv' command waits (or blocks) until data is available.
+				When data is recieved on our socket it is placed directly into our buffer. The third parameter of the recieve call
+				is how many bytes we are willing to recieve from our socket, per call.
+				<br><br>
+				Coming towards the end of our application we need to 'shutdown' our socket.
+				<br><br>
+				<span class="code">			
+					shutdown(socket,SD_SEND);
+				</span>
+				<br>
+				Now that our socket has been shutdown, we can still recieve data, so
+ we can tie up any loose ends (so to speak) but can no longer 
+				send data back to the server. 
+				<br>
+
+				The second parameter for shutdown can be any of the following, depending on the design of your application;
+				<br>
+<pre>	SD_SEND		0	Socket can only send
+	SD_RECIEVE	1	Socket can only recieve
+	SD_BOTH		2	Socket can no longer send or recieve
+</pre>
+				All going well we can now close our socket entirely. No more sending or recieving from here onwards.
+				<br><br>
+				<span class="code">				
+					closesocket(socket);
+				</span>
+				<br>
+				Once we have finished using Winsock we must perform a quick cleanup to free memory and other resources.
+				<br><br>				
+				<span class="code">
+					WSACleanup();
+				</span>
+				<br>				
+				Easy, wasn't it?
+				<br><br>				
+				The catch with using blocking sockets is exactly that, they 'block'. This sort of networking model
+				is fine for certain applications but is not really designed for games or similar. The reason being, each send or
+				recieve call will stop your application from continuing until they succeed (or if the connection is closed at the
+				other side).<br>
+				Non-blocking sockets, overlapped I/O, or asyncronous sockets are better suited for an environment where the program
+				needs to process other information.
+				<br><br>
+				<h2>The Full Code</h2>
+				<pre><span class="code">#include &lt;iostream&gt;
+#include &lt;winsock2.h&gt;
+#pragma comment(lib,"ws2_32.lib")
+
+int main()
+{
+	// Initialise Winsock
+	WSADATA WsaDat;
+	if(WSAStartup(MAKEWORD(2,2),&amp;WsaDat)!=0)
+	{
+		std::cout&lt;&lt;"Winsock error - Winsock initialization failed\r\n";
+		WSACleanup();
+		system("PAUSE");
+		return 0;
+	}
+	
+	// Create our socket
+	SOCKET Socket=socket(AF_INET,SOCK_STREAM,IPPROTO_TCP);
+	if(Socket==INVALID_SOCKET)
+	{
+		std::cout&lt;&lt;"Winsock error - Socket creation Failed!\r\n";
+		WSACleanup();
+		system("PAUSE");
+		return 0;
+	}
+
+	// Resolve IP address for hostname
+	struct hostent *host;
+	if((host=gethostbyname("localhost"))==NULL)
+	{
+		std::cout&lt;&lt;"Failed to resolve hostname.\r\n";
+		WSACleanup();
+		system("PAUSE");
+		return 0;
+	}
+
+	// Setup our socket address structure
+	SOCKADDR_IN SockAddr;
+	SockAddr.sin_port=htons(8888);
+	SockAddr.sin_family=AF_INET;
+	SockAddr.sin_addr.s_addr=*((unsigned long*)host-&gt;h_addr);
+
+	// Attempt to connect to server
+	if(connect(Socket,(SOCKADDR*)(&amp;SockAddr),sizeof(SockAddr))!=0)
+	{
+		std::cout&lt;&lt;"Failed to establish connection with server\r\n";
+		WSACleanup();
+		system("PAUSE");
+		return 0;
+	}
+
+	// Display message from server
+	char buffer[1000];
+	memset(buffer,0,999);
+	int inDataLength=recv(Socket,buffer,1000,0);
+	std::cout&lt;&lt;buffer;
+
+	// Shutdown our socket
+	shutdown(Socket,SD_SEND);
+
+	// Close our socket entirely
+	closesocket(Socket);
+
+	// Cleanup Winsock
+	WSACleanup();
+	system("PAUSE");
+	return 0;
+}</span></pre>
+				<br><br>
+				<h2>Things to try</h2>
+				Try changing the port to 110 and the hostname to your mail server provider (eg. mail.bigpond.com). You should be greeted
+				with a welcome message from your mail server.
+				<br><br>
+				<span class="code">
+					struct hostent *host; host=gethostbyname("mail.bigpond.com"); <br>
+					SockAddr.sin_port=htons(110);
+				</span>
+				<br><br>
+				<h2>Additional informaton</h2>
+				For additional information we have provided the following links.
+				<br><br>
+				<a href="http://msdn.microsoft.com/en-us/library/ms738545%28VS.85%29.aspx"><b>Microsoft (MSDN) - Getting started with Winsock</b></a>
+				<br><br><br>
+				<h2>Next tutorial</h2>
+				<a href="http://www.win32developer.com/tutorial/winsock/winsock_tutorial_2.shtm"><b>Tutorial 2 - Basic Blocking Sockets in TCP/IP (The Server)</b></a>
+		</div>
+	</div>
+	<div id="footer">
+	<div id="footer-nav">
+		<a href="http://www.win32developer.com/" rel="dofollow">Home</a> |
+		<a href="http://www.win32developer.com/tutorial.shtm" rel="dofollow">Tutorials</a> | 
+		<a href="http://www.win32developer.com/phpbb3" rel="dofollow">Forums</a>
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="Win32%20Developer%20%28The%20Client%29_files/ga.gif" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-5109149-2");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+
+</body></html>

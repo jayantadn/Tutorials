@@ -1,0 +1,15 @@
+<opt>
+  <book isbn="Book1ISBN" title="Book 1 title">
+    <author>Book 1 author 1</author>
+    <author>Book 1 author 2</author>
+  </book>
+  <book isbn="Book2ISBN" title="Book 2 title">
+    <author>Book 2 author 1</author>
+    <author>Book 2 author 2</author>
+  </book>
+  <book isbn="Book3ISBN" title="Book 3 title">
+    <author>Book 3 author 1</author>
+    <author>Book 3 author 2</author>
+    <author>Book 3 author 3</author>
+  </book>
+</opt>

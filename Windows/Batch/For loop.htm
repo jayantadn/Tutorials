@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="UTF-8">
+<link rel="STYLESHEET" href="For%20-%2001_files/main2.css" type="text/css">
+<title>For - Loop through command output | SS64.com</title>
+</head><body><!-- #BeginLibraryItem "/Library/head_nt.lbi" --><div id="tnav"><ul>
+<li class="tbtn"><a href="http://ss64.com/"> ( &nbsp;SS64 &nbsp;)</a></li>
+<li class="tbtn"><a href="http://ss64.com/nt">CMD</a></li>
+<li class="tbtn"><a href="http://ss64.com/nt/syntax.html">Syntax</a></li>
+<li><div id="search"><form action="http://www.google.com/search" method="get">
+<button tabindex="-1" type="submit" id="q-img"></button>
+<input name="q" id="q" size="27" maxlength="255" onblur="if(this.value=='')this.value='Search…';" onclick="if(this.value=='Search…')this.value='';" value="Search…" type="text">
+<input name="sitesearch" value="ss64.com/nt/" type="hidden"></form></div></li>
+</ul></div><!-- #EndLibraryItem --><h1>FOR /F</h1>
+<p>Loop command: against the results of another command.</p>
+<pre>Syntax
+      FOR <b>/F</b> ["<i>options</i>"] %%<i>parameter</i> IN (<b>'<i>command_to_process</i>'</b>) DO <i>command</i>
+
+Key
+   options:
+      delims=<i>xxx</i>   The delimiter character(s)
+                   (default = a space)
+      skip=<i>n</i>       A number of lines to skip at the beginning. 
+                   (default = 0)
+
+      eol=;        Character at the start of each line to indicate a comment
+                   The default is a semicolon ;
+
+      tokens=<i>n</i>     The numbered items to  read from each line 
+                   (default = 1)
+
+      usebackq     Use the alternate quoting style:                        
+                   - Use double quotes for long file names in "<i>filenameset</i>".
+                   - Use single quotes for 'Text string to process'
+                   - Use back quotes for `command_to_process`
+
+  <i>command_to_process</i> : The output of the 'command_to_process' is 
+                        passed into the FOR parameter.
+
+  <i>command</i>     :  The command to carry out, including any 
+                 command-line parameters.
+
+  %%<i>parameter</i> :  A replaceable parameter:
+                 in a batch file use <b>%%</b>G (on the command line <b>%</b>G)</pre>
+<p>FOR /F processing of a command consists of reading the output from 
+the command one line at a time and then breaking the line up into 
+individual items of data or 'tokens'. The DO command is then executed 
+with the parameter(s) set to the token(s) found.<br>
+<br>The FOR command is the answer to innumerable questions where you 
+want to take the output of some command, store it in a variable (%%G) 
+then do something with the result.</p>
+<p>For example the PING command returns serveral lines including one like:</p>
+<p class="code">Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),</p>
+<p>To select that one line of output, you can search for the text "loss"
+ (which is always present), then use the Tokens parameter to select the 
+number of lost packets, here this is <span class="code">0</span> but it will vary each time you run the command.</p>
+<p class="code">set _ping_cmd=ping -n 5 127.0.0.1</p>
+<p class="code">FOR /f "tokens=4 delims=(=" %%G IN ('%_ping_cmd% ^|find "loss"') DO echo Result is [%%G]</p>
+<p>The tricky part is always splitting up the line of interest into the 
+right tokens, in this case I'm splitting on the characters '=' and '('<br>
+these two characters split the line into 5 chunks of text and we pull out the fourth one with "tokens=4"</p>
+<p>By default, /F breaks up the command output at each blank space, and any blank lines are skipped. <br>
+You can override this default parsing behavior by specifying the "options" parameter. 
+The options must be contained within "quotes"</p>
+<p><b>usebackq</b></p>
+<p>This option is useful when dealing with a command that already contains one or more straight quotes.<br>
+The backquote character ` is just below the ESC key on most keyboards. See the <a href="http://ss64.com/nt/for_f.html">FOR /F</a> page for other effects of usebackq. Usebackq can be abbreviated to <span class="code">useback</span> (undocumented.)<br>
+<br>
+<b>Tokens</b></p>
+<p><span class="code">tokens=2,4,6</span> will cause the second, fourth and sixth items on each line to be processed<br>
+<br>
+<span class="code">tokens=2-6</span> will cause the second, third, fourth, fifth and sixth items on each line to be processed<br>
+<br>
+<span class="code">tokens=*</span> will cause all items on each line to be processed<br>
+<br>
+<span class="code">tokens=3*</span> will cause the 3rd and all subsequent items on each line to be processed <br>
+<br>
+Each token specified will cause a corresponding parameter letter to be allocated.<br>
+<br>
+If the last character in the tokens= string is an asterisk, then 
+additional parameters are allocated for all the remaining text on the 
+line.</p>
+<p>The letters used for tokens are case sensitive, so you can specify up to 26 tokens (a-z) or 26 tokens (A-Z)</p>
+<p>It is actually possible to assign up to <abbr title="Credit to Carlos M. for discovering this">61</abbr> tokens by using the ASCII codes from this range:<span class="code"> ? @ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] <b>^</b> _ ` a b c d e f g h i j k l m n o p q r s t u v w x y z {</span><br>
+Note the caret character <span class="code"><b>^</b></span> must be <a href="http://ss64.com/nt/syntax-esc.html#escape">escaped</a> with a second caret: <span class="code">^^</span><br>
+<br>
+FOR tokens variables (or parameter names) are global, so in complex scripts which <a href="http://ss64.com/nt/call.html">call</a> one FOR statement from within another FOR statement you can refer to both sets of parameters.<br>
+<br>
+<b>Delims</b></p>
+<p>More than one delimiter may be specified so a string like '<span class="code">abcd+efg+hijk;lmno;pqr</span>' can be broken up using <span class="code">"delims=;+"</span>. </p>
+<p>You can use any character as a delimiter, but they are case sensitive.<br>
+If you don’t specify delims it will default to "<span class="code">delims=&lt;tab&gt;&lt;space&gt;</span>"<br>
+<br>
+n.b some text editors will enter the TAB character as a series of 
+spaces, specifying more than one delimiter has been known to cause 
+problems with some data sets. </p>
+<p><b>eol</b></p>
+<p>The default end-of-line character is a semicolon ';' when the FOR 
+command reads a text file (or even a character string), any line that 
+STARTS with the eol character will be ignored. In other words it is 
+treated as a comment. <br>
+Use <span class="code"> eol=X</span> to change the eol character to X. </p>
+<p>Often you will want to turn this feature off so that every line of 
+your data file is processed,  in theory "eol=" should turn this feature 
+off, but in practice this fails to work correctly - it will set eol to 
+whatever the next character is, often the quote or space character. One 
+workaround  is to set eol to some unusual character that you don’t 
+expect to ever encounter in the data file e.g. <span class="code">"eol=€"</span> or <span class="code">"eol=¬"</span>. Another method is to   escape every <a href="http://ss64.com/nt/syntax-esc.html#delimiters">delimiter</a><span class="code"> For /f tokens^=*^ delims^=^ eol^= %%a in (file.txt) do...</span> (see forum for a <a href="http://ss64.org/viewtopic.php?id=1544">discussion</a> of this)</p>
+<p><b>Examples:</b><br>
+<br>To ECHO from the command line, the name of every environment variable. </p>
+<pre>   FOR /F "delims==" %G IN ('SET') DO @Echo %G</pre>
+<p>The same command with usebackq:</p>
+<pre>   FOR /F "usebackq delims==" %G IN (`SET`) DO @Echo %G</pre>
+<p>To put the Windows Version into an environment variable</p>
+<pre>   @echo off 
+   ::parse the VER command 
+   FOR /F "tokens=4*" %%G IN ('ver') DO SET _version=%%G 
+   :: show the result 
+   echo %_version%</pre>
+<p>List all the text files in a folder</p>
+<pre>   FOR /F "tokens=*" %%G IN ('dir /b C:\docs\*.txt') DO echo %%G
+
+   FOR /F "tokens=*" %%G IN ('dir/b ^"c:\program files\*.txt^"') DO echo %%G</pre>
+<p> In the example above the long filename has to be surrounded in "quotes" <br>
+these quotes have to be escaped using ^<br>
+The "tokens=*" has been added to match all parts of any long filenames returned by the DIR command.<br>
+<br>Although the above is a trivial example, being able to set %%G equal
+ to each long filename in turn could allow much more complex processing 
+to be done. </p>
+<p>More examples can be found on the <a href="http://ss64.com/nt/syntax.html">Syntax / Batch Files pages</a> and the other FOR pages below.</p>
+<p>FOR is an <a href="http://ss64.com/nt/syntax-internal.html">internal</a> command.</p>
+<p><i class="quote">“History never repeats itself, Mankind always does” - Voltaire</i><br>
+<br>
+<b>Related:</b><br>
+<a href="http://ss64.com/nt/for.html"><br>
+FOR</a> - Summary of FOR Loop commands<br>
+<a href="http://ss64.com/nt/for2.html">FOR</a> - Loop through a set of files in one folder<br>
+<a href="http://ss64.com/nt/for_r.html">FOR /R</a> - Loop through files (recurse subfolders) <a href="http://ss64.com/nt/for_d.html"><br>
+FOR /D</a> - Loop through several folders<br>
+<a href="http://ss64.com/nt/for_l.html">FOR /L</a> - Loop through a range of numbers<br>
+<a href="http://ss64.com/nt/for_f.html">FOR /F</a> - Loop through items in a text file <br>
+<a href="http://ss64.com/nt/setlocal.html">SETLOCAL</a> - Control the visibility of variables inside a FOR loop<br>
+<a href="http://ss64.com/nt/forfiles.html">FORFILES</a> - Batch process multiple files<br>
+<a href="http://ss64.com/nt/goto.html">GOTO</a> - Direct a batch program to jump to a labelled line<br>
+<a href="http://ss64.com/nt/if.html">IF</a> - Conditionally perform a command<br>
+Powershell: <a href="http://ss64.com/ps/foreach-object.html">ForEach-Object</a> - Loop for each object in the pipeline<br>
+Equivalent bash command (Linux): <a href="http://ss64.com/bash/for.html">for</a> - Expand <var>words</var>, and execute <var>commands</var></p><!-- #BeginLibraryItem "/Library/foot_nt.lbi" --><p><script type="text/javascript"><!--
+google_ad_client = "pub-6140977852749469";
+google_alternate_color = "CCCCCC";
+google_ad_width = 300;
+google_ad_height = 250;
+google_ad_format = "300x250_as";
+google_ad_type = "text_image";
+google_ad_channel ="0282121944";
+google_color_border = "CCCCCC";
+google_color_bg = "CCCCCC";
+google_color_link = "000000";
+google_color_text = "333333";
+google_color_url = "0000FF";
+//--></script>
+<script type="text/javascript" src="For%20-%2001_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><ins id="aswift_0_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;" frameborder="0" height="250" scrolling="no" width="300"></iframe></ins></ins></p>
+<hr>
+<div id="bl" class="footer"><a href="#"><img src="For%20-%2001_files/top.png" alt="Back to the Top" height="22" width="30"></a></div>
+<div id="br" class="footer, tagline">© Copyright <a href="http://ss64.com/">SS64.com</a> 1999-2013<br>
+Some rights reserved</div><!-- #EndLibraryItem -->
+
+</body></html>

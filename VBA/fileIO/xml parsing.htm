@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta content="en-us" name="WT.seg_1"><link rel="canonical" href="http://msdn.microsoft.com/en-us/library/aa468547.aspx">
+        <title>A Beginner's Guide to the XML DOM</title>
+
+
+
+
+<meta name="DCS.dcsuri" content="/en-us/library/aa468547(d=default,l=en-us,v=msdn.10).aspx">
+
+<meta name="NormalizedUrl" content="http://msdn.microsoft.com/en-us/library/aa468547(d=default,l=en-us,v=msdn.10).aspx">
+
+<meta name="VotingContextUrl" content="http://msdn.microsoft.com/en-us/library/aa468547(d=default,l=en-us,v=msdn.10).aspx">
+
+<meta name="MN" content="61C41DD4-1:19:42 AM">
+
+<meta name="Search.ShortId" content="aa468547">
+
+<meta name="Ms.Locale" content="en-us">
+
+
+
+
+
+
+
+
+        
+    <link rel="stylesheet" type="text/css" href="xml%20parsing-Dateien/Combined.css"><script src="xml%20parsing-Dateien/ms2.js" async="" type="text/javascript"></script><script class="mtps-injected">try {
+/**/
+(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { 
+	"image": "http://i.msdn.microsoft.com", 
+	"js": "http://i2.msdn.microsoft.com", 
+	"css": "http://i3.msdn.microsoft.com"
+});
+/**/
+} finally { MTPS._injectNextScript_0 && MTPS._injectNextScript_0(); }</script><script src="xml%20parsing-Dateien/jquery-1.js" class="mtps-injected"></script><script class="mtps-injected">try {
+//
+  var literalNormalizedUrl = '/en-us/library/aa468547(d=default,l=en-us,v=msdn.10).aspx';
+  var wt_nvr_ru = 'WT_NVR_RU';
+  var wt_fpcdom = '.microsoft.com';
+  var wt_domlist = 'msdn.microsoft.com';
+  var wt_pathlist = '';
+  var wt_paramlist = 'DCSext.mtps_devcenter';
+  var wt_siteid = 'MSDN';
+  var gDomain = 'm.webtrends.com';
+  var gDcsId = 'dcsmgru7m99k7mqmgrhudo0k8_8c6m';
+  var gFpc = 'WT_FPC';
+
+
+
+  if (document.cookie.indexOf(gFpc + "=") == -1) {
+    var wtidJs = document.createElement("script");
+    wtidJs.src = "//" + gDomain + "/" + gDcsId + "/wtid.js";
+    document.getElementsByTagName("head")[0].appendChild(wtidJs);
+  }
+
+
+
+  var detectedLocale = 'en-us';
+  var wtsp = 'msdnlib_w32_com';
+  var gTrackEvents = '0';
+/**/
+} finally { MTPS._injectNextScript_2 && MTPS._injectNextScript_2(); }</script><script class="mtps-injected">try {
+/**/
+  var omni_guid = "0b2c7d3a-e847-42e3-b928-715cbb1178c8";
+/**/
+} finally { MTPS._injectNextScript_3 && MTPS._injectNextScript_3(); }</script><script src="xml%20parsing-Dateien/Combined_002.js" class="mtps-injected"></script><script src="xml%20parsing-Dateien/SearchBox.js" class="mtps-injected"></script><script src="xml%20parsing-Dateien/Combined.js" class="mtps-injected"></script><script src="xml%20parsing-Dateien/broker.js"></script><script class="mtps-injected">try {
+$(document).ready(function() {
+        try {
+            var token = $("#globalRequestVerification input[name='__RequestVerificationToken']").clone();
+            $("#siteFeedbackForm").append(token);
+        } catch(err) {
+            
+        }
+    });
+} finally { MTPS._injectNextScript_7 && MTPS._injectNextScript_7(); }</script><link media="print" type="text/css" rel="stylesheet" href="xml%20parsing-Dateien/PrintView.css"></head>
+    <body class="library">
+        <div id="page">
+            
+            
+  
+            
+    
+
+<div id="ux-header" class="FF">
+    <header>
+        <div class="row">
+            <div class="left">
+                <div data-fragmentname="SiteLogo" id="Fragment_SiteLogo" xmlns="http://www.w3.org/1999/xhtml">
+  <a href="http://msdn.microsoft.com/en-us" id="27762_1" xmlns="http://www.w3.org/1999/xhtml">Developer Network</a>
+</div>     
+            </div>
+            <div id="grip"></div>  
+            <div class="right desktop">
+                <div class="auxNav">
+                    <div data-fragmentname="GetTools" id="Fragment_GetTools" xmlns="http://www.w3.org/1999/xhtml">
+  <a href="http://msdn.microsoft.com/dn369242" id="27762_3" xmlns="http://www.w3.org/1999/xhtml">Get tools</a>
+</div>   
+                    <div data-fragmentname="Subscriptions" id="Fragment_Subscriptions" xmlns="http://www.w3.org/1999/xhtml">
+  <a href="http://msdn.microsoft.com/dn369243" id="27762_5" xmlns="http://www.w3.org/1999/xhtml">MSDN subscriptions</a>
+</div>   
+                    
+
+        <div class=" profileName"><a class="createProfileLink" href="http://social.msdn.microsoft.com/profile/u/edit/?referrer=http%3a%2f%2fmsdn.microsoft.com%2fen-us%2flibrary%2faa468547.aspx&amp;cancelUrl=http%3a%2f%2fmsdn.microsoft.com%2fen-us%2flibrary%2faa468547.aspx" title="Create Profile">Create Profile</a></div>
+    <div class="signIn"><a class="scarabLink" href="http://login.live.com/logout.srf?ct=1375345183&amp;rver=6.0.5276.0&amp;lc=1033&amp;id=254354&amp;ru=http%3a%2f%2fmsdn.microsoft.com%2fen-us%2flibrary%2faa468547.aspx&amp;mkt=en-US" title="Sign out">Sign out</a></div>
+
+                </div>
+                
+
+    
+
+<div class="SearchBox">
+              <form id="HeaderSearchForm" name="HeaderSearchForm" method="get" action="http://social.msdn.microsoft.com/Search" onsubmit="return Epx.Controls.SearchBox.searchBoxOnSubmit(this, this.title);">
+            <input autocomplete="off" id="HeaderSearchTextBox" name="query" maxlength="200" onfocus="Epx.Controls.SearchBox.watermarkFocus(this, this.title, 'SearchBoxOnFocus')" onblur="Epx.Controls.SearchBox.watermarkBlur(this, this.title, 'SearchBoxOnFocus')" type="text">
+            <input id="RefinementId" name="refinement" value="" type="hidden">
+            <button title="" id="HeaderSearchButton" value="" type="submit" class="header-search-button"></button>
+        <div style="display: none; text-align: left; border: 1px solid buttonshadow; position: absolute; z-index: 1000; padding: 2px; background-color: rgb(255, 255, 255); color: rgb(255, 255, 255); font-family: 'Segoe UI',Tahoma,Helvetica,Sans-Serif; font-size: 13.3333px;" id="SearchFlyoutContainer"><div id="SuggestionContainer"><ul style="list-style: none outside none; padding: 4px 2px 0px 1px; cursor: pointer; margin: 1px; white-space: nowrap;"></ul></div></div></form>
+        
+    
+</div>
+
+            </div>
+        </div>
+       
+        <div class="row" id="droor">
+            <div class="left">
+                        <nav>
+            <ul>
+                     <li class="inactive">
+
+                         <a href="http://msdn.microsoft.com/dn271881" title="Opportunity">Opportunity</a>
+                                 <div class="arrow"></div>
+                                 <div class="subNav">
+                                     <ul>
+                                                 <li><a href="http://msdn.microsoft.com/dn338451" title="iOS">iOS</a></li>
+                                                 <li><a href="http://msdn.microsoft.com/dn338440" title="Android">Android</a></li>
+                                                 <li><a href="http://msdn.microsoft.com/dn338449" title="Web">Web</a></li>
+                                                 <li><a href="http://msdn.microsoft.com/dn338450" title=".Net">.Net</a></li>
+                                                 <li><a href="http://msdn.microsoft.com/dn338447" title="Design">Design</a></li>
+                                                 <li><a href="http://msdn.microsoft.com/dn338446" title="Games">Games</a></li>
+                                     </ul>
+                                 </div>
+
+                     </li>
+                     <li class="inactive">
+
+                         <a href="http://msdn.microsoft.com/dn271880" title="Platform">Platform</a>
+                                 <div class="arrow"></div>
+                                 <div class="subNav">
+                                     <ul>
+                                                 <li><a href="http://msdn.microsoft.com/dn308583" title="Tablet &amp; PC">Tablet &amp; PC</a></li>
+                                                 <li><a href="http://msdn.microsoft.com/dn338268" title="Phone">Phone</a></li>
+                                                 <li><a href="http://msdn.microsoft.com/dn338159" title="Cloud">Cloud</a></li>
+                                     </ul>
+                                 </div>
+
+                     </li>
+                     <li class="inactive">
+
+                         <a href="http://msdn.microsoft.com/dn338064" title="Connect">Connect</a>
+                                 <div class="arrow"></div>
+                                 <div class="subNav">
+                                     <ul>
+                                                 <li><a href="http://msdn.microsoft.com/dn338452" title="Perspectives">Perspectives</a></li>
+                                                 <li><a href="http://events.msdn.microsoft.com/" title="Events">Events</a></li>
+                                                 <li><a href="http://social.msdn.microsoft.com/forums/" title="Forums">Forums</a></li>
+                                     </ul>
+                                 </div>
+
+                     </li>
+                     <li class="inactive">
+
+                         <a href="http://msdn.microsoft.com/dn292944" title="Downloads">Downloads</a>
+                                 <div class="arrow"></div>
+                                 <div class="subNav">
+                                     <ul>
+                                                 <li><a href="http://msdn.microsoft.com/dn369242" title="Developer tools">Developer tools</a></li>
+                                                 <li><a href="http://msdn.microsoft.com/dn369240" title="SDKs">SDKs</a></li>
+                                                 <li><a href="http://msdn.microsoft.com/dn369243" title="MSDN subscriptions">MSDN subscriptions</a></li>
+                                     </ul>
+                                 </div>
+
+                     </li>
+                     <li class="active current">
+
+                         <a href="http://msdn.microsoft.com/dn338067" title="Develop">Develop</a>
+                                 <div class="arrow"></div>
+                                 <div class="subNav">
+                                     <ul>
+                                                 <li class="current"><a href="http://msdn.microsoft.com/library" title="Library">Library</a></li>
+                                                 <li><a href="http://code.msdn.microsoft.com/" title="Code samples">Code samples</a></li>
+                                     </ul>
+                                 </div>
+
+                     </li>
+            </ul>
+          
+        </nav>        
+       
+            </div>
+            <div class="right mobile"></div>
+            <div class="right">
+                <div data-fragmentname="SocialLinks" id="Fragment_SocialLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="LinkList">
+    <div class="LinkListTitle">Join us</div>
+    <div class="Links">
+      <ul class="LinkColumn horizontal">
+        <li>
+          <a href="http://www.facebook.com/microsoftdeveloper" target="_blank" id="SocialLinks_430_7" class="facebook" xmlns="http://www.w3.org/1999/xhtml">http://www.facebook.com/microsoftdeveloper</a>
+        </li>
+        <li>
+          <a href="https://twitter.com/msdev" target="_blank" id="SocialLinks_430_8" class="twitter" xmlns="http://www.w3.org/1999/xhtml">https://twitter.com/msdev</a>
+        </li>
+        <li>
+          <a href="http://plus.google.com/111221966647232053570/" target="_blank" id="SocialLinks_430_9" class="googlePlus" xmlns="http://www.w3.org/1999/xhtml">http://plus.google.com/111221966647232053570/</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div> 
+            </div>
+			<span id="singleCol"></span>
+			<span id="doubleCol"></span>
+        </div>
+    </header>
+</div>
+
+
+
+        
+            <div id="body">
+                
+
+
+
+
+
+    <div class="leftNavResize1" id="leftNav">
+
+
+
+<div id="tocnav">
+            <div style="padding-left: 0px;" class="toclevel0" data-toclevel="0">
+<a class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="http://msdn.microsoft.com/en-us/library/ms123401.aspx" id="ms310241_MSDN.10_en-us" mtpsaliasid="" mtpsassetid="5DDC0A78-6B2C-43E3-9C56-55F45C0DFFA5_MSDN.10_en-us" mtpsshortid="ms123401_MSDN.10_en-us" title="MSDN Library">MSDN Library</a>            </div>
+            <div style="padding-left: 0px;" class="toclevel0" data-toclevel="0">
+<a class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="http://msdn.microsoft.com/en-us/library/ee663300%28v=vs.85%29.aspx" id="aa139672_MSDN.10_en-us" mtpsaliasid="" mtpsassetid="f61a75b8-8745-4146-8d76-d68614d838b4_MSDN.10_en-us" mtpsshortid="ee663300_VS.85_en-us" title="Windows Desktop App Development">Windows Desktop App Development</a>            </div>
+            <div style="padding-left: 0px;" class="toclevel0" data-toclevel="0">
+<a class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="http://msdn.microsoft.com/en-us/library/hh529126%28v=vs.85%29.aspx" id="hh309535_VS.85_en-us" mtpsaliasid="" mtpsassetid="FEDA4A1A-31F9-4B1E-9083-FB047281CCC7_VS.85_en-us" mtpsshortid="hh529126_VS.85_en-us" title="Additional Resources">Additional Resources</a>            </div>
+            <div style="padding-left: 0px;" class="toclevel0" data-toclevel="0">
+<a class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="http://msdn.microsoft.com/en-us/library/hh703251%28v=vs.85%29.aspx" id="hh700250_VS.85_en-us" mtpsaliasid="" mtpsassetid="CA9EE4BE-11DA-4C05-BB4D-BA1E838C08D0_VS.85_en-us" mtpsshortid="hh703251_VS.85_en-us" title="Data Access and Storage Technical Articles">Data Access and Storage Technical Articles</a>            </div>
+            <div style="padding-left: 0px;" class="toclevel0" data-toclevel="0">
+<a class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="http://msdn.microsoft.com/en-us/library/aa286548.aspx" id="hh851873_VS.85_en-us" mtpsaliasid="" mtpsassetid="MSDN|dnanchor|~\html\anch_xml.htm_VS.85_en-us" mtpsshortid="aa286548_MSDN.10_en-us" title="XML">XML</a>            </div>
+            <div style="padding-left: 0px;" class="toclevel0" data-toclevel="0">
+<a class="toc_collapsed" href="#"></a><a data-tochassubtree="true" href="http://msdn.microsoft.com/en-us/library/aa286550.aspx" id="hh851875_VS.85_en-us" mtpsaliasid="" mtpsassetid="MSDN|dnanchor|~\html\anch_xmltech.htm_VS.85_en-us" mtpsshortid="aa286550_MSDN.10_en-us" title="XML Technical Articles">XML Technical Articles</a>            </div>
+            <div data-childrenloaded="true" style="padding-left: 17px;" class="toclevel1" data-toclevel="1">
+<a class="toc_expanded" href="#"></a><a data-tochassubtree="true" href="http://msdn.microsoft.com/en-us/library/aa153035.aspx" id="aa153035_MSDN.10_en-us" mtpsaliasid="" mtpsassetid="MSDN|dnxml|$\dnxml.hxt@0,3_MSDN.10_en-us" mtpsshortid="aa153035_MSDN.10_en-us" title="XML Overviews">XML Overviews</a>            </div>
+            <div style="padding-left: 34px;" class="toclevel2 current" data-toclevel="2">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/aa468547.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="A Beginner's Guide to the XML DOM">A Beginner's Guide to the XML DOM</a>            </div>
+            <div style="padding-left: 34px;" class="toclevel2" data-toclevel="2">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/ms977859.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Communicating XML Data Over the Web with WebDAV">Communicating XML Data Over the Web with WebDAV</a>            </div>
+            <div style="padding-left: 34px;" class="toclevel2" data-toclevel="2">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/aa468551.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Going from HTML to XML">Going from HTML to XML</a>            </div>
+            <div style="padding-left: 34px;" class="toclevel2" data-toclevel="2">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/aa468560.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="How to Encode XML Data">How to Encode XML Data</a>            </div>
+            <div style="padding-left: 34px;" class="toclevel2" data-toclevel="2">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/aa468562.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Lessons from the Component Wars: An XML Manifesto">Lessons from the Component Wars: An XML Manifesto</a>            </div>
+            <div style="padding-left: 34px;" class="toclevel2" data-toclevel="2">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/aa468561.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Understanding Infosets">Understanding Infosets</a>            </div>
+            <div style="padding-left: 34px;" class="toclevel2" data-toclevel="2">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/aa468558.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Understanding XML">Understanding XML</a>            </div>
+            <div style="padding-left: 34px;" class="toclevel2" data-toclevel="2">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/aa468565.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Understanding XML Namespaces">Understanding XML Namespaces</a>            </div>
+            <div style="padding-left: 34px;" class="toclevel2" data-toclevel="2">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/ms977865.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="XML Editing: A WYSIWYG XML Document Editor">XML Editing: A WYSIWYG XML Document Editor</a>            </div>
+            <div style="padding-left: 34px;" class="toclevel2" data-toclevel="2">
+                    <span class="toc_empty"></span><span class="emptyHref">XML Files: InfoPath 2003 SP1 Preview</span>
+            </div>
+            <div style="padding-left: 34px;" class="toclevel2" data-toclevel="2">
+                    <span class="toc_empty"></span><span class="emptyHref">XML Files: Messages vs. Methods</span>
+            </div>
+            <div style="padding-left: 34px;" class="toclevel2" data-toclevel="2">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/aa686106.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="XML Files: OPENXML, XSLT Keys, Select versus Match, XPath, and More">XML Files: OPENXML, XSLT Keys, Select versus Match, XPath, and More</a>            </div>
+            <div style="padding-left: 34px;" class="toclevel2" data-toclevel="2">
+                    <span class="toc_empty"></span><span class="emptyHref">XML Files: XML Data Migration Case Study: GEDCOM</span>
+            </div>
+            <div style="padding-left: 34px;" class="toclevel2" data-toclevel="2">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/bb986009.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="XML Files: XML Encoding, DTDs and Namespaces, Binary Data, Namespace Identifiers, and More">XML Files: XML Encoding, DTDs and Namespaces, Binary Data, Namespace Identifiers, and More</a>            </div>
+            <div style="padding-left: 34px;" class="toclevel2" data-toclevel="2">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/bb985159.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="XML Files: XPath, XSLT, and other XML Specifications">XML Files: XPath, XSLT, and other XML Specifications</a>            </div>
+</div>
+        
+
+        
+
+        
+
+        
+
+<a style="left: 280px; display: inline-block;" id="NavigationResize" href="javascript:void(0)">
+    <img style="" class="cl_nav_resize_open" src="xml%20parsing-Dateien/ImageSprite.png" title="Expand" alt="Expand">
+    <img style="display: none;" class="cl_nav_resize_close" src="xml%20parsing-Dateien/ImageSprite.png" title="Minimize" alt="Minimize">
+</a>
+
+
+
+    </div>
+<div style="margin-left: 280px; width: auto;" id="content" class="content">
+
+
+
+
+
+
+
+    
+    
+
+    <div id="ratingCounterSeperator" class="cl_lw_vs_seperator" style="display: none;"></div>
+
+    
+
+
+        
+<div class="topic" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns="http://www.w3.org/1999/xhtml">
+  <h1 class="title">A Beginner's Guide to the XML DOM</h1><div style="display: block;" id="ratingCounter">
+        <span id="rcA" class="ratingText">
+            151 out of 211 rated this helpful <span id="rateThisPrefix">- </span><a id="rateThisTopic" href="#feedback" title="Rate this topic">Rate this topic</a>
+            
+        </span>
+    </div>
+  
+  <a name="beginner">
+    
+  </a>  <div id="nstext" valign="bottom">&nbsp;
+<p>Brian Randell<br>
+DevelopMentor</p> <p>October 1999</p> <p><b>Summary:</b> This article 
+discusses how to access and manipulate XML documents via the XML DOM 
+implementation, as exposed by the Microsoft® XML Parser. (10 printed 
+pages)</p> <h4 class="dtH1">Contents</h4> <p><a href="#beginner_intro">Introduction</a><code><br>
+</code><a href="#beginner_what">What Exactly is a DOM</a><code><br>
+</code><a href="#beginner_howuse">How Do I Use the XML DOM</a><code><br>
+</code><a href="#beginner_howload">How Do I Load a Document</a><code><br>
+</code><a href="#beginner_failure">Dealing with Failure</a><code><br>
+</code><a href="#beginner_retrieving">Retrieving Information from an XML Document</a><code><br>
+</code><a href="#beginner_traverse">How Do I Traverse a Document</a><code><br>
+</code><a href="#beginner_nowwhat">Now What</a></p> <h2 class="dtH1"><a name="beginner_intro"></a>Introduction</h2> <p>You
+ are a Visual Basic® developer and you receive some data in the form of 
+an eXtensible Markup Language (XML) document. You now want to get the 
+information from the XML document and integrate that data into your 
+Visual Basic solutions. You could of course write code yourself to parse
+ the contents of the XML file, which after all is just a text file. 
+However, this isn't very productive and negates one of the strengths of 
+XML: that it is a structured way to represent data.</p> <p>A better 
+approach to retrieving information from XML files is to use an XML 
+parser. An XML parser is, quite simply, software that reads an XML file 
+and makes available the data in it. As a Visual Basic developer you want
+ to use a parser that supports the XML Document Object Model (DOM). The 
+DOM defines a standard set of commands that parsers should expose so you
+ can access HTML and XML document content from your programs. An XML 
+parser that supports the DOM will take the data in an XML document and 
+expose it via a set of objects that you can program against. In this 
+article, you will learn how to access and manipulate XML documents via 
+the XML DOM implementation, as exposed by the Microsoft® XML Parser 
+(Msxml.dll).</p> <p>Before you read any further, you should look at a 
+raw XML file to get an idea of how a parser can make your life easier. 
+The following code exposes the content of the file Cds.xml that contains
+ compact disc items. Each item contains information such as the artist, 
+title, and tracks.</p> 
+<div id="code-snippet-1" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="Copy to clipboard." href="javascript:if%20(window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_66e9de97-8564-47fa-8e4d-fef66f1239f7');">Copy</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_66e9de97-8564-47fa-8e4d-fef66f1239f7" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre>&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE compactdiscs SYSTEM "cds.dtd"&gt;
+&lt;compactdiscs&gt;
+  &lt;compactdisc&gt;
+    &lt;artist type="individual"&gt;Frank Sinatra&lt;/artist&gt;
+    &lt;title numberoftracks="4"&gt;In The Wee Small Hours&lt;/title&gt;
+   &lt;tracks&gt;
+      &lt;track&gt;In The Wee Small Hours&lt;/track&gt;
+      &lt;track&gt;Mood Indigo&lt;/track&gt;
+      &lt;track&gt;Glad To Be Unhappy&lt;/track&gt;
+      &lt;track&gt;I Get Along Without You Very Well&lt;/track&gt;
+   &lt;/tracks&gt;
+    &lt;price&gt;$12.99&lt;/price&gt;
+  &lt;/compactdisc&gt;
+  &lt;compactdisc&gt;
+    &lt;artist type="band"&gt;The Offspring&lt;/artist&gt;
+    &lt;title numberoftracks="5"&gt;Americana&lt;/title&gt;
+   &lt;tracks&gt;
+      &lt;track&gt;Welcome&lt;/track&gt;
+      &lt;track&gt;Have You Ever&lt;/track&gt;
+      &lt;track&gt;Staring At The Sun&lt;/track&gt;
+      &lt;track&gt;Pretty Fly (For A White Guy)&lt;/track&gt;
+   &lt;/tracks&gt;
+    &lt;price&gt;$12.99&lt;/price&gt;
+  &lt;/compactdisc&gt;
+&lt;/compactdiscs&gt;
+
+</pre></div>
+            
+        </div>
+    </div>
+</div>
+ <p>The second line of the previous document references an external DTD,
+ or Document Type Definition file. A DTD defines the layout and expected
+ content for a particular type of XML document. An XML parser can use a 
+DTD to determine if a document is valid. DTDs are just one way you can 
+help a parser validate your documents. Another increasingly popular 
+method to validate documents is XML Schemas. You define schemas using 
+XML in contrast to DTDs, which use their own "interesting" syntax.</p> <p>The following code displays the contents of Cds.dtd used by Cds.xml:</p> 
+<div id="code-snippet-2" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="Copy to clipboard." href="javascript:if%20(window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_08d14c82-e6ef-44fd-a1c1-26d766687112');">Copy</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_08d14c82-e6ef-44fd-a1c1-26d766687112" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre>&lt;!ELEMENT compactdiscs (compactdisc*)&gt;
+   &lt;!ELEMENT compactdisc (artist, title, tracks, price)&gt;
+      &lt;!ENTITY % Type "individual | band"&gt;
+      &lt;!ELEMENT artist (#PCDATA)&gt;
+         &lt;!ATTLIST artist type (%Type;) #REQUIRED&gt;
+      &lt;!ELEMENT title (#PCDATA)&gt;
+         &lt;!ATTLIST title numberoftracks CDATA #REQUIRED&gt;
+      &lt;!ELEMENT tracks (track*)&gt;
+      &lt;!ELEMENT price (#PCDATA)&gt;
+      &lt;!ELEMENT track (#PCDATA)&gt;
+
+</pre></div>
+            
+        </div>
+    </div>
+</div>
+ <p>This article doesn't go in depth about DTDs and XML Schemas. The XML Schema Reference is based on the <a href="http://www.w3.org/tr/1998/note-xml-data-0105/">XML-Data</a> note submitted to the W3C.</p> <h2 class="dtH1"><a name="beginner_what"></a>What Exactly is a DOM?</h2> <p>A DOM for XML is an object model that exposes the contents of an XML document. The W3C's <i>Document Object Model (DOM) Level 1 Specification</i>
+ currently defines what a DOM should expose as properties, methods, and 
+events. Microsoft's implementation of the DOM fully supports the W3C 
+standard and has additional features that make it easier for you to work
+ with XML files from your programs.</p> <h2 class="dtH1"><a name="beginner_howuse"></a>How Do I use the XML DOM?</h2> <p>You
+ use the XML DOM by creating an instance of an XML parser. To make this 
+possible, Microsoft exposes the XML DOM via a set of standard COM 
+interfaces in Msxml.dll. Msxml.dll contains the type library and 
+implementation code for you to work with XML documents. If you're 
+working with a scripting client, such as VBScript executing in Internet 
+Explorer, you use the DOM by using the <b>CreateObject</b> method to create an instance of the <b>Parser</b> object.</p> 
+<div id="code-snippet-3" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="Copy to clipboard." href="javascript:if%20(window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_e5f51836-0831-425c-bcd6-cecec6bbdc7f');">Copy</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_e5f51836-0831-425c-bcd6-cecec6bbdc7f" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre>Set objParser = CreateObject( "Microsoft.XMLDOM" )
+
+</pre></div>
+            
+        </div>
+    </div>
+</div>
+ <p>If you are using VBScript from an Active Server Page (ASP), you use <b>Server.CreateObject</b>.</p> 
+<div id="code-snippet-4" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="Copy to clipboard." href="javascript:if%20(window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_584173ed-be48-47c2-97e8-9bf651bea19a');">Copy</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_584173ed-be48-47c2-97e8-9bf651bea19a" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre>Set objParser = Server.CreateObject( "Microsoft.XMLDOM" )
+
+</pre></div>
+            
+        </div>
+    </div>
+</div>
+ <p>If you're working with Visual Basic, you can access the DOM by 
+setting a reference to the MSXML type library, provided in Msxml.dll. To
+ use MSXML from within Visual Basic 6.0:
+
+</p><ol> <li>Open the <b>Project References</b> dialog box.</li> <li>Select <b>Microsoft XML, version 2.0</b> from the list of available COM objects. If you do not find this item, you'll need to obtain the MSXML library.</li> <li>You can then create an instance of the <b>Parser</b> object.</li> </ol> <p>Dim xDoc As MSXML.DOMDocument Set xDoc = New MSXML.DOMDocument</p> <p>You can install Internet Explorer 5.0—the MSXML parser is an integral component.</p> <p>Once
+ you reference the type library in your Visual Basic project, invoke the
+ parser, load a document, and work with the date in the document.</p> <p>You
+ may now be wondering, "so what am I working with? " If you open the 
+MSXML library and examine its object model using the Visual Basic 6.0 
+Object Browser, you see that the object model is quite rich. This 
+article demonstrates how you can access an XML document using the <b>DOMDocument</b> class and the <b>IXMLDOMNode</b> interface.</p> <p class="fig"><code><img alt="" src="xml%20parsing-Dateien/IC33503.gif" border="0"></code></p> <p class="label"><b>Figure 1. The MSXML parser object model</b></p> <h2 class="dtH1"><a name="beginner_howload"></a>How Do I Load a Document?</h2> <p>To load an XML document, you must first create an instance of the <b>DOMDocument</b> class:</p> 
+<div id="code-snippet-5" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="Copy to clipboard." href="javascript:if%20(window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_6e10aeb5-2438-4b61-8f61-ac23627412b8');">Copy</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_6e10aeb5-2438-4b61-8f61-ac23627412b8" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre>Dim xDoc As MSXML.DOMDocument
+Set xDoc = New MSXML.DOMDocument
+
+</pre></div>
+            
+        </div>
+    </div>
+</div>
+ <p>Once you obtain a valid reference, open a file using the <b>Load</b> method. The MSXML parser can load XML documents from a local disk, over the network using UNC references, or via a URL.</p> <p>To load a document from a disk, create the following construct using the <b>Load</b> method:</p> 
+<div id="code-snippet-6" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="Copy to clipboard." href="javascript:if%20(window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_d137248a-523b-49d3-ad6b-684a72185292');">Copy</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_d137248a-523b-49d3-ad6b-684a72185292" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre>If xDoc.Load("C:\My Documents\cds.xml") Then
+   ' The document loaded successfully.
+   ' Now do something intersting.
+Else
+   ' The document failed to load.
+End If
+
+</pre></div>
+            
+        </div>
+    </div>
+</div>
+ <p>Once you are finished with the document, you need to release your 
+object reference to it. The MSXML parser does not expose an explicit <b>Close</b> method. The best you can do is explicitly set the reference to <code>Nothing</code>.</p> 
+<div id="code-snippet-7" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="Copy to clipboard." href="javascript:if%20(window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_4780a7b8-ee21-45c0-b6fe-faf94c4fd04a');">Copy</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_4780a7b8-ee21-45c0-b6fe-faf94c4fd04a" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre>Set xDoc = Nothing
+
+</pre></div>
+            
+        </div>
+    </div>
+</div>
+ <p>When you ask the parser to load a file, it does so asynchronously by
+ default. You can change this behavior by manipulating the document's 
+Boolean <b>Async</b> property. It is important that you examine a document's <b>ReadyState</b> property to ensure a document is ready before you start to examine its contents. The <b>ReadyState</b> property can return one of five possible values, as listed below:</p> <div class="tablediv"><table class="dtTABLE"> <tbody><tr valign="top"> <td width="50%"><b>State</b></td> <td width="50%"><b>Value</b></td> </tr> <tr valign="top"> <td width="50%">Uninitialized: loading has not started.</td> <td width="50%">0</td> </tr> <tr valign="top"> <td width="50%">Loading: while the load method is executing.</td> <td width="50%">1</td> </tr> <tr valign="top"> <td width="50%">Loaded: load method is complete.</td> <td width="50%">2</td> </tr> <tr valign="top"> <td width="50%">Interactive: enough of the DOM is available for read-only examination and the data has only been partially parsed.</td> <td width="50%">3</td> </tr> <tr valign="top"> <td width="50%">Completed: data is loaded and parsed and available for read/write operations.</td> <td width="50%">4</td> </tr> </tbody></table></div> <p>The
+ MSXML parser exposes events that you can use when loading large 
+documents to track the status of the load process. These events are also
+ useful when loading a document from a URL over the Internet 
+asynchronously.</p> <p>To open a file from a URL, you specify the 
+location of the file using a fully-formed URL. You must include the 
+http:// prefix to the file location.</p> <p>Here is an example of loading a file from a URL:</p> 
+<div id="code-snippet-8" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="Copy to clipboard." href="javascript:if%20(window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_719e6591-7e80-4aa2-9784-bbbc64d9800b');">Copy</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_719e6591-7e80-4aa2-9784-bbbc64d9800b" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre>xDoc.async = False
+If xDoc.Load("http://www.develop.com/hp/brianr/cds.xml") Then
+   ' The document loaded successfully.
+   ' Now do something intersting.
+Else
+   ' The document failed to load.
+End If
+
+</pre></div>
+            
+        </div>
+    </div>
+</div>
+ <p>By setting the document's <b>Async</b> property to <code>False</code>,
+ the parser will not return control to your code until the document is 
+completely loaded and ready for manipulation. If you leave it set to <code>True</code>, you will need to either examine the <b>ReadyState</b> property before accessing the document or use the <b>DOMDocument</b>'s events to have your code notified when the document is ready.</p> <h2 class="dtH1"><a name="beginner_failure"></a>Dealing with Failure</h2> <p>Your document can fail to load for any number of reasons. A common cause might be that the document name passed to the <b>Load</b> method is invalid. Another cause might be that the XML document itself is invalid.</p> <p>By
+ default, the MSXML parser will validate your document against a DTD or 
+schema if either has been specified in the document. You can tell the 
+parser not to validate the document by setting the <b>ValidateOnParse</b> property of the <b>DOMDocument</b> object reference before you invoke the <b>Load</b> method.</p> 
+<div id="code-snippet-9" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="Copy to clipboard." href="javascript:if%20(window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_cc4450d3-ddc7-44ec-84e5-662a3eab356b');">Copy</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_cc4450d3-ddc7-44ec-84e5-662a3eab356b" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre>   Dim xDoc As MSXML.DOMDocument
+   Set xDoc = New MSXML.DOMDocument
+xDoc.validateOnParse = False
+If xDoc.Load("C:\My Documents\cds.xml") Then
+   ' The document loaded successfully.
+   ' Now do something intersting.
+Else
+   ' The document failed to load.
+End If
+
+</pre></div>
+            
+        </div>
+    </div>
+</div>
+ <p>Be forewarned that turning off the parser's validation feature is 
+not a good idea in production applications. An incorrect document can 
+lead to your program failing for any number of reasons. At a minimum, it
+ could provide invalid data to your users.</p> <p>Regardless of the failure type, you can ask the parser to give you information about the failure by accessing the <b>ParseError</b> object. Set a reference to the <b>IXMLDOMParseError</b> interface of the document itself in order to work with the properties of the <b>ParseError</b> object. The <b>IXMLDOMParseError</b> interface exposes seven properties that you can use to investigate the cause of the error.</p> <p>The following example will display a message box and all the error information available from the <b>ParseError</b> object.</p> 
+<div id="code-snippet-10" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="Copy to clipboard." href="javascript:if%20(window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_e49748f3-141f-43c1-8247-654dbaf4745d');">Copy</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_e49748f3-141f-43c1-8247-654dbaf4745d" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre>   Dim xDoc As MSXML.DOMDocument
+   Set xDoc = New MSXML.DOMDocument
+If xDoc.Load("C:\My Documents\cds.xml") Then
+   ' The document loaded successfully.
+   ' Now do something intersting.
+Else
+   ' The document failed to load.
+   Dim strErrText As String
+   Dim xPE As MSXML.IXMLDOMParseError
+   ' Obtain the ParseError object
+   Set xPE = xDoc.parseError
+   With xPE
+      strErrText = "Your XML Document failed to load" &amp; _
+        "due the following error." &amp; vbCrLf &amp; _
+        "Error #: " &amp; .errorCode &amp; ": " &amp; xPE.reason &amp; _
+        "Line #: " &amp; .Line &amp; vbCrLf &amp; _
+        "Line Position: " &amp; .linepos &amp; vbCrLf &amp; _
+        "Position In File: " &amp; .filepos &amp; vbCrLf &amp; _
+        "Source Text: " &amp; .srcText &amp; vbCrLf &amp; _
+        "Document URL: " &amp; .url
+    End With
+
+    MsgBox strErrText, vbExclamation
+End If
+
+Set xPE = Nothing
+
+</pre></div>
+            
+        </div>
+    </div>
+</div>
+ <p>You can use the information exposed by the <b>ParseError</b> object to display this information to the user, log it to an error file, or try to correct the error yourself.</p> <h2 class="dtH1"><a name="beginner_retrieving"></a>Retrieving Information from an XML Document</h2> <p>Once
+ you have a document loaded, the next step is for you to retrieve 
+information from it. While the document object is important, you will 
+find yourself using the <b>IXMLDOMNode</b> interface most of the time. You use the <b>IXMLDOMNode</b>
+ interface to read and write to individual node elements. Before you do 
+anything, you need to understand that there are currently 13 node types 
+supported by the MSXML parser. The following table lists a few of the 
+most common node types you will encounter.</p> <div class="tablediv"><table class="dtTABLE"> <tbody><tr valign="top"> <td width="50%"><b>DOM Node Type</b></td> <td width="50%"><b>Example</b></td> </tr> <tr valign="top"> <td width="50%">NODE_ELEMENT</td> <td width="50%">&lt;<b>artist</b> type="band"&gt;The Offspring&lt;<b>/artist</b>&gt;</td> </tr> <tr valign="top"> <td width="50%">NODE_ATTRIBUTE</td> <td width="50%"><b>type</b>=<b>"band"</b>&gt;The Offspring</td> </tr> <tr valign="top"> <td width="50%">NODE_TEXT</td> <td width="50%"><b>The Offspring</b></td> </tr> <tr valign="top"> <td width="50%">NODE_PROCESSING_INSTRUCTION</td> <td width="50%">&lt;<b>?xml version</b>=<b>"1.0"?</b>&gt;</td> </tr> <tr valign="top"> <td width="50%">NODE_DOCUMENT_TYPE</td> <td width="50%">&lt;<b>!DOCTYPE compactdiscs SYSTEM "cds.dtd"</b>&gt;</td> </tr> </tbody></table></div> <p>You access the node type via two properties exposed by the <b>IXMLDOMNode</b> interface. The <b>NodeType</b> property exposes an enumeration of <b>DOMNodeType</b> items (some of which are listed in the previous table). In addition, you can use <b>NodeTypeString</b> to retrieve a textual string for the node type.</p> <p>Once
+ you have a reference to a document, you can start traversing the node 
+hierarchy. From your document reference, you can access the <b>ChildNodes</b> property, which gives you a top-down entry point to all of the nodes in your document. The <b>ChildNodes</b> property exposes the <b>IXMLDOMNodeList</b>, which supports the Visual Basic For/Each construct. Thus, you can enumerate all of the individual nodes of the <b>ChildNodes</b> property. In addition, the <b>ChildNodes</b> property exposes a <b>Level</b> property, which returns the number of child nodes that exists.</p> <p>Not only does the document object expose a <b>ChildNodes</b> property, but all individual nodes do, as well. This, in conjunction with <b>IXMLDOMNode</b>'s <b>HasChildNodes</b> property, makes it easy for you to traverse the node hierarchy examining elements, attributes, and values.</p> <p>One
+ thing to be aware of is the parent-child relationship between a 
+document element and the element's value. For example, in the CDs XML 
+document, the element <code>&lt;title&gt;</code> exposes a song title. To retrieve the actual value of the <code>&lt;title&gt;</code>
+ element, you need to look for nodes of the type NODE_TEXT. Once you've 
+found a node with some interesting data, you can examine attributes and 
+even reach up and access its parent node via the <b>ParentNode</b> property.</p> <h2 class="dtH1"><a name="beginner_traverse"></a>How Do I Traverse a Document?</h2> <p>In
+ an XML document, you traverse the set of nodes exposed by the document 
+object. Because XML documents are hierarchical in nature, it is 
+relatively easy to write a recursive routine to traverse the entire 
+document.</p> <p>The <b>LoadDocument</b> routine opens an XML document. <b>LoadDocument</b> then calls another routine, <b>DisplayNode</b>, which actually traverses the document. <b>LoadDocument</b> passes a reference to the currently open XML document's <b>ChildNodes</b>
+ property as a parameter and an integer value specifying where to start 
+the indent level. The code uses the Indent parameter to format the 
+display of the text in the Visual Basic Immediate Window of the document
+ structure.</p> <p>The <b>DisplayNode</b> function traverses the 
+document looking specifically for nodes of the type NODE_TEXT. Once the 
+code finds a node of the type NODE_TEXT, it retrieves the text of the 
+node using the <b>NodeValue</b> property. In addition, the <b>ParentNode</b>
+ property of the current node is used to get a to get a back-reference 
+to a node of the type NODE_ELEMENT. Nodes of the type NODE_ELEMENT 
+expose a <b>NodeName</b> property. The contents of <b>NodeName</b> and <b>NodeValue</b> are displayed.</p> <p>If a node has children, determined by checking the <b>HasChildNodes</b> property, then <b>DisplayNode</b> calls itself recursively until it reaches the end of the document.</p> <p>The <b>DisplayNode</b> routine writes the information to Visual Basic's Immediate window using <b>Debug.Print</b>:</p> 
+<div id="code-snippet-11" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="Copy to clipboard." href="javascript:if%20(window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_17352e90-0718-49b0-9dba-6753b2c05635');">Copy</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_17352e90-0718-49b0-9dba-6753b2c05635" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre>Public Sub LoadDocument()
+Dim xDoc As MSXML.DOMDocument
+Set xDoc = New MSXML.DOMDocument
+xDoc.validateOnParse = False
+If xDoc.Load("C:\My Documents\sample.xml") Then
+   ' The document loaded successfully.
+   ' Now do something intersting.
+   DisplayNode xDoc.childNodes, 0
+Else
+   ' The document failed to load.
+   ' See the previous listing for error information.
+End If
+End Sub
+
+Public Sub DisplayNode(ByRef Nodes As MSXML.IXMLDOMNodeList, _
+   ByVal Indent As Integer)
+
+   Dim xNode As MSXML.IXMLDOMNode
+   Indent = Indent + 2
+
+   For Each xNode In Nodes
+      If xNode.nodeType = NODE_TEXT Then
+         Debug.Print Space$(Indent) &amp; xNode.parentNode.nodeName &amp; _
+            ":" &amp; xNode.nodeValue
+      End If
+
+      If xNode.hasChildNodes Then
+         DisplayNode xNode.childNodes, Indent
+      End If
+   Next xNode
+End Sub
+
+</pre></div>
+            
+        </div>
+    </div>
+</div>
+ <p><b>DisplayNode</b> uses the <b>HasChildNodes</b> property of IXMLDOMNodeList to check for a value greater than 0.</p> <h2 class="dtH1"><a name="beginner_nowwhat"></a>Now What?</h2> <p>This
+ article is just a teaser. You are now ready to dig deeper and expand 
+your knowledge of XML and the MSXML parser. You can do many interesting 
+things like update values of individual node items, search within a 
+document, build your own documents, and more. Visit the <a href="http://msdn.microsoft.com/xml/">MSDN Online XML Developer Center</a> for more examples, articles, and downloads.</p>  </div> </div>
+
+
+
+
+
+<p style="padding: 15px 0px; margin: 0px;"></p>
+    
+
+
+ 
+</div>
+
+
+            </div>
+            <div class="clear"></div>
+        
+            
+    
+<input name="__RequestVerificationToken" value="-HtsD0vXsM5kuQAZmTp1-fydUkZQLs2CGOsWN6KfJp51H60C9swp7hKbgl3TNDtnXu7G_Yk_9nJObUfTCShFAj464esshRw_THajRcvTHtB_UXlROJHWP7wzncTzlhyLC0iIB9LvW7_wyKy1-adc1DB7bP01" type="hidden">
+<input id="ratingSubmitUrl" value="http://msdn.microsoft.com/en-us/library/feedback/add/aa468547.aspx" type="hidden">
+<input id="isTopicRated" value="false" type="hidden">
+
+
+
+    
+
+<div id="ux-footer">
+    <footer class="top">
+        <div data-fragmentname="LeftLinks" id="Fragment_LeftLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="LinkList">
+    <div class="LinkListTitle">Dev centers</div>
+    <div class="Links">
+      <ul class="LinkColumn" style="width: 100%">
+        <li>
+          <a href="http://msdn.microsoft.com/windows" id="27861_1" class="windowsBlue" xmlns="http://www.w3.org/1999/xhtml">Windows</a>
+        </li>
+        <li>
+          <a href="http://dev.windowsphone.com/" id="27861_2" class="windowsPurple" xmlns="http://www.w3.org/1999/xhtml">Windows Phone</a>
+        </li>
+        <li>
+          <a href="http://msdn.microsoft.com/office" id="27861_3" class="office" xmlns="http://www.w3.org/1999/xhtml">Office</a>
+        </li>
+        <li>
+          <a href="http://www.windowsazure.com/en-us/documentation/" id="27861_4" class="windowsBlue" xmlns="http://www.w3.org/1999/xhtml">Windows Azure</a>
+        </li>
+        <li>
+          <a href="http://msdn.microsoft.com/vstudio" id="27861_5" class="visualStudio" xmlns="http://www.w3.org/1999/xhtml">Visual Studio</a>
+        </li>
+        <li>
+          <a href="http://msdn.microsoft.com/aa937802" id="27861_6" xmlns="http://www.w3.org/1999/xhtml">More...</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>    
+        <div id="rightLinks">
+            <div data-fragmentname="CenterLinks1" id="Fragment_CenterLinks1" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="LinkList">
+    <div class="LinkListTitle">Learning resources</div>
+    <div class="LinkListDescription"></div>
+    <div class="Links">
+      <ul class="LinkColumn" style="width: 100%">
+        <li>
+          <a href="http://www.microsoftvirtualacademy.com/" id="27861_14" xmlns="http://www.w3.org/1999/xhtml">Microsoft Virtual Academy</a>
+        </li>
+        <li>
+          <a href="http://channel9.msdn.com/" id="27861_16" xmlns="http://www.w3.org/1999/xhtml">Channel 9</a>
+        </li>
+        <li>
+          <a href="http://www.interoperabilitybridges.com/" id="27861_17" xmlns="http://www.w3.org/1999/xhtml">Interoperability Bridges</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+            <div data-fragmentname="CenterLinks2" id="Fragment_CenterLinks2" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="LinkList">
+    <div class="LinkListTitle">Community</div>
+    <div class="LinkListDescription"></div>
+    <div class="Links">
+      <ul class="LinkColumn" style="width: 100%">
+        <li>
+          <a href="http://social.msdn.microsoft.com/forums/en-us/home" id="27861_19" xmlns="http://www.w3.org/1999/xhtml">Forums</a>
+        </li>
+        <li>
+          <a href="http://blogs.msdn.com/b/developer-tools/" id="27861_20" xmlns="http://www.w3.org/1999/xhtml">Blogs</a>
+        </li>
+        <li>
+          <a href="http://www.codeplex.com/" id="27861_22" xmlns="http://www.w3.org/1999/xhtml">Codeplex</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+            <div data-fragmentname="CenterLinks3" id="Fragment_CenterLinks3" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="LinkList">
+    <div class="LinkListTitle">Support</div>
+    <div class="LinkListDescription"></div>
+    <div class="Links">
+      <ul class="LinkColumn" style="width: 100%">
+        <li>
+          <a href="http://support.microsoft.com/get-support/" id="27861_24" xmlns="http://www.w3.org/1999/xhtml">Paid support</a>
+        </li>
+        <li>
+          <a href="http://support.microsoft.com/gp/microsoft-support-options#For_Work" id="27861_25" xmlns="http://www.w3.org/1999/xhtml">Other support options</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+            <div data-fragmentname="CenterLinks4" id="Fragment_CenterLinks4" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="LinkList">
+    <div class="LinkListTitle">Programs</div>
+    <div class="LinkListDescription"></div>
+    <div class="Links">
+      <ul class="LinkColumn" style="width: 100%">
+        <li>
+          <a href="http://www.microsoft.com/bizspark/" id="27861_27" xmlns="http://www.w3.org/1999/xhtml">BizSpark</a>
+        </li>
+        <li>
+          <a href="https://www.dreamspark.com/" id="27861_28" xmlns="http://www.w3.org/1999/xhtml">DreamSpark.com</a>
+        </li>
+        <li>
+          <a href="https://www.microsoft.com/faculty" id="27861_29" xmlns="http://www.w3.org/1999/xhtml">Faculty programs</a>
+        </li>
+        <li>
+          <a href="http://www.microsoft.com/student/" id="CenterLinks4_427_32" xmlns="http://www.w3.org/1999/xhtml">Student programs</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    <div class="feedbackContainer">
+        <div id="feedbackSection1" class="clear">
+            <div class="left">Did you find this helpful?</div>
+            <div class="left">
+                <div class="left">
+                    <input name="feedback" id="feedbackYes" value="1" class="feedbackYesClick" data-enhance="false" type="radio"><label class="feedbackYesClick" for="feedbackYes"> Yes</label>
+                </div>
+                <div class="left">
+                    <input name="feedback" id="feedbackNo" value="0" class="feedbackNoClick" data-enhance="false" type="radio"><label class="feedbackNoClick" for="feedbackNo"> No</label>
+                </div>
+            </div>
+            <a class="rateThisAnchor" name="feedback"></a>
+        </div>
+        <div id="feedbackSection2" class="clear">
+        </div>
+        <div id="feedbackSection3" class="clear">
+                    <div>
+                        <input id="checkboxNo201" name="chkbxNo" value="201" data-enhance="false" type="checkbox">
+                        <label for="checkboxNo201">Not accurate</label>
+                    </div>
+                    <div>
+                        <input id="checkboxNo202" name="chkbxNo" value="202" data-enhance="false" type="checkbox">
+                        <label for="checkboxNo202">Not enough depth</label>
+                    </div>
+                    <div>
+                        <input id="checkboxNo203" name="chkbxNo" value="203" data-enhance="false" type="checkbox">
+                        <label for="checkboxNo203">Need more code examples</label>
+                    </div>
+        </div>
+        <div id="feedbackSection4" class="clear">
+            <div>
+                <textarea id="feedbackTextArea" name="feedbackText" class="TellUsMoreTextBoxSearchLoaded" data-enhance="false">Tell us more...</textarea>
+            </div>
+            <div class="left"><span class="counter">(<span id="feedbackTextCounter">1500</span> characters remaining)</span></div>
+            <div class="right">
+                <input id="feedbackSubmit" value="Submit" title="Click to Submit Feedback" data-enhance="false" type="submit">
+            </div>
+        </div>
+        <div id="feedbackSection5">Thank you for your feedback</div>
+        <input id="feedbackValue" value="" type="hidden">
+        <input id="tellUsMoreText" value="Tell us more..." type="hidden">
+        <input id="maxTextBoxCharacters" value="1500" type="hidden">
+    </div>
+        </div>
+    </footer>
+    
+    <footer class="bottom">
+        <span class="localeContainer">
+            
+    <form class="selectLocale" id="selectLocaleForm" action="http://msdn.microsoft.com/en-us/SelectLocale">
+        <input name="fromPage" value="http%3a%2f%2fmsdn.microsoft.com%2fen-us%2flibrary%2faa468547.aspx" type="hidden">
+        <a href="#" onclick="$('#selectLocaleForm').submit();return false;" title="Change your language">United States (English)</a>
+    </form>    
+
+
+        </span>
+        
+        <div data-fragmentname="BottomLinks" id="Fragment_BottomLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="LinkList">
+    <div class="LinkListDescription"></div>
+    <div class="Links">
+      <ul class="LinkColumn horizontal">
+        <li>
+          <a href="http://msdn.microsoft.com/newsletter.aspx" id="27861_8" xmlns="http://www.w3.org/1999/xhtml">Newsletter</a>
+        </li>
+        <li>
+          <a href="http://privacy.microsoft.com/default.mspx" id="27861_10" xmlns="http://www.w3.org/1999/xhtml">Privacy &amp; cookies</a>
+        </li>
+        <li>
+          <a href="http://msdn.microsoft.com/cc300389.aspx" id="27861_11" xmlns="http://www.w3.org/1999/xhtml">Terms of Use</a>
+        </li>
+        <li>
+          <a href="http://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx" id="27861_12" xmlns="http://www.w3.org/1999/xhtml">Trademarks</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>    
+        <span class="logoLegal">
+            <span class="logo"></span>
+            <span class="copyright">© 2013 Microsoft</span>
+        </span>
+    </footer>
+</div>
+
+
+            <div class="footerPrintView">
+                <div class="footerCopyrightPrintView">© 2013 Microsoft. All rights reserved.</div>
+            </div>
+
+            
+            
+    
+    
+    <input id="tocPaddingPerLevel" value="17" type="hidden">
+
+
+        
+            <input id="MtpsDevice" value="Default" type="hidden">
+
+
+<!--[CDATA[ Third party scripts and code linked to or referenced from this website are licensed to you by the parties that own such code, not by Microsoft.  See ASP.NET Ajax CDN Terms of Use – http://www.asp.net/ajaxlibrary/CDN.ashx. ]]-->
+        
+            
+            
+            
+            
+            
+        
+
+
+
+
+
+<noscript><div><img alt="DCSIMG" id="Img1" width="1" height="1" src="http://m.webtrends.com/dcsmgru7m99k7mqmgrhudo0k8_8c6m/njs.gif?dcsuri=/nojavascript&amp;WT.js=No" /></div></noscript>
+
+
+
+
+
+
+
+
+
+<noscript>
+  <a href="http://www.omniture.com" title="Web Analytics">
+    <img src="//msstonojsmsdn.112.2o7.net/b/ss/msstonojsmsdn/1/H.20.2--NS/0" height="1" width="1" border="0" alt="" />
+  </a>
+</noscript>
+
+
+
+
+<div id="globalRequestVerification">
+    <input name="__RequestVerificationToken" value="WloR9101u8dLlG9zKLDng3KFF07NTvGaCjHgF77PZATkUzU4zFV02gUaBi9LWFj1Ft9ISNT2xvSavUTln61YJCRAwe2pXkLCHBP6uA3acph3oTlgAODuSxT_oSOpsC99NsdzI3X1ZGRLz3nDWYbs5ELmdBs1" type="hidden">
+</div>
+
+
+        </div>
+    <script type="text/javascript" class="mtps-injected">
+/*<![CDATA[*/
+(function(window,document){"use strict";function preload(scripts){for(var result=[],script,e,i=0;i<scripts.length;i++)script=scripts[i],script.hasOwnProperty("url")&&(e=document.createElement("script"),e.src=script.url,script.throwaway=e),result.push(script);return result}function inject(scripts,index){var script,elem;if(index>=scripts.length){delete mtps.injectScripts;return}script=scripts[index];elem=document.createElement("script");elem.className="mtps-injected";elem.async=!1;var isLoaded=!1,timeoutId=0,injectNextFnName="",injectNext=elem.onerror=function(){isLoaded||(isLoaded=!0,inject(scripts,index+1),window.clearTimeout(timeoutId),elem.onload=elem.onerror=elem.onreadystatechange=null,injectNextFnName&&delete mtps[injectNextFnName],elem.removeEventListener&&elem.removeEventListener("load",injectNext,!1))};elem.addEventListener?elem.addEventListener("load",injectNext,!1):elem.readyState==="uninitialized"?elem.onreadystatechange=function(){(this.readyState==="loaded"||this.readyState==="complete")&&injectNext()}:elem.onload=injectNext;script.hasOwnProperty("url")?(timeoutId=window.setTimeout(injectNext,12e4),elem.src=script.url):(injectNextFnName="_injectNextScript_"+index,mtps[injectNextFnName]=injectNext,timeoutId=window.setTimeout(injectNext,2e3),elem.text="try {\n"+script.txt+"\n} finally { MTPS."+injectNextFnName+" && MTPS."+injectNextFnName+"(); }");parent.appendChild(elem)}var mtps=window.MTPS||(window.MTPS={}),parent=document.getElementsByTagName("head")[0];mtps.injectScripts=function(scripts){inject(preload(scripts),0)}})(window,document);
+MTPS.injectScripts([
+	{ txt: "/**/\r\n(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { \r\n\t\"image\": \"http://i.msdn.microsoft.com\", \r\n\t\"js\": \"http://i2.msdn.microsoft.com\", \r\n\t\"css\": \"http://i3.msdn.microsoft.com\"\r\n});\r\n/**/" },
+	{ url: "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js" },
+	{ txt: "//\n  var literalNormalizedUrl = \u0027/en-us/library/aa468547(d=default,l=en-us,v=msdn.10).aspx\u0027;\n  var wt_nvr_ru = \u0027WT_NVR_RU\u0027;\n  var wt_fpcdom = \u0027.microsoft.com\u0027;\n  var wt_domlist = \u0027msdn.microsoft.com\u0027;\n  var wt_pathlist = \u0027\u0027;\n  var wt_paramlist = \u0027DCSext.mtps_devcenter\u0027;\n  var wt_siteid = \u0027MSDN\u0027;\n  var gDomain = \u0027m.webtrends.com\u0027;\n  var gDcsId = \u0027dcsmgru7m99k7mqmgrhudo0k8_8c6m\u0027;\n  var gFpc = \u0027WT_FPC\u0027;\n\n\n\n  if (document.cookie.indexOf(gFpc + \"=\") == -1) {\n    var wtidJs = document.createElement(\"script\");\n    wtidJs.src = \"//\" + gDomain + \"/\" + gDcsId + \"/wtid.js\";\n    document.getElementsByTagName(\"head\")[0].appendChild(wtidJs);\n  }\n\n\n\n  var detectedLocale = \u0027en-us\u0027;\n  var wtsp = \u0027msdnlib_w32_com\u0027;\n  var gTrackEvents = \u00270\u0027;\n/**/" },
+	{ txt: "/**/\n  var omni_guid = \"0b2c7d3a-e847-42e3-b928-715cbb1178c8\";\n/**/" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:Utilities,0:Topic,1:webtrendsscript,2:omni_rsid_MSDN,3:SearchBox;/Areas/Epx/Content/Scripts:0,/Areas/Global/Content/Webtrends/resources:1,/Areas/Global/Content/Omniture/resources/MSDN:2,/Areas/Epx/Themes/Base/Content:3\u0026amp;hashKey=61F0FB52A7A36B61DFB9AFD9270F0B57" },
+	{ url: "http://i4.services.social.microsoft.com/search/Widgets/SearchBox.jss?boxid=HeaderSearchTextBox\u0026btnid=HeaderSearchButton\u0026brand=MSDN\u0026loc=en-us\u0026focusOnInit=false\u0026emptyWatermark=true" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:layout,1:Header,2:Toc,2:NavigationResize,3:FeedbackCounter,3:Feedback,1:Rating,4:CodeSnippet,4:TopicNotInScope,4:CollapsibleArea,4:VersionSelector,4:SurveyBroker;/Areas/Centers/Themes/Base/Content:0,/Areas/Centers/Themes/Msdn/Content:1,/Areas/Epx/Library/Content:2,/Areas/Epx/Shared/Content:3,/Areas/Epx/Content/Scripts:4\u0026amp;hashKey=DC0468F5C0516D0FA426B100540B2CA2" },
+	{ txt: "$(document).ready(function() {\n        try {\n            var token = $(\"#globalRequestVerification input[name=\u0027__RequestVerificationToken\u0027]\").clone();\n            $(\"#siteFeedbackForm\").append(token);\n        } catch(err) {\n            \n        }\n    });" }
+]);
+
+/*]]>*/
+</script>
+<script src="xml%20parsing-Dateien/broker-config.js"></script><div id="_WEDCSInsertedData" style="display: none;"><iframe id="_msnFrame" src="xml%20parsing-Dateien/c_002.gif" style="z-index:-1;height:1px;width:1px;display:none;visibility:hidden;" onload="javascript:MscomBeacon();"></iframe></div></body></html>

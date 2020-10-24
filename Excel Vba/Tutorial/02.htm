@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+<title>Excel VBA MsgBox - Easy Excel Macros</title>
+<meta name="keywords" content="msgbox, excel vba msgbox, excel msgbox, messagebox, msgbox vba, excel vba msgbox new line, excel visual basic, excel macro, excel vba tutorial, learn excel vba, excel vba examples">
+<meta name="description" content="The Excel VBA MsgBox (message box) is a dialog box you can use in Excel VBA to display information to the users of your program. Below you can find three easy examples on how to create a MsgBox in Excel VBA.">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="robots" content="index, follow">
+<meta content="EN-US" name="LANGUAGE">
+<link href="02_files/style.css" rel="stylesheet" type="text/css" media="screen">
+<script src="02_files/ga.js" async="" type="text/javascript"></script><script async="" src="02_files/cbgapi.loaded_0"></script><script gapi_processed="true" type="text/javascript" src="02_files/plusone.js"></script>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h2><a href="http://www.excel-vba-easy.com/"><img src="02_files/excel-vba.jpg" alt="Excel VBA" title="Excel VBA" border="0" height="40" width="44">excel vba</a></h2>
+			  <p>#1 Source for <a href="http://www.excel-vba-easy.com/">Excel macros</a> on the net</p>
+			</div>
+            
+			<div id="menu">
+				<ul>
+				  <li><a href="http://www.excel-vba-easy.com/">Excel VBA</a></li>
+				  <li><a href="http://www.excel-vba-easy.com/excel-macro.html">Macro?</a></li>
+				  <li class="current_page_item"><a href="http://www.excel-vba-easy.com/excel-vba-basics.html">Basics</a></li>
+				  <li><a href="http://www.excel-vba-easy.com/excel-vba-programming.html">Programming</a></li>
+				  <li><a href="http://www.excel-vba-easy.com/excel-vba-controls.html">Controls</a></li>
+                  <li class="pro"><a href="http://www.excel-vba-easy.com/excel-vba-programs.html" rel="nofollow">100 Examples</a></li>
+                  <li><a href="http://www.excel-vba-easy.com/contact-excel-vba-easy.html" rel="nofollow">Ask us</a></li>
+			  </ul>
+			</div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+				<div id="content">
+					<div class="post">
+						<h1 class="title" style="float:left">MsgBox</h1>
+						<table>
+                          <tbody><tr>
+                            <td style="padding-left:7px; padding-top:11px"><div id="___plusone_0" style="height: 24px; width: 170px; display: inline-block; text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline;"><iframe title="+1" data-gapiattached="true" allowtransparency="true" src="02_files/fastbutton.htm" name="I0_1363885877822" id="I0_1363885877822" vspace="0" tabindex="0" style="position: static; top: 0px; width: 170px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div></td>
+                          </tr>
+                        </tbody></table>
+					  <div style="clear: both;">&nbsp;</div>
+<div class="entry"> 
+							<p>The <strong>Excel VBA MsgBox</strong> (message box) is a 
+dialog box you can use in Excel VBA to display information to the users 
+of your  program. Below you can find three easy examples on how to 
+create a MsgBox in Excel VBA.</p>
+			  <p>1. To show a MsgBox with the message "This is fun", place a <a href="http://www.excel-vba-easy.com/vba-how-to-create-macro-excel.html">command button</a> on your worksheet and simply add the following code line:</p>
+			  <div class="code">MsgBox "This is fun"</div>
+			  <p><br>
+		      Result when you click the command button on the sheet:</p>
+			  <p><img src="02_files/message-box-example.png" alt="Example of a Message Box" title="Example of a Message Box" height="154" width="154"></p>
+			  <p>2. Now we try to create a little more advanced <strong>MsgBox</strong>. </p>
+                            <p>Enter a random number into cell A1.</p>
+              <p>Instead of "This is Fun", add the following code line:</p>
+              <div class="code">MsgBox "Entered value is " &amp; Range("A1").Value</div>
+              <p><br>
+              Result when you click the command button on the sheet:</p>
+              <p><img src="02_files/msgbox-more-advanced.png" alt="More advanced MsgBox" title="More advanced MsgBox" height="154" width="163"></p>
+              <p>We used  the &amp; operator to concatenate (join) two strings. Although Range("A1").value is  not a string, it works here.</p>
+                            <p>3. To start a new line in a <strong>message box</strong>, you can use vbNewLine. Add the following code line:</p>
+              <div class="code">MsgBox "Line 1" &amp; vbNewLine &amp; "Line 2"</div>
+              <p><br>
+              Result when you click the command button on the sheet:</p>
+              <p><img src="02_files/msgbox-new-line.png" alt="MsgBox New Line" title="MsgBox New Line" height="169" width="154"></p>
+              <p>Did you find this information helpful? Show your appreciation, vote for us.</p>
+              <p><div id="___plusone_1" style="height: 24px; width: 170px; display: inline-block; text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline;"><iframe title="+1" data-gapiattached="true" allowtransparency="true" src="02_files/fastbutton_002.htm" name="I1_1363885877841" id="I1_1363885877841" vspace="0" tabindex="0" style="position: static; top: 0px; width: 170px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div></p>                            
+              <p>Go to Top: <a href="http://www.excel-vba-easy.com/vba-basic-msgbox.html">MsgBox</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Go to Next Topic: <a href="http://www.excel-vba-easy.com/vba-basic-macro-error.html">Macro Errors</a></p>
+</div>
+				  </div>
+                  <div class="post">
+					<div style="clear: both;"></div>
+                    <div class="entrylearn">  
+                  <p align="left"><span class="buttonp"> <a href="#">Learn more about getting user input, Login to the right &gt;&gt;<br>
+                      </a></span>100 easy to follow Excel VBA <a href="http://www.excel-vba-easy.com/excel-vba-programs.html">examples</a>. Limited time-offer: <strike>$39.00</strike> but only $29.00. Ends on 31 March.</p>
+                  </div>
+                  </div>
+                  
+			</div>
+				<div id="sidebar">
+                <p>&nbsp;</p>
+				  <ul><li>
+				      <h3><a href="http://www.excel-vba-easy.com/excel-vba-programs.html" rel="nofollow" style="text-decoration:none">Learn more, Get a login &gt;&gt;</a></h3>
+				    </li>
+					  <li><ul>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/getting-user-input.shtml" rel="nofollow">Getting User Input</a></li>
+                        <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/input-boxes.shtml" rel="nofollow">Input boxes</a></li>
+                        </ul>
+                    </li>
+                  </ul>
+			  </div>
+                <!-- end #sidebar -->
+			  <div style="clear: both;">&nbsp;</div>
+		  </div>
+		</div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p>Copyright (c) 2010-2013 <a href="http://www.excel-vba-easy.com/">www.excel-vba-easy.com</a>. <a href="http://www.excel-vba-easy.com/vba-basic-msgbox.html">Excel VBA MsgBox</a>. All rights reserved.<br>
+	<a href="http://www.excel-vba-easy.com/">excel vba</a> | <a href="http://www.excel-vba-easy.com/">macros in excel</a> | <a href="http://www.excel-vba-easy.com/">vba macro</a> | <a href="http://www.excel-vba-easy.com/">excel visual basic</a> | <a href="http://www.excel-easy.com/excel-basic-templates.html">template excel</a> | <a href="http://www.excel-vba-easy.com/">vba for microsoft excel</a>
+</p></div>
+<!-- end #footer -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15754101-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+</body></html>

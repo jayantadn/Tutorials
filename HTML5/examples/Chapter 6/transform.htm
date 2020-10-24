@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+   <head>
+      <title>Transform Example</title>
+   </head>
+   <body>
+      <canvas id='example' width='180' height='120'>
+         <h1>HTML5 Canvas</h1>
+         This web page uses the HTML5 canvas element, which is available
+         on most modern browsers. If you wish to view this page at its
+         best please upgrade your browser to the most recent version.
+      </canvas>
+
+      <script>
+         canvas = document.getElementById('example')
+         canvas.style.background = '#ddd'
+         context = canvas.getContext('2d')
+
+         context.transform(1, 0, -0.5, 1, 0, 0)
+         context.fillStyle = 'green'
+         context.fillRect(70, 10, 100, 100)
+      </script>
+   </body>
+</html>
+

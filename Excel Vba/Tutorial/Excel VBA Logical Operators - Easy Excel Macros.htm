@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+<title>Excel VBA Logical Operators - Easy Excel Macros</title>
+<meta name="keywords" content="Excel VBA logical operator, logical operators, logical operator and, logical operator or, logical operator not, excel vba and, excel vba or, excel vba not, statement, excel vba, excel visual basic, excel macro, excel vba tutorial, learn excel vba, excel vba examples">
+<meta name="description" content="In all sorts of macros we use Excel VBA logical operators. The three most used logical operators in Excel Visual Basic are AND, OR and NOT. Each Excel VBA logical operator will now be illustrated with the help of an easy example.">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="robots" content="index, follow">
+<meta content="EN-US" name="LANGUAGE">
+<link href="Excel%20VBA%20Logical%20Operators%20-%20Easy%20Excel%20Macros_files/style.css" rel="stylesheet" type="text/css" media="screen">
+<script src="Excel%20VBA%20Logical%20Operators%20-%20Easy%20Excel%20Macros_files/ga.js" async="" type="text/javascript"></script><script async="" src="Excel%20VBA%20Logical%20Operators%20-%20Easy%20Excel%20Macros_files/cbgapi.loaded_0"></script><script gapi_processed="true" type="text/javascript" src="Excel%20VBA%20Logical%20Operators%20-%20Easy%20Excel%20Macros_files/plusone.js"></script>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h2><a href="http://www.excel-vba-easy.com/"><img src="Excel%20VBA%20Logical%20Operators%20-%20Easy%20Excel%20Macros_files/excel-vba.jpg" alt="Excel VBA" title="Excel VBA" border="0" height="40" width="44">excel vba</a></h2>
+			  <p>#1 Source for <a href="http://www.excel-vba-easy.com/">Excel macros</a> on the net</p>
+			</div>
+            
+			<div id="menu">
+				<ul>
+					<li><a href="http://www.excel-vba-easy.com/">Excel VBA</a></li>
+				  <li><a href="http://www.excel-vba-easy.com/excel-macro.html">Macro?</a></li>
+				  <li><a href="http://www.excel-vba-easy.com/excel-vba-basics.html">Basics</a></li>
+				  <li class="current_page_item"><a href="http://www.excel-vba-easy.com/excel-vba-programming.html">Programming</a></li>
+				  <li><a href="http://www.excel-vba-easy.com/excel-vba-controls.html">Controls</a></li>
+                  <li class="pro"><a href="http://www.excel-vba-easy.com/excel-vba-programs.html" rel="nofollow">100 Examples</a></li>
+                  <li><a href="http://www.excel-vba-easy.com/contact-excel-vba-easy.html" rel="nofollow">Ask us</a></li>
+			  </ul>
+			</div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+				<div id="content">
+					<div class="post">
+						<h1 class="title" style="float:left">Logical Operators</h1>
+						<table>
+                          <tbody><tr>
+                            <td style="padding-left:7px; padding-top:11px"><div id="___plusone_0" style="height: 24px; width: 170px; display: inline-block; text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline;"><iframe title="+1" data-gapiattached="true" allowtransparency="true" src="Excel%20VBA%20Logical%20Operators%20-%20Easy%20Excel%20Macros_files/fastbutton.htm" name="I0_1363892010825" id="I0_1363892010825" vspace="0" tabindex="0" style="position: static; top: 0px; width: 170px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div></td>
+                          </tr>
+                        </tbody></table>
+
+					  <div style="clear: both;">&nbsp;</div>
+<div class="entry">  
+ <p><a href="#logical-operator-and">Logical Operator And</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#logical-operator-or">Logical Operator Or</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#logical-operator-not">Logical Operator Not</a></p>
+  <p>In all sorts of macros we use <strong>Excel VBA logical operators</strong>.
+ The three most used logical operators in Excel Visual Basic are: And, 
+Or and Not. Each logical operator will now be illustrated with the help 
+of an easy example.</p>
+  <h3><a name="logical-operator-and" id="logical-operator-and"></a>Logical Operator And</h3>
+  <p>For example, we hire a person for a certain job, only if his/her IQ quotient is higher or equal to 110 <u>and</u> the impression he or she leaves during an interview is higher or equal to 7 (on a scale of 1 to 10).</p>
+  <p class="bodyText"><img src="Excel%20VBA%20Logical%20Operators%20-%20Easy%20Excel%20Macros_files/logical-operator-and-example.png" alt="Logical Operator And Example" title="Logical Operator And Example" height="125" width="370"></p>
+  <p class="bodyText">Place a <a href="http://www.excel-vba-easy.com/vba-how-to-create-macro-excel.html">command button</a> on your worksheet and add the following code lines:</p>
+  <div class="code"><span class="predifined">If</span> Range("B1").Value &gt;= 110 <span class="predifined">And</span> Range("B2").Value &gt;= 7 <span class="predifined">Then</span><br>
+    &nbsp;&nbsp;&nbsp;
+Range("B4").Value = "Hire"<br>
+<span class="predifined">Else</span><br>
+&nbsp;&nbsp;&nbsp;
+Range("B4").Value = "Do not hire"<br>
+<span class="predifined">End</span> <span class="predifined">If</span><br>
+</div>
+  <br>
+  <p class="bodyText">Result when you click the command button on the sheet:</p>
+  <p class="bodyText"><img src="Excel%20VBA%20Logical%20Operators%20-%20Easy%20Excel%20Macros_files/logical-operator-and-result.png" alt="Logical Operator And Result" title="Logical Operator And Result" height="125" width="370"></p>
+  <p>The macro uses the <strong>logical operator</strong> And to get the right result. We do not hire the person because his/her IQ quotient is lower than 110.</p>
+  <h3><a name="logical-operator-or" id="logical-operator-or"></a>Logical Operator Or</h3>
+  <p>For example, we hire a person for a certain job, only if his/her IQ quotient is higher or equal to 110 <u>or</u> the impression he or she leaves during an interview is higher or equal to 7 (on a scale of 1 to 10).</p>
+  <p>Code:</p>
+  <div class="code"><span class="predifined">If</span> Range("B1").Value &gt;= 110 <span class="predifined">Or</span> Range("B2").Value &gt;= 7 <span class="predifined">Then</span><br>
+  &nbsp;&nbsp;&nbsp;
+    Range("B4").Value = "Hire"<br>
+  <span class="predifined">Else</span><br>
+  &nbsp;&nbsp;&nbsp;
+    Range("B4").Value = "Do not hire"<br>
+  <span class="predifined">End</span> <span class="predifined">If</span><br>
+  </div>
+  <br>
+  <p>Result:</p>
+  <p><img src="Excel%20VBA%20Logical%20Operators%20-%20Easy%20Excel%20Macros_files/logical-operator-or-result.png" alt="Logical Operator Or Result" title="Logical Operator Or Result" height="125" width="374"></p>
+  <p>This example shows you the effect of the Or statement. Although, 
+the IQ quotient of the person is way below 110, we hire the person 
+because he or she leaves a very good impression during the interview.</p>
+  <h3><a name="logical-operator-not" id="logical-operator-not"></a>Logical Operator Not</h3>
+  <p>For example, we do not hire a person for a certain job, who is 
+'greedy' and 'all about the money'. The macro below uses the logical 
+operator Not to get the right result. The Not operator designates that 
+the condition must not be true.</p>
+  <p>Slightly adjust the previous macro. Code:</p>
+  <div class="code"><span class="predifined">If</span> (Range("B1").Value &gt;= 110 <span class="predifined">Or</span> Range("B2").Value &gt;= 9) <span class="predifined">And</span> <span class="predifined">Not</span> Range("B3").Value = "Yes" <span class="predifined">Then</span><br>
+    &nbsp;&nbsp;&nbsp;
+Range("B4").Value = "Hire"<br>
+<span class="predifined">Else</span><br>
+&nbsp;&nbsp;&nbsp;
+Range("B4").Value = "Do not hire"<br>
+<span class="predifined">End</span> <span class="predifined">If</span><br>
+  </div>
+  <p><br>
+    Result:</p>
+  <p class="bodyText"><img src="Excel%20VBA%20Logical%20Operators%20-%20Easy%20Excel%20Macros_files/logical-operator-not-result.png" alt="Logical Operator Not Result" title="Logical Operator Not Result" height="125" width="429"></p>
+  <p>    We want one of the first two conditions to be true (use 
+brackets) and the third condition must not be true. We do not hire the 
+person because the third condition <u>is</u> true (cell B3 contains the word Yes).</p>
+  <p>You can <a href="http://www.excel-vba-easy.com/vba-basic-debug-macro.html">debug</a>
+ through the code using F8 (see picture below). Place the cursor on the 
+code to see the actual values! The '_' symbol is used here to continue 
+the statement on a new line (not necessary). Always test your macro when
+ you use logical operators to be sure that they do what you want.</p>
+  <p class="bodyText"><img src="Excel%20VBA%20Logical%20Operators%20-%20Easy%20Excel%20Macros_files/logical-operators-debug.png" alt="Debug your Code" title="Debug your Code" height="186" width="506"></p>
+  <p>Did you find this information helpful? Show your appreciation, vote for us.</p>
+  <p><div id="___plusone_1" style="height: 24px; width: 170px; display: inline-block; text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline;"><iframe title="+1" data-gapiattached="true" allowtransparency="true" src="Excel%20VBA%20Logical%20Operators%20-%20Easy%20Excel%20Macros_files/fastbutton_002.htm" name="I1_1363892010836" id="I1_1363892010836" vspace="0" tabindex="0" style="position: static; top: 0px; width: 170px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div></p>
+  <p>Go to Top: <a href="http://www.excel-vba-easy.com/vba-programming-logical-operators.html">Logical Operators</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Go to Next Topic: <a href="http://www.excel-vba-easy.com/vba-programming-range-excel-vba.html">Range</a></p>
+</div>
+				  </div>
+                  <div class="post">
+					<div style="clear: both;"></div>
+                    <div class="entrylearn">
+                      <p align="left"><span class="buttonp"> <a href="#">Learn more about logical operators, Login to the right &gt;&gt;<br>
+                      </a></span>100 easy to follow Excel VBA <a href="http://www.excel-vba-easy.com/excel-vba-programs.html">examples</a>. Limited time-offer: <strike>$39.00</strike> but only $29.00. Ends on 31 March.</p>
+</div>
+				  </div>
+                  
+              </div>
+                  <div id="sidebar">
+				  <p>&nbsp;</p>
+				  <ul><li>
+					    <h3><a href="http://www.excel-vba-easy.com/excel-vba-programs.html" rel="nofollow" style="text-decoration:none">Learn more, Get a login &gt;&gt;</a></h3>
+				    </li>
+					  <li><ul>
+                      <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/specific-number-search.shtml" rel="nofollow">Specific Number Search</a></li>
+                      <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/mod-operator.shtml" rel="nofollow">Mod Operator</a></li>
+                      <li><a href="http://www.excel-vba-easy.com/excel-vba-programs/pages/sort-birthdays.shtml" rel="nofollow">Sort Birthdays</a></li>
+					  </ul>
+				    </li>
+                    <li></li>
+				  </ul>
+			  </div>
+                  <!-- end #sidebar -->
+			  <div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p>Copyright (c) 2010-2013 <a href="http://www.excel-vba-easy.com/">www.excel-vba-easy.com</a>. <a href="http://www.excel-vba-easy.com/vba-programming-if-then-statement.html">Excel VBA If Then Statement</a>. All rights reserved.<br>
+	<a href="http://www.excel-vba-easy.com/">excel vba</a> | <a href="http://www.excel-vba-easy.com/">macros in excel</a> | <a href="http://www.excel-vba-easy.com/">vba macro</a> | <a href="http://www.excel-vba-easy.com/">excel visual basic</a> | <a href="http://www.excel-easy.com/excel-function-logical.html">logical functions excel</a> | <a href="http://www.excel-vba-easy.com/">vba for microsoft excel</a>
+</p></div>
+<!-- end #footer -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15754101-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+</body></html>

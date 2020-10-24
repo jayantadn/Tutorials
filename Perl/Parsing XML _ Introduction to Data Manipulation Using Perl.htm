@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+ <title>Parsing XML | Introduction to Data Manipulation Using Perl</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- base href="http://interoperating.info/courses/perl4data/" -->
+<style type="text/css" media="all">@import "misc/drupal.css";</style>
+<style type="text/css">@import "modules/tables/tables.css";</style>
+
+ <link rel="stylesheet" type="text/css" href="Parsing%20XML%20_%20Introduction%20to%20Data%20Manipulation%20Using%20Perl_files/common.css">
+<style type="text/css" media="all">@import "themes/chameleon/style.css";</style></head><body>
+ <div id="header">  <h1 class="site-name title"><a href="">Introduction to Data Manipulation Using Perl</a></h1></div>
+ <table id="content">
+  <tbody><tr>
+   <td id="sidebar-left"><div class="block block-user" id="block-user-1">
+ <h2 class="title">Navigation</h2>
+ <div class="content"><div class="menu">
+<ul>
+<li class="leaf"><a href="http://interoperating.info/courses/perl4data/node/2" title="">About this course</a></li>
+<li class="leaf"><a href="http://interoperating.info/courses/perl4data/node/18" title="">Readings</a></li>
+<li class="expanded"><a href="http://interoperating.info/courses/perl4data/node/15" title="">Topics</a>
+<ul>
+<li class="leaf"><a href="http://interoperating.info/courses/perl4data/node/7" title="">Introduction to Perl</a></li>
+<li class="leaf"><a href="http://interoperating.info/courses/perl4data/node/9" title="">Writing and running scripts</a></li>
+<li class="leaf"><a href="http://interoperating.info/courses/perl4data/node/8" title="">Basic Perl syntax</a></li>
+<li class="leaf"><a href="http://interoperating.info/courses/perl4data/node/22" title="">Variables, Arrays and Hashes</a></li>
+<li class="leaf"><a href="http://interoperating.info/courses/perl4data/node/10" title="">Handling input and output from/to files and the terminal</a></li>
+<li class="leaf"><a href="http://interoperating.info/courses/perl4data/node/11" title="">Perl operators, control structures, and functions</a></li>
+<li class="leaf"><a href="http://interoperating.info/courses/perl4data/node/12" title="">Perl modules and object syntax</a></li>
+<li class="expanded"><a href="http://interoperating.info/courses/perl4data/node/13" title="">Transforming data files</a>
+<ul>
+<li class="leaf"><a href="http://interoperating.info/courses/perl4data/node/23" title="">Parsing delimited data</a></li>
+<li class="leaf"><a href="http://interoperating.info/courses/perl4data/node/17" title="">Reading and writing MARC</a></li>
+<li class="leaf"><a href="http://interoperating.info/courses/perl4data/node/14" title="">Modifying a file of MARC records</a></li>
+<li class="leaf"><a href="http://interoperating.info/courses/perl4data/node/16" title="">Writing XML</a></li>
+<li class="leaf"><a href="http://interoperating.info/courses/perl4data/node/26" title="" class="active">Parsing XML</a></li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</div></div>
+</div>
+<div class="block block-search" id="block-search-0">
+ <h2 class="title">Search</h2>
+ <div class="content"><form action="search/" method="post">
+ <div class="search-form"><div class="form-item">
+ <div class="container-inline"><div class="form-item">
+ <input maxlength="255" class="form-text" name="edit[keys]" id="edit-keys" size="20" type="text">
+</div>
+<input class="form-submit" name="op" value="Search" type="submit">
+</div>
+</div>
+</div>
+</form>
+</div>
+</div>
+<div class="block block-block" id="block-block-1">
+ <h2 class="title"></h2>
+ <div class="content"><div style="font-size: x-small; margin-top: -15%"><!-- Creative Commons License --><br>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.0/ca/"><img alt="Creative Commons License" src="Parsing%20XML%20_%20Introduction%20to%20Data%20Manipulation%20Using%20Perl_files/somerights20.gif" border="0"></a><br>
+Unless otherwise stated, content on this site is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.0/ca/">Creative Commons Attribution -NonCommercial -ShareAlike 2.0 Canada License</a>.<br>
+<!-- /Creative Commons License --><p></p>
+<p><!--</p>
+<p><rdf:RDF xmlns="http://web.resource.org/cc/"<br />
+    xmlns:dc="http://purl.org/dc/elements/1.1/"<br />
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><br />
+<Work rdf:about=""><br />
+   <dc:type rdf:resource="http://purl.org/dc/dcmitype/Text" /></p>
+<license rdf:resource="http://creativecommons.org/licenses/by-nc-sa/2.0/ca/" />
+</Work></p>
+<p><License rdf:about="http://creativecommons.org/licenses/by-nc-sa/2.0/ca/"></p>
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+   <requires rdf:resource="http://web.resource.org/cc/Notice" /><br />
+   <requires rdf:resource="http://web.resource.org/cc/Attribution" /></p>
+<prohibits rdf:resource="http://web.resource.org/cc/CommercialUse" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+   <requires rdf:resource="http://web.resource.org/cc/ShareAlike" /><br />
+</License></p>
+<p></rdf:RDF></p>
+<p>-->
+</p></div>
+</div>
+</div>
+</td>
+   <td id="main">
+<div class="breadcrumb"><a href="">Home</a> » <a href="http://interoperating.info/courses/perl4data/node/15" title="">Topics</a> » <a href="http://interoperating.info/courses/perl4data/node/13" title="">Transforming data files</a></div><h2>Parsing XML</h2>
+<!-- begin content -->
+<div class="node">
+ <div class="content">
+<p>Reading XML can be more complicated than writing it, if only because we have so many options for reading XML.</p>
+<p>There are basically two approaches, using an XML parser or using 
+XSLT. XSLT shines at transforming one type of XML markup into another 
+type of markup, or into HTML, using standardized syntax and vocabulary. 
+Generally, to process XML using XSLT you must run a program called an 
+XSLT processor, such as Saxon or MSXSL. In contrast, parsers are good at
+ picking out specific elements in XML files and are generally bound to 
+programming languages, which means that you must write your parser in 
+Java, Perl, PHP, etc. So, in general, you would choose to use XSLT if 
+you were batch converting XML to HTML (or another XML markup) and you 
+would choose a parser if you were writing a script and wanted to access 
+selected elements in your source XML.</p>
+<h3>Parsing XML: Three examples</h3>
+<p>Just as we used the XML::Writer module earlier to avoid having to 
+write all the low-level XML writing routines ourselves, we will use the 
+XML::Simple module to create our parsers. There are dozens of Perl 
+modules for parsing XML, and believe it or not, XML::Simple is one of 
+the most straight forward (although there is another module called 
+XML::Simpler but it is not very mature at ths time).</p>
+<p>We will use the following XML file, called booklist.xml, in our examples:</p>
+<p><font size="+1"></font></p><font size="+1">
+<pre>&lt;booklist&gt;
+   &lt;book&gt;
+      &lt;author&gt;Book 1 author 1&lt;/author&gt;
+      &lt;author&gt;Book 1 author 2&lt;/author&gt;
+      &lt;title&gt;Book 1 title&lt;/title&gt;
+      &lt;isbn&gt;Book1ISBN&lt;/isbn&gt;
+   &lt;/book&gt;
+   &lt;book&gt;
+      &lt;author&gt;Book 2 author 1&lt;/author&gt;
+      &lt;author&gt;Book 2 author 2&lt;/author&gt;
+      &lt;title&gt;Book 2 title&lt;/title&gt;
+      &lt;isbn&gt;Book2ISBN&lt;/isbn&gt;
+   &lt;/book&gt;
+   &lt;book&gt;
+      &lt;author&gt;Book 3 author 1&lt;/author&gt;
+      &lt;author&gt;Book 3 author 2&lt;/author&gt;
+      &lt;author&gt;Book 3 author 3&lt;/author&gt;
+      &lt;title&gt;Book 3 title&lt;/title&gt;
+      &lt;isbn&gt;Book3ISBN&lt;/isbn&gt;
+   &lt;/book&gt;
+&lt;/booklist&gt;
+</pre></font><p><font size="+1"></font></p>
+<p>As you can see, this XML contains only elements, and no attributes. 
+XML::Simple can handle attributes very well, as we will see at the end 
+of this section.</p>
+<h3>Example 1: Converting from XML to a Perl hash record</h3>
+<p>This example is intended to illustrate how XML::Simple works 
+internally rather than solve a problem. Basically, using XML::Simple and
+ Perl's Data::Dumper module, you can use the following script to convert
+ our sample XML file into a Perl hash record (which, as we know, is what
+ complex data structures in Perl, usually consisting of arrays of 
+hashes, are called):</p>
+<p><font size="+1"></font></p><font size="+1">
+<pre>#!/usr/bin/perl
+
+# Script to illustrate how to parse a simple XML file
+# and dump its contents in a Perl hash record.
+
+use strict;
+use XML::Simple;
+use Data::Dumper;
+
+my $booklist = XMLin('booklist.xml');
+
+print Dumper($booklist);
+</pre></font><p><font size="+1"></font></p>
+<p>Running this script outputs the following:</p>
+<p><font size="+1"></font></p><font size="+1">
+<pre>$VAR1 = {
+          'book' =&gt; [
+                    {
+                      'isbn' =&gt; 'Book1ISBN',
+                      'title' =&gt; 'Book 1 title',
+                      'author' =&gt; [
+                                  'Book 1 author 1',
+                                  'Book 1 author 2'
+                                ]
+                    },
+                    {
+                      'isbn' =&gt; 'Book2ISBN',
+                      'title' =&gt; 'Book 2 title',
+                      'author' =&gt; [
+                                  'Book 2 author 1',
+                                  'Book 2 author 2'
+                                ]
+                    },
+                    {
+                      'isbn' =&gt; 'Book3ISBN',
+                      'title' =&gt; 'Book 3 title',
+                      'author' =&gt; [
+                                  'Book 3 author 1',
+                                  'Book 3 author 2',
+                                  'Book 3 author 3'
+                                ]
+                    }
+                  ]
+        };
+</pre></font><p><font size="+1"></font></p>
+<p>Using what we know about Perl hashes records, we can use constructs 
+like $booklist-&gt;{book}-&gt;[0]-&gt;{title} to access the title 
+element of the first (i.e., index 0) book record the script encounters. 
+However, as you may have noticed, since XML::Simple has converted the 
+XML file into a hash, we can no longer assume that the records in the 
+hash are in the same order as they existed in the input file (in fact, 
+we should assume they are not in the same order). So, variables like 
+$booklist-&gt;{book}-&gt;[0]-&gt;{title} aren't all that useful.</p>
+<h3>Example 2: Picking out a particular book using a record key</h3>
+<p>Our sample XML contains a rudimentary record structure: each book has
+ one title and one ISBN, and at least one author. Our file is so small 
+that we problably would never need to write a script to find the title 
+of a book with a given ISBN, but if our input XML contained thousands of
+ records, we might want to write a simple parser to query the file. Here
+ is a script that does this:</p>
+<p><font size="+1"></font></p><font size="+1">
+<pre>#!/usr/bin/perl
+
+# Script to illustrate how to parse a simple XML file
+# and pick out a particular element, in this case, the 
+# title of the book with the ISBN 'Book2ISBN'.
+
+use strict;
+use XML::Simple;
+
+# We use  KeyAttr =&gt; {book =&gt; 'isbn'} to tell the parser to create
+# a data structure that uses the isbn element as a lookup key.
+my $booklist = XMLin('booklist.xml', KeyAttr =&gt; {book =&gt; 'isbn'});
+
+print $booklist-&gt;{book}-&gt;{Book2ISBN}-&gt;{title} . "\n";
+</pre></font><p><font size="+1"></font></p>
+<p>This is similar to the first script but we have added a parameter to 
+the XMLin method, "KeyAttr =&gt; {book =&gt; 'isbn'}". This tells our 
+parser to create an internal Perl hash record using the "isbn" element 
+as hash keys, so we can access particluar XML records using regular Perl
+ hash syntax. In the print statement above, we are telling our script to
+ print out the value of the book element that has an "isbn" child 
+element of a given value (in this case, "Book2ISBN").</p>
+<p>To understand how this works, let's look at the Perl hash record that
+ this parser creates is a bit different from the one created without the
+ KeyAttr =&gt; {book =&gt; 'isbn'} parameter:</p>
+<p><font size="+1"></font></p><font size="+1">
+<pre>$VAR1 = {
+          'book' =&gt; {
+                    'Book3ISBN' =&gt; {
+                                   'author' =&gt; [
+                                               'Book 3 author 1',
+                                               'Book 3 author 2',
+                                               'Book 3 author 3'
+                                             ],
+                                   'title' =&gt; 'Book 3 title'
+                                 },
+                    'Book2ISBN' =&gt; {
+                                   'author' =&gt; [
+                                               'Book 2 author 1',
+                                               'Book 2 author 2'
+                                             ],
+                                   'title' =&gt; 'Book 2 title'
+                                 },
+                    'Book1ISBN' =&gt; {
+                                   'author' =&gt; [
+                                               'Book 1 author 1',
+                                               'Book 1 author 2'
+                                             ],
+                                   'title' =&gt; 'Book 1 title'
+                                 }
+                  }
+        };
+</pre></font><p><font size="+1"></font></p>
+<p>As you can see, the internal structure of the hash record has changed
+ so that the values of the "isbn" elements are now the keys to each book
+ record. Running the script supplied above outputs "Book 2 title", since
+ that is the value of the "title" element in the record with the "isbn" 
+value "Book2ISBN".</p>
+<div class="exercise">
+<h3 class="h3exercise">Exercise</h3>
+<p>Change the script in Example 2 so that &lt;title&gt; is the 'key' in 
+the XML records, and print out the ISBN of the book with the title 'Book
+ 3 title'.
+</p></div>
+<h3>Example 3: Picking out all the values of a specific element</h3>
+<p>In this example, we are interested in printing out all the values of a
+ given element (in this case, all the title elements in all records), 
+not just the value of a particular element in a particular record. As we
+ have learned already, whenever we use the phrase "all values" when 
+writing Perl scripts, we need to iterate through an array using 
+"foreach". </p>
+<p><font size="+1"></font></p><font size="+1">
+<pre>#!/usr/bin/perl
+
+# Script to illustrate how to parse a simple XML file
+# and pick out all the values for a specific element, in
+# this case all the titles.
+
+use strict;
+use XML::Simple;
+
+my $booklist = XMLin('booklist.xml');
+
+foreach my $book (@{$booklist-&gt;{book}}) {
+	print $book-&gt;{title} . "\n";
+}
+</pre></font><p><font size="+1"></font></p>
+<p>This is where we need to pause for a minute, since we will need to 
+get all the values we want to print out into an array. Luckily, because 
+XML::Simple creates a has reference from the XML file, Perl has 
+automatically put all the values into an array; our job is to figure out
+ how to access those values.</p>
+<p>Let's refer again to our hash record printed out in the first 
+example, above, so we can see how Perl stores the parsed XML internally.
+ All of the "book" XML records are in an array that can be accessed with
+ the syntax @{$booklist-&gt;{book}. Like any other array, this one 
+begins with an "@" sign (actually, $booklist-&gt;{book} is a reference 
+to an array of hashes (don't think about it, you'll get confused, trust 
+us) and by adding the "@" we are dereferencing that array, or converting
+ it back from a reference into a normal array. Using Perl's "-&gt;" 
+operator, we can then access individual keys in the hashes that make up 
+the array. If we use 'title' as the key, we get the value corresponding 
+to that key in each record and can then print them out as normal 
+strings:</p>
+<p><font size="+1"></font></p><font size="+1">
+<pre>Book 1 title
+Book 2 title
+Book 3 title
+</pre></font><p><font size="+1"></font></p>
+<h3>Example 4: Parsing XML attributes</h3>
+<p>Let's add a "type" attribute to the "book" elements in our sample file:</p>
+<p><font size="+1"></font></p><font size="+1">
+<pre>&lt;booklist&gt;
+   &lt;book type="technical"&gt;
+      &lt;author&gt;Book 1 author 1&lt;/author&gt;
+      &lt;author&gt;Book 1 author 2&lt;/author&gt;
+      &lt;title&gt;Book 1 title&lt;/title&gt;
+      &lt;isbn&gt;Book1ISBN&lt;/isbn&gt;
+   &lt;/book&gt;
+   &lt;book type="fiction"&gt;
+      &lt;author&gt;Book 2 author 1&lt;/author&gt;
+      &lt;author&gt;Book 2 author 2&lt;/author&gt;
+      &lt;title&gt;Book 2 title&lt;/title&gt;
+      &lt;isbn&gt;Book2ISBN&lt;/isbn&gt;
+   &lt;/book&gt;
+   &lt;book type="technical"&gt;
+      &lt;author&gt;Book 3 author 1&lt;/author&gt;
+      &lt;author&gt;Book 3 author 2&lt;/author&gt;
+      &lt;author&gt;Book 3 author 3&lt;/author&gt;
+      &lt;title&gt;Book 3 title&lt;/title&gt;
+      &lt;isbn&gt;Book3ISBN&lt;/isbn&gt;
+   &lt;/book&gt;
+&lt;/booklist&gt;
+</pre></font><p><font size="+1"></font></p>
+<p>XML::Simple handles attributes the same way it handles child 
+elements: the attribute name is a key in the hash record. Here is a dump
+ of the new sample file:</p>
+<p><font size="+1"></font></p><font size="+1">
+<pre>$VAR1 = {
+          'book' =&gt; [
+                    {
+                      'isbn' =&gt; 'Book1ISBN',
+                      'title' =&gt; 'Book 1 title',
+                      'author' =&gt; [
+                                  'Book 1 author 1',
+                                  'Book 1 author 2'
+                                ],
+                      'type' =&gt; 'technical'
+                    },
+                    {
+                      'isbn' =&gt; 'Book2ISBN',
+                      'title' =&gt; 'Book 2 title',
+                      'author' =&gt; [
+                                  'Book 2 author 1',
+                                  'Book 2 author 2'
+                                ],
+                      'type' =&gt; 'fiction'
+                    },
+                    {
+                      'isbn' =&gt; 'Book3ISBN',
+                      'title' =&gt; 'Book 3 title',
+                      'author' =&gt; [
+                                  'Book 3 author 1',
+                                  'Book 3 author 2',
+                                  'Book 3 author 3'
+                                ],
+                      'type' =&gt; 'technical'
+                    }
+                  ]
+        };
+</pre></font><p><font size="+1"></font></p>
+<p>The following script will print the titles of the books that have 
+"technical" as the value of the "book" element's "type" attribute:</p>
+<p><font size="+1"></font></p><font size="+1">
+<pre>#!/usr/bin/perl
+
+# Script to illustrate how to parse a simple XML file
+# and print titles of type 'technical'.
+
+use strict;
+use XML::Simple;
+use Data::Dumper;
+
+my $booklist = XMLin('booklist.xml');
+# print Dumper($booklist);
+
+foreach my $book (@{$booklist-&gt;{book}}) {
+	if ($book-&gt;{type} eq 'technical') {
+		print $book-&gt;{title} . "\n";
+	}
+}
+</pre></font><p><font size="+1"></font></p>
+<p>The script prints out the following:<br>
+Book 1 title<br>
+Book 3 title</p>
+<p>It's that simple!</p>
+ </div>
+</div>
+
+<!-- end content -->
+   </td>
+  </tr>
+ </tbody></table>
+ 
+
+</body></html>

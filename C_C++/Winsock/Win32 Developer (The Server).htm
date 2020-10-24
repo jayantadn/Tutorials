@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<link rel="shortcut icon" href="http://www.win32developer.com/images/favicon.ico">
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<link type="text/css" rel="stylesheet" href="Win32%20Developer%20%28The%20Server%29_files/styles.css">
+	<title>Win32 Developer - Winsock tutorial 2: Blocking Sockets in TCP/IP (The Server)</title>
+	<meta name="keywords" content="tutorial,tutorials,Winsock,API,blocking,sockets,c,c++,TCP/IP,TCPIP,server,2.0,1.1,networking,network">
+	<meta name="description" content="Tutorial 2 - Creating a server using Blocking Sockets in TCP/IP. This Winsock tutorial teaches how to create a basic server in C++ using the Winsock API.">
+</head>
+<body>
+
+<div id="header" class="logo_style">Win32 Developer<br>
+	<div class="logo2_style">Winsock tutorial in C++</div>
+</div>
+
+<div id="content">
+<div id="leftpanel">
+	<div id="navbar" class="menu">
+	<span class="menubar"></span>
+	<ul>
+		<li><a href="http://www.win32developer.com/" rel="dofollow">HOME</a></li>
+		<li><a href="http://www.win32developer.com/tutorial.shtm" rel="dofollow">TUTORIALS (C++)</a></li>
+		<li><a href="http://www.win32developer.com/asm/windows_tutorial_1.shtm" rel="dofollow">TUTORIALS (ASM)</a></li>
+	</ul>
+</div>
+	<div id="news" class="menu">
+<span class="menubar"></span><div id="newsstyle"><h3>News Items</h3>		
+	<p>17 February 2014<br>
+	<span class="newstext">Game development still going strong</span><br>
+	Each day the base engine gets closer to completion<br><br>
+	</p>
+	<p>20 November 2013<br>
+	<span class="newstext">We are making a game!</span><br>
+	Follow us on twitter to find out more.<br><br>
+	</p>
+	<p>		27 March 2012<br>		<span class="newstext">New XAudio tutorial</span><br>			In this tutorial we look into streaming audio from the disk.		<br><br>	</p>	<p>		17 March 2012<br>		<span class="newstext">Two Part XAudio2 Tutorial</span><br>			Jay explains how to use events and asynchronous I/O in his two part XAudio installment.		<br><br>	</p>	<p>		6 March 2012<br>		<span class="newstext">Another XAudio2 Tutorial</span><br>			Part two investigates how to play multiple voices from a single buffer.		<br><br>	</p>	<p>		5 March 2012<br>		<span class="newstext">XAudio2 Tutorial added</span><br>			Jay Tennant explains how to handle sound audio in XAudio2. 		<br><br>	</p>	<p>		5 March 2012<br>		<span class="newstext">Jay Tennant joins the team!</span><br>
+			Win32 Developer gets a new lease of life with Jay Tennant joining the
+ team. His vast knowlegde, experience, and overall helpfulness is 
+greatly appreciated around these parts. He			also lurks around the 
+forums as Hieran_Del8. Be sure to say 'hello'.		<br><br>	</p>	<p>		5 March 2012<br>		<span class="newstext">DirectX 9.0c Tutorial added</span><br>
+			In the first tutorial in our DirectX series, we explore how to create
+ a render window, that will become the setting for our graphic 
+environment.		<br><br>	</p></div></div>
+</div>
+	<div id="mainbody"><span class="menubar2"><h6>&nbsp;</h6></span>
+		<div id="maintext">
+				<h1>Winsock Tutorial 2</h1>
+				<h2>Blocking Sockets in TCP/IP (The Server)</h2>
+				This tutorial is designed to be a companion to our previous client 
+tutorial. By the end of this tutorial we will be able to run
+				our client and server together for some basic networking.
+				<br><br>
+				<center>
+				<script type="text/javascript"><!--
+google_ad_client = "pub-2615336831026624";
+/* 728x90, created 9/17/09 */
+google_ad_slot = "5954503072";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="Win32%20Developer%20%28The%20Server%29_files/show_ads.js">
+</script>
+				</center><br>
+			<h2>Prerequisties</h2>
+				<span class="code">				
+				<b>Project type:</b> Console<br>
+				<b>Include files:</b> winsock2.h, iostream.h<br>
+				<b>Library files:</b> ws2_32.lib</span>
+				<br><br><br>
+			<h2>The Server</h2>
+				Setting up a server is relatively simple once you know how. As you 
+will soon see, most of the code is the same as the client, with a few 
+				alterations.
+				<br><br>
+				As before we first need to initialise Winsock.
+				<br><br>
+				<span class="code">
+					WSADATA WsaDat;<br>
+					WSAStartup(MAKEWORD(2,2),&amp;WsaDat);
+				</span>
+				<br><br>
+				And then setup our socket.
+				<br><br>
+				<span class="code">
+					SOCKET Socket=socket(AF_INET,SOCK_STREAM,IPPROTO_TCP);
+				</span>
+				<br><br>
+				So far our code is identical. We can now skip the gethostbyname() 
+function as the server does not need to connect to the client, it will 
+wait for 				clients to connect to it.
+				<br><br>
+				Next we fill out our SOCKADDR_IN struct as we did before, but in 
+this case we are setting up what we want our server to listen for. In 
+our case we
+				want the server to listen to any available adapter (INADDR_ANY). You
+ could specify to listen from a particular IP address if you wanted to. 
+But,
+				generally we are happy to listen from any available address. And 
+once again we are going to use port 8888 as we did with the client, so 
+they can
+				be used to communicate with each other.
+				<br><br>
+				<span class="code">
+					SOCKADDR_IN serverInf;<br>
+					serverInf.sin_family=AF_INET;<br>
+					serverInf.sin_addr.s_addr=INADDR_ANY;<br>
+					serverInf.sin_port=htons(8888);<br>
+				</span>
+				<br>
+				From here we can then 'bind' our serverInf to our socket we created earlier.	
+				<br><br>
+				<span class="code">
+					bind(Socket,(SOCKADDR*)(&amp;serverInf),sizeof(serverInf);
+				</span>
+				<br>
+				And then we can 'listen' on our socket for incoming connections.
+				<br><br>
+				<span class="code">
+					listen(Socket,1);
+				</span>	
+				<br>
+				Once our client connects to our server we can accept the connection and send and recieve data as we please.
+				<br><br>
+				<span class="code">
+					accept(Socket,NULL,NULL);
+				</span>
+				<br>
+				As with our client. When we are finished, we need shutdown our socket, close it, and then clean up Winsock.
+				<br><br>
+				<span class="code">			
+					shutdown(Socket,SD_SEND);<br>
+					closesocket(Socket);<br>
+					WSACleanup();
+				</span>
+				<br>
+				<h2>The Full Code</h2>
+				<pre><span class="code">#include &lt;iostream&gt;
+#include &lt;winsock2.h&gt;
+#pragma comment(lib,"ws2_32.lib")
+
+int main()
+{
+	WSADATA WsaDat;
+	if(WSAStartup(MAKEWORD(2,2),&amp;WsaDat)!=0)
+	{
+		std::cout&lt;&lt;"WSA Initialization failed!\r\n";
+		WSACleanup();
+		system("PAUSE");
+		return 0;
+	}
+	
+	SOCKET Socket=socket(AF_INET,SOCK_STREAM,IPPROTO_TCP);
+	if(Socket==INVALID_SOCKET)
+	{
+		std::cout&lt;&lt;"Socket creation failed.\r\n";
+		WSACleanup();
+		system("PAUSE");
+		return 0;
+	}
+	
+	SOCKADDR_IN serverInf;
+	serverInf.sin_family=AF_INET;
+	serverInf.sin_addr.s_addr=INADDR_ANY;
+	serverInf.sin_port=htons(8888);
+
+	if(bind(Socket,(SOCKADDR*)(&amp;serverInf),sizeof(serverInf))==SOCKET_ERROR)
+	{
+		std::cout&lt;&lt;"Unable to bind socket!\r\n";
+		WSACleanup();
+		system("PAUSE");
+		return 0;
+	}
+
+	listen(Socket,1);
+
+	SOCKET TempSock=SOCKET_ERROR;
+	while(TempSock==SOCKET_ERROR)
+	{
+		std::cout&lt;&lt;"Waiting for incoming connections...\r\n";
+		TempSock=accept(Socket,NULL,NULL);
+	}
+	Socket=TempSock;<br>
+	std::cout&lt;&lt;"Client connected!\r\n\r\n";
+
+	char *szMessage="Welcome to the server!\r\n";
+	send(Socket,szMessage,strlen(szMessage),0);
+
+	// Shutdown our socket
+	shutdown(Socket,SD_SEND);
+
+	// Close our socket entirely
+	closesocket(Socket);
+
+	// Cleanup Winsock
+	WSACleanup();
+	system("PAUSE");
+	return 0;
+}</span></pre>
+				<br><br>
+				<h2>Things to try</h2>
+				Try sending and recieving data to and from your server using the send() and recv() functions.
+				<br><br>
+				<h2>Additional informaton</h2>
+				For additional information we have provided the following link.
+				<br><br>
+				<a href="http://msdn.microsoft.com/en-us/library/ms738545%28VS.85%29.aspx"><b>Microsoft (MSDN) - Getting started with Winsock</b></a>
+				<br><br><br>
+				<h2>Next tutorial</h2>
+				<a href="http://www.win32developer.com/tutorial/winsock/winsock_tutorial_3.shtm"><b>Tutorial 3 - Non-Blocking Sockets in TCP/IP (The Client)</b></a>
+		</div>
+	</div>
+	<div id="footer">
+	<div id="footer-nav">
+		<a href="http://www.win32developer.com/" rel="dofollow">Home</a> |
+		<a href="http://www.win32developer.com/tutorial.shtm" rel="dofollow">Tutorials</a> | 
+		<a href="http://www.win32developer.com/phpbb3" rel="dofollow">Forums</a>
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="Win32%20Developer%20%28The%20Server%29_files/ga.gif" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-5109149-2");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+
+</body></html>

@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <div>Content goes here.</div>
+
+    <script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+
+        /* add */
+        //$.ajax({
+        //    url: "https://api.myjson.com/bins",
+        //    type: "POST",
+        //    data: '{"djtest":"value"}',
+        //    contentType: "application/json; charset=utf-8",
+        //    dataType: "json",
+        //    success: function (data, textStatus, jqXHR) {
+        //        alert(data.uri);
+        //    }
+        //});
+
+        /* get */
+        //$.get("https://api.myjson.com/bins/189l6v", function (data, textStatus, jqXHR) {
+        //    alert(data.djtest);
+        //});
+
+        /* update */
+        $.ajax({
+            url: "https://api.myjson.com/bins/mlerr",
+            type: "PUT",
+            data: '{"test":"14gl63", "jayanta_dn":"jolmf"}',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data, textStatus, jqXHR)
+            {
+
+            }
+        }); 
+
+    </script>
+
+</body>
+</html>

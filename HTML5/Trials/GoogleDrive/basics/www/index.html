@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    
+    <p>Drive API QuickStart</p>
+
+    <button id="authorize-button" style="display: block;">Authorize</button>
+    <button id="signout-button" style="display: block;">Sign Out</button>
+
+    <pre id="content"></pre>
+
+    <script type="text/javascript">
+        var CLIENT_ID = '773618119878-0na4si6tij4sb51v4bdubul9icutjt06.apps.googleusercontent.com';
+        var API_KEY = 'AIzaSyCiJEk8PTRHaScvmpvw35XjQiGCHJqofuw';
+
+        var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
+        var SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly';
+
+        var authorizeButton = document.getElementById("authorize-button");
+        var signoutButton = document.getElementById("signout-button");
+
+        function handleClientLoad()
+        {
+            gapi.load("client:auth2", initClient);
+        }
+
+        function initClient() {
+            gapi.client.init(
+                {
+                    apiKey: API_KEY,
+                    clientId: CLIENT_ID,
+                    discoveryDocs: DISCOVERY_DOCS,
+                    scope: SCOPES
+                }
+            ).then(function () {
+                gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+
+                updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+
+                authorizeButton.onclick = handleAuthClick;
+                signoutButton.onclick = handleSignoutClick;
+            }
+            );
+        }
+
+        function updateSigninStatus(isSignedIn)
+        {
+            if (isSignedIn)
+            {
+                alert("Status is Signed in");
+
+                gapi.client.drive.files.list(
+                    {
+                        'pageSize': 50,
+                        'fields': "nextPageToken, files(id,name)"
+                    }
+                ).then(function (response) {
+                    var filelist = response.result.files;
+                    for (var i = 0; i < filelist.length; i++)
+                        alert(filelist[i].name);
+                }
+                    );
+            }
+            else
+            {
+                alert("Status is Signed out");
+            }
+        }
+
+        function handleAuthClick(event)
+        {
+            gapi.auth2.getAuthInstance().signIn();
+        }
+
+        function handleSignoutClick(event) {
+            gapi.auth2.getAuthInstance().signOut();
+        }
+
+    </script>
+
+    <script async defer src="https://apis.google.com/js/api.js" onload="this.onload = function () { }; handleClientLoad()" onreadystatechange="if( this.readyState ==='complete') this.onload()"></script>
+</body>
+</html>
