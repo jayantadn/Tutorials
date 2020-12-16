@@ -27,10 +27,10 @@ int main() {
         return 1;
     }
     
-    if( write( sock, "Some data", SIZE ) < 0 ) {
-        perror( "write failed" );
-        return 1;
-    }
+//    if( write( sock, "Some data", SIZE ) < 0 ) {
+//        perror( "write failed" );
+//        return 1;
+//    }
     
     return 0;
 }

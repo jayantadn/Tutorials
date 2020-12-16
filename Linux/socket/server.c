@@ -29,13 +29,14 @@ int main() {
     listen( sock, 5 );
     // while(1) 
     {
-        printf( "waiting for data\n" );
+        printf( "waiting for accept\n" );
         fd = accept( sock, 0, 0 );
         
         if( fd == -1 ) {
             perror( "accept failed" );
         }
         else {
+            printf( "waiting for data\n" );
             if( read( fd, buf, SIZE ) < 0 ) {
                 perror( "read failed" );
             }
