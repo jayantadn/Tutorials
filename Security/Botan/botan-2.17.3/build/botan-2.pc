@@ -1,0 +1,13 @@
+prefix=X:\Tutorials\Security\Botan\botan-bin
+exec_prefix=${prefix}
+libdir=X:\Tutorials\Security\Botan\botan-bin\lib
+includedir=${prefix}/include/botan-2
+
+Name: Botan
+Description: Crypto and TLS for C++11
+Version: 2.17.3
+
+Libs: -L${libdir} -lbotan-2 -pthread
+Libs.private: -lcrypt32 -lws2_32
+Cflags: -I${includedir}
+
