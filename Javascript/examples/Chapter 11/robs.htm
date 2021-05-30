@@ -1,0 +1,853 @@
+<!DOCTYPE html> <!-- robs.htm -->
+<!-- saved from url=(0014)about:internet -->
+<meta name='viewport' content='width=980' />
+<link rel='apple-touch-icon' href='robs.png' />
+<meta name='apple-mobile-web-app-capable' content='yes' />
+
+<!-- UPDATE: The image of the earth shown in the book has been    -->
+<!--         removed from this final version to facilitate faster -->
+<!--         download and starting when used as a native app.     -->
+
+<html>
+   <head>
+      <title>Rob's Place</title>
+      <link href='robs.css' rel='stylesheet' type='text/css' />
+      <link rel='SHORTCUT ICON' href='favicon.ico'>
+      <style>
+         body, html {
+            padding      :0;
+            margin       :0;
+            height       :100%; }
+         .inp {
+            width        :14em;
+            max-width    :14em;
+            height       :1.2em;
+            padding      :0 10px;
+            margin-bottom:20px;
+            color        :#000;
+            overflow     :hidden;
+            border       :10px solid #ccc;
+            background   :#fff; }
+         .k {
+            float        :left;
+            width        :88px;
+            height       :65px;
+            margin       :4px;
+            text-align   :center;
+            font-size    :3.5em;
+            color        :#000;
+            background   :#e0e4cc;
+            -webkit-box-shadow:4px 4px 4px #444;
+            -moz-box-shadow   :4px 4px 4px #444; }
+         .pm {
+            background   :#e0e4cc; }
+         .cont {
+            width        :400px;
+            margin       :50px;
+            font-size    :1.3em;
+            text-shadow  :5px 5px 5px #444;
+            -webkit-box-shadow:6px 8px 8px #444;
+            -moz-box-shadow   :6px 8px 8px #444; }
+         .user { 
+            white-space  :nowrap;
+            padding-right:2%;
+            font-weight  :bold;
+            color        :#22b; }
+         #alt, #post {
+            width        :184px; }
+         #clear {
+            float        :right;
+            width        :56px;
+            height       :50px;
+            margin-right :12px;
+            text-align   :center;
+            font-size    :2.5em;
+            color        :#000;
+            background   :#e0e4cc; }
+         #comma {
+            width        :104px; }
+         #del {
+            font-size    :4.5em;
+            line-height  :.7em; }
+         #inpcontainer, #keybcontainer {
+            position     :relative; }
+         #inpoverlay {
+            width        :892px;
+            height       :56px;
+            left         :0px;
+            top          :0px;
+            margin-left  :.5%;
+            z-index      :10;
+            opacity      :0; }
+         #input {
+            width        :886px;
+            height       :50px;
+            padding      :0 0 0 4px;
+            margin-left  :.5%;
+            font-size    :2.5em;
+            overflow     :hidden; }
+         #keyboard {
+            width        :970px;
+            height       :336px;
+            padding      :4px 0px 20px 4px;
+            opacity      :0; }
+         #logout {
+            top          :7px;
+            right        :10px;
+            width        :60px;
+            height       :60px;
+            text-align   :center;
+            line-height  :1.1em;
+            font-size    :3.5em;
+            color        :#f00;
+            background   :#e0e4cc;
+            opacity      :0; }
+         #main {
+            width        :958px;
+            height       :100%;
+            padding      :8px;
+            margin-bottom:5px; }
+         #mainoverlay {
+            width        :97%;
+            height       :96%;
+            top          :10px;
+            left         :0px;
+            font-size    :4em;
+            padding      :10px;
+            z-index      :10;
+            opacity      :0; }
+         #period {
+            width        :72px; }
+         #pminput {
+            width        :90%;
+            height       :335px;
+            margin-top   :10px;
+            padding      :3%;
+            font-size    :1em;
+            font-family  :helvetica;
+            -webkit-box-shadow:10px 10px 10px #888;
+            -moz-box-shadow   :10px 10px 10px #888; }
+         #pmoverlay {
+            width        :80%;
+            height       :500px;
+            top          :9%;
+            left         :9%;
+            padding      :10px;
+            text-align   :center;
+            font-size    :3em;
+            background   :#e0e4cc;
+            background   :-webkit-gradient(linear, left top,
+                          left bottom, from(#e0e4cc), to(#a7dbd8));
+            background   :-moz-linear-gradient(top, #e0e4cc, #a7dbd8);
+            z-index      :-1;
+            opacity      :0;
+            -webkit-box-shadow:20px 20px 10px #888;
+            -moz-box-shadow   :20px 20px 10px #888; }
+         #pmoverlay2 {
+            width        :83%;
+            height       :525px;
+            top          :9%;
+            left         :9%;
+            z-index      :-1; }
+         #pmtip {
+            width        :100%;
+            text-align   :center;
+            font-size    :.6em;
+            font-style   :italic; }
+         #post {
+            width        :184px; }
+         #shift {
+            font-size    :2.8em;
+            line-height  :1.3em; }
+         #space {
+            width        :280px; }
+         #title {
+            width        :958px;
+            height       :58px;
+            padding      :8px;
+            margin-bottom:5px;
+            text-align   :center;
+            font-size    :3em;
+            text-shadow  :5px 5px 5px #444; }
+         .k, .cont, #clear, #inpoverlay, #input, #logout, #mainoverlay,
+         #pmoverlay, #title {
+            font-weight  :bold;
+            font-family  :helvetica; }
+         .cont, #title {
+            color        :#fff;
+            background   :#fa6900;
+            background   :-webkit-gradient(linear, left top, left
+                          bottom, from(#f38630), to(#fa6900));
+            background   :-moz-linear-gradient(top, #f38630, #fa6900); }
+         #keyboard, #main {
+            position     :relative;
+            border       :1px solid black;
+            background   :#69d2e7;
+            background   :-webkit-gradient(linear, left top, left
+                          bottom, from(#69d2e7), to(#a7dbd8));
+            background   :-moz-linear-gradient(top, #69d2e7, #a7dbd8); }
+         .pm, #clear, #logout, #pminput, #pmoverlay, #title {
+            border       :1px solid #000; }
+         .inp, .k, .cont, .user, #clear, #logout, #pmoverlay2 {
+            cursor       :pointer; }
+         #inpoverlay, #logout, #mainoverlay, #pmoverlay,
+         #pmoverlay2, #pmtip {
+            position     :absolute; }
+         .inp, .k, .pm, .cont, #clear, #keyboard, #logout, #main,
+         #pminput, #pmoverlay, #title {
+            border-radius     :10px;
+            -moz-border-radius:10px; }
+         .k, #keyboard, #logout, #mainoverlay, #pmoverlay {
+            -webkit-transition:opacity,color,background 0.25s linear;
+            -moz-transition   :opacity,color,background 0.25s linear; }
+   </style>
+   </head>
+   <body bgcolor='black'>
+      <table id='table' border='0' cellpadding='0' cellspacing='0'
+         height='100%' width='100%'>
+      <tr><td><div id='title'>Rob's Place</div>
+      <div id='logout'>&times;</div>
+      </td></tr><tr><td height='100%'>
+         <div id='main'>
+            <div id='mainoverlay'></div>
+            <div id='pmoverlay'></div>
+            <div id='pmoverlay2'></div>
+         </div>
+      </td></tr><tr><td height='338'>
+      <div id='keyboard'>
+         <div id='inpcontainer'>
+            <textarea id='input' rows='1'>_</textarea><div
+               id='clear'>&laquo;</div>
+            <div id='inpoverlay'></div>
+         </div>
+         <div id='keybcontainer'>
+            <div id='board'>
+               <div class='k' id='q'>Q</div><div class='k' id='w'>W</div>
+               <div class='k' id='e'>E</div><div class='k' id='r'>R</div>
+               <div class='k' id='t'>T</div><div class='k' id='y'>Y</div>
+               <div class='k' id='u'>U</div><div class='k' id='i'>I</div>
+               <div class='k' id='o'>O</div><div class='k' id='p'>P</div>
+               <div class='k' id='a'>A</div><div class='k' id='s'>S</div>
+               <div class='k' id='d'>D</div><div class='k' id='f'>F</div>
+               <div class='k' id='g'>G</div><div class='k' id='h'>H</div>
+               <div class='k' id='j'>J</div><div class='k' id='k'>K</div>
+               <div class='k' id='l'>L</div>
+               <div class='k' id='del'>&#8592;</div>
+               <div class='k' id='shift'>&dArr;</div>
+               <div class='k' id='z'>Z</div><div class='k' id='x'>X</div>
+               <div class='k' id='c'>C</div><div class='k' id='v'>V</div>
+               <div class='k' id='b'>B</div><div class='k' id='n'>N</div>
+               <div class='k' id='m'>M</div>
+               <div class='k' id='at'>@#</div>
+               <div class='k' id='ques'>?&amp;</div>
+               <div class='k' id='alt'>123</div>
+               <div class='k' id='apos'>' "</div>
+               <div class='k' id='space'></div>
+               <div class='k' id='comma'>,;:!</div>
+               <div class='k' id='period'>.</div>
+               <div class='k' id='post'>Post</div>
+            </div>
+         </div>
+      </div></td></tr></table>
+      <script>
+         BASEURL      = 'http://html5formobile.com/examples/'
+         MAINPAGE     = BASEURL + 'robs.htm'
+         LOGIN        = BASEURL + 'robslogin.php'
+         GETCHAT      = BASEURL + 'robsgetchat.php'
+         POSTCHAT     = BASEURL + 'robspost.php'
+         UNDEF        = 'undefined'
+         LOCALSTORAGE = true
+         RECIP        = 'ALL'
+         TAIL         = window.location.search.substring(1)
+
+         if (TAIL.length > 0) TAIL = '?' + TAIL 
+         if (self.location != MAINPAGE + TAIL ) self.location = MAINPAGE + TAIL 
+
+         if      (NavCheck('iPod') || NavCheck('iPhone') || NavCheck('iPad'))
+                                           BROWSER = 'iOS'
+         else if (NavCheck('Dell Streak')) BROWSER = 'Streak'
+         else if (NavCheck('Android'))     BROWSER = 'Android'
+         else                              BROWSER = 'Other'
+
+         document.onkeypress = function(e)
+         {
+            var key = ''
+
+            switch(e.keyCode)
+            {
+               case  8: key = 29; break
+               case 13: PostMessage(RECIP); return false
+            }
+
+            var p = String.fromCharCode(e.charCode)
+
+            switch(p)
+            {
+               case ' ': key = 26; break
+               case "'":
+               case '"': key = 27; break
+               case '.': key = 30; break
+               case '@':
+               case '#': key = 32; break
+               case '?':
+               case '&': key = 33; break
+               case ',':
+               case ';':
+               case ':':
+               case '!': key = 34; break
+            }
+
+            c = ALPHA.indexOf(p)
+            if (c > -1)
+            {
+               key = c
+               DoToLower()
+            }
+
+            c = UPPER.indexOf(p)
+            if (c > -1)
+            {
+               key = c
+               DoToUpper()
+            }
+
+            c = NUMBERS.indexOf(p)
+            if (c > -1)
+            {
+               key = c
+               DoToNumbers()
+            }
+
+            ProcessKey(key)
+            return false
+         }
+         
+         window.onload = function()
+         {
+            ALPHA = new Array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
+               'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w',
+               'x', 'y', 'z', 'space', 'apos', 'alt', 'del', 'period', 'shift',
+               'at', 'ques', 'comma')
+            UPPER             = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+            NUMBERS           = '(|¥_3%+-8*/=\\~9014)57€2£6$'
+            OLDBUT            = S('space')
+            BUFFER            = ''
+            MAXINP            = 0
+            SMARTPERIOD       = true
+            FIRST             = true
+            GETFREQ           = 2000
+            S('board').height = '280px';
+
+            if (BROWSER == 'iOS')
+            {
+               S('logout').lineHeight = '.9em'
+               S('shift' ).fontSize   = '3.5em'
+               S('shift' ).lineHeight = '1.1em'
+               O('del'   ).innerHTML  = '&nbsp;&#8592;'
+            }
+
+            O('inpoverlay').ontouchstart =
+            O('keyboard'  ).ontouchstart = StopDefaultAction
+
+            for (j = 0 ; j < ALPHA.length ; ++j)
+               eval('ActivateObject(O(ALPHA[j]), function(e) ' +
+                  '{ ProcessKey(' + j + ', e) })')
+
+            ActivateObject(O('clear'), SetUpClearBut)
+            window.scrollTo(0, 1)
+
+            wh = window.innerHeight
+            ww = window.innerWidth
+            if (ww > wh) wh = ww / wh * ww
+
+            S('table').height = wh + 'px'
+            S('table').width  = '100%'
+            S('main').height  = '100%'
+            
+            if (BROWSER != 'Other') setTimeout(function()
+               { window.scrollTo(0, 1) }, 500)
+
+            try
+            {
+               USERNAME = localStorage.getItem('username')
+               PASSWORD = localStorage.getItem('password')
+            }
+            catch(e)
+            {
+               LOCALSTORAGE = false
+               USERNAME     = ProcessCookie('read', 'username')
+               PASSWORD     = ProcessCookie('read', 'password')
+            }
+
+            if (USERNAME && PASSWORD)
+            {
+               display = "<table height='100%' width='100%' border='0'><tr>" +
+                  "<td align='center' valign='absmiddle'>Welcome back "      +
+                  USERNAME + "<div id='login' class='cont'>Continue</div>"   +
+                  "<br /><br /></td></tr></table></center>"
+
+               O('mainoverlay').innerHTML = display
+               S('mainoverlay').opacity   = '1'
+               S('keyboard'   ).opacity   = '.5'
+
+               ActivateObject('login', Login)
+            } else DoLogin()
+         }
+
+         function DoLogin()
+         {
+            display = "<table height='100%' width='100%' border='0'><tr><td "   +
+               "align='center' valign='absmiddle'><div id='unameinp'>Username"  +
+               "<div id='uname' class='inp'></div></div><div id='pwordinp'>"    +
+               "Password <div id='pword' class='inp'></div></div><div id="      +
+               "'login' class='cont'>Continue</div><div style='font-size:.8em;" +
+               "'><i>Please enter your existing or<br />desired login details " +
+               "to continue</i></div></td></tr></table></center>"
+
+            S('mainoverlay').opacity   = '1'
+            S('mainoverlay').fontSize  = '4em'
+            O('mainoverlay').innerHTML = display
+
+            ActivateObject('unameinp', function() { GetInput('uname') } )
+            ActivateObject('pwordinp', function() { GetInput('pword') } )
+            ActivateObject('login', LoginCheck)
+            GetInput('uname')
+         }
+
+         function LoginCheck()
+         {
+             USERNAME = O('uname').innerHTML 
+             if (USERNAME.length == 0) alert('Please Enter a Username')
+             else
+             {
+                PASSWORD = O('pword').innerHTML 
+                if (PASSWORD.length == 0) alert('Please Enter a Password')
+                else Login()
+             }
+         }
+
+         function Login()
+         {
+            PostAjaxRequest(result, LOGIN, 'u=' + USERNAME + '&p=' + PASSWORD)
+            S('mainoverlay').opacity = ''
+
+            function result()
+            {
+               if (this == 'Error')
+               {
+                  alert('There was an error - please try again.')
+                  DoLogin()
+               }
+               else if (this == 'Invalid')
+               {
+                  alert('That Username is taken or the Password is incorrect' +
+                     ' - please try again')
+                  DoLogin()
+               }
+               else
+               {
+                  O('title').innerHTML = "Rob's Place (" + USERNAME + ')'
+                  S('logout').opacity  = '1'
+
+                  if (LOCALSTORAGE)
+                  {
+                     localStorage.setItem('username', USERNAME)
+                     localStorage.setItem('password', PASSWORD)
+                  }
+                  else
+                  {
+                     ProcessCookie('save', 'username', USERNAME, 31556926)
+                     ProcessCookie('save', 'password', PASSWORD, 31556926)
+                  }
+
+                  ActivateObject('logout', Logout)
+                  PostMessage('ALL', '... has joined')
+
+                  BUFFER                      = ''
+                  SMARTPERIOD                 = true;
+                  MAXINP                      = 1000
+                  S('mainoverlay').fontSize   = '2em'
+                  S('mainoverlay').fontWeight = 'normal'
+                  S('mainoverlay').overflow   = 'auto'
+                  S('keyboard'   ).opacity    = '1'
+                  O('input'      ).value      = '_'
+                  O('mainoverlay').innerHTML  = ''
+
+                  GetChat()
+                  DoToUpper()
+                  SetPostRecipient('ALL')
+               }
+            }
+         }
+
+         function GetChat()
+         {
+            var args = 'u=' + USERNAME + '&p=' + PASSWORD
+
+            if (FIRST)
+            {
+               args += '&f=1'
+               FIRST = false
+            }
+
+            PostAjaxRequest(ShowChat, GETCHAT, args)
+         }
+
+         function ShowChat()
+         {
+            if (this.length > 0)
+            {
+               var text = this
+
+               if (BROWSER == 'Other')
+                  text = text.replace(/ontouchstart/g, 'onclick')
+
+               O('mainoverlay').innerHTML += text
+               O('mainoverlay').scrollTop  = '100000'
+               S('mainoverlay').opacity    = '1'
+               GETFREQ                     = 2000;
+            } else GETFREQ += 17;
+
+            CHATTOUT = setTimeout(GetChat, GETFREQ)
+         }
+
+         function SetPostRecipient(to)
+         {
+            RECIP = to
+            ActivateObject('post', function() { PostMessage(to) } )
+         }
+
+         function PostMessage(to, mess)
+         {
+            if (typeof mess != UNDEF) BUFFER = mess
+            else HighlightButton('post')
+
+            if (BUFFER.length > 0)
+            {
+               PostAjaxRequest(function() {}, POSTCHAT,
+                  'u=' + USERNAME + '&p=' + PASSWORD + '&t=' + to + '&m=' +BUFFER)
+               BUFFER           = ''
+               O('input').value = '_'
+               RemovePMWindow()
+               DoToUpper()
+            }
+         }
+
+         function SendPM(to)
+         {
+            S('pmoverlay' ).zIndex    = '20'
+            S('pmoverlay2').zIndex    = '30'
+            S('pmoverlay' ).opacity   = '1'
+            O('pmoverlay' ).innerHTML = 'PM ' + to + "<textarea id='pminput'>" +
+               "</textarea><div id='pmtip'>Use keyboard to send message, or "  +
+               "tap to close.</div>"
+
+            GetInput('pminput')
+            SetPostRecipient(to)
+            ActivateObject('pmoverlay2', RemovePMWindow)
+         }
+
+         function RemovePMWindow()
+         {
+            O('pmoverlay' ).innerHTML = ''
+            S('pmoverlay' ).zIndex    = '-1'
+            S('pmoverlay2').zIndex    = '-1'
+            S('pmoverlay' ).opacity   = '0'
+            O('input'     ).value     = '_'
+            BUFFER                    = ''
+
+            SetPostRecipient('ALL')
+            GetInput(null)
+         }
+
+         function GetInput(field)
+         {
+            if (field == 'uname' || field == 'pword')
+            {
+               S('uname').borderColor =
+               S('pword').borderColor = '#ccc'
+               SMARTPERIOD            = false
+               MAXINP                 = 20
+            } else MAXINP = 1000
+
+            if (field != null)
+            {
+               BUFFER                = O(field).innerHTML
+               S(field).borderColor  = '#fa6900'
+            }
+
+            O('input'   ).value   = BUFFER + '_'
+            S('keyboard').opacity = '1'
+            THEFIELD              = field
+            DoToUpper()
+         }
+
+         function ProcessKey(key, e)
+         {
+            if (e) StopDefaultAction(e)
+
+            var last = BUFFER.length - 1
+            var ch   = BUFFER[last]
+
+            if (typeof TOUT != UNDEF) clearTimeout (TOUT)
+
+            switch(ALPHA[key])
+            {
+               case 'period':
+                  if (BUFFER.length >= MAXINP) return
+                  DoToUpper()
+                  BUFFER += '.'
+                  if (ch != '.' && SMARTPERIOD) BUFFER += ' '
+                  break
+               case 'comma':
+                  if      (ch == ',') BUFFER = BUFFER.substr(0, last) +  ';';
+                  else if (ch == ';') BUFFER = BUFFER.substr(0, last) +  ':';
+                  else if (ch == ':') BUFFER = BUFFER.substr(0, last) +  '!';
+                  else if (ch == '!') BUFFER = BUFFER.substr(0, last) +  ',';
+                  else if (BUFFER.length < MAXINP)             BUFFER += ','
+                  break
+               case 'del':
+                  if (BUFFER.length > 1)
+                  {
+                     BUFFER = BUFFER.substr(0, BUFFER.length - 1)
+                     ch     = BUFFER[BUFFER.length - 1]
+                     if      (ch == '.')                DoToUpper()
+                     else if (NUMBERS.indexOf(ch) > -1) DoToNumbers()
+                     else                               DoToLower()
+                  }
+                  else
+                  {
+                     BUFFER =  ''
+                     DoToUpper()
+                  }
+                  break
+               case 'space':
+                  if (BUFFER.length >= MAXINP) return
+                  if (ch == '?' || ch == '!') DoToUpper()
+                  BUFFER += ' '
+                  break
+               case 'ques':
+                  if      (ch == '?') BUFFER = BUFFER.substr(0, last) +  '&';
+                  else if (ch == '&') BUFFER = BUFFER.substr(0, last) +  '?';
+                  else if (BUFFER.length < MAXINP)             BUFFER += '?'
+                  break
+               case 'at':
+                  if      (ch == '@') BUFFER = BUFFER.substr(0, last) +  '#';
+                  else if (ch == '#') BUFFER = BUFFER.substr(0, last) +  "@";
+                  else if (BUFFER.length < MAXINP)             BUFFER += '@'
+                  break
+               case 'apos':
+                  if      (ch == "'") BUFFER = BUFFER.substr(0, last) +  '"';
+                  else if (ch == '"') BUFFER = BUFFER.substr(0, last) +  "'";
+                  else if (BUFFER.length < MAXINP)             BUFFER += "'"
+                  break
+               case 'shift':
+                  if (O('a').innerHTML != 'A') DoToUpper()
+                  else                         DoToLower()
+                  break
+               case 'alt':
+                  if (O('a').innerHTML == '(') DoToUpper()
+                  else                         DoToNumbers()
+                  break
+               default:
+                  if (BUFFER.length >= MAXINP) return
+                  BUFFER += O(ALPHA[key]).innerHTML 
+                  if (O('a').innerHTML == 'A') DoToLower()
+                  break
+            }
+
+            O('input').value     = BUFFER + '_'
+            O('input').scrollTop = 10000
+
+            HighlightButton(ALPHA[key])
+
+            if (THEFIELD)
+            {
+               O(THEFIELD).innerHTML = BUFFER
+               O(THEFIELD).scrollTop = 10000
+            }
+         }
+
+         function DoToUpper()
+         {
+            for (var j = 0 ; j < 26 ; ++j) O(ALPHA[j]).innerHTML = UPPER[j]
+
+            O('shift').innerHTML = '&dArr;'
+            O('alt'  ).innerHTML = '123'
+         }
+
+         function DoToLower()
+         {
+            for (var j = 0 ; j < 26 ; ++j) O(ALPHA[j]).innerHTML = ALPHA[j]
+
+            O('shift').innerHTML = '&uArr;'
+            O('alt'  ).innerHTML = '123'
+         }
+
+         function DoToNumbers()
+         {
+            for (var j = 0 ; j < 26 ; ++j) O(ALPHA[j]).innerHTML = NUMBERS[j]
+
+            O('shift').innerHTML = '&uArr;'
+            O('alt'  ).innerHTML = 'ABC'
+         }
+
+         function HighlightButton(button)
+         {
+            but            = S(button)
+            but.background = '#fa6900'
+            but.color      = '#fff'
+
+            if (OLDBUT != but)
+            {
+               OLDBUT.background = '#e0e4cc'
+               OLDBUT.color      = '#000'
+               OLDBUT            = but
+            }
+
+            TOUT = setTimeout(function()
+            {
+               but.background = '#e0e4cc'
+               but.color      = '#000';
+            }, 2000)
+         }
+
+         function Logout()
+         {
+            if (confirm("Logout from Rob's?"))
+            {
+               S('mainoverlay').overflow = 'hidden'
+               S('logout'     ).opacity  = '0'
+               O('title').innerHTML      = "Rob's Place"
+               FIRST                     = true
+               USERNAME = PASSWORD       = ''
+
+               if (LOCALSTORAGE)
+               {
+                  localStorage.removeItem('username')
+                  localStorage.removeItem('password')
+               }
+               else
+               {
+                  ProcessCookie('erase', 'username')
+                  ProcessCookie('erase', 'password')
+               }
+
+               PostMessage('ALL', '... has left')
+               clearTimeout(CHATTOUT)
+               DoLogin()
+            }
+         }
+
+         function NavCheck(check)
+         {
+            return navigator.userAgent.indexOf(check) != -1
+         }
+
+         function ActivateObject(object, func)
+         {
+            if (BROWSER != 'Other') O(object).ontouchstart = func
+            else                    O(object).onclick      = func
+         }
+
+         function StopDefaultAction(e)
+         {
+            e.preventDefault()
+            e.stopPropagation()
+            return false
+         }
+
+         function SetUpClearBut()
+         {
+            HighlightButton('clear')
+            BUFFER           = ''
+            O('input').value = '_'
+            DoToUpper()
+
+            if (typeof THEFIELD != UNDEF && THEFIELD != null)
+               O(THEFIELD).innerHTML  = ''
+         }
+
+         function O(id)
+         {
+            if (typeof id == 'object') return id
+            try      { return document.getElementById(id) }
+            catch(e) { alert('Unknown ID: ' + id)         }
+         }
+
+         function S(id)
+         {
+            if (typeof id == 'object') return id.style
+            try      { return O(id).style         }
+            catch(e) { alert('Unknown ID: ' + id) }
+         }
+
+         function CreateAjaxObject(callback)
+         {
+            try       { var   ajax = new XMLHttpRequest()                  }
+            catch(e1) { try { ajax = new ActiveXObject("Msxml2.XMLHTTP")   }
+            catch(e2) { try { ajax = new ActiveXObject("Microsoft.XMLHTTP")}
+            catch(e3) { ajax = false }}}
+
+            if (ajax) ajax.onreadystatechange = function()
+            {
+               if (this.readyState   == 4   &&
+                   this.status       == 200 &&
+                   this.responseText != null)
+               callback.call(this.responseText)
+            }
+
+            return ajax
+         }
+
+         function PostAjaxRequest(callback, url, args)
+         {
+            var ctype = 'application/x-www-form-urlencoded'
+            var ajax  = new CreateAjaxObject(callback)
+            if (!ajax) return false
+
+            ajax.open('POST', url, true)
+            ajax.setRequestHeader('Content-type',   ctype)
+            ajax.setRequestHeader('Content-length', args.length)
+            ajax.setRequestHeader('Connection',     'close')
+            ajax.send(args)
+            return true
+         }
+
+         function ProcessCookie(action, name, value, seconds, path, domain, secure)
+         {
+            if (action == 'save')
+            {
+               var date = new Date()
+               date.setTime(parseInt(date.getTime() + seconds * 1000))
+
+               var expires     = seconds ? '; expires=' + date.toGMTString() : ''
+               path            = path    ? '; path='    + path               : ''
+               domain          = domain  ? '; domain='  + domain             : ''
+               secure          = secure  ? '; secure='  + secure             : ''
+               document.cookie = name + '=' + escape(value) + expires + path
+            }
+            else if (action == 'read')
+            {
+               if (!document.cookie.length) return false
+               else
+               {
+                  var start = document.cookie.indexOf(name + '=')
+
+                  if (start == -1) return false
+                  else
+                  {
+                     start  += name.length + 1
+                     var end = document.cookie.indexOf(';', start)
+                     end     = (end == -1) ? document.cookie.length : end
+                     
+                     return unescape(document.cookie.substring(start, end))
+                  }
+               }
+            }
+            else if (action == 'erase')
+               ProcessCookie('save', name, '', -60)
+         }
+      </script>
+   </body>
+</html>

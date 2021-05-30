@@ -1,0 +1,1682 @@
+<!DOCTYPE html>
+<html><head><meta name='viewport' content='width=980' />
+
+<title>Using eML for Dynamic eBooks</title><script>
+
+PUBLICATION = 'Using eML for Dynamic eBooks'
+PUBIPAD     = 'Using eML'
+PUBIPHONE   = 'Using eML'
+SUBTITLE    = 'Learning eBook Markup Language'
+AUTHOR      = 'Robin Nixon'
+PUBLISHER   = 'Nixon Publishing'
+PUBLISHED   = 'June 2010'
+ISBN        = 'N/A'
+
+CHAPTERS =
+{
+   'Front Cover'  : '',
+   'Introduction' : 'About The Language',
+   'Chapter 1'    : 'Using The eML Tags',
+   'Chapter 2'    : 'Obtaining The Files',
+   'Chapter 3'    : 'Fonts, Sizes &amp; Styles',
+   'Chapter 4'    : 'Colors &amp; Symbols',
+   'Chapter 5'    : 'Interactivity &amp; Internet',
+   'Chapter 6'    : 'Formatting &amp; Boxouts',
+   'Chapter 7'    : 'Making Lists',
+   'Chapter 8'    : 'Figures &amp; Examples',
+   'Chapter 9'    : 'Multimedia',
+   'Chapter 10'   : 'System Settings',
+   'Chapter 11'   : 'Customizing Your eBook',
+   'Chapter 12'   : 'Further Information'
+}
+
+</script><script src='eMLsmall.js'></script>
+</head><body><div style='display:none'>
+
+<div id='Front Cover'><pre>
+#fontfamily:verdana,helvetica,arial,sans-serif
+#fontsize:10pt
+#androidfontsize:28pt
+#iphonefontsize:20pt
+#ipadfontsize:16pt
+#alignment:justify
+#filefolder:usingeML/
+#titlecolor1:#fff
+#titlecolor2:#aca
+#menucolor1:#fff
+#menucolor2:#aca
+#ifdefault:#br:#-
+#ifipadapp:#br:#-
+#br:#h:1|#center:Using eML For#br: Dynamic eBooks#-
+#i:#center:#color:#080;Everything you need to create your#br:own digital publications - for free!#-#-#-
+#ifdefault:#br:#br:#br:#-
+#ifandroid:#br:#br:#-
+#ifipad:#br:#br:#br:#-
+#ifiphone:#br:#br:#-
+#ifiphoneapp:#br:#-
+#ifandroidapp:#br:#-
+#h:3|#center:By Robin Nixon#-
+#center:#copy: 2010 Nixon Publishing
+#ifdefault:#br:#br:#br:#br:#-
+#ifandroid:#br:#br:#br:#-
+#ifipad:#br:#br:#br:#br:#-
+#ifiphoneapp:#br:#br:#br:#-
+#ifandroidapp:#br:#-#br:#i:This eBook and software are freely
+#br:licensed under the #url:http://creativecommons.org/licenses/by-sa/3.0/legalcode|CC-SA License;#-
+#br:#br:#br:#br:
+#ifdefault:#br:#-
+#ifipad:#br:#br:#br:#br:#br:#br:#br:#br:#hr:60%;#-
+#color:#080;This eBook has been created using eML:
+#br:The only digital publishing system that is
+#br:a website and eBook, at the same time.
+#ifdefault:#br:#-
+#ifipad:#hr:60%;#-
+#-
+</pre></div>
+
+<div id='Introduction'><pre>
+#p1:The term eML stands for #i:eBook Markup Language#-, a new and particularly easy-to-use language for document markup that is particularly suited to creating dynamic eBooks for reading on all major browsers and platforms.
+
+#p:Like this eBook, the eML software is free#footnote:This eBook and software are freely licensed under the #url:http://creativecommons.org/licenses/by-sa/3.0/legalcode|Creative Commons Share Alike License;, and is intended to help level the digital publication distribution field, making it easier for authors everywhere to become self published.
+
+#p:Computer book author and programmer, #url:http://www.amazon.com/Robin-Nixon/e/B002K8U1WC/|Robin Nixon;, originally wrote eML for publishing his own eBooks, without the restraints imposed by proprietary formats, and so that he could improve these books whenever new features were needed. Therefore eML contains all the features an author could want to create fully professional digital publications.
+
+#h:2|The Philosophy of eML
+
+#p1:The idea behind eML is that a basic publication should consist of little more than an HTML file, and a subfolder in which a few small JavaScripts, stylesheets and image files are stored.
+
+#p:This simplicity means that authors can now publish their own professional looking eBooks as soon as they have written them, because the eBook source and creator is also the reader.
+
+#p:eML can also be used as a web platform, with new chapters easily added, in much the same way as making blog posts.
+
+#p:Additionally, eML publications are optimized for the clearest display possible on smaller devices such as the iPad, iPod Touch, iPhone, and Android phones.
+
+#h:2|Reading eML Publications
+
+#p1:From a reader's point of view, because the publication is also the reader software, there is nothing to install. If they wish, they can copy an entire eML publication to a local computer (or any other device with a web browser) and read it from there.
+
+#p:The features provided by eML make reading publications a particularly enjoyable experience, because it has been designed entirely with the reader in mind#md:starting with an especially simple and uncluttered interface and navigation system which, as soon as you see it, is second nature to use.
+
+#p:Particularly useful on cellphones, eML has the ability to fold away sections (or whole chapters) to just their headings, so that you can scroll through a document far more quickly, or choose to leave showing only unread sections of a chapter.
+
+#h:3|What This Means For Authors
+
+#p1:If you look at the source text for this publication (using your browser's View Source facility) you'll see it comprises mostly text with a few tags starting with the #l:###- character. The idea behind this is to help authors from having to stop mid flow in order to add HTML to manuscripts. Instead you just drop in these short tags as you go#md:or you can type in a few paragraphs at a time, and then go back and add a few simple tags where needed.
+
+#p:The tags #i:do#- take a little getting used to, but not much more than the stylesheets and other tags that book publishers ask you to learn. For example, most tags close either automatically or with a semicolon or line feed, while the remaining ones end when you type #l:##-#-. 
+
+#p:eML also provides many author friendly features, such as easy separation of sections into chapters, automatic management of tables, figures and examples, folding and unfolding of subsections, insertion of audio and video, and much more.
+
+#p:And publishing your eBook is quick and easy, because just one HTML file contains all of your text and formatting instructions, and the code to process and display it (with a little help from the #i:eML#- subfolder which is also required).
+
+#h:3|Legal Terms
+
+The #i:Creative Commons Share Alike#- license (#url:http://creativecommons.org/licenses/by-sa/3.0/|summary;) under which this eBook and software are released, means you can use or distribute either without fee, as long as the same license is applied when you do so.
+
+#p:It also means that you can freely use the software to distribute any books you write yourself (even if you are selling them), as long as the software part and any derivative you make, is always made available free of charge under the same terms as this license.
+
+#p:You do #i:not#- have to release any eBooks (or other documents you publish using this software) under this or any other license; they remain your copyright to distribute how and as you wish, and with or without any license of your choice.
+</pre></div>
+
+<div id='Chapter 1'><pre>
+#p1:The eML language is designed to be especially easy for authors to use when writing, and also for formatting programs to translate. But more than that it creates highly dynamic and interactive publications.
+
+#p:For example, entire sections can be folded or unfolded at a single mouse click, leaving only the parts you are currently reading displayed#md:making it very easy to browse through all the headings in a publication. You can try it now by clicking the preceding heading to fold this section of text#md:click the heading again to unfold the text. The #l:+#- and #l:-#- buttons in the top navigation bar perform this function on #i:all#- sections of a chapter.
+
+#p:Also figures, tables and examples can be displayed with all references being automatically renumbered if you move them, MP3 audio files and YouTube videos can be embedded, you can add bookmarks (by clicking on a heading and once again on the star icon that appears), and do a lot more besides. But, most importantly, the eML Reader application has been written using cross-browser JavaScript, so it functions on all major platforms and web browsers, including Windows, Mac OS X, and Linux#md:and it runs very well on the Apple iPad, Iphone, and iPod Touch, and on Google Android devices too.
+
+#h:2|Flexible and Easy to Use
+
+#p1:Unlike HTML, XML or other languages that structure textual data, eML uses shorter and simpler #l:###- codes. For example, to start a new paragraph you just precede it with a #l:##p:#- tag, like this:
+
+#input:##p:This is a new paragraph. There is no need to mark the paragraph end with anything. Just start each new one with another #l:##p:#- tag.#-
+
+#p:The above indented display was itself created using another tag, #l:##input:#-, and it was closed using the #l:##-#- tag, which is used almost everywhere in eML, and is far more powerful than a closing tag in HTML because, for example, if you open an italics tag in HTML using the #l:^i>#- tag, you must close it with a matching #l:^/i>#-. But with eML you can close most tags with the universal closer: #l:##-#-, and the remaining ones close either with a semicolon, or by entering a line feed.
+
+#h:2|HTML on the Fly
+
+#p1:All the HTML you see in an eML publication is generated on the fly. For example, each time you select a new chapter, the source text is analyzed and parsed, and the HTML is generated and placed into the reading window so that the chapter is then displayed. This means that eML documents remain as small as possible, only expanding into the internal memory of a device when viewed.
+
+#p:Therefore eML documents download faster than standard HTML, and take up less storage space. This means that you only ever need work with the eML source text (or an editor that supports eML, once they become available).
+
+#p:Here are some more benefits of this system:
+
+#ul:
+#li:It requires less typing to open and close most tags because there are no #lb: and #rb: characters#-
+#li:It is easier to substitute one tag with another (such as changing from italic text to bold) because the closing tags don't require changing#-
+#li:Mismatching of closing tags cannot occur because the universal closing tag (#l:##-#-) always closes the last tag was that was opened#-
+#-
+
+#h:3|The Different Tag Types
+
+#p1:There are three types of tag supported by eML, their main difference being whether or not they support arguments, how they are closed, and whether they must be combined with other tags:
+
+#dl:
+#dt:Self closing tags#-
+#dd:These tags do not require a #l:##-#- to close them and are complete in and of themselves#-
+#dt:Tags with arguments#-
+#dd:These tags require one or more arguments to be passed to them#-
+#dt:Multi part tags#-
+#dd:These tags are composite#md:two or more work together in combination#-
+#-
+
+#h:4|Self Closing Tags
+
+#p1:Self closing tags are those like #l:##p:#-, which you've already seen, and which simply starts a new paragraph whenever it is used. Other self closing tags include #l:##br:#- to create a line break, #l:##caret:#- to display a #caret: symbol, and so on.
+
+#p:Rather than tags, you may prefer to think of self closing tags as special kinds of symbols#md:ones that are similar to alphanumeric characters (in that you just type and forget them), but which may also display in the form of actions (such as forcing a line break).
+
+#h:4|Tags With Arguments
+
+#p1:This type of tag requires one or more arguments, which are then closed when either a semi colon or the end of a line is reached. So, for example, to create the above heading the following combination of tag and text was used:
+
+#input:##h:4|Tags With Arguments#-
+
+#p:The #l:##h:#- sets up a heading tag, followed by the heading level of #l:4#-, and the #l:|#- symbol, which indicates the end of the first part of the heading tag. Then follows the text to display in the heading, namely "Tags With Arguments", and the whole tag ends at the following new line.
+
+#p: In the above example a semicolon could have been used, as they also fulfill the function of new lines in eML, allowing more than one tag on a line so, for example, this two-line pair of tags:
+
+#input:##fontsize:10pt#br:##alignment:justify#-
+
+#p:can be replaced with this single line:
+
+#input:##fontsize:10pt;##alignment:justify#-
+
+#p:If you are familiar with #abbr:Cascading Style Sheets|CSS; you will have noticed that the syntax of this type of tag is somewhat similar, except for when it comes to tags that require multiple arguments, when a #l:|#- character is used to separate the arguments.
+
+#warn:Because both line feeds and semicolons can mark the end of a tag containing arguments, you cannot use semicolons within any argument. Therefore tags such as the following (which incorporates a semicolon) should be avoided:
+#input:##h:3|This is a heading; it uses a larger font#-
+In the above case only #lq:This is a heading#rq: will be displayed as a heading. The string #lq:it uses a larger font#rq: will be displayed as body text. If you need to use a semicolon within a tag argument, you can always use the #l:##sc:#- tag to insert one.#-
+
+#h:4|Multi Part Tags
+
+#p1:These types of tag are slightly more complex in that they are composite or multi part, such as the tags used for creating tables like the one in #t:example;:
+
+#table:example|A selection of pets and their names
+#th:Pet type|Pet name
+#td:Long haired cat|Rhubarb
+#td:Labrador dog|Emma
+#td:Goldfish|Mr. Bubbles
+#-
+
+#p:Only four tags are used to create this table: #l:##example:#-, #l:##th:#-, #l:##td:#-, and #l:##-#-, as you can see in #e:1sttable;:
+
+#example:1sttable|Creating a simple table
+##table:example|A selection of pets
+##th:Pet type|Pet name
+##td:Long haired cat|Rhubarb
+##td:Labrador dog|Emma
+##td:Goldfish|Mr. Bubbles
+##-#-
+
+#p:The first tag sets up a table with the ID #lq:example#rq: and the caption #lq:A selection of pets and their names#rq:. Then the second line creates the table heading, giving it the two column titles of #lq:Pet type#rq: and #lq:Pet name#rq:, while lines three through five contain the table data for each row.
+
+#p:As with the #l:##h:#- heading tag, the #l:|#- symbol is used to separate items of data. Because it is therefore a reserved character, if you need to display one you can use the #l:#|#- tag.
+
+#p:As line six of #e:1sttable; shows, you close a table using the #l:##-#- tag.
+
+#note:You can format your source text in the way that suits you best: by concatenating tags using semicolons, or by inserting extra new lines to space out content#md:formatting of the source text is entirely up to you.#-
+
+#h:4|The Closing Tag And Symbols Used With It
+
+#p1:The #l:##-#- closing tag can close many tags on its own, or in conjunction with other symbols, such as the semicolon and bar, both of which also appear in some tags that don't close with the #l:##-#- tag.
+
+#h:3|##-
+#tab:#p1:Use this tag to close a wide range of tags#-
+
+#h:3|#bar:
+#tab:#p1:The bar character separates arguments in certain tags.#-
+
+#h:3|#sc:
+#tab:#p1:The semicolon is used to end the opening part of some tags (up to and including the argument), and also closes some other tags.#-
+
+#note:All eML tags can be entered in upper case or lower case, or any combination of the two.#-
+
+#h:2|The File Format
+
+#p1:Generally your eML documents reside in HTML files as source text, with each chapter placed within pairs of #l:^div id='Chapter Number'>^pre>#- and #l:^/pre>^/div>#- tags. The file #i:example.htm#-, supplied with the downloadable zip file in Chapter 2, is a template from which you can build. #e:example; shows the format it uses, with the parts you can/should modify highlighted in bold red text:
+
+#example:example|The format of an eML document
+^!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+^!-- saved from url=(0014)about:internet -->
+^meta name="viewport" content="width=980", height="device-height" />
+^link rel="apple-touch-icon" href="apple-touch-icon.png" />
+^html>^head>
+
+^title>#b:#color:#800;Example eBook#-#-^/title>^script>
+
+PUBLICATION = "#b:#color:#800;Example eBook Title#-#-"
+PUBIPAD     = "#b:#color:#800;Short Name#-#-"
+PUBIPHONE   = "#b:#color:#800;Short Name#-#-"
+SUBTITLE    = "#b:#color:#800;Subtitle#-#-"
+AUTHOR      = "#b:#color:#800;Author Name#-#-"
+PUBLISHER   = "#b:#color:#800;Publisher#-#-"
+PUBLISHED   = "#b:#color:#800;Date#-#-"
+ISBN        = "#b:#color:#800;If you have one...#-#-"
+
+CHAPTERS =
+{
+   "#b:#color:#800;Front Cover#-#-" : "",
+   "#b:#color:#800;Chapter 1#-#-"   : "#color:#800;#b:Chapter One Contents#-#-",
+   "#b:#color:#800;Chapter 2#-#-"   : "#color:#800;#b:Chapter Two Contents#-#-"
+}
+
+^/script>^script src='eML/eML.js'>^/script>^/head>^body>^div style='display:none'>
+
+^div id='#b:#color:#800;Front Cover#-#-'>^pre>
+#b:#color:#800;##h:1|##center:Example eBook##-
+##h:3|##center:By A N Author##-
+##br:##center:##copy: Example Publishing##-
+##br:##br:##br:##br:##br:##br:
+##center:##color:##080;This eBook has been created using eML -
+##br:the only digital publishing system that is both
+##br:a website and an eBook at the same time.##-##br:##br:#-#-
+^/pre>^/div>
+
+^div id='#b:#color:#800;Chapter 1#-#-'>^pre>
+#b:#color:#800;##p1:This is Chapter One#br:
+##p:Here is its contents...#-#-
+^/pre>^/div>
+
+^div id='#b:#color:#800;Chapter 2#-#-'>^pre>
+#b:#color:#800;##p1:This is Chapter Two#br:
+##p:Here is its contents...#-#-
+^/pre>^/div>
+#-
+
+#h:3|Document Data
+
+#p1:You should ignore the first six lines of code and skip straight to the #l:^title>#- and #l:^/title>#- tags, within which you put your publication's title. Underneath this are some JavaScript variables, in which you should enter the main details about your publication, including its title, and shorter versions of the title for iPads and iPhones (Android phones use the iPhone setting as they have similar screen resolutions). You should also enter the subtitle, and as much of the remaining information as you have.
+
+#h:3|The CHAPTERS Array
+
+#p1:In the #l:CHAPTERS#- array you need to enter your chapter details in pairs, with the strings on the left of the colon containing chapter #i:names#-, and those on the right the chapter #i:titles#-. If a chapter doesn't have a title, or you don't wish it to be displayed in the reading window, you can leave it as an empty string consisting of a pair of quotation marks. This can be particularly useful for displaying cover pages.
+
+#p:When you set a title to the empty string the left hand menu will repeat the chapter name as the title. This is to provide a larger clickable area on touch devices. But you can prevent any title being displayed in the left hand menu (and in the reading pane) by setting the title string to a single space surrounded by quotation marks. All you need to remember is that having nothing in the string removes any title from the reading window, while a single space in the string removes any title from both the reading window and the menu.
+
+#p:Under the #l:CHAPTERS#- array there is a long line of HTML which you should ignore.
+
+#h:3|The Chapters
+
+#p1:In #e:example; the final three sections contain the source for the three chapters listed in the #l:CHAPTERS#- array, each of which starts with a pair of tags such as #l:^div id='Chapter Number'>^pre>#- and finishes with #l:^/pre>^/div>#-. Inside these pairs of tags is where you place your content.
+
+#p:When designing cover pages remember that you can use a wide range of #l:#if...#- tags (see #see:Chapter 10;) to lay it out exactly how you want it to appear on each of the devices supported by eML.
+
+#warn:Only chapters that are listed in the #l:CHAPTERS#- array get processed by the eML software. This means that any system wide tags, such as #l:##fontsize:#- (see #see:Chapter 10;) that you place in a non-referenced section will be ignored. This is because chapters are interpreted in real time only when they are selected by the user, so any chapter that cannot be selected from the menu will never be processed.#-
+
+</pre></div>
+
+<div id='Chapter 2'><pre>
+#p1:Everything you need to publish your own dynamic eML documents is available on the #url:http://nixonpublishing.com|Nixon Publishing; website in the form of a zip file that is only two megabytes in size, and yet contains this complete eBook, the entire publishing system and an example eML document you can use as a template (as well as a 1.5Mb MP3).
+
+#p:The file you need is #i:eML.zip#- which you can download by clicking the following link:
+
+#ul:#li:#url:http://nixonpublishing.com/eML.zip|Download the eML.zip file;#-#-
+
+#note:If you are reading this on a mobile device you will need to download the file to a PC or Mac by visiting the following URL:
+#ul:#li:#url:http://nixonpublishing.com|http://nixonpublishing.com;#-#-#-
+
+#h:2|The Zip File Structure
+
+#p1:Once you have downloaded the file and extracted the contents, you will find that the directory structure looks like this:
+#code:
+      eML/
+ usingeML/
+  example.htm
+    index.htm
+#-
+
+#p:The #i:index.htm#- file is the one you are now reading. It contains this book so that you can study the file and learn how to use the tags. The #i:example.htm#- file is an empty, eML document that you can use as a framework for creating your own digital publications.
+
+#p:By default, to publish an eBook, all you will need is this file (appropriately renamed), and the subfolder #i:eML#-, which must both be in the same directory (since eML files draw on the resources in the folder). The #i:usingeML#- folder is used only by this eBook and should not be included with your publication.
+
+#p:You will also notice the file #i:apple-touch-icon.jpg#- in the folder. When available, this file is fetched from the document root of any website that is visited by an iPod Touch, iPhone, iPad or Android device, and is used as the icon displayed for a publication when #lq:Add to Home Screen#rq: is used on an Apple device, or #lq:Add shortcut to Home#rq: is selected on an Android device.
+
+#p:You can use this generic icon, or create your own, which should be at least 57#multiply:57 pixels in resolution, but can be higher to provide for good looking icons on machines with higher resolutions, such as the iPad.
+
+#h:2|The Structure of Your eBooks
+
+#p1:Using the same folders, your entire publication directory structure for a simple document will look like this:
+#code:
+      eML/
+    index.htm
+#-
+
+#p:Note that #i:your#- HTML file is saved as #i:index.htm#- so that you can place the file and subfolder into a directory on your website, and refer to them using only the url of the folder in which they are stored. Or, you can distribute the file and subfolder in a zip or other archive, and it will be immediately obvious to your users what to click on.
+
+#p:Of course, you might choose to include images and other media in your publication, and the way to do this is to create a subfolder in which to place them. You will also need to use the #l:##filefolder:#- tag (see #see:chapter 10;), to tell eML the name of the folder you are using. Even so, a complete publication will only have a simple directory structure such as this:
+#code:
+      eML/
+subfolder/
+    index.htm
+#-
+
+#p:The main reasons for adopting this system are simplicity, and so that you can place multiple eBooks within a single folder, and they will all draw on the one #i:eML#- subfolder, so avoiding duplicating its contents.
+
+#h:2|Learning eML
+
+#p1:Now that you have download the eML system files, and know how to publish an eBook using them, I suggest you load the #i:example.htm#- file into an editor and work along with the remainder of this book. You may also wish to load #i:index.htm#- into another instance of the editor to see the tags used in an actual eBook.
+</pre></div>
+
+<div id='Chapter 3'><pre>
+#p1:This chapter explains all the various font-related tags in eML and how to use them to best effect. These include tags to change the font family (or face) and font size, as well as changing a font's emphasis or decoration. You can also use standard HTML entities (that begin with an ampersand and end with a semicolon) to insert any characters not covered here.
+
+#h:2|Changing Font Faces
+
+#p1:All the main web safe fonts are supported by eML. To use other fonts you will need to modify a custom stylesheet (see #see:Chapter 11;), or insert direct HTML tags into your text.
+
+#h:3|##arial:
+#tab:#p1:Use this tag to change to the #lq:Arial#rq: font.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##arialb:
+#tab:#p1:Use this tag to change to the #lq:Arial Black#rq: font.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##andale:
+#tab:#p1:Use this tag to change to the #lq:Andale Mono#rq: font.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##comic:
+#tab:#p1:Use this tag to change to the #lq:Comic Sans MS#rq: font.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##courier:
+#tab:#p1:Change to the #lq:Courier#rq: font.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##couriern:
+#tab:#p1:This tag changes to the #lq:Courier New#rq: font.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##georgia:
+#tab:#p1:This tag changes to the Georgia font using this tag.
+#p1:This tag is closed with the #l:##-#- tag.#-
+
+#h:3|##helvetica:
+#tab:#p1:You can change to the #lq:Helvetica#rq: font with this tag.
+#p1:This tag is closed with the #l:##-#- tag.#-
+
+#h:3|##impact:
+#tab:#p1:This tag changes to the #lq:Impact#rq: font.
+#p1:This tag is closed with the #l:##-#- tag.#-
+
+#h:3|##times:
+#tab:#p1:This tag changes to the #lq:Times#rq: font.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##timesnr:
+#tab:#p1:This tag changes to the #lq:Times New Roman#rq: font.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##trebuchet:
+#tab:#p1:Use this tag to change to the #lq:Trebuchet MS#rq: font.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##verdana:
+#tab:#p1:You can use this tag change to the #lq:Verdana#rq: font.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:2|Changing Font Size
+
+#p1:Using this tag you can specify the exact font size you require, in ems, point size or pixels. Bear in mind that #l:1em#- is the same as #l:12pt#- or #l:16px#-, and #l:2em#- is #l:24pt#-, #l:32px#-, and so on.
+
+#h:3|##size:#i:value#-
+#tab:#p1:When even all the formatting tags and custom CSS provided by eML aren't enough, you can use this tag to change the size of a section of text, as follows:
+#input:This is standard text. ##size:12pt;This is 12pt##-. ##size:1.5em;And this is 1.5em##-.#-
+#p:The result of all the above is this:
+#text:This is standard text. #size:12pt;This is 12pt#-. #size:1.5em;And this is 1.5em#-.#-
+#p:As you can see, you can use whichever units of measurement you prefer for the #i:value#- argument, out of #l:pt#-, #l:em#-, and #l:px#-, and you can even use percentages such as #l:150%#-.
+#p1:#i:The opening part of this tag (up to and including the argument) is closed with a semicolon or line feed, and the tag itself is closed with the #l:##-#- tag.#-#-
+
+#h:2|Changing Font Emphasis and Decoration
+
+#p1:These tags generally have the same effect as using #l:^b>#-, #l:^i>#- and so on, but have the benefit that they can be closed using the #l:##-#- closer, whereas standard HTML tags each require their own closer. Also, the #l:##l:#- tag provides a tag that is not (but should be) available as an HTML tag.
+
+#h:3|##lightshadow:
+#tab:#p1:This tag places a light shadow under all text, up to the closing tag, like this:
+#input:This is plain text. ##lightshadow:This is shadowed text.##-#-
+#p:which (on browsers that support this property) displays as follows:
+#text:This is plain text. #lightshadow:This is shadowed text.#-#-
+#p:This tag is useable with most font sizes, even #size:75%;#lightshadow:small ones#-#-. It is the setting used by default for headings in eML.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##darkshadow:
+#tab:#p1:This tag places a light shadow under all text, up to the closing tag, like this:
+#input:This is plain text. ##darkshadow:This is darkly shadowed text.##-#-
+#p:which (on browsers that support this property) displays as follows:
+#text:This is plain text. #darkshadow:This is darkly shadowed text.#-#-
+#p:This tag works best on larger sized fonts #size:200%;#darkshadow:like this#-#-.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##b:
+#tab:#p1:This tag changes to #b:bold#- or emphasized text.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##i:
+#tab:#p1:Use this tag to change to #i:italic#- text.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##l:
+#tab:#p1:This tag stands for the word #i:literal#-. It is used to change to a monospaced font to indicate literal strings, variable or function names, text to be input and so on. You use it like this:
+#input:The JavaScript ##l:alert()##- function displays a pop-up alert.#-
+#p:which results in the following:
+#text:The JavaScript #l:alert()#- function displays a pop-up alert.#-
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##s:
+#tab:#p1:This tag indicates the start of strikethrough text and is used like this:
+#input:The Apple iPad ##s:will be##- was released on April 3rd 2010.#-
+#p:which displays like this:
+#text:The Apple iPad #s:will be#- was released on April 3rd 2010.#-
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##sub:
+#tab:#p1:This tag displays text in #sub:subscript#- font.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##sup:
+#tab:#p1:This tag displays text in #sup:superscript#- font.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##u:
+#tab:#p1:You can use this tag to change the font style to #u:underlined#-.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+</pre></div>
+
+<div id='Chapter 4'><pre>
+#p1:This chapter features the tags you can use to modify your text. For example, there are tags to change the text color and highlight (background color), and to insert special characters such as currency symbols.
+
+#h:2|Colors
+
+#p1:These two tags let you change the foreground and background color of a section of text. Generally you will find your documents look better when these tags are used sparingly, and only when other emphasis options (such as those in Chapter 3) do not have the effect you require.
+
+#h:3|##color:#i:value#-
+#tab:#p1:Using this tag you can #color:#080;change the color#- of a section of text, where #i:value#- is a six character hexadecimal string, preceded by a #l:###- symbol, like this:
+#input:##color:##008800#-
+#p:You can also use color triplets in place of the six character color strings.
+#p1:#i:The first part tag is closed (up to and including the argument) is close by a semicolon or a new line. the highlighting is closed with the #l:##-#- tag.#-#-
+
+#h:3|##highlight:#i:value#-
+#tab:#p1:Using this tag you can #highlight:#ff0;change the highlight#- (or background color) of a section of text, where #i:value#- is a six character hexadecimal string, preceded by a #l:###- symbol, like this:
+#input:##highlight:##ffff00#-
+#p:You can also use color triplets in place of the six character color strings.
+#p1:#i:The first part tag is closed (up to and including the argument) is close by a semicolon or a new line. the highlighting is closed with the #l:##-#- tag.#-#-
+
+#h:2|Symbols and Characters
+
+#p1:These tags have been provided either because the symbol they insert has been appropriated by eML (and is therefore unavailable), or simply as handy shortcuts for typing HTML entities.
+
+#h:3|##bar:
+#tab:#p1:Use this tag to insert a bar character (#l:|#-) in the text.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##caret:
+#tab:#p1:With this tag you can insert a caret character (#l:#caret:#-) into the text.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##cent:
+#tab:#p1:Use this tag to insert a cent character (#l:#cent:#-) into the text.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##copy:
+#tab:#p1:Use this tag to insert a copyright character (#l:#copy:#-) into the text.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##degree:
+#tab:#p1:Using this tag you can insert a degree character (#l:#degree:#-) into the text.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##divide:
+#tab:#p1:This tag inserts a division character (#l:#divide:#-) into the text.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##euro:
+#tab:#p1:This tag inserts a Euro character (#l:#euro:#-) into the text.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##feet:
+#tab:#p1:Use this tag to insert a feet character (#l:#feet:#-) into the text.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##half:
+#tab:#p1:This tag inserts a #l:#half:#- fraction into the text.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##hash:
+#tab:#p1:Use this tag to insert a hash, or pound character as it is known in the US, (#l:#hash:#-) into the text.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##inches:
+#tab:#p1:This tag inserts an inches character (#l:#inches:#-) into the text.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##lb:
+#tab:#p1:With this tag you can insert a left bracket character (#l:#lb:#-) into the text.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##lq:
+#tab:#p1:This tag inserts a left double quote character (#l:#lq:#-) into the text.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##ls:
+#tab:#p1:This tag inserts a left single quote character (#l:#ls:#-) into the text.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##md:
+#tab:#p1:Use this tag to insert an em dash character (#l:#md:#-), which is twice as wide as an en dash, into the text.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##multiply:
+#tab:#p1:Use this tag to insert a multiplication character (#l:#multiply:#-) into the text.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##n:
+#tab:#p1:Normally HTML ignores multiple spaces (known as whitespace) and only displays a single space. this is useful behavior for when you wish to lay out your source with lots of spacing. But when you actually want the spaces to be displayed you need to use non-break spaces, which will always be displayed, like this:
+#input:Make sure there are three spaces at the start of the string, like this:#br:#n:#n:#n:"##n:##n:##n:Example String"#-
+#p:which displays as follows:
+#text:Make sure there are three spaces at the start of the string, like this:#br:#n:#n:#n:"#n:#n:#n:Example String"#-
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##nd:
+#tab:#p1:This tag displays an en dash (#l:#nd:#-), which is half the width of an em dash but wider than a hyphen.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##pound:
+#tab:#p1:Use this tag to insert a pound or hash character (#l:#pound:#-) into the text.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##quarter:
+#tab:#p1:With this tag you can insert a #l:#quarter:#- fraction into the text.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##rb:
+#tab:#p1:This tag inserts a right bracket character (#l:#rb:#-) into the text.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##reg:
+#tab:#p1:With this tag you can insert a registered character (#l:#reg:#-) into the text.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##rq:
+#tab:#p1:Use this tag to insert a right double quote (#l:#rq:#-) into the text.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##rs:
+#tab:#p1:This tag inserts a right single quote character (#l:#rs:#-) into the text.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##sc:
+#tab:#p1:Because the semicolon is used to close some tags it is not allowed within tag arguments. Therefore, if you need to use a semicolon within a tag, for example, within a table heading, you can use the #l:##sc:#- tag to display a semicolon instead.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##threeq:
+#tab:#p1:Use this tag to insert a #l:#threeq:#- fraction into the text.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##ukpound:
+#tab:#p1:This tag inserts a UK pound (#l:#ukpound:#-) into the text.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##yen:
+#tab:#p1:With this tag you can insert a yen symbol (#l:#yen:#-) into the text.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|###
+#tab:#p1:Because the #l:###- hash character (also known as a pound character in the US) is used as the first character in a tag (and is therefore reserved), you can use this tag to insert a #l:###- itself into the text.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##...
+#tab:#p1:This tag inserts an ellipsis character (#l:#...#-) into the text.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|#caret:
+#tab:#p1:Because the source text for eML publications is stored within HTML it's necessary to prevent any HTML tags in the source from being acted upon, possibly messing up the document's display. The easiest way to do this is to never use #l:#lb:#- characters, since they are used to open all HTML tags. Therefore eML accepts the #l:#caret:#- character in its place, which it then transforms into a left bracket when the publication is displayed. Alternatively you can use the #l:##lb:#- tag to display a left bracket.
+#p1:#i:This tag does not require closing.#-#-
+</pre></div>
+
+<div id='Chapter 5'><pre>
+#p1:The tags in this chapter provide extended functionality to your documents by offering tooltips, embedded email addresses and URLs, dialing phone numbers or sending SMS messages on browsers built into mobile phones, automatic citations and references, footnotes and more.
+
+#h:2|Tags That Operate on a Mouseover Event
+
+#p1:These tags make your publications much more interactive, but can only be used on non-touch operated computers. If your primary target is Android or Apple's devices, you don't need to use them but, if you do, you will make your publications much more interactive for your users should they copy them to other platforms.
+
+#h:3|##abbr:#i:explanation#-|#i:abbreviation#-
+#tab:#p1:This tag creates a tooltip explaining an abbreviation. For example, the following code creates a tooltip that explains the term eML:
+#input:##abbr:eBook Markup Language|eML; is a document formatting language.#-
+#p:The result of using the tag looks like the following, in which the abbreviation is shown underlined by a dotted line (on non-touch screen browsers), indicating that a tooltip is available when the mouse passes over it:
+#text:#abbr:eBook Markup Language|eML; is a text formatting language.#-
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:3|##tooltip:#i:tooltip#-|#i:text#-
+#tab:#p1:This tab creates a tooltip explaining the underlying text. For example, the following code creates a tooltip that explains the acronym #i:rofl#-:
+#input:It was so funny it made me ##tooltip:Roll on the floor laughing|rofl; for ages.#-
+#p:The result of using the tag looks like the following (try passing your mouse over the acronym #i:rofl#-):
+#text:It was so funny it made me #tooltip:Roll on the floor laughing|rofl; for ages.#-
+#p:This tag is similar to the #l:##abbr:#- tag except that this one does not underline the text beneath it with a row of dots and therefore (as it is less intrusive), it is probably best used when the information it conveys is less important, but which readers could still find of interest if they happen to pass their mouse over it.
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:3|##see:#i:chapter#-
+#tab:#p1:Using this tab you can create a link to another chapter in a publication, like this:
+#input:See ##see:Chapter 7; for details on making lists in eML.#-
+#p:The result of this is as follows:
+#text:See #see:Chapter 7; for details on making lists in eML.#-
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:2|Internet and Email
+
+#p1:These tags support embedding email addresses and web page URLs into your documents. Mostly they are a shortcut for using HTML tags, but you are recommended to use them in place of HTML, since it is planned to add additional functionality to them at some point, which may include obfuscating email addresses against spam harvesters, and click counting and statistics for clicking through to URLs.
+
+#h:3|##email:#i:address#-|#i:name#-
+#tab:#p1:With this tag you can display an email address in a clickable format, like this:
+#input:##email:lady@gaga.com|Lady Gaga#-
+#p:And the result that will be displayed is as follows:
+#text:#email:lady@gaga.com|Lady Gaga;#-
+#p:For publications that are intended to be read where there isn't an active Internet connection, you may wish to simply display an email address, rather than make it clickable using this tag.
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:3|##url:#i:url#-|#i:title#-
+#tab:#p1:This tag lets you easily insert a link into a document. You are recommended to stick with links that are internal to your publication or intranet if it is not intended for the Internet at large. You use the tag like this:
+#input:Many people say that ##url:http://google.com|Google; is the best search engine, but I quite like ##url:http://yahoo.com|Yahoo!; myself.#-
+#p:which displays as follows:
+#text:Many people say that #url:http://google.com|Google; is the best search engine, but I quite like #url:http://yahoo.com|Yahoo!; myself.#-
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:3|##urlsection:#i:url#-
+#tab:#p1:This tag is similar to the #l:##url:#- tag except that, instead of placing the link text within the tag, you only enter  the URL, and then later close the tag with #l:##-#-, which allows you to place images or anything else within the link, like this:
+#input:##urlsection:http://pluginphp.com#br:##br:##image:screen.jpg|300#br:##-#-
+#p:which displays a screen grab with an associated link, as follows:
+#text:#urlsection:http://pluginphp.com;#image:screen.jpg|300;#br:#-#-
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:3|##replace:#i:url#-|#i:title#-
+#tab:#p1:This tag is almost the same as the #l:##url:#- tag, in that it lets you easily insert a link into a document. However, the new URL replaces the current web page instead of either opening the URL in a new window on a non mobile device, or in a frame on a mobile device. You use it like this:
+#input:Please visit my ##replace:http://lpmj.net|Home Page;.#-
+#p:which displays as follows:
+#text:Please visit my #replace:http://lpmj.net|Home Page;.#-
+#p:This command is mainly intended to let you load another eML publication in place of the current one, thus enabling you to spread a document over multiple subfiles, or to create compilations, or libraries of publications. Remember that when running as an app on a mobile browser, there will be no Back button, so you may wish to ensure you place a link back from any publications linked to in this way.
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:3|##location:#i:url#-
+#tab:#p1:With this tag you can cause an immediate jump to a new URL. It is especially useful when placed as the only tag in a chapter so that clicking the chapter name in the menu will take the user directly to the supplied URL, replacing the current eML publication. You use it like this:
+#input:##location:http://google.com#-
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:2|Phone and SMS
+
+#p1:On browsers built into mobile phones, such as the iPhone or Android devices, it can be useful to embed phone numbers or SMS text numbers into a document to make it easy to contact you, and these two tags provide the functionality to do this.
+
+#h:3|##sms:#i:address#-|#i:name#-
+#tab:#p1:With this tag you can display an SMS number for receiving texts in a clickable format, like this:
+#input:Please ##sms:+1234567890|Text Me; for details.#-
+#p:And the result that will be displayed is as follows:
+#text:Please #sms:+1234567890|Text Me; for details.#-
+#p:Remember to place the #l:+#- and international dialing code for your country if you expect to receive international texts.
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:3|##tel:#i:address#-|#i:name#-
+#tab:#p1:With this tag you can make a phone number clickable for immediate dialing, like this:
+#input:Please ##tel:+1234567890|Call Me; for more information.#-
+#p:And the result that will be displayed is as follows:
+#text:Please #tel:+1234567890|Call Me; for more information.#-
+#p:Remember to place the #l:+#- and international dialing code for your country if you expect to receive international phone calls.
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:2|Citations and Footnotes
+
+#p1:Using these tags you can include citations and footnotes into your document text, and they will then have small links placed after them pointing to references or footnotes, which are automatically added to the chapter end.
+
+#h:3|##cite:#i:source#-
+#tab:#p1:You can use this tag to cite the source of a quote or other information. The cited source(s) will then be listed at the foot of the chapter, after a horizontal rule. You use this tag as follows:
+#input:Sir Timothy Berners-Lee is a British engineer, computer scientist and MIT professor credited with inventing the World Wide Web.#br:#br:##cite:Wikipedia: ##url:http://en.wikipedia.org/wiki/Tim_Berners-Lee|Tim Berners-Lee#-
+#p:The above example is in two parts. The first is a simple statement about Sir Timothy Berners-Lee, while the second is a citation that provides the reference used. As you will have noticed, the #l:##cite:#- tag is quite powerful, in that you can embed other tags within it, in particular the most useful one being #l:##url:#-, so that readers can follow the reference. The result of using the above code is as follows:
+#text:Sir Timothy Berners-Lee is a British engineer, computer scientist and MIT professor credited with inventing the World Wide Web.#cite:Wikipedia: #url:http://en.wikipedia.org/wiki/Tim_Berners-Lee|Tim Berners-Lee;#-
+#p:This tag is the same as the #l:##footnote:#- tag, and works identically. If you now scroll to the bottom of this chapter you will find the reference for this citation.
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:3|##footnote:#i:note#-
+#tab:#p1:This tag is an alias for the #l:##cite:#- tag. With it you can create little superscript links to footnotes at the end of the chapter.
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:2|Questions and Answers
+
+#p1:This tag is particularly useful for teaching books in which readers might want to test their knowledge.
+
+#h:3|##qa:#i:question#-|#i:answer#-
+#tab:#p1:It is often useful to provide sets of questions and answers to your readers, with which they can test themselves to see how much they have learned. Using this tag you can display questions which, when clicked, reveal their answer, like this:
+#input:##qa:Who was the first man to walk on the moon?|Neil Armstrong#-
+#p:The above source displays as follows (try clicking on it):
+#qa:Who was the first man to walk on the moon?|Neil Armstrong
+#p1:#i:This tag is closed by a semicolon or a new line.#-#-
+</pre></div>
+
+<div id='Chapter 6'><pre>
+#p1:The formatting tags in this chapter provide a wide range of functionality, including various types of boxouts and sidebars, different ways to display examples and instructions, and basic paragraph and line formatting.
+
+#h:2|Basic Formatting
+
+#p1:These basic formatting tags let you create new lines, center text, display headings and horizontal rules, indent text, and format paragraphs. They are the main tags you will need to learn to use on a day-to-day basis when working with eML documents.
+
+#h:3|##br:
+#tab:#p1:This tag inserts a line break into the text.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##center:
+#tab:#p1:This tag centers the following text, like this:
+#input:##center:Important News!##-#-
+#p:which will display in the following manner:
+#text:#center:Important News!#-#-
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##h:#i:type#-|#i:heading#-
+#tab:#p1:This tag creates a heading based on the two arguments, #i:type#- and #i:heading#-, like this:
+#input:##h:3|This is a heading#-
+#p:The result of using this tag is as follows:
+#text:#size:170%;#lightshadow:This is a heading#-#-#-
+#p:The value of #i:type#- may be any digit between 1 and 7 inclusive. The contents between any two headings is automatically made collapsible (or foldable), so that readers can close any sections they have read, in order to concentrate on ones they haven't.
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:3|##hr:#i:value#-
+#tab:#p1:This tag creates a horizontal rule with a width of #i:value#-. If #i:value#- ends with a % character then the rule will be #i:value#- percent wide, rather than a set number of pixels, as follows:
+#input:##hr:50#br:##hr:50%#-
+#p:These tags display the following lines:
+#text:#br:#hr:50;#br:#hr:50%;#br:#-
+#p1:#i:This tag is closed by a semicolon or a new line.#-#-
+
+#h:3|##indent:#i:value#-
+#tab:#p1:You can use this tag to indent a section of text by an exact number of pixels, ensuring just the level of indentation you want. You use it like this:
+#input:##indent:50;#-
+#p1:#i:The first part of this tag (up to and including the argument) is closed by a semicolon, while the main tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##p:
+#tab:#p1:This is the tag you will probably use the most. With it you specify the start of each new paragraph. By default the first line of each paragraph will be indented by 20 pixels. if you don't want a paragraph to be indented you can use the alternative #l:##p1:#- tag.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##p1:
+#tab:#p1:This is an alternative tag to #l:##p:#-. It also starts a new paragraph but without indenting the first line. Some publications look very good if you use a #l:##p1:#- tag for the first paragraph after each heading, followed by #l:##p:#- tags for the remaining paragraphs in a section#md:the style adopted by this eBook.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##tab:
+#tab:#p1:Use this tag to indent a section of text by 20 pixels.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:2|Page Numbers
+
+#p1:Although the eML format doesn't use page numbers by default you can enable them if you wish. This can be particularly useful if you are transferring a printed publication to eML and wish to keep the original page numbers for easy reference.
+
+#h:3|##page:#i:number#-
+#tab:#p1:By default the first page in a publication is number 1, and it only gets incremented when the #l:##nextpage:#- tag (see below) is used, but with this tag you can reset the current page counter to any number, like this:
+#input:##page:23#-
+#p:Underneath the entry below you will see that this tag has been used to set the current page to 23.
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:3|##nextpage:
+#tab:#p1:Each time you issue this tag the current page number is displayed at the right hand side of the page, followed by a horizontal line underneath it. The page number is then incremented ready for the next #l:##nextpage:#- tag. You use it like this:
+#input:##nextpage:#-
+#p:Underneath this entry you will see this tag has been used to specify a new page before the next section.
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+#page:23
+#nextpage:
+
+#h:2|Boxouts and Sidebars
+
+#p1:Whatever type of boxout you need, from a basic boxout, to ones with notes, tips and warnings, or even left or right sidebars, they are all provided by eML. But, if they don't display exactly as you would like, see #see:Chapter 11; for details on how you can modify the stylesheet they use.
+
+#h:3|##boxout:
+#tab:#p1:With this tag you can create a boxout for ontents in order to give it emphasis, like this:
+#input:##boxout:This is a boxout##-#-
+#p:The above code results in the following boxout being displayed, which will expand in height according to its contents:
+#boxout:This is a boxout#-
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##lsidebar:#i:width#-
+#lsidebar:200;This is a sidebar, which is placed all the way over on the left of the page.#-
+#tab:#p1:With this tag you can place a vertical sidebar of any width to the left of the page, like this:
+#indent:200;#input:##lsidebar:200;This is a sidebar, which is placed all the way over on the left of the page.#-#-
+#p:The above tag creates a 200 pixel wide left sidebar which, by default has a mid gray, 1 pixel border, and a background color of light gray. Text and other elements will flow around the sidebar until its bottom is reached, at which point standard formatting resumes.
+#p:As you can see, a left sidebar may not be the best choice to use in a list of items; in such cases you may prefer to use the #l:##rsidebar:#- tag (detailed further on) to place a sidebar to the right.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##rsidebar:#i:width#-
+#rsidebar:200;This is a sidebar, which is placed all the way over on the right hand side of the page.#-
+#tab:#p1:With this tag you can place a vertical sidebar of any width to the right hand side of the page, like this:
+#input:##rsidebar:200;This is a sidebar, which is placed all the way over on the right hand side of the page.#-
+#p:The above tag creates a 200 pixel wide right sidebar which, by default has a mid gray, 1 pixel border, and a background color of light gray. Text and other elements will flow around the sidebar until its bottom is reached, at which point standard formatting resumes.
+#p:A right sidebar is usually the best option where you have lists or lots of items with different indentations to the left of a page. Where the left edge is uniform you may prefer to use the #l:##rsidebar:#- tag (detailed further back) to place a sidebar to the left.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##note:
+#tab:#p1:Often when you are writing you will often find yourself typing something like #lq:Note how the...#rq:, so why not place the note into a special boxout, like this:
+#input:##note:This is a note boxout, which includes an icon to the left, with the note text to the right#-
+#p:The result looks like the following in which you would, of course, normally want to place more than a single sentence:
+#note:This is a note boxout, which includes an icon to the left, with the note text to the right#-
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##tip:
+#tab:#p1:This is a sister tag to the #l:##note:#- tag. It creates the same type of boxout, but places a different icon to the left of the box. You use the tag like this:
+#input:##tip:The beauty of eML is that it is a self-contained product, with no other processing required. So, when creating eML publications, you may find it handy to open up a text or program editor next to a web browser on your monitor, and display the pair side by side. Then, whenever you wish to see how your publication will display, you can click the browser's Refresh button to instantly see the update.##-#-
+#p:The above source texts displays as follows:
+#tip:The beauty of eML is that it is a self-contained product, with no other processing required. So, when creating eML publications, you may find it handy to open up a text or program editor next to a web browser on your monitor, and display the pair side by side. Then, whenever you wish to see how your publication will display, you can click the browser's Refresh button to instantly see the update.#-
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##warn:
+#tab:#p1:This tag is the third in a group, of which the other two are #l:##tip:#- and #l:##note:#-. You use it to warn readers about something, like this:
+#input:##warn:eML is entirely written in JavaScript and therefore will not work on any web browser that either doesn't support JavaScript, or in which it is disabled. So it's a good idea to make this clear to your potential readers.##-#-
+#p:The above source text displays as follows:
+#warn:eML is entirely written in JavaScript and therefore will not work on any web browser that either doesn't support JavaScript, or in which it is disabled. So it's a good idea to make this clear to your potential readers.#-
+#p1:This tag is closed with the #l:##-#- tag.#-
+
+#h:2|Examples and Directions
+
+#p1:These tags are a little like boxouts, except that they do not have borders or background colors. They are best used when displaying sections of text that should be slightly emphasised and indented.
+
+#h:3|##code:
+#tab:#p1:This tag displays text in a monospaced font, with a dotted vertical bar to the left. You use it like the following first few lines of a web page's HTML:
+#input:##code:#br:
+#caret:html>#br:
+#n:#n:#n:#caret:head>#br:
+#n:#n:#n:#n:#n:#n:#caret:title>Welcome^/title>#br:
+#n:#n:#n:#caret:/head>#br:
+#n:#n:#n:#caret:body>#br:
+##-#-
+#p:Notice how a #l:#caret:#- symbol is used instead of the #l:#lb:#- character. This is because actually including HTML tags within the source text may render parts of it invisible to the eML software, and dislplay other parts incorrectly. Therefore, to avoid entering HTML, you can use either the #l:#caret:#- symbol, or the #l:##lb:#- tag in the place of any left brackets that must be displayed.
+#p:The following output is the result of the above code:
+#code:
+^html>
+   ^head>
+      ^title>Welcome^/title>
+   ^/head>
+   ^body>
+#-
+#p:The main difference between the #l:##code:#- and #l:##input:#- tags is that the former displays text exactly as entered, including spaces and new lines, while the latter removes whitespace and wraps text, so you must use a #l:##p:#- or #l:##br:#- tag if you wish to start a new line.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##input:
+#tab:#p1:By default this tag places text indented by 30 pixels, in a monospaced font and with a dotted left border. You use it like this:
+#input:##input:This tag is called #i:##input:#- because it represents text as you might type it into an input field#-
+#p:The resulting output also wraps words at the right hand edge (as opposed to the #l:##code:#- tag which only wraps when a new line character is encountered), and looks like this:
+#input:This tag is called #i:##input:#- because it represents text as you might type it into an input field#-
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##output:
+#tab:#p1:This tag display text in the same way as the #l:##input:#- tag, except that it is displayed in a bold font, to indicate text that you might see output or displayed by a program, like this:
+#input:##output:What is your name?#-
+#p:which displays as follows:
+#output:What is your name?#-
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##quote:
+#tab:#p1:This tag formats text in such a way as to emphasise that it is a quote. You use it as in the following Shakespeare quotation:
+#input:##quote:Tomorrow, and tomorrow, and tomorrow, creeps in this petty pace from day to day, to the last syllable of recorded time; And all our yesterdays have lighted fools the way to dusty death.##-#-
+#p:The result of the above is the following output:
+#quote:Tomorrow, and tomorrow, and tomorrow, creeps in this petty pace from day to day, to the last syllable of recorded time; And all our yesterdays have lighted fools the way to dusty death.#-
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##text:
+#tab:#p1:Using this tab you can display a section of text indented, with a vertical row of small dots to its left. This tag is used to show many of the examples in this chapter, and you use it like this:
+#input:##text:This is some example text.##-#-
+#p:which results in the following being displayed:
+#text:This is some example text.#-
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+</pre></div>
+
+<div id='Chapter 7'><pre>
+#p1:No document formatting tool would be complete without a way to manage the displaying of lists, and all three of the main types of list are supported by eML: ordered, unordered and definition lists. What's more, because they all use the same #l:##-#- closing tag, you can easily change from one type of list to another.
+
+#h:2|Ordered and Unordered Lists
+
+#p1:These list types are similar in that they display with either bullets or numbers in front of them. You close each list element with the same #l:##-#- tag you use for closing the entire list.
+
+#h:3|##ol:
+#tab:#p1:Use this tag to start an ordered list that displays a number before each item, starting at 1 and counting upwards, like this:
+#input:##ol:#br:##li:First item##-#br:##li:Second item##-#br:##li:etc...##-#br:##-#-
+#p:The above source results in the following output:
+#text:#ol:#li:First item#-#li:Second item#-#li:etc...#-#-#-
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##ul:
+#tab:#p1:This tab opens up an unordered list that displays blobs before each item, and is used like this:
+#input:##ul:#br:##li:First item##-#br:##li:Second item##-#br:##li:etc...##-#br:##-#-
+#p:The above source results in the following output:
+#text:#ul:#li:First item#-#li:Second item#-#li:etc...#-#-#-
+#p:One of the great things about eML is the ability to swap tags about, without having to change the closing tags too. And this is a good example. Just change the #l:##ul:#- to #l:##ol:#- and, without any other modification you will have changed the list to an ordered list.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##li:
+#tab:#p1:This tag encloses an item of data within an ordered or unordered list. You use it like this:
+#input:##li:List item##-#-
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:2|Definition Lists
+
+#p1:Unlike ordered and unordered lists, definition lists do not include bullets or numbers, instead they comprise titles and indented data strings.
+
+#h:3|##dl:
+#tab:#p1:With this character you can open a definition list. You use the tag in the following manner:
+#input:##dl:#br:##dt:RSS##-#br:##dd:Really Simple Syndication##-#br:##-#-
+#p:This creates a single entry list with the definition title of #lq:RSS#rq: and the definition data underneath it, like this:
+#text:#dl:#dt:RSS#-#dd:Really Simple Syndication#-#-#-
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##dt:
+#tab:#p1:This tag sets a title for a definition list entry. You use it in the following manner:
+#input:##dt:Definition Title##-#-
+#p:By default the titles in definition lists are displayed in a font that is 15% larger than the data.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##dd:
+#tab:#p1:Use this tag to enter an item of data as part of a definition list. To use it enter code such as the following:
+#input:##dd:Definition Explanation##-#-
+#p:By default the data entries in definition lists are displayed in a font that is 15% smaller than its title.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+</pre></div>
+
+<div id='Chapter 8'><pre>
+#p1:When writing a large publication such as a textbook, examples, figures and tables can be difficult to maintain if you have to move them about and change their order. But in eML you give each of these things an identifying name (which can be any sequence of alphanumeric characters), and then always reference them by those names. The eML system then automatically orders the reference numbers for you, even when you change their order.
+
+#h:2|Examples
+
+#p1:The example tag formats the output with an example number and a caption, and indents the example text, placing a dotted border to the left.
+
+#h:3|##example:#i:caption#-|#i:reference#-
+#tab:#p1:Using this tag you can create a programming example which can be referenced from anywhere in the chapter with the #l:##e:#- tag. Here's how to use it:
+#input:##example:anystring|This is an example#br:
+// Output the 12 times multiplication table#br:
+#n:#n:#n:for (var j = 0 ; j ^ 12 ; ++j)#br:
+#n:#n:#n:#n:#n:#n:document.write("12 x " + j + " = " + 12 * j)#br:##-#-
+#p:The first argument following the tag is the identifying string, and the one after the #l:|#- symbol is the caption. The above code results in the following example, which can be referenced throughout this chapter using the tag #l:##e:anystring#-:
+#example:anystring|This is an example
+// Output the 12 times multiplication table
+   for (var j = 0 ; j ^ 12 ; ++j)
+      document.write("12 x " + j + " = " + 12 * j)#-
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##e:#i:reference#-
+#tab:#p1:With this tag you can reference a coding example by an identifier, rather than by number. This makes it easy to move examples to any other place in a chapter and the reference will still match. You use it like this:
+#input:##You can see how this works by looking at ##e:anystring;.#-
+#p:This uses the string #lq:anystring#rq: as the identifier and, results in the following output:
+#text:You can see how this works by looking at #e:anystring;.#-
+#p:Note how the chapter name or number is automatically included for you. Any time you wish to refer to that particular example simply reference it using the tag #l:##e:anystring;#-, which can comprise any combination of letters and numbers. Make sure you place a space or punctuation character after the string to close it. You can see the example it refers to above at #e:anystring;.
+#p1:#i:This tag is closed by a semicolon or a new line.#-#-
+
+#h:2|Figures
+
+#p1:Figures are displayed with a border added and the figure number and caption displayed underneath. If you need to display just an image without these extras, you should use the #l:##image:#- tag (see #see:Chapter 9;).
+
+#h:3|##figure:#i:reference#-|#i:filename#-|#i:borderwidth#-|#i:caption#-
+#tab:#p1:This tag displays a figure along with a caption, using an identifier with which it can be referenced from anywhere else in the same chapter. If you plan to support screens with a width as small as 768 pixels (such as the iPad) then you are recommended to keep the width of your figures to 550 pixels or less. Here's how you use the tag:
+#input:##figure:screen|screen.jpg|1|The front page of a typical eML Publication#-
+#p:The result of this looks like the screen grab in #f:screen;:
+#figure:screen|screen.jpg|1|The front page of a typical eML Publication
+#p:The width of this image is 520 pixels. It fits nicely on an iPad-sized screen#md:even at this tab level, which is indented by an additional 20 pixels. A mid gray border of #i:borderwidth#- pixels is automatically added to the figure. You can use a #i:borderwidth#- argument of 0 to remove the border if you wish. The image is also indented by the standard 30 pixels. 
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:3|##f:#i:reference#-
+#tab:#p1:With this tag you can reference any figure by an identifier, rather than by number. This makes it easy to move figures to any other place in the chapter and the reference will still match. You use it like this:
+#input:See ##f:screen; for further details#-
+#p:This uses the string #lq:screen#rq: as the identifier and, results in the following output:
+#text:See #f:screen; for further details#-
+#p:The chapter name or number is automatically included for you, and any time you wish to refer to that figure, simply reference it using the tag #l:##f:screen;#-, which can comprise any combination of letters and numbers. Make sure you place a space or punctuation character after the string to close it. You can see the figure it refers to above at #f:screen;.
+#p1:#i:This tag is closed by a semicolon or a new line.#-#-
+
+#h:2|Tables
+
+#p1:In eML tables have been made as easy to use as possible, with not only much shorter tags than HTML, but new tags to handle the justification of entire columns too.
+
+#h:3|##table:#i:reference#-|#i:title#-
+#tab:#p1:This tag is used for creating tables, and requires the use of additional tags for the headings and data. To create a table you use the tag like this:
+#input:##table:browsers|Browser share: March 2010#br:##tah:l|r#br:##th:Internet Browser|Market Share#br:##td:Internet Explorer|54%#br:##td:Mozilla Firefox|31%#br:##td:Google Chrome|7%#br:##td:Apple Safari|5%#br:##td:Opera|2%#br:##td:Others|1%#br:##-#-
+#p:The resulting table looks like the following #t:browsers;, which has automatically highlighted the headings, placing them on a gray background, and formatted the table within a 1 pixel, mid gray border, all underneath the table caption. Note the use of the #l:##tah:#- tag to specify the alignment of the columns:
+#table:browsers|Browser share: March 2010;#tah:l|r;#th:Internet Browser|Market Share;#td:Internet Explorer|54%;#td:Mozilla Firefox|31%;#td:Google Chrome|7%;#td:Apple Safari|5%;#td:Opera|2%;#td:Others|1%;#-
+#p:You can reference any table using the #l:##t:#- tag in combination with the reference string assigned to it, like this: #l:##t:browsers;#-. Once done you can move the table anywhere within the chapter and it will automatically renumber itself, and all links to it.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##tah:#i:arguments#-
+#tab:#p1:This tag stands for Table Align Horizontal, and has no similarity with any HTML tag, but is a very useful feature. Its purpose is to let you horizontally align the columns in a table. If you don't use it all columns will left align, but with it you can choose between #i:left#- (the default), #i:right#-, #i:center#- or #i:justify#- alignment types, like this:
+#input:##tah:l|l|c|r#-
+#p:which aligns the columns in a table to the left, left, center and right. The four arguments available are:
+#ul:
+#li:#l:l#- Left align#-#li:#l:r#- Right align#-#li:#l:c#- Center#-#li:#l:j#- Justify#-#-
+#p1:#i:This tag is closed by a semicolon or a new line.#-#-
+
+#h:3|##tav:#i:arguments#-
+#tab:#p1:This tag stands for Table Align Vertical, and it lets let you vertically align the columns in a table. If you don't use it all columns will be vertically centered, but with it you can choose between #i:top#-, #i:middle#- (the default), or #i:bottom#- alignment types, like this:
+#input:##tav:t|m|b#-
+#p:which aligns the columns in a table to the top, middle and bottom. The three arguments available are:
+#ul:
+#li:#l:t#- Top align#-#li:#l:m#- Middle align#-#li:#l:b#- Bottom Align#-#-
+#p1:#i:This tag is closed by a semicolon or a new line.#-#-
+
+#h:3|##th:#i:headings#-
+#tab:#p1:This tag is used to create the column headings for a table. You use it like this:
+#input:##th:Heading 1|Heading 2|Heading 3#-
+#p:Simply place a #l:|#- character between each heading and close the row with a semicolon or a new line. Please refer to the #l:##table:#- tag to see this in action.
+#p1:#i:This tag is closed by a semicolon or a new line.#-#-
+
+#h:3|##td:#i:data#-
+#tab:#p1:This tag is used to create a row of columns within a table. You use it like this:
+#input:##td:Item 1|Item 2|Item 3#-
+#p:Simply place a #l:|#- character between each item of data and close the row with a semicolon or a new line. Please refer to the #l:##table:#- tag to see this in action.
+#p1:#i:This tag is closed by a semicolon or a new line.#-#-
+
+#h:3|##t:#i:reference#-
+#tab:#p1:With this tag you can reference any table by an identifier, rather than by number. This makes it easy to move tables to any other place in a chapter and the reference will still match, even after the tables are renumbered. You use it like this:
+#input:See ##t:browsers; for further details#-
+#p:This uses the string #lq:browsers#rq: as the identifier and, results in the following output:
+#text:See #t:browsers; for further details#-
+#p:The chapter name or number is automatically included for you, and any time you wish to refer to that table, simply reference it using the tag #l:##t:browsers#-, which can comprise any combination of letters and numbers. You can see the table it refers to above at #t:browsers;.
+#p1:#i:This tag is closed by a semicolon or a new line.#-#-
+</pre></div>
+
+<div id='Chapter 9'><pre>
+#p1:This chapter shows you how to embed audio, video, images and maps into your publications. Generally it is assumed that the readers either have Flash installed, or that they are using a Safari browser on an iPod Touch, iPhone or iPad, or are using an Android browser.
+
+#p:In the former case, Flash provides a rich media experience, whereas on an iPhone, audio and video will play in a separate program, and maps will be visible but not interactive. On an iPad there is a compromise solution which enables audio and video to play in the browser, but maps are still static, although a link is provided to open them up in the native mapping application, where they become fully interactive.
+
+#h:2|Audio
+
+#p1:Currently the only audio supported is MP3, which is played via a supplied Flash player, or on Apple devices alternate methods are used so that the sound still plays, but may not be quite so convenient to use.
+
+#h:3|##audio:#i:filename#-|#i:description#-
+#tab:#p1:With this tag you can load an MP3 audio file into an inline audio player. The file must reside on the same computer or server from which the eML document is displayed, otherwise a cross-site scripting error will be displayed. This is because the player is written in Flash, which has security features to protect your privacy. For example, the following code will play the file #i:pachelbel.mp3#-.
+#input:##audio:pachelbel.mp3|Pachelbel's Canon#-
+#p:The result of using the above code looks like this:
+#audio:pachelbel.mp3|Pachelbel's Canon
+#p:This tag assumes that the reader has Flash installed on their computer. If the user has an iPhone the embedded audio player becomes an icon which, when clicked, plays the audio using the native audio application. On an iPad an audio player also appears, and the audio plays using QuickTime. Currently audio does not work on Android devices, unless they are running version 2.2 or higher of the operating system, and have Flash installed.
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:2|Images
+
+#p1:When you need to display an image without any extra formatting or captions (as with the #l:##figure:#- tag in Chapter 8), you can use this tag, so you'll have to build the formatting you require around it.
+
+#h:3|##image:#i:url#-|#i:width#-
+#tab:#p1:This tag inserts a single image into the document, with no formatting applied to it other than the width specified (the height will then be automatically calculated to display the image at the correct aspect ratio). You use the tag like this:
+#input:##image:screen.jpg|250#-
+#p:This results in the image shown below, which has been resized from 520 pixels width to 250, and the height has been adjusted accordingly:
+#text:#image:screen.jpg|250;#-
+#p1:#i:This tag is closed by a semicolon or a new line.#-#-
+
+#h:2|Maps
+
+#p1:Google Maps are used for eML mapping. They are fully navigable on most browsers, and degrade gracefully to just a plain image on Apple and Android devices, but the attached link can be clicked to open up the map in a navigable form on most computers.
+
+#h:3|##map:#i:width#-|#i:height#-|#i:address#-
+#tab:#p1:Using this tag you can insert a Google map into a page, like this:
+#input:##map:550|280|1600 Pennsylvania Avenue, Washington, DC 20500#-
+#p:This results in the map you can see below, which is 550 pixels wide, 280 pixels high, has a mid gray border and includes a caption underneath showing the address displayed in the map. Due to it requiring access to the Internet, this tag is only recommended for publications that will be read while an internet connection is active.
+#map:520|280|1600 Pennsylvania Avenue, Washington, DC 20500
+#p:The caption for each map is made clickable. On most browsers, when it is clicked, Google Maps will open up in a new window to display the location in a fully interactive format. On Apple devices the in-built, interactive map application is called up, with the specified location in the center.
+#p1:#i:This tag is closed by a semicolon or a new line.#-#-
+
+#h:2|Videos
+
+#p1:YouTube is used as the provider for eML videos, which play on most platforms#md:including browsers with Flash as well as Apple and Android devices. However, on an iPhone and Android devices the video plays in a separate program, and on an iPad the user will need to click once to call up the in-browser player, and then also click the play button to commence playback. Users with flash can simply click the video to start it playing.
+
+#h:3|##youtube:#i:youtubeid#-|#i:width#-|#i:caption#-
+#tab:#p1:This tag embeds a YouTube video within a publication, so it is best used only in situations where an active Internet connection is available. You use it like this:
+#input:##youtube:YGbMbF0mdPU|520|Popular writer and comedian, Stephen Fry, on Open Source software#-
+#p:And the result is the video displayed below:
+#youtube:YGbMbF0mdPU|520|Popular writer and comedian, Stephen Fry, on open source software
+#p:You need only enter the width of the video because the matching height is automatically calculated for you. On browsers that have Flash (which is the majority) the video will play from where it is in the document, but on iPhones and Android devices the video becomes a thumbnail you can click to play it full-screen in the native video application. On an iPad the video #i:does#- play in the document, by using HTML 5 video, which is an alternative to Flash.
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+</pre></div>
+
+<div id='Chapter 10'><pre>
+#p1:This chapter documents a range of system tags you can use to change settings that affect the whole publication (rather than the current chapter). You will need to be careful when using these tags as their action is widespread. After changing any of these settings, you should therefore ensure you thoroughly test your publication on all devices on which it is intended to be viewed.
+
+#h:2|Searching
+
+#p1:By default each eML publication features a small search box above the left-hand menu, with a button labeled 'Find' next to it, as 'Find' is two characters shorter than 'Search', (or 'F' on mobile devices, to save even more space). When a reader enters a search term of three or more characters, all occurrences of that term in the entire publication will be highlighted in blue text on a yellow background.
+#p: This highlighting remains in place through chapter changes and is only removed when either a new or blank search term is entered. But using the following pair of tags you can either remove the search box entirely, or on a chpater by chapter basis.
+
+#h:3|##hidesearch:
+#tab:#p1:If the #l:##hidesearch:#- tag is used then the search input box is removed and any current highlighted matches are restored to normal text. This setting stays effective until the document is closed (or another is opened to replace it), or until the #l:##showsearch:#- tag (below) is encountered. To prevent any highlights from a prior search being displayed you should use this tag at the start of a chapter, before any content. You use the tag like this:
+#input:##hidesearch:#-
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##showsearch:
+#tab:#p1:If the #l:##showsearch:#- tag is used then the search input box is restored to the left-hand menu. This setting (the default) then stays effective until the document is closed (or another is opened to replace it), or until the #l:##hidesearch:#- tag (above) is encountered. You use it like this:
+#input:##showsearch:#-
+#p1:#i:This tag does not require closing.#-#-
+
+#h:2|Footer and Header Navigation
+
+#p1:By default the footer of each chapter features one or more links to the previous and/or subsequent chapter. Using these tags you can turn off this behavior, or place the links in the header, or have them in both the header and footer.
+
+#h:3|##footernav:#i:n#-
+#tab:#p1:If #l:n#- is 0 no navigation links will be displayed in the footer. If it is 1 then they will (the default setting). You use the tag like this:
+#input:##footernav:0#-
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:3|##headernav:#i:n#-
+#tab:#p1:If #l:n#- is 0 no navigation links will be displayed in the footer (the default setting). If it is 1 then they will. You use the tag like this:
+#input:##headernav:1#-
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:2|Files and Folders
+
+#p1:These tags give you even more customisation options by letting you change where files should be loaded from, which system icons to use for the reader, the styles to apply to the output, and more.
+
+#h:3|##backimage:#i:path#-/#i:filename#-
+#tab:#p1:You use this tag to tell eML which image to use as its background, where #i:path#- is the path, and #i:filename#- is the file name of the image, like this:
+#input:##backimage:folder/image.jpg#-
+#p:This replaces the default image with the one specified. If you want to have a single colored background (rather than an image) you can create a 1#multiply:1 pixel graphic of the color required, and use that in this tag.
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:3|##filefolder:#i:folder#-/
+#tab:#p1:You use this tag to specify where any additional files used by your publication are stored. The argument should be a relative path from the main document, like this (ensuring that the folder name ends with a #l:/#- character):
+#input:##filefolder:filefolder/#-
+#p:In the above example the eML software will look in #i:filefolder#- whenever an external file is requested. If you prefer, you can choose not to use this tag and place the eBook (and all its files) in a single folder, but if you do you'll also have to copy the #i:eML/#- subfolder into this folder as well. This is fine for single eBooks, but is not optimum where you have more than one publication, since the #i:eML#- folder could be wastefully replicated.
+#p:This is why the recommended file structure for eML documents is to place any referenced files in a subfolder, so that more than one eBook can exist in a location, each having its own subfolder of content (where necessary)#md:and with only a single instance of the #i:eML/#- folder.
+#p:Or you can choose to manage all your path names manually by ignoring this tag and referring to linked files by their absolute or relative path and file names. 
+#p:This tag can also be used to set the file folder to any folder on any web-connected server. For example, if you keep all your media files on #i:http://myserver.com/media/#- then use that as your #l:##filefolder:#- setting, like this:
+#input:##filefolder:http://myserver.com/media/#-
+#p:Of course, the user will always require an active Internet connection in this case.
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:3|##iconfolder:#i:folder#-/
+#tab:#p1:You use this tag to tell eML where to find all of its icons. The argument should be a relative path from the main document, like this:
+#input:##iconfolder:iconfolder/#-
+#p:By default eML fetches all its icons from the #i:eML#-/ folder, but in the above example it will look in #i:iconfolder/#- instead. The purpose of this is to let you create your own versions of all the system icons to further customize your publication. The icons you will need to copy or replace are all detailed in Chapter 11. It is important that folder names end with a #l:/#- character.
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:3|##stylesheet:#i:path#-/#i:filename#-
+#tab:#p1:You use this tag to tell eML where to find a stylesheet that you have created for modifying the way your eBook displays. You use it like this:
+#input:##stylesheet:newfolder/custom.css#-
+#p:This tag will automatically load the stylesheet in from the address you give it, which will be used in place of the standard eML CSS default. It is not recommended to load in a stylesheet any other way because, although it may seem to work, this might break in future versions. Full details on what to put in your custom stylesheet are in Chapter 11.
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:2|Fonts and Colors
+
+#p1:These tags support the changing of default colors, and the fonts and font sizes to use in a publication.
+
+#h:3|##backcolor:#i:value#-
+#tab:#p1:Using this tag you can change the background color of the entire publication, where #i:value#- is a six character hexadecimal string, preceded by a #l:###- symbol, like this:
+#input:##backcolor:##eeeeee#-
+#p:When you use this tag the two transparent PNG images that normally reside at the top and bottom of the publication window (providing smooth fading of the text as it scrolls) may not look right, since they only display correctly when the document background is very light. If so, and unless you are going to create replacement images using the instructions in Chapter 11, you may wish to use the #l:##nofadeout:#- tag (explained a little further on) to hide these images.
+#p:You can also use color triplets in place of the six character color strings.
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:3|##fontcolor:#i:color#-
+#tab:#p1:With this tag you can change the default text color for the entire publication, as in the following example which sets the default color to red:
+#input:##fontcolor:#ff0000#-
+#p:You can also use color triplets in place of the six character color strings.
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:3|##fontfamily:#i:fontname#-
+#tab:#p1:With this tag you can change the default font for the entire publication, as in the following example which sets it to #lq:Arial#rq::
+#input:##fontfamily:Arial#-
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:3|##fontsize:#i:size#-
+#tab:#p1:With this tag you can change the default font size for the entire publication, as in the following example which sets it to 12pt:
+#input:##fontsize:12pt#-
+#p:See also #l:##iphonefontsize:#- for changing the font size on an Apple iPod Touch, iPhone, #l:##ipadfontsize:#- for changing the font size on an iPad, or #l:##androidfontsize:#- to change it in an Android phone.
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:3|##androidfontsize:#i:size#-
+#tab:#p1:With this tag you can change the default font size for the entire publication when viewed on an Android phone, as in the following example which sets it to 18pt:
+#input:##androidfontsize:18pt#-
+#p:Generally you may wish to set the font size between three and five point sizes greater than on a normal browser, but experiment and see what looks best. See also #l:##fontsize:#- for changing the font size on non-Apple or Android devices.
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:3|##iphonefontsize:#i:size#-
+#tab:#p1:With this tag you can change the default font size for the entire publication when viewed on an Apple iPod Touch or iPhone, as in the following example which sets it to 20pt:
+#input:##iphonefontsize:20pt#-
+#p:Generally you may wish to set the font size about five point sizes greater than on a normal browser, but experiment and see what looks best. See also #l:##fontsize:#- for changing the font size on non-Apple devices.
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:3|##ipadfontsize:#i:size#-
+#tab:#p1:With this tag you can change the default font size for the entire publication when viewed on an Apple iPad, as in the following example which sets it to 16pt:
+#input:##ipadfontsize:16pt#-
+#p:Generally you may wish to set the font size about three point sizes greater than on a normal browser, but experiment and see what looks best. See also #l:##fontsize:#- for changing the font size on non-Apple devices.
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:3|##menucolor1:#i:color#-
+#tab:#p1:With this tag you can change the default color of each chapter heading in the left hand menu column, as in the following example which changes it to yellow:
+#input:##menucolor1:#ffff00#-
+#p:You can also use color triplets in place of the six character color strings.
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:3|##menucolor2:#i:color#-
+#tab:#p1:With this tag you can change the default color of each chapter subtitle in the left hand menu column, as in the following example which changes it to mid gray:
+#input:##menucolor2:#888888#-
+#p:You can also use color triplets in place of the six character color strings.
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:3|##titlecolor1:#i:color#-
+#tab:#p1:With this tag you can change the color used to display the book title at the top of the browser, as in the following example which changes it to off-white:
+#input:##titlecolor1:#eeeeee#-
+#p:You can also use color triplets in place of the six character color strings.
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:3|##titlecolor2:#i:color#-
+#tab:#p1:With this tag you can change the color used to display the chapter and chapter sub title at the top of the browser, as in the following example which changes it to cyan:
+#input:##titlecolor2:#00ffff#-
+#p:You can also use color triplets in place of the six character color strings.
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:2|Miscellaneous Tags
+
+#p1:Using these tags you can update the logo that is displayed on non mobile devices, choose whether the display window fades to white at the edges (on non-mobile browsers), or how to comment out sections of text, and even select the character to use for creating tags.
+
+#h:3|##logourls:#i:url#-|#i:link#-
+#tab:#p1:On non mobile devices (where there's more screen space) there is a logo in the top left corner that you can either replace with your own version, or leave it as is, and use this command to display a different logo. At the same time you must specify the URL to go to when it is clicked, like this:
+#input:##logourls:newlogo.gif|http://lpmj.net#-
+#p:Displaying a non-local image is not recommended, as it may not load if displayed on a device that isn't connected to the Internet. The link argument can also be to either a local or an Internet address. Logos should be no more than 85#multiply:28 pixels. If you prefer, you can also replace the #i:logo.gif#- image in the #i:eML#- folder with one of your own, instead of using this command.
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:3|##logoborder:#i:color#-|#i:hovercolor#-
+#tab:#p1:You can also modify the border for the logo (displayed on non mobile devices), which by default changes color when the mouse passes over it using this tag, as follows:
+#input:##logoborder:##444444|##888888#-
+#p:where ##444444 is the border background color, and ##888888 is the color it changes to when the mouse passes over. You may replace either or both arguments with the word #i:none#- to disable that action. So, to have no border or hover color you would use:
+#input:##logoborder:none|none#-
+#p:or, to have no unhovered border color, and a hoverchange of color you would use, for example:
+#input:##logoborder:none|##ffff00#-
+#p:or, to have a border color but without a hover change of color you would use, for example:
+#input:##logoborder:##444444|none#-
+#p:You can also use color triplets in place of the six character color strings.
+#p1:#i:This tag is closed by either a semicolon or a new line.#-#-
+
+#h:3|##nofadeout:
+#tab:#p1:If you look carefully, when text scrolls past the top or bottom of the window (on a non-mobile browser), it fades gently away to white. This is managed by placing a pair of white images with alpha gradient transparency in those positions. But if you use this tag you can disable the feature if you prefer.
+#p1:#i:This tag does not require closing.#-#-
+
+#h:3|##tag:#i:c#-
+#tab:#p1:There are reasons why you may want to use a different character to the #l:###- for your tag character. For example, you may prefer to use the backtick because it is usually not on a shifted key, and you can do this with the #l:##tag:#- tag. Just pass the character to use in the argument #i:c#- as one of the first lines in a chapter (still using the #l:###- character to do this), and from there onwards you can use the new character in place of #l:###-.
+#note:Even though this tag lets you use a new tag character, the original #l:###- tags will remain in place, so you can now use either character. This tag applies on a chapter level only, and needs to be included in all chapters that should support the new tag character.#-
+#p1:#i:This tag is closed by a semicolon or a new line.#-#-
+
+#h:3|##:
+#tab:#p1:When you use this tag, everything up to and including the next semicolon or new line character is ignored, and will not be interpreted or displayed by eML. It is commonly known as a comment tag, and is perfect for identifying sections of a publication as you work on them, like this:
+#input:##: Chapter 7 will go here...#-
+#p:The above command will not display but can be seen when viewing your source text.
+#p1:#i:This tag is closed by a semicolon or a new line.#-#-
+
+#h:3|##*:
+#tab:#p1:With this tag, everything up to and including the next #l:##-#- is ignored, and will not be interpreted or displayed by eML. It is known as a multi-line comment tag, and is useful for commenting out large sections of a publication as you work on them, like this:
+#input:This line is visible:#br:##*:But these lines#br:cannot be#br:seen##-#-
+#p:which displays (or rather, some of which displays), as follows:
+#text:This line is visible#br:#*:But these lines#br:cannot be#br:seen#-#-
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+</pre></div>
+
+<div id='Chapter 11'><pre>
+#p1:One of the great things about eML is its flexibility, allowing you to customize your publications in a wide variety of ways. In this chapter you'll learn how you can tweak or even completely replace the CSS styling applied to a document, and also how to change or redesign the graphics it uses.
+
+#h:2|Using a Custom Stylesheet
+
+#p1:There is a stylesheet with the file name #i:custom.css#- in the #i:eML/#- folder, which you can modify to define your own CSS styles. It looks something like the following (for version 1.0 of the file), which is just a short excerpt from the complete stylesheet:
+#code:
+/*******************************************/
+/* eML custom.css,  Version 1.0 : May 2010 */
+/*******************************************/
+
+#content
+{
+	padding:0px 20px;
+	background-color:#fff;
+}
+
+#content dl
+{
+	margin-left:30px;
+}
+
+#content dt
+{
+	font-size:115%;
+}
+
+#content h1
+{
+	font-size:240%;
+}
+
+#content h2
+{
+	font-size:210%;
+}
+
+#content h3
+{
+	font-size:170%;
+}
+
+#content h4
+{
+	font-size:140%;
+}
+#-
+
+#p:To modify these settings you should copy the #i:custom.css#- file from the #i:eML#-/ folder to another location (perhaps in the same folder as the eBook you are writing, or a subfolder). Then, to import the new file's settings, use the following tag, where #i:path#- is the location of, and #i:filename.css#- the file name you have given to the new copy of #i:custom.css#-:
+
+#input:##stylesheet:#i:path#-/#i:filename.css#-#-
+
+#p1:Your stylesheet will then be read in at the point where it is encountered, which means that you can use separate stylesheets for different chapters if you wish. But once read in, the style sheet stays implemented until or unless the eBook is reloaded, or another #l:##stylesheet:#- tag is used.
+
+#h:2|Using Custom Icons
+
+#p1:You can also change the system icons used by NML to ones of your choosing. When doing so, please #email:robin@robinnixon.com|send me; any icon sets you create and would like to share with other authors. I will then start to build up a resource of icons and styles for 'skinning' publications.
+
+#h:3|Control Buttons For Non-Mobile Browsers
+
+#p1:These are the basic icons you see when displaying an eML publication on a desktop computer, and the ones that will be seen on most non-mobile browsers:
+#tab:
+#ifappleapp:
+#br:#image:leftarrow.png|35; #i:leftarrow.png#-, 35#multiply:40 pixels, transparent background
+#br:#image:rightarrow.png|35; #i:rightarrow.png#-, 35#multiply:40 pixels, transparent background
+#br:#image:fold.png|35; #i:fold.png#-, 35#multiply:40 pixels, transparent background
+#br:#image:unfold.png|35; #i:unfold.png#-, 35#multiply:40 pixels, transparent background
+#br:#image:enlarge.png|35; #i:enlarge.png#-, 35#multiply:40 pixels, transparent background
+#br:#image:reset.png|35; #i:reset.png#-, 35#multiply:40 pixels, transparent background
+#br:#image:reduce.png|35; #i:reduce.png#-, 35#multiply:40 pixels, transparent background
+#br:#image:bookm0.png|35; #i:bookm0.png#-, 35#multiply:40 pixels, transparent background
+#br:#image:bookm1.png|35; #i:bookm1.png#-, 35#multiply:40 pixels, transparent background
+#-
+#ifnotappleapp:
+#br:#image:../eML/leftarrow.png|35; #i:leftarrow.png#-, 35#multiply:40 pixels, transparent background
+#br:#image:../eML/rightarrow.png|35; #i:rightarrow.png#-, 35#multiply:40 pixels, transparent background
+#br:#image:../eML/fold.png|35; #i:fold.png#-, 35#multiply:40 pixels, transparent background
+#br:#image:../eML/unfold.png|35; #i:unfold.png#-, 35#multiply:40 pixels, transparent background
+#br:#image:../eML/enlarge.png|35; #i:enlarge.png#-, 35#multiply:40 pixels, transparent background
+#br:#image:../eML/reset.png|35; #i:reset.png#-, 35#multiply:40 pixels, transparent background
+#br:#image:../eML/reduce.png|35; #i:reduce.png#-, 35#multiply:40 pixels, transparent background
+#br:#image:../eML/bookm0.png|35; #i:bookm0.png#-, 35#multiply:40 pixels, transparent background
+#br:#image:../eML/bookm1.png|35; #i:bookm1.png#-, 35#multiply:40 pixels, transparent background
+
+#h:3|Boxout and Quote Icons
+
+#p1:These icons are used for the three types of boxouts and for quotations:
+#tab:
+#ifappleapp:
+#br:#image:note.png|60; #i:note.png#-, 60#multiply:60 pixels, transparent background
+#br:#image:tip.png|60; #i:tip.png#-, 60#multiply:60 pixels, transparent background
+#br:#image:warn.png|60; #i:warn.png#-, 60#multiply:60 pixels, transparent background
+#br:#indent:20;#image:quote.png|25; #n:#n:#i:quote.png#-, 25#multiply:22 pixels, transparent background#-
+#-
+#ifnotappleapp:
+#br:#image:../eML/note.png|60; #i:note.png#-, 60#multiply:60 pixels, transparent background
+#br:#image:../eML/tip.png|60; #i:tip.png#-, 60#multiply:60 pixels, transparent background
+#br:#image:../eML/warn.png|60; #i:warn.png#-, 60#multiply:60 pixels, transparent background
+#br:#indent:20;#image:../eML/quote.png|25; #n:#n:#i:quote.png#-, 25#multiply:22 pixels, transparent background#-
+#-#-
+
+#h:3|Alternative Icons For Mobile Browsers
+
+#p1:Mobile browsers with touch screens requires these larger images to cater for fingers being used to click them, rather than a mouse pointer:
+#tab:
+#ifappleapp:
+#br:#image:ifold.png|70; #i:ifold.png#-, 70#multiply:70 pixels, transparent background
+#br:#image:iunfold.png|70; #i:iunfold.png#-, 70#multiply:70 pixels, transparent background
+#br:#image:ireset.png|70; #i:ireset.png#-, 70#multiply:70 pixels, transparent background
+#br:#image:ienlarge.png|70; #i:ienlarge.png#-, 70#multiply:70 pixels, transparent background
+#br:#image:ireduce.png|70; #i:ireduce.png#-, 70#multiply:70 pixels, transparent background
+#br:#image:ibookm0.png|70; #i:ibookm0.png#-, 70#multiply:70 pixels, transparent background
+#br:#image:ibookm1.png|70; #i:ibookm1.png#-, 70#multiply:70 pixels, transparent background
+#-
+#ifnotappleapp:
+#br:#image:../eML/ifold.png|70; #i:ifold.png#-, 70#multiply:70 pixels, transparent background
+#br:#image:../eML/iunfold.png|70; #i:iunfold.png#-, 70#multiply:70 pixels, transparent background
+#br:#image:../eML/ireset.png|70; #i:ireset.png#-, 70#multiply:70 pixels, transparent background
+#br:#image:../eML/ienlarge.png|70; #i:ienlarge.png#-, 70#multiply:70 pixels, transparent background
+#br:#image:../eML/ireduce.png|70; #i:ireduce.png#-, 70#multiply:70 pixels, transparent background
+#br:#image:../eML/ibookm0.png|70; #i:ibookm0.png#-, 70#multiply:70 pixels, transparent background
+#br:#image:../eML/ibookm1.png|70; #i:ibookm1.png#-, 70#multiply:70 pixels, transparent background
+#-#-
+
+#h:3|Miscellaneous Icons
+
+#p1:These images include a background #i:.jpg#- image, and two overlay, semi-transparent gradient images, which are used to fade the top and bottom of the text to white on non-mobile browsers. If you change the background color of a document with the #l:##backcolor:#- tag you will need to either create new #i:fade1.png#- and #i:fade2.png#- images, or use the #l:##nofadeout:#- tag to disable them. The #i:dot.gif#- image is invisible and very small. It creates a place holder for the fold and unfold icons to appear next to headings:
+#tab:
+#ifappleapp:
+#br:#image:back.jpg|40; #i:back.jpg#-, 500#multiply:500 pixels (but any dimensions can be used)
+#-
+#ifnotappleapp:
+#br:#image:../eML/back.jpg|40; #i:back.jpg#-, 500#multiply:500 pixels (but any dimensions can be used)
+#-
+#br:#indent:45;#i:fade1.png#-, 1#multiply:20 pixels, white, transparent at the bottom, fading to opaque at the top#-
+#br:#indent:45;#i:fade2.png#-, 1#multiply:20 pixels, white, transparent at the top, fading to opaque at the bottom#-
+#br:#indent:45;#i:dot.gif#-, 1#multiply:1 pixels, transparent foreground and background#-
+#-
+
+#h:3|The Apple Home Screen Icon
+
+#p1:When publishing eML documents on your website, if you would like to offer your own icon to Apple iPod Touch, iPhone and iPad users, for when they choose the Add to Home Screen option, you should include a PNG image with the filename #i:apple-touch-icon.png#-, in the document root of your domain.
+
+#p:The minimum dimensions of the image should be 57#multiply:57 pixels, but can be higher. If you want your icons to look good on all Apple devices then a resolution of about 70#multiply:70 pixels seems to work well, although resolutions of 129#multiply:129 and 158#multiply:158 are also used by some websites. probably the best thing is to make a few and compare how well they each get downsized when placed on the Home Screen. To get you started, a generic icon is provided in the #i:eML.zip#- file (which can be downloaded via the link in Chapter 2), and which looks like this:
+
+#tab:
+#br:#image:apple-touch-icon.png|57; #i:apple-touch-icon.png#-, 57#multiply:57 pixels
+#-#br:
+
+#p1:You do not need to modify the icon to create rounded corners and surface shine, because the Apple software will do that automatically for you when the icon is loaded, for example, turning the above image into the following:
+
+#tab:
+#br:#image:icon.jpg|74
+#-
+
+#h:2|Using Your New Icons
+
+#p1:Once you have created your icons and saved them in a new folder, you can enable them by using the #l:##iconfolder:#- tag, like this:
+
+#input:##iconfolder:iconfolder/#-
+
+#p:It is important to remember to place the trailing #l:/#- character at the end of the folder name. Because this tag is parsed each time it is encountered, it is possible to have different icons for different chapters, including the main system ones.
+
+#p:If you are restyling the CSS as well as designing new icons, then you will be able to change the dimensions of many of them. Otherwise you will probably want to stick with icons of the same dimensions as the originals.
+#br:
+</pre></div>
+
+<div id='Chapter 12'><pre>
+#p1:A lot of work has gone into making the reading of eML documents as natural as possible, with an intentionally very simple interface, and by tailoring output to take advantage of all the best features of each environment in which a document finds itself.
+
+#p:Whichever computer and browser you are reading this eBook on now, you may be interested to see how it displays on other devices. This will also give you an idea of the things you must take into account if you plan to customize any of the eML stylesheets, images and program code.
+
+#h:3|Viewing eML Documents on Desktop Browsers
+
+#p1:Most desktop computer browsers will display an eML document in the same way as each other and, in the case of this eBook, it looks like #f:desktop;:
+
+#figure:desktop|screen.jpg|1|How this eBook displays on desktop computers
+
+#h:3|Viewing eML Documents on an iPhone
+
+#p1:The eML software automatically optimizes its display on smaller, touch screen activated browsers. So, for example, on an iPhone it will look like #f:iphone;, in which the buttons have been substantially enlarged in order to support finger clicking:
+
+#figure:iphone|iphone.jpg|1|How this eBook displays on an iPhone
+
+#p:On iPhones the book title has been brought down to underneath the control buttons, and there is no button for enlarging or reducing the reading window. This is because it's a simple matter to double click a section of text for the iPhone to zoom into it. Similarly a second double click restores the view to the whole page. #f:iphone2; shows that after such a double click, the document fills the screen and is very readable:
+
+#figure:iphone2|iphone2.jpg|1|Zooming into a document on an iPhone
+
+#h:3|Viewing eML Documents on an iPad
+
+#p1:On iPads the output is also different because there is room at the top of the screen for both the control buttons, and the book title and chapter details to fit alongside each other, as shown in #f:ipad;:
+
+#figure:ipad|ipad.jpg|1|Viewing this eBook full screen on an iPad in portrait mode
+
+#p:The figure shows this eBook being displayed as an app in full screen mode, with none of the on-screen controls that are visible when viewing a publication in the browser. The font sizes are also modified to become more appropriate for this device's resolution. #f:ipad2; shows an iPad displaying this publication (in the browser this time), in zoomed in, landscape mode:
+
+#figure:ipad2|ipad2.jpg|1|Viewing this eBook zoomed in on an iPad in landscape mode
+
+#p:And, of course users can change the font size to their preferences. But these enhancements mean that your eML documents will look as good as possible, no matter what browsers or devices they are viewed on. And as more formats become available, such as the range of new slate devices planned to hit the market in 2010, the software will also be modified to tailor itself to them as well.
+
+#h:3|Viewing eML Documents on an Android Phone
+
+#p1:On an Android phone an eML document will look like #f:android;. It is similar to the display on an iPhone, but the dimensions may be a little different:
+
+#figure:android|android.jpg|1|How this eBook displays on an Android phone
+
+#p:And just like Apple devices, where the screen size can vary (such as with the new iPad), eML displays well on Android devices of any resolution. For example, #f:android2; shows this eBook being displayed on a Dell Streak (which has a screen resolution of 480#multiply:800 pixels) in landscape mode:
+
+#figure:android2|android2.jpg|1|Viewing the App of this eBook on a Dell Streak Android device
+
+#h:2|Modifying The Program Code
+
+#p1:So far you have seen a variety of different ways in which you can customize an eML publication without the need to write or modify any program code. But if you know JavaScript you might want to also tweak the software. However, the code is not commented, so you'll need to spend quite a bit of time studying it.
+
+#h:3|The eMLsmall.js File
+
+#p1:The #i:eML.js#- file (included in the #i:eML#- subfolder) packs thousands of lines of code into a relatively small amount of space#md:roughly the same amount as a small to average image. But if space is tight, or you need even faster download times, there is an alternate file supplied with eML, called #i:eMLsmall.js#-. It's identical to the #i:eML.js#- file, except that it has been compressed down to almost half the size using a couple of different techniques. To use it simply replace the reference to #i:eML.js#- in your main document, with #i:eMLsmall.js#-.
+
+#note:Because this file is highly compressed you will not be able to open it and modify the JavaScript code to your requirements. Instead you should do so with the original #i:eML.js#- file. If you wish to then recompress the result an excellent resource is available at #url:http://compressorrater.thruhere.net|thruhere.net;.
+#p:I find that using #i:YUI Compressor 2.4.2#- with no options, followed by compressing the result of this again using #i:Packer 3.1#- with the #i:base 62#- option seems to work the best. Many other combinations result in files that will not run, so thorough testing after compressing is highly recommended.#-
+
+#h:3|The PJ.js Functions
+
+#p1:#i:PJ.js#- file is a JavaScript framework that was written for the book #url:http://pluginjavascript.com|Plug-in JavaScript;. A number of functions from it are attached to the end of the #i:eML.js#- file, and are used extensively by the eML software. The #i:PJ.js#- framework is fully documented in the #i:Plug-in JavaScript#- book (ISBN 978-0071738613), available online and in all good book stores.
+
+#h:2|The HTML File Headers
+
+#p1:The first few lines of each eML document look like this:
+
+#code:
+^!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+^!-- saved from url=(0014)about:internet -->
+^meta name="viewport" content="width=980", height="device-height" />
+^link rel="apple-touch-icon" href="apple-touch-icon.png" />
+^html>^head>
+#-
+
+#p1:The #l:^!DOCTYPE>#- tag is to tell browsers that loose, transitional HTML version 4 is used throughout the file. If this is changed some publications may not look right on all browsers.
+
+#p: The #l:^!-- saved from...#- line needs to be there so that eBooks displayed from a local file system on Microsoft Internet Explorer, are automatically placed into the Internet Zone, and therefore are restricted from accessing important system files. This is necessary because otherwise a security prompt will appear, asking the user whether to grant the file extra priviliges. Since eML documents have no need to access the local computer, disabling the possibility with this line avoids any such prompts from appearing.
+
+#p:The #l:^meta name="viewport"...>#- line is provided for devices such as the iPod Touch, iPhone and iPad, and also for Android phones. It tells them to use a browser width of 980 pixels, and the full height of the device. Without this line some publications may not display correctly on some devices.
+
+#p:The #l:^link rel="...>#- line is provided to inform Apple and Android devices about the icon to use when a publication is saved to the Home Screen. The file name used is the default used by Apple, and the icon file format is covered in Chapter 11.
+
+#p:The final line simply outputs the HTML tags to start a document, and then includes the #i:eML.js#- program file, ready to process the source text.
+
+#h:3|Modifying the Header Lines
+
+#p1; It is not advisable to change any of the above header lines, without very thorough testing of your eBook on all major computers and browsers, and on all recent versions of those browsers (particularly in the case of Internet Explorer, which behaves very differently from version to version).
+
+#h:3|The Style Settings
+
+#p1:In order to make eMl documents as portable and fast-loading as possible, all the main JavaScript and HTML is in the #i:eML.js file#-, as are the default style settings. It is not recommended to change any of these (which are all embedded within a multi-line #l:document.write()#- statement), instead you should modify the #i:custom.css#- file, and incorporate it using the #l:##stylesheet:#- tag.
+
+#h:2|The ##if... Tags
+
+#p1:There are four special tags that allow the source text within them to be displayed only if a certain device is being used to view a publication. Due to differences beteen different platforms, This eBook uses these tags for uniquely formatting the Front Cover to each type of device, ensuring the first page the reader sees will always look good on any device.
+#p:You can also use these tags to take advantage of particular features of an operating system, such as embedding different types of object, like Flash movies for default devices, and alternative HTML 5 content for Apple and Android devices.
+
+#h:3|##ifandroid:
+#tab:#p1:If the current device is running the Android operating system, then the source text following this tag, and up to the matching closing ##- tag will be displayed. All other devices will ignore the tag's contents. Here's how you might use it:
+#input:##ifandroid:I see you are running Android.##-#-
+#p:which will display in the following manner, only on an Android device:
+#text:I see you are running Android.#-
+#p:You may include other tags as well as text within this tag's contents.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##ifipad:
+#tab:#p1:If the current device is an Apple iPad, then the source text following this tag, and up to the matching closing ##- tag will be displayed. All other devices will ignore the tag's contents. Here's how you might use it:
+#input:##ifipad:Doesn't this look great on an iPad?##-#-
+#p:which will display in the following manner, only on iPads:
+#text:Doesn't this look great on an iPad?#-
+#p:You may include other tags as well as text within this tag's contents.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##ifiphone:
+#tab:#p1:If the current device is an iPod Touch or an iPhone, then the source text following this tag, and up to the matching closing ##- tag will be displayed. All other devices will ignore the tag's contents. Here's how you might use it:
+#input:##ifiphone:You appear to be using an iPod Touch or iPhone.##-#-
+#p:which will display in the following manner, only on an iPod Touch or iPhone:
+#text:You appear to be using an iPod Touch or iPhone.#-
+#p:You may include other tags as well as text within this tag's contents.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##ifdefault:
+#tab:#p1:If the current device is not an Android device, or an iPod, iPad or iPhone, then the source text following this tag, and up to the matching closing ##- tag will be displayed. All other devices will ignore the tag's contents. Here's how you might use it:
+#input:##ifdefault:You appear to be using a laptop or desktop computer.##-#-
+#p:which will display in the following manner, but only if the publication is #i:not#- running on any of the previously mentioned devices or operating systems:
+#text:You appear to be using a laptop or desktop computer.#-
+#p:This tag will generally identify some form of desktop or laptop computer, usually without a touch facility. You may include other tags as well as text within this tag's contents.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##ifandroidapp:
+#tab:#p1:If you have placed an eML publication within an Android app wrapper, you may wish to display different source text or tags than from other instances of the document. For example, you may want to display different images, support details, advertising or other elements. You can do all this by placing the relevent source text and tags within a #l:##ifandroidapp:#- tag, like this:
+#input:##ifandroidapp:This eML publication is running in an Android app.##-#-
+#p:which will display in the following manner, only when running as an app on Apple devices:
+#text:This eML publication is running in an Android app.#-
+#p:You may include other tags as well as text within this tag's contents.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##ifappleapp:
+#tab:#p1:If you have placed an eML publication within an Apple app wrapper, you may wish to display different source text or tags than from other instances of the document. One reason you may want to do this is because the Xcode system used to create Apple apps doesn't support subfolders, and therefore some file locations you refer to may be different. Also you may want to display different images, support details, advertising or other elements. You can do all this by placing the relevent source text and tags within a #l:##ifappleapp:#- tag, like this:
+#input:##ifappleapp:This eML publication is running in an Apple app.##-#-
+#p:which will display in the following manner, only when running as an app on Apple devices:
+#text:This eML publication is running in an Apple app.#-
+#p:You may include other tags as well as text within this tag's contents.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##ifipadapp:
+#tab:#p1:If the current device is an Apple iPad and eML is running as an app, then the source text following this tag, and up to the matching closing ##- tag will be displayed. All other devices will ignore the tag's contents. Here's how you might use it:
+#input:##ifipadapp:This document is running as an app in an iPad##-#-
+#p:which will display in the following manner, only on iPads:
+#text:This document is running as an app in an iPad#-
+#p:You may include other tags as well as text within this tag's contents.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:3|##ifiphoneapp:
+#tab:#p1:If the current device is an Apple iPod Touch or iPhone and eML is running as an app, then the source text following this tag, and up to the matching closing ##- tag will be displayed. All other devices will ignore the tag's contents. Here's how you might use it:
+#input:##ifiphoneapp:This document is running as an app on an iPhone or iPod Touch##-#-
+#p:which will display in the following manner, only on iPads:
+#text:This document is running as an app on an iPhone or iPod Touch#-
+#p:You may include other tags as well as text within this tag's contents.
+#p1:#i:This tag is closed with the #l:##-#- tag.#-#-
+
+#h:2|The ##ifnot... Tags
+
+#tab:#p1:To accompany the #l:##if...#- tags, there is also a set of inverse #l:##ifnot...#- tags that perform the opposite functions. For example, the #l:##ifnotandroid:#- tag will apply on any device that is #i:not#- running the Android operating system. The available tags are:
+
+#ul:
+#li:#l:##ifnotandroid:#-#-
+#li:#l:##ifnotipad:#-#-
+#li:#l:##ifnotiphone:#-#-
+#li:#l:##ifnotdefault:#-#-
+#li:#l:##ifnotandroidapp:#-#-
+#li:#l:##ifnotappleapp:#-#-
+#li:#l:##ifnotipadapp:#-#-
+#li:#l:##ifnotiphoneapp:#-#-
+#-
+
+#p:You will commonly use the tags in pairs like this:
+#input:##ifandroid:You are running Android##-#br:
+##ifnotandroid:You are not running Android##-#-
+#p1:#i:These tags are closed with the #l:##-#- tag.#-#-
+
+#h:2|Creating Apps for the Apple and Android App Stores
+
+#p1:If you can write mobile apps in either Objective C (for Apple) or Java (for Android), eML documents are relatively easy to turn into apps that you can sell (or give away) in the Apple or Android App stores#md:typically you can build a wrapper in about 10 minutes.
+
+#p:However, creating apps is an in-depth topic, so the following is just a little advice to experienced developers only, and simply offers a few pointers that will help you to create apps from eML publications. If you have never created an app before, you are recommended to get a good book for whichever device you intend to target, that clearly explains using webviews.
+
+#h:3|Creating Apps for Apple Devices
+
+#p1:Unfortunately subfolders are not supported in Xcode, so you'll need to copy the main eML file (usually #i:index.htm#-), and all files from the #i:eML#- subfolder (and any subfolder(s) you have also created) into a project's #i:Resources#- folder. You will also need to change the #l:^script src=...>#- line in #i:index.htm#- that refers to #i:eML/eML.js#-, to just refer to #i:eML.js#- (omitting the subfolder), or #i:eMLsmall.js#-, if you are using the compressed version.
+
+#p:Also, due to the way Xcode handles #i:.js#- files, you will need to uncheck the Target check box for #i:eML.js#- in the Resources folder, and then manually copy the #i:eML.js#- file from it into the #i:Copy Bundle Resources#- folder of your Target. Otherwise the file will not be added to the bundle.
+
+#p:Next create a webview in Interface Builder, and load #i:index.htm#- into it from the bundle, and you will then be able to use the iPhone/iPad emulator software to test everything out, or you can save apps to an iPod Touch, iPhone or iPad to test them (if you have provisioned them for this). You will also probably want to handle device rotation, view scaling and more in order to complete the app. You will require an Apple Developer account (at a cost of $99 per year) if you wish to distribute your apps.
+
+#h:3|Creating Apps for Android Devices
+
+#p1:It is even simpler to create an eML app for Android because the SDK supports subfolders. You just copy a complete eML document (generally #i:index.htm#-), the #i:eML#- subfolder (and any subfolders you create), into a project's #i:assets#- folder. Then you will need to create a webview and load the URL #i:file:///android_asset/index.htm?androidapp#- into it.
+
+#p:It is important to include the #i:?androidapp#- query string (exactly as shown) if you will be using the #l:##ifandroidapp:#- tag in your publications, otherwise the tag will fail. This is necessary since, unlike Apple devices (which return different user agent strings depending on whether they are webview apps, or displayed in the Safari browser), Android always returns the same user agent string, regardless of how the webkit browser is called up.
+
+#p:You can then test your app on the emulator, although I find it somewhat buggy, and prefer to use an attached Android phone. Of course, there's more to it than just this, because in order to provide full functionality, you'll also need to enable JavaScript, set zoom controls and so on. You don't need to pay Google to distribute free apps, but if you wish to sell them you'll have to pay a $25 fee to create a Google Checkout account.
+
+#h:3|Tell me About Your eML Publications
+
+#p1:Email #email:robin@robinnixon.com|robin@robinnixon.com; with details on your publications, and I'll see how best I can help publicise them for you on the Nixon Publishing website.
+
+#h:3|Conclusion
+
+#p1:This eBook has everything you need to get started, so if you've read right through to here, then you're ready to go. I hope you have enjoyed reading the book, good luck with your digital publishing projects, and remember to keep in touch...
+
+#h:4|#i:Now, get publishing!#-
+</pre></div>

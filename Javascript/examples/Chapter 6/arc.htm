@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+   <head>
+      <title>Using arc()</title>
+   </head>
+   <body>
+      <canvas id='example' width='150' height='150'>
+         <h1>HTML5 Canvas</h1>
+         This web page uses the HTML5 canvas element, which is available
+         on most modern browsers. If you wish to view this page at its
+         best please upgrade your browser to the most recent version.
+      </canvas>
+      <canvas id='example2' width='150' height='150'></canvas>
+      <canvas id='example3' width='150' height='150'></canvas>
+
+      <script>
+         // Top arc
+
+         canvas = document.getElementById('example')
+         canvas.style.background = '#ddd'
+         context = canvas.getContext('2d')
+
+         context.arc(75, 75, 74, 0, Math.PI, false)
+         context.stroke()
+
+         // Bottom Arc
+
+         canvas = document.getElementById('example2')
+         canvas.style.background = '#ddd'
+         context = canvas.getContext('2d')
+
+         context.arc(75, 75, 74, 0, Math.PI, true)
+         context.stroke()
+
+         // Circle
+
+         canvas = document.getElementById('example3')
+         canvas.style.background = '#ddd'
+         context = canvas.getContext('2d')
+
+         context.arc(75, 75, 74, 0, Math.PI * 2, false)
+         context.stroke()
+      </script>
+   </body>
+</html>
+
