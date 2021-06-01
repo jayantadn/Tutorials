@@ -1,20 +1,27 @@
 #include <stdio.h>
-#include "botan/rng.h"
-#include "botan/system_rng.h"
+
+#include "menu.hpp"
+#include "rng.hpp"
+#include "block_cipher.hpp"
+#include "mac.hpp"
+#include "sig.hpp"
 
 int main() {
-    std::unique_ptr<Botan::RandomNumberGenerator> rng;
-    
-    rng.reset(new Botan::System_RNG);
+    Menu menu;
 
-    uint8_t buf[4];
-    rng->randomize(buf, 4);
+    MenuItem itemRng { "Random number generator", rng };
+    menu.addItem(itemRng);
 
-    printf("Random number is: ");
-    for(auto i=0; i<4; i++) {
-        printf("%02x ", buf[i]);
-    }
-    printf("\n");
+    MenuItem itemBlk { "Block Cipher algorithms", block_cipher };
+    menu.addItem(itemBlk);
+
+    MenuItem itemMac { "MessageAuthenticationCode", mac };
+    menu.addItem(itemMac);
+
+    MenuItem itemSig { "Digital Signature", sig };
+    menu.addItem(itemSig);    
+
+    menu.display();
 
     return 0;
 }

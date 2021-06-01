@@ -6,7 +6,7 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "g++ -I. main.cpp libbotan-2.a -o main",
+            "command": "./build.bat",
             "problemMatcher": []
         }
     ]
