@@ -21,11 +21,11 @@ while i > 0:
 fruits=["apple","banana","cherry"]
 for x in fruits:
     print(x)
-    
+
 # looping through a string
 for x in "Abhijeet":
     print(x)
-    
+
 # range
 for a in range(10):
     print(a)
